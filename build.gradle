@@ -29,6 +29,12 @@ sourceSets {
 			srcDirs = ['media']
 		}
 	}
+	
+	test {
+		java {
+			srcDirs = ['src']
+		}
+	}
 }
 
 repositories {
@@ -39,4 +45,8 @@ dependencies {
 	testCompile 'junit:junit:4.12'
 	compile 'junit:junit:4.12'
 	testImplementation 'junit:junit:4.12'
+}
+
+test {
+	useJUnitPlatform()
 }
