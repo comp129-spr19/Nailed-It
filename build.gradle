@@ -1,0 +1,42 @@
+import org.gradle.plugins.ide.eclipse.model.AccessRule
+
+plugins {
+	id 'application'
+	id 'eclipse'
+}
+
+application {
+	mainClassName = 'MainScreen'
+}
+
+eclipse {
+	classpath {
+        file {
+            whenMerged {
+                def jre = entries.find { it.path.contains 'org.eclipse.jdt.launching.JRE_CONTAINER' }
+                jre.accessRules.add(new AccessRule('0', 'javafx/**'))
+            }
+        }
+    }
+}
+
+sourceSets {
+	main {
+		java {
+			srcDirs = ['src']
+		}
+		resources {
+			srcDirs = ['media']
+		}
+	}
+}
+
+repositories {
+	jcenter()
+}
+
+dependencies {
+	testCompile 'junit:junit:4.12'
+	compile 'junit:junit:4.12'
+	testImplementation 'junit:junit:4.12'
+}
