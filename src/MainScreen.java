@@ -6,7 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.*;
 
-public class MainScreen extends Application {
+public class MainScreen extends Application implements EventHandler<ActionEvent> {
 	
 	Button startButton;
 	
@@ -21,10 +21,18 @@ public class MainScreen extends Application {
 		
 		startButton = new Button();
 		startButton.setText("the BUTTON");
+		startButton.setOnAction(this);
 		
 		StackPane layout = new StackPane();
 		layout.getChildren().add(startButton);
 		
-		//Scene scene = new Scene(layout, );
+		Scene scene = new Scene(layout, 600, 600);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+	
+	@Override
+	public void handle (ActionEvent event) {
+		System.out.println("YOU PRESSED A BUTTON");
 	}
 }
