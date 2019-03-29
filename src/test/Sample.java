@@ -8,7 +8,7 @@ public class Sample {
 
 	@Test
 	public void test() {
-		assertTrue( 2 + 2 == 4 );
+		assertTrue(2 + 2 == 5);
 	}
 
 }
