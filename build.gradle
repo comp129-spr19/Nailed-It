@@ -32,7 +32,7 @@ sourceSets {
 	
 	test {
 		java {
-			srcDirs = ['src']
+			srcDirs = ['src/testing']
 		}
 	}
 }
