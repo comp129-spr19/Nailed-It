@@ -29,12 +29,6 @@ sourceSets {
 			srcDirs = ['media']
 		}
 	}
-	
-	test {
-		java {
-			srcDirs = ['src/testing']
-		}
-	}
 }
 
 repositories {
