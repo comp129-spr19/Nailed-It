@@ -20,7 +20,7 @@ public class MainScreen extends Application implements EventHandler<ActionEvent>
 		primaryStage.setTitle("100% Complete Dorothy's App");
 		
 		startButton = new Button();
-		startButton.setText("the BUTTON");
+		startButton.setText("THE button");
 		startButton.setOnAction(this);
 		
 		StackPane layout = new StackPane();
