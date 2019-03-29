@@ -2,6 +2,7 @@ import org.gradle.plugins.ide.eclipse.model.AccessRule
 
 plugins {
 	id 'application'
+	id 'java'
 	id 'eclipse'
 }
 
@@ -23,10 +24,15 @@ eclipse {
 sourceSets {
 	main {
 		java {
-			srcDirs = ['src']
+			srcDirs = ['src/main']
 		}
 		resources {
 			srcDirs = ['media']
+		}
+	}
+	test {
+		java {
+			srcDirs = ['src/test']
 		}
 	}
 }
