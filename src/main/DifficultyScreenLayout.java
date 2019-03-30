@@ -9,9 +9,9 @@ import javafx.stage.*;
 
 // Window = Stage
 // Content in Window = Scene
-public class DifficultyScreen extends HBox {
+public class DifficultyScreenLayout extends HBox {
 
-	DifficultyScreen() {
+	DifficultyScreenLayout() {
 		super();
 		Button easy = new Button("EASY");
 		Button medium = new Button("MEDIUM");
