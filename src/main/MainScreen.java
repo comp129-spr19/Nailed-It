@@ -9,12 +9,14 @@ import javafx.stage.*;
 
 public class MainScreen extends Application implements EventHandler<ActionEvent> {
 	
-	Button startButton;
+	// represents the entire window (stage)
+	private Stage stage;
+	
+	// components to be used by the stage
+	private Button startButton;
 	private DifficultyScreenLayout diffScreenLayout;
 	private Scene difficultyScreen;
 	
-	// represents the entire screen
-	private Stage stage;
 	
 	public static void main(String[] args) {
 		//System.out.println("HELLO");
@@ -35,9 +37,7 @@ public class MainScreen extends Application implements EventHandler<ActionEvent>
 		// lambda function that changes scene on button click
 		startButton.setOnAction(e -> stage.setScene(difficultyScreen));
 		
-		
-		
-		
+			
 		StackPane layout = new StackPane();
 		layout.getChildren().add(startButton);
 		
