@@ -32,6 +32,9 @@ public class MainScreen extends Application implements EventHandler<ActionEvent>
 		diffScreenLayout = new DifficultyScreenLayout();
 		difficultyScreen = new Scene(diffScreenLayout,500,500);
 		
+		// add style to this new sheet
+		difficultyScreen.getStylesheets().add("cssSheets/diffScreenStyle.css");
+		
 		
 		startButton = new Button("Start Quiz");
 		// lambda function that changes scene on button click

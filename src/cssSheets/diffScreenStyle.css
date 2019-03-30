@@ -1,0 +1,28 @@
+
+#easy {
+
+  -fx-background-color: #63f601;
+  
+}
+
+#easy:hover {
+  -fx-background-color: #3d7a01;
+}
+
+#medium {
+
+   -fx-background-color: #ffff0f;
+}
+
+#medium:hover {
+	-fx-background-color:#e8e825
+}
+
+#hard {
+
+   -fx-background-color: #ff0000;
+}
+
+#hard:hover{
+	 -fx-background-color:#b22613
+}
