@@ -8,5 +8,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/Danilo/Downloads/json-simple-1.1.jar/json-simple-1.1.jar"/>
 	<classpathentry kind="output" path="bin/default"/>
 </classpath>
