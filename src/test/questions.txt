@@ -1,0 +1,58 @@
+SORTING ALGORITHMS
+
+EASY
+	question:
+
+		"What is the time and space complexity of the quicksort algorithm?"
+
+	options:
+
+		a) time: O(n^2); space: O(log(n))
+		b) time: O(n^2); space: O(nlog(n))
+		c) time: O(log(n)); space: O(n^2)
+		d) time: O(nlog(n)); space: O(n)
+
+	correct:
+
+		a) time: O(n^2); space: O(log(n))
+
+MEDIUM
+
+	question:
+
+		"What is the formula for the runtime of a recursive function"
+
+	options:
+
+		a) O(depth^branches)
+		b) O(log(n))
+		c) O(branches^depth)
+		d) O(branches*depth)
+
+	correct:
+
+		c) O(branches^depth)
+
+
+HARD
+
+	question:
+
+		"What is the time complexity of the following code?
+
+		boolean isPrime(int n) {
+			if (n <= 0) return 0;
+			else if (n == 1) return 1;
+			return fib(n - 1) + fib(n - 2);
+		}"
+
+	options:
+
+		a) O(log(n))
+		b) O(n)
+		c) O(2^n)
+		d) O(n^2)
+
+	correct:
+
+		c) O(2^n)
