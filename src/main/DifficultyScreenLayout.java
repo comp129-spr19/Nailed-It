@@ -34,11 +34,11 @@ public class DifficultyScreenLayout extends HBox implements EventHandler<ActionE
 		next.setId("next");
 		next.setOnAction(this);
 		
-		Button quit = new Button("Return to Menu");
-		quit.setId("quit");
-		quit.setOnAction(this);
+		//Button quit = new Button("Return to Menu");
+		//quit.setId("quit");
+		//quit.setOnAction(this);
 		
-		this.getChildren().addAll(easy,medium,hard,next,quit);
+		this.getChildren().addAll(easy, medium, hard, next);
 		
 		this.setAlignment(Pos.CENTER);
 		this.setSpacing(50);
@@ -62,9 +62,9 @@ public class DifficultyScreenLayout extends HBox implements EventHandler<ActionE
 			case "next":
 				main.nextQuestion();
 				break;
-			case "quit":
+			//case "quit":
 				//mainScreen.switchToHome();
-				break;
+				//break;
 			default:
 				System.out.println("Hey the QuizEventHandler has no idea what the heck you just did");
 			}

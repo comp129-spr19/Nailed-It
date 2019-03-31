@@ -45,7 +45,11 @@ public class QuestionScreenLayout extends HBox implements EventHandler<ActionEve
 		next.setId("next");
 		next.setOnAction(this);
 		
-		this.getChildren().addAll(questionText, answerA, answerB, answerC, answerD, next);
+		Button quit = new Button("Return to Menu");
+		quit.setId("quit");
+		quit.setOnAction(this);
+		
+		this.getChildren().addAll(questionText, answerA, answerB, answerC, answerD, next, quit);
 		
 		this.setAlignment(Pos.CENTER);
 		this.setSpacing(10);
@@ -61,7 +65,7 @@ public class QuestionScreenLayout extends HBox implements EventHandler<ActionEve
 				main.nextQuestion();
 				break;
 			case "quit":
-				//mainScreen.switchToHome();
+				main.switchToDifficulty();
 				break;
 			default:
 				System.out.println("Hey the QuizEventHandler has no idea what the heck you just did");
