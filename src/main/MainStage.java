@@ -13,7 +13,7 @@ public class MainStage extends Application {
 	public static final int SCREEN_WIDTH = 600;
 	
 	private Stage stage;
-	private QuizEventHandler quizAction;
+	private Scene scene;
 	
 	public static void main(String[] args) {
 		launch(args);
@@ -24,25 +24,21 @@ public class MainStage extends Application {
 		stage = primaryStage;
 		stage.setTitle("100% incomplete Dorothy's app");
 		
-		quizAction = new QuizEventHandler(this);
-		
 		// declare new difficulty screen and its layout		
-		DifficultyScreenLayout diffScreenLayout = new DifficultyScreenLayout(quizAction);
+		DifficultyScreenLayout diffScreenLayout = new DifficultyScreenLayout(this);
 		Scene difficultyScreen = new Scene(diffScreenLayout, SCREEN_HEIGHT, SCREEN_WIDTH);
 		
 		// add style to this new sheet
 		difficultyScreen.getStylesheets().add("cssSheets/diffScreenStyle.css");
 		
-		Scene scene = difficultyScreen;
+		scene = difficultyScreen;
 		stage.setScene(scene);
 		stage.show();
 	}
 
 
 	public void nextQuestion() {
-		QuestionScreenLayout qScreenLayout = new QuestionScreenLayout("WHAT?", "No", "Yes", "Kinda", "Only on Tuesdays", quizAction);
-		Scene questionScreen = new Scene(qScreenLayout, SCREEN_HEIGHT, SCREEN_WIDTH);
-		
-		stage.setScene(questionScreen);
+		QuestionScreenLayout qScreenLayout = new QuestionScreenLayout("WHAT?", "No", "Yes", "Kinda", "Only on Tuesdays", this);
+		scene.setRoot(qScreenLayout);
 	}
 }
