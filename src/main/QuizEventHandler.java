@@ -5,13 +5,11 @@ import javafx.scene.control.Button;
 
 public class QuizEventHandler implements EventHandler<ActionEvent> {
 	
-	QuizScreen quizScreen;
-	MainScreen mainScreen;
-
-	public QuizEventHandler(QuizScreen quizScreen, MainScreen mainScreen) {
+	private MainStage stage;
+	
+	public QuizEventHandler(MainStage stage) {
 		super();
-		this.quizScreen = quizScreen;
-		this.mainScreen = mainScreen;
+		this.stage = stage;
 	}
 	
 	@Override
@@ -29,10 +27,10 @@ public class QuizEventHandler implements EventHandler<ActionEvent> {
 				System.out.println("hard chosen");
 				break;
 			case "next":
-				quizScreen.nextQuestion();
+				stage.nextQuestion();
 				break;
 			case "quit":
-				mainScreen.switchToHome();
+				//mainScreen.switchToHome();
 				break;
 			default:
 				System.out.println("Hey the QuizEventHandler has no idea what the heck you just did");
