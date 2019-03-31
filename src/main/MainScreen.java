@@ -13,8 +13,10 @@ public class MainScreen extends Application {
 	private Stage stage;
 	
 	// components to be used by the stage
-	private Button startButton;
 	private QuizScreen quizStage;
+	private Button startButton;
+	
+	private Stage homeStage;
 	
 	
 	public static void main(String[] args) {
@@ -23,24 +25,32 @@ public class MainScreen extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		stage = primaryStage;
-		stage.setTitle("100% Complete Dorothy's App");
+		homeStage = primaryStage;
+		stage = homeStage;
+		homeStage.setTitle("100% Complete Dorothy's App");
 		
 		startButton = new Button("Start Quiz");
 		// lambda function that changes scene on button click
-		startButton.setOnAction(e -> startQuiz());
+		startButton.setOnAction(e -> switchToQuiz());
 			
 		StackPane layout = new StackPane();
 		layout.getChildren().add(startButton);
 		
 		Scene scene = new Scene(layout, 600, 600);
-		primaryStage.setScene(scene);
-		primaryStage.show();
+		homeStage.setScene(scene);
+		homeStage.show();
 	}
 	
-	public void startQuiz() {
-		quizStage = new QuizScreen();
+	public void switchToQuiz() {
+		quizStage = new QuizScreen(this);
 		stage.close();
 		stage = quizStage;
+		quizStage.show();
+	}
+	
+	public void switchToHome() {
+		stage.close();
+		stage = homeStage;
+		homeStage.show();
 	}
 }
