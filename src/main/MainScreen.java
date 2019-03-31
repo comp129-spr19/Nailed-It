@@ -7,19 +7,17 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.*;
 
-public class MainScreen extends Application implements EventHandler<ActionEvent> {
+public class MainScreen extends Application {
 	
 	// represents the entire window (stage)
 	private Stage stage;
 	
 	// components to be used by the stage
 	private Button startButton;
-	private DifficultyScreenLayout diffScreenLayout;
-	private Scene difficultyScreen;
+	private QuizScreen quizStage;
 	
 	
 	public static void main(String[] args) {
-		//System.out.println("HELLO");
 		launch(args);
 	}
 	
@@ -28,18 +26,9 @@ public class MainScreen extends Application implements EventHandler<ActionEvent>
 		stage = primaryStage;
 		stage.setTitle("100% Complete Dorothy's App");
 		
-		// declare new difficulty screen and its layout
-		diffScreenLayout = new DifficultyScreenLayout();
-		difficultyScreen = new Scene(diffScreenLayout,500,500);
-		
-		// add style to this new sheet
-		difficultyScreen.getStylesheets().add("cssSheets/diffScreenStyle.css");
-		
-		
 		startButton = new Button("Start Quiz");
 		// lambda function that changes scene on button click
-		startButton.setOnAction(e -> stage.setScene(difficultyScreen));
-		
+		startButton.setOnAction(e -> startQuiz());
 			
 		StackPane layout = new StackPane();
 		layout.getChildren().add(startButton);
@@ -49,8 +38,9 @@ public class MainScreen extends Application implements EventHandler<ActionEvent>
 		primaryStage.show();
 	}
 	
-	@Override
-	public void handle (ActionEvent event) {
-		System.out.println("YOU PRESSED A BUTTON");
+	public void startQuiz() {
+		quizStage = new QuizScreen();
+		stage.close();
+		stage = quizStage;
 	}
 }

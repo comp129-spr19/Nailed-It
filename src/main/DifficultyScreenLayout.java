@@ -30,9 +30,6 @@ public class DifficultyScreenLayout extends HBox {
 		this.setAlignment(Pos.CENTER);
 		this.setSpacing(50);
 		
-		
 	}
-
-	
 
 }
