@@ -72,6 +72,7 @@ public class QuizScreenLayout extends VBox implements EventHandler<ActionEvent> 
 			switch (clicked.getId()) {
 			case "next":
 				main.switchToCompletion();
+				// TODO: insert logic handle answer validation
 				break;
 			case "skip":
 				main.switchToCompletion();
