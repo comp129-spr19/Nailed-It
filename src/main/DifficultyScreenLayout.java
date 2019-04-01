@@ -50,7 +50,7 @@ public class DifficultyScreenLayout extends HBox implements EventHandler<ActionE
 			Button clicked = (Button) e.getSource();
 			switch (clicked.getId()) {
 			case "next":
-				main.nextQuestion();
+				main.genQuestions(getDifficultySet());
 				break;
 			default:
 				System.out.println("Hey what did you just do it's not in the EventHandler");

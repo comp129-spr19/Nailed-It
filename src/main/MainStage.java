@@ -3,6 +3,9 @@ package main;
 import javafx.scene.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.*;
+
+import java.util.ArrayList;
+
 import javafx.application.*;
 import javafx.event.*;
 import javafx.scene.control.*;
@@ -20,6 +23,8 @@ public class MainStage extends Application {
 
 	private Stage stage;
 	private Scene scene;
+	private ArrayList<QuestionScreenLayout> questions;
+	private int currentQuestionIndex;
 	
 	public static void main(String[] args) {
 		launch(args);
@@ -41,13 +46,23 @@ public class MainStage extends Application {
 
 	// TODO: outsource to another file
 	public void nextQuestion() {
-		QuestionScreenLayout qScreenLayout = new QuestionScreenLayout("WHAT?", "No", "Yes", "Kinda", "Only on Tuesdays", this);
-		scene.setRoot(qScreenLayout);
+		 if (currentQuestionIndex < questions.size()) {
+		scene.setRoot(questions.get(currentQuestionIndex));
+		currentQuestionIndex++;
+		 } else if (currentQuestionIndex == questions.size()) {
+			 switchToDifficulty();
+		 }
 	}
 	
 	public void switchToDifficulty() {
 		// declare new difficulty screen, its layout, and its style		
 		DifficultyScreenLayout diffScreenLayout = new DifficultyScreenLayout(this);
 		scene.setRoot(diffScreenLayout);
+	}
+	
+	public void genQuestions(boolean[] diffSet) {
+		questions = Questions.generate(diffSet,this);
+		currentQuestionIndex = 0;
+		nextQuestion();
 	}
 }
