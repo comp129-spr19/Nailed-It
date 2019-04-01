@@ -16,10 +16,12 @@ public class MainStage extends Application {
 	// different scenes throughout application
 	private DifficultyScreenLayout diffScreenLayout;
 	private Scene difficultyScreen;
+	private CompletionScreenLayout completionScreenLayout;
+	private Scene completionScreen;
 
 	private Stage stage;
 	private Scene scene;
-	private ArrayList<QuestionScreenLayout> questions;
+	private ArrayList<QuizScreenLayout> questions;
 	private int currentQuestionIndex;
 
 	public static void main(String[] args) {
@@ -54,6 +56,12 @@ public class MainStage extends Application {
 		// declare new difficulty screen, its layout, and its style
 		DifficultyScreenLayout diffScreenLayout = new DifficultyScreenLayout(this);
 		scene.setRoot(diffScreenLayout);
+	}
+
+	public void switchToCompletion() {
+		// declare new difficulty screen, its layout, and its style
+		CompletionScreenLayout compScreenLayout = new CompletionScreenLayout(this);
+		scene.setRoot(compScreenLayout);
 	}
 
 	// TODO: do we want this to be in main? why can't we move this to question

@@ -11,18 +11,18 @@ import java.util.ArrayList;
  */
 
 public class Questions {
-	public static ArrayList<QuestionScreenLayout> generate(boolean[] difficulty, MainStage main) {
+	public static ArrayList<QuizScreenLayout> generate(boolean[] difficulty, MainStage main) {
 		// should be sending the easy medium hard toggled bool array
 		if (difficulty.length != 3) {
 			return null;
 		}
-		ArrayList<QuestionScreenLayout> questions = new ArrayList<QuestionScreenLayout>();
+		ArrayList<QuizScreenLayout> questions = new ArrayList<QuizScreenLayout>();
 		boolean easy = difficulty[0];
 		boolean medium = difficulty[1];
 		boolean hard = difficulty[2];
 
 		if (easy) {
-			questions.add(new QuestionScreenLayout("What is the time and space complexity of the quicksort algorithm?",
+			questions.add(new QuizScreenLayout("What is the time and space complexity of the quicksort algorithm?",
 					"time: O(n^2); space: O(log(n))", "time: O(n^2); space: O(nlog(n))",
 					"time: O(log(n)); space: O(n^2)", "time: O(nlog(n)); space: O(n)", main));
 			// solution: a) time: O(n^2); space: O(log(n))
@@ -30,13 +30,13 @@ public class Questions {
 		}
 
 		if (medium) {
-			questions.add(new QuestionScreenLayout("What is the formula for the runtime of a recursive function",
+			questions.add(new QuizScreenLayout("What is the formula for the runtime of a recursive function",
 					"O(depth^branches)", "O(log(n))", "O(branches^depth)", "O(branches*depth)", main));
 			// solution: c) O(branches^depth)
 		}
 
 		if (hard) {
-			questions.add(new QuestionScreenLayout(
+			questions.add(new QuizScreenLayout(
 					"What is the time complexity of the following code?\n" + "\n" + "		boolean isPrime(int n) {\n"
 							+ "			if (n <= 0) return 0;\n" + "			else if (n == 1) return 1;\n"
 							+ "			return fib(n - 1) + fib(n - 2);\n" + "		}",
