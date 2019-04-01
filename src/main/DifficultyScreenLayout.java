@@ -14,6 +14,7 @@ public class DifficultyScreenLayout extends HBox implements EventHandler<ActionE
 
 	MainStage main;
 	ToggleButton easy, medium, hard;
+	Button next;
 	
 	DifficultyScreenLayout(MainStage main) {
 		super();
@@ -31,8 +32,9 @@ public class DifficultyScreenLayout extends HBox implements EventHandler<ActionE
 		hard.setId("hard");
 		hard.setOnAction(this);
 		
-		Button next = new Button("CONTINUE");
+		next = new Button("CONTINUE");
 		next.setId("next");
+		next.setDisable(true);
 		next.setOnAction(this);
 		
 		this.getChildren().addAll(easy, medium, hard, next);
@@ -53,12 +55,30 @@ public class DifficultyScreenLayout extends HBox implements EventHandler<ActionE
 			default:
 				System.out.println("Hey what did you just do it's not in the EventHandler");
 			}
+		} else if (e.getSource() instanceof ToggleButton) {
+			if (canEnableContButton()) {
+				next.setDisable(false);
+			} else {
+				next.setDisable(true);
+			}
 		}
 	}
 	
 	public boolean[] getDifficultySet() {
 		boolean[] difficultySet = {easy.isSelected(), medium.isSelected(), hard.isSelected()};
 		return difficultySet;
+	}
+	
+	
+	// returns true if any of the difficulty buttons are toggled.
+	public boolean canEnableContButton() {
+		boolean[] difficultySet  = getDifficultySet();
+		for (int i = 0; i < difficultySet.length; i++) {
+				if (difficultySet[i]) {
+					return true;
+				}
+		}
+		return false;
 	}
 
 }
