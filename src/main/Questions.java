@@ -25,12 +25,14 @@ public class Questions {
 			questions.add(new QuestionScreenLayout("What is the time and space complexity of the quicksort algorithm?",
 					"time: O(n^2); space: O(log(n))", "time: O(n^2); space: O(nlog(n))",
 					"time: O(log(n)); space: O(n^2)", "time: O(nlog(n)); space: O(n)", main));
+			// solution: a) time: O(n^2); space: O(log(n))
 
 		}
 
 		if (medium) {
 			questions.add(new QuestionScreenLayout("What is the formula for the runtime of a recursive function",
 					"O(depth^branches)", "O(log(n))", "O(branches^depth)", "O(branches*depth)", main));
+			// solution: c) O(branches^depth)
 		}
 
 		if (hard) {
@@ -39,6 +41,7 @@ public class Questions {
 							+ "			if (n <= 0) return 0;\n" + "			else if (n == 1) return 1;\n"
 							+ "			return fib(n - 1) + fib(n - 2);\n" + "		}",
 					"O(log(n))", " O(n)", "O(2^n)", "O(n^2)", main));
+			// solution: c) O(2^n)
 		}
 
 		return questions;
