@@ -8,6 +8,7 @@ import javafx.event.*;
 import javafx.scene.control.*;
 import javafx.stage.*;
 
+//TODO Explain what MainStage does
 public class MainStage extends Application {
 
 	public static final int SCREEN_HEIGHT = 600;
