@@ -13,30 +13,27 @@ import javafx.stage.*;
 public class DifficultyScreenLayout extends HBox implements EventHandler<ActionEvent>{
 
 	MainStage main;
+	ToggleButton easy, medium, hard;
 	
 	DifficultyScreenLayout(MainStage main) {
 		super();
 		this.main = main;
 		
-		Button easy = new Button("EASY");
+		easy = new ToggleButton("EASY");
 		easy.setId("easy");
 		easy.setOnAction(this);
 		
-		Button medium = new Button("MEDIUM");
+		medium = new ToggleButton("MEDIUM");
 		medium.setId("medium");
 		medium.setOnAction(this);
 		
-		Button hard = new Button("HARD");
+		hard = new ToggleButton("HARD");
 		hard.setId("hard");
 		hard.setOnAction(this);
 		
 		Button next = new Button("CONTINUE");
 		next.setId("next");
 		next.setOnAction(this);
-		
-		//Button quit = new Button("Return to Menu");
-		//quit.setId("quit");
-		//quit.setOnAction(this);
 		
 		this.getChildren().addAll(easy, medium, hard, next);
 		
@@ -50,25 +47,18 @@ public class DifficultyScreenLayout extends HBox implements EventHandler<ActionE
 		if (e.getSource() instanceof Button) {
 			Button clicked = (Button) e.getSource();
 			switch (clicked.getId()) {
-			case "easy":
-				System.out.println("easy chosen");
-				break;
-			case "medium":
-				System.out.println("medium chosen");
-				break;
-			case "hard":
-				System.out.println("hard chosen");
-				break;
 			case "next":
 				main.nextQuestion();
 				break;
-			//case "quit":
-				//mainScreen.switchToHome();
-				//break;
 			default:
-				System.out.println("Hey the QuizEventHandler has no idea what the heck you just did");
+				System.out.println("Hey what did you just do it's not in the EventHandler");
 			}
 		}
+	}
+	
+	public boolean[] getDifficultySet() {
+		boolean[] difficultySet = {easy.isSelected(), medium.isSelected(), hard.isSelected()};
+		return difficultySet;
 	}
 
 }

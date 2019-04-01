@@ -3,9 +3,10 @@
 
   -fx-background-color: #63f601;
   
+}#easy:hover {
+  -fx-background-color: #3d7a01;
 }
-
-#easy:hover {
+#easy:selected {
   -fx-background-color: #3d7a01;
 }
 
@@ -16,7 +17,10 @@
 
 #medium:hover {
 	-fx-background-color:#e8e825
+}#medium:selected {
+	-fx-background-color:#e8e825
 }
+
 
 #hard {
 
@@ -24,5 +28,8 @@
 }
 
 #hard:hover{
+	 -fx-background-color:#b22613
+}
+#hard:selected{
 	 -fx-background-color:#b22613
 }

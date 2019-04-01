@@ -9,7 +9,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.stage.*;
 
-public class QuestionScreenLayout extends HBox implements EventHandler<ActionEvent> {
+public class QuestionScreenLayout extends VBox implements EventHandler<ActionEvent> {
 	
 	MainStage main;
 
@@ -45,11 +45,15 @@ public class QuestionScreenLayout extends HBox implements EventHandler<ActionEve
 		next.setId("next");
 		next.setOnAction(this);
 		
+		Button skip = new Button("Skip");
+		skip.setId("skip");
+		skip.setOnAction(this);
+		
 		Button quit = new Button("Return to Menu");
 		quit.setId("quit");
 		quit.setOnAction(this);
 		
-		this.getChildren().addAll(questionText, answerA, answerB, answerC, answerD, next, quit);
+		this.getChildren().addAll(questionText, answerA, answerB, answerC, answerD, next, skip, quit);
 		
 		this.setAlignment(Pos.CENTER);
 		this.setSpacing(10);
@@ -64,11 +68,14 @@ public class QuestionScreenLayout extends HBox implements EventHandler<ActionEve
 			case "next":
 				main.nextQuestion();
 				break;
+			case "skip":
+				main.nextQuestion();
+				break;
 			case "quit":
 				main.switchToDifficulty();
 				break;
 			default:
-				System.out.println("Hey the QuizEventHandler has no idea what the heck you just did");
+				System.out.println("Hey what did you just do it's not in the EventHandler");
 			}
 		}
 	}
