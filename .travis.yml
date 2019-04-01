@@ -3,3 +3,6 @@ jdk:
 - oraclejdk8
 before_install:
 - chmod +x gradlew
+notifications:
+  slack: comp129:Jk9NjqjQpG9JlNwRN0mH39YQ#dibs
+  travis encrypt "comp129:Jk9NjqjQpG9JlNwRN0mH39YQ" --add notifications.slack
