@@ -2,6 +2,15 @@ package main;
 
 import java.util.ArrayList;
 
+/*
+ * This class will be in charge of generating questions
+ * and operations pertaining to questions.
+ * 
+ * It is a static class.
+ * 
+ */
+
+
 public class Questions {
 	public static ArrayList<QuestionScreenLayout> generate(boolean[] difficulty,MainStage main){
 		// should be sending the easy medium hard toggled bool array

@@ -60,6 +60,7 @@ public class MainStage extends Application {
 		scene.setRoot(diffScreenLayout);
 	}
 	
+	// generate questions to be used.
 	public void genQuestions(boolean[] diffSet) {
 		questions = Questions.generate(diffSet,this);
 		currentQuestionIndex = 0;
