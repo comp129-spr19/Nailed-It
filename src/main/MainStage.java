@@ -18,11 +18,15 @@ public class MainStage extends Application {
 	private Scene difficultyScreen;
 	private CompletionScreenLayout completionScreenLayout;
 	private Scene completionScreen;
-
+	
+	
 	private Stage stage;
 	private Scene scene;
 	private ArrayList<QuizScreenLayout> questions;
 	private int currentQuestionIndex;
+	
+	// should be removed when refactoring.
+	private int numCorrAnswers;
 
 	public static void main(String[] args) {
 		launch(args);
@@ -48,7 +52,7 @@ public class MainStage extends Application {
 			scene.setRoot(questions.get(currentQuestionIndex));
 			currentQuestionIndex++;
 		} else if (currentQuestionIndex == questions.size()) {
-			switchToDifficulty();
+			switchToCompletion();
 		}
 	}
 
@@ -60,7 +64,7 @@ public class MainStage extends Application {
 
 	public void switchToCompletion() {
 		// declare new difficulty screen, its layout, and its style
-		CompletionScreenLayout compScreenLayout = new CompletionScreenLayout(this);
+		CompletionScreenLayout compScreenLayout = new CompletionScreenLayout(this,numCorrAnswers,questions.size());
 		scene.setRoot(compScreenLayout);
 	}
 
@@ -70,6 +74,11 @@ public class MainStage extends Application {
 	public void genQuestions(boolean[] diffSet) {
 		questions = Questions.generate(diffSet, this);
 		currentQuestionIndex = 0;
+		numCorrAnswers = 0;
 		nextQuestion();
+	}
+	
+	public void incrCorrAnswers() {
+		numCorrAnswers++;
 	}
 }

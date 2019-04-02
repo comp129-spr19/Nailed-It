@@ -12,12 +12,12 @@ import javafx.scene.text.Text;
 public class CompletionScreenLayout extends VBox implements EventHandler<ActionEvent> {
 
 	private MainStage main;
-
-	CompletionScreenLayout(MainStage main) {
+	
+	CompletionScreenLayout(MainStage main, int numCorrAnswers, int totalQuestions) {
 		super();
 		this.main = main;
 
-		Text questionText = new Text("Quiz Completed.");
+		Text questionText = new Text("Quiz Completed.\n"+numCorrAnswers + "/" + totalQuestions + " were correct");
 
 		Button quit = new Button("Take Quiz Again");
 		quit.setId("quit");
@@ -67,4 +67,6 @@ public class CompletionScreenLayout extends VBox implements EventHandler<ActionE
 			}
 		}
 	}
+	
+	
 }
