@@ -80,8 +80,10 @@ public class QuizScreenLayout extends VBox implements EventHandler<ActionEvent> 
 			Button clicked = (Button) e.getSource();
 			switch (clicked.getId()) {
 			case "next":
+
 				checkAnswers();
 				main.nextQuestion();
+
 				break;
 			case "skip":
 				main.nextQuestion();

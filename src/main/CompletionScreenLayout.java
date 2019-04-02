@@ -7,8 +7,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
-// Window = Stage
-// Content in Window = Scene
 public class CompletionScreenLayout extends VBox implements EventHandler<ActionEvent> {
 
 	private MainStage main;
@@ -17,45 +15,29 @@ public class CompletionScreenLayout extends VBox implements EventHandler<ActionE
 		super();
 		this.main = main;
 
-		Text questionText = new Text("Quiz Completed.\n"+numCorrAnswers + "/" + totalQuestions + " were correct");
 
+		// set window text
+		Text text = new Text("Quiz completed!\n" + numCorrAnswers + "/" + totalQuestions +  
+				" questions correct\n" + "Aren't you late for your interview?");
+
+
+		// create a button to return to difficulty screen
 		Button quit = new Button("Take Quiz Again");
 		quit.setId("quit");
 		quit.setOnAction(this);
 
-		this.getChildren().addAll(questionText, quit);
+		// add text and button to scene
+		this.getChildren().addAll(text, quit);
 
+		// format layout
 		this.setAlignment(Pos.CENTER);
 		this.setSpacing(10);
-
-		// finalStage = stage;
-		// finalStage.
-		// Label results = new Label("Aren't you late for your interview?");
-		// this.setTitle("Quiz complete!");
-		//
-		// Scene finalScene = new Scene(qScreenLayout, FINAL_SCREEN_HEIGHT,
-		// FINAL_SCREEN_WIDTH);
-		//
-		// Scene scene = difficultyScreen;
-		// stage.setScene(scene);
-		// stage.show();
 	}
 
 	@Override
 	public void handle(ActionEvent e) {
-		// if (e.getSource() instanceof Button) {
-		// Button clicked = (Button) e.getSource();
-		// switch (clicked.getId()) {
-		// case "yes":
-		// case "no":
-		// main.switchToDifficulty();
-		// break;
-		// default:
-		// System.out.println("What did you do >:(");
-		// break;
-		// }
-		// }
 
+		// check that a button was clicked
 		if (e.getSource() instanceof Button) {
 			Button clicked = (Button) e.getSource();
 			switch (clicked.getId()) {

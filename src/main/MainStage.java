@@ -7,39 +7,52 @@ import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-//TODO Explain what MainStage does
+/*
+ * The window that persists throughout the application. 
+ * Handles the scene changes according to application requests
+ */
 public class MainStage extends Application {
 
+	public static final String STYLE_SOURCE = "cssSheets/style.css";
+	public static final String APPLICATION_NAME = "Dorothy's Application"; // TODO: rename the window later
 	public static final int SCREEN_HEIGHT = 600;
 	public static final int SCREEN_WIDTH = 600;
 
-	// different scenes throughout application
+	// layouts for different screens throughout application
 	private DifficultyScreenLayout diffScreenLayout;
-	private Scene difficultyScreen;
 	private CompletionScreenLayout completionScreenLayout;
-	private Scene completionScreen;
-	
-	
+
 	private Stage stage;
 	private Scene scene;
+
+	// quiz-logic variables
 	private ArrayList<QuizScreenLayout> questions;
 	private int currentQuestionIndex;
 	
 	// should be removed when refactoring.
 	private int numCorrAnswers;
 
+	/*
+	 * Application entry point, launches all functions to begin applications
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}
 
+	/*
+	 * Initializes application stage and scene formatting on startup, transfers
+	 * control to a screen
+	 * 
+	 * @param primaryStage The main window that will persist throughout the
+	 * application
+	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		// stage initialization
 		stage = primaryStage;
-		stage.setTitle("100% incomplete Dorothy's app"); // TODO: rename the window later
+		stage.setTitle(APPLICATION_NAME);
 
 		scene = new Scene(new StackPane(), SCREEN_HEIGHT, SCREEN_WIDTH);
-		scene.getStylesheets().add("cssSheets/style.css");
+		scene.getStylesheets().add(STYLE_SOURCE);
 		stage.setScene(scene);
 
 		switchToDifficulty();
@@ -47,6 +60,9 @@ public class MainStage extends Application {
 	}
 
 	// TODO: outsource to another file
+	/*
+	 * Populates questions with the next question
+	 */
 	public void nextQuestion() {
 		if (currentQuestionIndex < questions.size()) {
 			scene.setRoot(questions.get(currentQuestionIndex));
@@ -56,21 +72,44 @@ public class MainStage extends Application {
 		}
 	}
 
+	/*
+	 * Switches scene to difficulty screen
+	 */
 	public void switchToDifficulty() {
-		// declare new difficulty screen, its layout, and its style
-		DifficultyScreenLayout diffScreenLayout = new DifficultyScreenLayout(this);
+		diffScreenLayout = new DifficultyScreenLayout(this);
 		scene.setRoot(diffScreenLayout);
 	}
 
+	/*
+	 * Switches scene to completion screen
+	 */
 	public void switchToCompletion() {
+
 		// declare new difficulty screen, its layout, and its style
 		CompletionScreenLayout compScreenLayout = new CompletionScreenLayout(this,numCorrAnswers,questions.size());
 		scene.setRoot(compScreenLayout);
+		
+
+		//scene.setRoot(completionScreenLayout);
+
 	}
 
-	// TODO: do we want this to be in main? why can't we move this to question
-	// screen layout, or even it's own class?
-	// generate questions to be used.
+	/*
+	 * Initializer for the screen layouts in the application
+	 */
+	/*
+	public void initializeScreenLayouts() {
+		diffScreenLayout = new DifficultyScreenLayout(this);
+		completionScreenLayout = new CompletionScreenLayout(this);
+	}  */
+
+	// TODO: outsource to another file
+	/*
+	 * Generates questions to be used
+	 * 
+	 * @param diffSet An array of booleans representing the difficulty settings the
+	 * user toggles
+	 */
 	public void genQuestions(boolean[] diffSet) {
 		questions = Questions.generate(diffSet, this);
 		currentQuestionIndex = 0;
