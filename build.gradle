@@ -7,7 +7,7 @@ plugins {
 }
 
 application {
-	mainClassName = 'MainScreen'
+	mainClassName = 'MainStage'
 }
 
 eclipse {
@@ -21,30 +21,13 @@ eclipse {
     }
 }
 
-sourceSets {
-	main {
-		java {
-			srcDirs = ['src/main']
-		}
-		resources {
-			srcDirs = ['media']
-		}
-	}
-	test {
-		java {
-			srcDirs = ['src/test']
-		}
-	}
-}
-
 repositories {
 	jcenter()
 }
 
 dependencies {
-	testCompile 'junit:junit:4.12'
-	compile 'junit:junit:4.12'
 	testImplementation 'junit:junit:4.12'
+    testCompile "org.mockito:mockito-core:2.+"
 }
 
 test {
