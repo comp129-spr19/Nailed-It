@@ -6,7 +6,7 @@ public class JSONTester {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		JSONOperations.createJSONObject("example_2.json");
 	}
 
 }

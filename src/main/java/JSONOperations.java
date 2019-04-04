@@ -10,7 +10,7 @@ public class JSONOperations {
 	
 	// creates a new JSON object based on filename 
 	// assumes user of the method enters correct filename and path
-	public JSONObject createJSONObject(String filename) {
+	public static JSONObject createJSONObject(String filename) {
 		 File jsonFile = new File(filename);
 		 String text = convertFileToString(jsonFile);
 		 return new JSONObject(text);
@@ -18,7 +18,7 @@ public class JSONOperations {
 	
 	// helper function for createJSONObject. Reads content
 	// in a file line by line and stores it in a string.
-	private String convertFileToString(File file) {
+	private static String convertFileToString(File file) {
 		String content = "";
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(file));
