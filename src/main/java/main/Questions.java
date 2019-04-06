@@ -1,4 +1,7 @@
+package main;
 import java.util.ArrayList;
+
+import Layouts.QuizScreenLayout;
 
 /*
  * This class will be in charge of generating questions

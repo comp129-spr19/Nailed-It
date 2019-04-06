@@ -1,3 +1,4 @@
+package JSON;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -5,6 +6,10 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 import org.json.*;
+
+import main.Answer;
+import main.AnswerConverter;
+import main.Question;
 
 
 public class JSONOperations {

@@ -1,9 +1,11 @@
+package Layouts;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.HBox;
+import main.MainStage;
 
 public class DifficultyScreenLayout extends HBox implements EventHandler<ActionEvent> {
 
@@ -12,7 +14,7 @@ public class DifficultyScreenLayout extends HBox implements EventHandler<ActionE
 	ToggleButton easy, medium, hard;
 	Button next;
 
-	DifficultyScreenLayout(MainStage main) {
+	public DifficultyScreenLayout(MainStage main) {
 		super();
 		this.main = main;
 

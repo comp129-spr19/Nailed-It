@@ -1,3 +1,4 @@
+package main;
 
 // class that represents a question
 public class Question {

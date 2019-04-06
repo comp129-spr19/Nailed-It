@@ -1,15 +1,17 @@
+package Layouts;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import main.MainStage;
 
 public class CompletionScreenLayout extends VBox implements EventHandler<ActionEvent> {
 
 	private MainStage main;
 	
-	CompletionScreenLayout(MainStage main, int numCorrAnswers, int totalQuestions) {
+	public CompletionScreenLayout(MainStage main, int numCorrAnswers, int totalQuestions) {
 		super();
 		this.main = main;
 

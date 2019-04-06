@@ -1,5 +1,9 @@
+package main;
 import java.util.ArrayList;
 
+import Layouts.CompletionScreenLayout;
+import Layouts.DifficultyScreenLayout;
+import Layouts.QuizScreenLayout;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;

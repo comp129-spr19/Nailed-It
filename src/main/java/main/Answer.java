@@ -1,3 +1,4 @@
+package main;
 public enum Answer {
 	ANSWER_A,
 	ANSWER_B,

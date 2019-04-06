@@ -1,9 +1,12 @@
+package Layouts;
 import javafx.collections.*;
 import javafx.event.*;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.*;
+import main.Answer;
+import main.MainStage;
 
 public class QuizScreenLayout extends VBox implements EventHandler<ActionEvent> {
 
