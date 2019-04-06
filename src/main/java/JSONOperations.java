@@ -2,6 +2,7 @@
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.ArrayList;
 
 import org.json.*;
 
@@ -35,4 +36,42 @@ public class JSONOperations {
 		}
 		return content;
 	}
+	
+	// returns a list of question objects based on category and difficulty.
+	public static ArrayList<Question> getQuestions(String qCategory, String qDifficulty) {
+		ArrayList<Question> questions = new ArrayList<Question>();
+		
+		JSONObject file = createJSONObject("Project2.json");
+		JSONObject category =  file.getJSONObject(qCategory);
+		JSONObject difficulty =  category.getJSONObject(qDifficulty);
+		
+		for (int i = 0; i < difficulty.length(); i++) {
+			JSONObject currentQuestion = difficulty.getJSONObject("q"+ (i+1));
+			
+			String questionDescription = currentQuestion.getString("question");
+			String answerA = currentQuestion.getString("answer_a");
+			String answerB = currentQuestion.getString("answer_b");
+			String answerC = currentQuestion.getString("answer_c");
+			String answerD = currentQuestion.getString("answer_d");
+			String hint = currentQuestion.getString("hint");
+			Answer correctAnswer = AnswerConverter.stringToAnswer(currentQuestion.getString("correct_answer"));
+			
+			questions.add(new Question(questionDescription,answerA,answerB,answerC,
+										answerD,hint, correctAnswer));
+			
+			
+		}
+		return questions;
+		
+		
+	}
+	
+	
+	public static void main(String args[]) {
+		JSONObject obj = createJSONObject("Project2.json");
+		ArrayList<Question> questions = getQuestions("Algorithms","medium");
+		for (Question question : questions) {
+			System.out.println(question.getQuestion() + question.getAnswerA());
+		}
+	} 
 }
