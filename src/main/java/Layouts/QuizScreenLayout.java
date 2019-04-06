@@ -7,6 +7,7 @@ import javafx.scene.layout.*;
 import javafx.scene.text.*;
 import main.Answer;
 import main.MainStage;
+import main.Question;
 
 public class QuizScreenLayout extends VBox implements EventHandler<ActionEvent> {
 
@@ -17,27 +18,27 @@ public class QuizScreenLayout extends VBox implements EventHandler<ActionEvent> 
 	private Button next, skip, quit;
 	private Answer correctAnswer, selectedAnswer;
 	
-	public QuizScreenLayout(String question, String ansrA, String ansrB, String ansrC, String ansrD, Answer answer, MainStage main) {
+	public QuizScreenLayout(Question question, MainStage main) {
 		super();
 		this.main = main;
 		
-		correctAnswer = answer;
+		correctAnswer = question.getCorrectAnswer();
 		
-		questionText = new Text(question);
+		questionText = new Text(question.getQuestion());
 
-		answerA = new Button("A: " + ansrA);
+		answerA = new Button("A: " + question.getAnswerA());
 		answerA.setId("A");
 		answerA.setOnAction(this);
 
-		answerB = new Button("B: " + ansrB);
+		answerB = new Button("B: " + question.getAnswerB());
 		answerB.setId("B");
 		answerB.setOnAction(this);
 
-		answerC = new Button("C: " + ansrC);
+		answerC = new Button("C: " + question.getAnswerC());
 		answerC.setId("C");
 		answerC.setOnAction(this);
 
-		answerD = new Button("D: " + ansrD);
+		answerD = new Button("D: " + question.getAnswerD());
 		answerD.setId("D");
 		answerD.setOnAction(this);
 		

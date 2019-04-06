@@ -2,6 +2,7 @@ package main;
 import java.util.ArrayList;
 
 import Layouts.CompletionScreenLayout;
+import Layouts.DiffScreenRowLayout;
 import Layouts.DifficultyScreenLayout;
 import Layouts.QuizScreenLayout;
 import javafx.application.Application;
@@ -112,8 +113,8 @@ public class MainStage extends Application {
 	 * @param diffSet An array of booleans representing the difficulty settings the
 	 * user toggles
 	 */
-	public void genQuestions(boolean[] diffSet) {
-		questions = Questions.generate(diffSet, this);
+	public void genQuestions(ArrayList<DiffScreenRowLayout> rows) {
+		questions = GenerateQuestionScreens.generate(rows, this);
 		currentQuestionIndex = 0;
 		numCorrAnswers = 0;
 		nextQuestion();

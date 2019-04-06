@@ -4,11 +4,13 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.json.*;
 
 import main.Answer;
 import main.AnswerConverter;
+import main.Constants;
 import main.Question;
 
 
@@ -72,11 +74,28 @@ public class JSONOperations {
 	}
 	
 	
+	
+	public static int getNumCategories() {
+		JSONObject file = createJSONObject(Constants.FILENAME);
+		return file.length();
+	}
+	
+	
+	
+	
 	public static void main(String args[]) {
 		JSONObject obj = createJSONObject("Project2.json");
+		System.out.println(obj.length());
 		ArrayList<Question> questions = getQuestions("Algorithms","medium");
 		for (Question question : questions) {
 			System.out.println(question.getQuestion() + question.getAnswerA());
 		}
+		//for (String key : obj.keys().) {
+		Iterator<String> x = obj.keys();
+		
+		while (x.hasNext()) {
+			System.out.println(x.next());
+		}
+		//}//
 	} 
 }

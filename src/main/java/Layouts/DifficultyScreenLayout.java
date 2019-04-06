@@ -1,60 +1,83 @@
 package Layouts;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import JSON.JSONOperations;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import main.Constants;
 import main.MainStage;
 
-public class DifficultyScreenLayout extends HBox implements EventHandler<ActionEvent> {
+public class DifficultyScreenLayout extends VBox implements EventHandler<ActionEvent> {
 
+	
 	MainStage main;
 
-	ToggleButton easy, medium, hard;
-	Button next;
-
+	private ArrayList<DiffScreenRowLayout> rows;
+	private Button next;
+	
 	public DifficultyScreenLayout(MainStage main) {
 		super();
 		this.main = main;
-
-		easy = new ToggleButton("EASY");
-		easy.setId("easy");
-		easy.setOnAction(this);
-
-		medium = new ToggleButton("MEDIUM");
-		medium.setId("medium");
-		medium.setOnAction(this);
-
-		hard = new ToggleButton("HARD");
-		hard.setId("hard");
-		hard.setOnAction(this);
-
+		generateRows();
+		
+		
 		next = new Button("CONTINUE");
 		next.setId("next");
-		next.setDisable(true);
+		//next.setDisable(true);
 		next.setOnAction(this);
-
-		this.getChildren().addAll(easy, medium, hard, next);
-
+		this.getChildren().add(next);
+		
+		this.setSpacing(10);
 		this.setAlignment(Pos.CENTER);
-		this.setSpacing(50);
+		
 
 	}
+	
+	// populate array list and rows for this screen. 
+	public void generateRows(){
+		JSONObject file = JSONOperations.createJSONObject(Constants.FILENAME);
+		Iterator<String> iterator = file.keys();
+		rows = new ArrayList<DiffScreenRowLayout>();
+		while (iterator.hasNext()) {
+			DiffScreenRowLayout row = new DiffScreenRowLayout(iterator.next());
+			rows.add(row);
+			this.getChildren().add(row);
+		}
+	}
+
+	
+	
 
 	/*
 	 * Adjust application behavior off of user input
 	 * 
 	 * @param e User input
 	 */
+	
 	@Override
 	public void handle(ActionEvent e) {
+		System.out.println(e.getSource().toString());
 		if (e.getSource() instanceof Button) {
 			Button clicked = (Button) e.getSource();
 			switch (clicked.getId()) {
 			case "next":
-				main.genQuestions(getDifficultySet());
+				main.genQuestions(rows);
 				// create QuizHandler Object
+				if (isDifficultySelected()) {
+					
+				} else {
+					displayNoSelectionMsg();
+				}
 				break;
 			default:
 				System.out.println("ERROR: No input case in EventHandler");
@@ -66,34 +89,8 @@ public class DifficultyScreenLayout extends HBox implements EventHandler<ActionE
 				next.setDisable(true);
 			}
 		}
-	}
-
-	// TODO: Determine if this method is usable
-	/*
-	 * Initializes difficulty button settings
-	 * 
-	 * @param button The button object to be initialized
-	 * 
-	 * @param buttonLabel The front facing button label seen by the user
-	 * 
-	 * @param buttonID The ID used by the application to identify the button
-	 */
-	public void createDifficultyOptionButton(ToggleButton button, String buttonLabel, String buttonID) {
-		button = new ToggleButton(buttonLabel);
-		button.setId(buttonID);
-		button.setOnAction(this);
-	}
-
-	/*
-	 * Returns an array of each difficulty button's selection status
-	 * 
-	 * @return An array of booleans flagging each difficulty button's selection
-	 * status
-	 */
-	public boolean[] getDifficultySet() {
-		return new boolean[] { easy.isSelected(), medium.isSelected(), hard.isSelected() };
-	}
-
+	} 
+	
 	/*
 	 * Determines whether a difficulty button is selected
 	 * 
@@ -101,13 +98,24 @@ public class DifficultyScreenLayout extends HBox implements EventHandler<ActionE
 	 * the difficulty buttons are toggled
 	 */
 	public boolean isDifficultySelected() {
-		boolean[] difficultySet = getDifficultySet();
-		for (int i = 0; i < difficultySet.length; i++) {
+		for (DiffScreenRowLayout row : rows) {
+		boolean[] difficultySet = row.getDifficultySet();
+		// start at index 1, since indexes 1-3 represent difficulties
+		for (int i = 1; i < difficultySet.length; i++) {
 			if (difficultySet[i]) {
 				return true;
 			}
 		}
+		}
 		return false;
 	}
+
+	public void displayNoSelectionMsg() {
+		Text txt = new Text();
+		txt.setText("No difficulty selected, cannot proceed");
+		this.getChildren().add(txt);
+	}
+
+	
 
 }
