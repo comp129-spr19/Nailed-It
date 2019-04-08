@@ -24,6 +24,7 @@ public class DifficultyScreenLayout extends VBox implements EventHandler<ActionE
 
 	private ArrayList<DiffScreenRowLayout> rows;
 	private Button next;
+	private Text invalidSelectionText;
 	
 	public DifficultyScreenLayout(MainStage main) {
 		super();
@@ -35,7 +36,9 @@ public class DifficultyScreenLayout extends VBox implements EventHandler<ActionE
 		next.setId("next");
 		//next.setDisable(true);
 		next.setOnAction(this);
-		this.getChildren().add(next);
+		
+		invalidSelectionText = new Text("");
+		this.getChildren().addAll(next,invalidSelectionText);
 		
 		this.setSpacing(10);
 		this.setAlignment(Pos.CENTER);
@@ -71,10 +74,10 @@ public class DifficultyScreenLayout extends VBox implements EventHandler<ActionE
 			Button clicked = (Button) e.getSource();
 			switch (clicked.getId()) {
 			case "next":
-				main.genQuestions(rows);
+				
 				// create QuizHandler Object
 				if (isDifficultySelected()) {
-					
+					main.genQuestions(rows);
 				} else {
 					displayNoSelectionMsg();
 				}
@@ -111,9 +114,9 @@ public class DifficultyScreenLayout extends VBox implements EventHandler<ActionE
 	}
 
 	public void displayNoSelectionMsg() {
-		Text txt = new Text();
-		txt.setText("No difficulty selected, cannot proceed");
-		this.getChildren().add(txt);
+		//Text txt = new Text();
+		invalidSelectionText.setText("No difficulty selected, cannot proceed");
+		//this.getChildren().add(txt);
 	}
 
 	
