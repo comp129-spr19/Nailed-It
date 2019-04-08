@@ -86,5 +86,47 @@
                  "hint": "We the North"
             }
         }
-    }
+    },  "Operating Systems": {
+        "easy": {
+            "q1": {
+                "question": "Which one is correct team name in NBA?",
+                 "answer_a": "Brooklyn Pets",
+                 "answer_b": "Toronto Raptors",
+                 "answer_c": "Los Angeles Slackers",
+                 "answer_d": "Memphis Bearcubs", 
+                 "correct_answer": "b",
+                 "hint": "We the North"
+            }
+        },
+        "medium": {
+            "q1": {
+                "question": "Which one is correct team name in NBA?",
+                 "answer_a": "Brooklyn Pets",
+                 "answer_b": "Toronto Raptors",
+                 "answer_c": "Los Angeles Slackers",
+                 "answer_d": "Memphis Bearcubs", 
+                 "correct_answer": "b",
+                 "hint": "We the North"
+            },
+            "q2": {
+                "question": "Which one is correct team name in NBA?",
+                 "answer_a": "Brooklyn Pets",
+                 "answer_b": "Toronto Raptors",
+                 "answer_c": "Los Angeles Slackers",
+                 "answer_d": "Memphis Bearcubs", 
+                 "correct_answer": "b",
+                 "hint": "We the North"
+            }
+        },  "hard": {
+            "q1": {
+                "question": "Which one is correct team name in NBA?",
+                 "answer_a": "Brooklyn Pets",
+                 "answer_b": "Toronto Raptors",
+                 "answer_c": "Los Angeles Slackers",
+                 "answer_d": "Memphis Bearcubs", 
+                 "correct_answer": "b",
+                 "hint": "We the North"
+            }
+        }
+       }
 }
