@@ -1,10 +1,11 @@
 package Layouts;
-import javafx.collections.*;
-import javafx.event.*;
+
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
-import javafx.scene.text.*;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import main.Answer;
 import main.MainStage;
 import main.Question;
@@ -12,18 +13,18 @@ import main.Question;
 public class QuizScreenLayout extends VBox implements EventHandler<ActionEvent> {
 
 	MainStage main;
-	
+
 	private Text questionText, responseText;
 	private Button answerA, answerB, answerC, answerD;
 	private Button next, skip, quit;
 	private Answer correctAnswer, selectedAnswer;
-	
+
 	public QuizScreenLayout(Question question, MainStage main) {
 		super();
 		this.main = main;
-		
+
 		correctAnswer = question.getCorrectAnswer();
-		
+
 		questionText = new Text(question.getQuestion());
 
 		answerA = new Button("A: " + question.getAnswerA());
@@ -41,7 +42,7 @@ public class QuizScreenLayout extends VBox implements EventHandler<ActionEvent> 
 		answerD = new Button("D: " + question.getAnswerD());
 		answerD.setId("D");
 		answerD.setOnAction(this);
-		
+
 		responseText = new Text("");
 
 		next = new Button("Next");
@@ -87,7 +88,7 @@ public class QuizScreenLayout extends VBox implements EventHandler<ActionEvent> 
 				selectedAnswer = Answer.ANSWER_C;
 				handleSelection();
 				break;
-			case "D":	
+			case "D":
 				selectedAnswer = Answer.ANSWER_D;
 				handleSelection();
 				break;
@@ -106,31 +107,31 @@ public class QuizScreenLayout extends VBox implements EventHandler<ActionEvent> 
 			}
 		}
 	}
-	
+
 	/*
-	 * Displays response text based on answer,
-	 * then disables/enables appropriate buttons
+	 * Displays response text based on answer, then disables/enables appropriate
+	 * buttons
 	 * 
-	 * */
+	 */
 	private void handleSelection() {
 		setResponse();
 		next.setDisable(false);
 		disableAnswers();
 	}
-	
+
 	/*
 	 * Disables the full set of answer buttons
-	 * */	
+	 */
 	private void disableAnswers() {
 		answerA.setDisable(true);
 		answerB.setDisable(true);
 		answerC.setDisable(true);
 		answerD.setDisable(true);
 	}
-	
+
 	/*
 	 * Validates answer, then displays to user using responseText
-	 * */
+	 */
 	private void setResponse() {
 		String response = new String("Incorrect.");
 		if (selectedAnswer == correctAnswer) {
@@ -141,10 +142,12 @@ public class QuizScreenLayout extends VBox implements EventHandler<ActionEvent> 
 
 	/*
 	 * Increments correct answer in MainStage if needed
-	 * */
+	 */
 	private void mainStageCommunication() {
 		if (selectedAnswer == correctAnswer) {
 			main.incrCorrAnswers();
 		}
 	}
+
+	// this is a test comment
 }
