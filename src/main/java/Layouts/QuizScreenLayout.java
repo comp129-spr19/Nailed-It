@@ -14,16 +14,18 @@ public class QuizScreenLayout extends VBox implements EventHandler<ActionEvent> 
 
 	MainStage main;
 
-	private Text questionText, responseText;
+	private Text questionText, responseText, hintText;
 	private Button answerA, answerB, answerC, answerD;
-	private Button next, skip, quit;
+	private Button next, skip, quit, hint;
 	private Answer correctAnswer, selectedAnswer;
+	private String hintString;
 
 	public QuizScreenLayout(Question question, MainStage main) {
 		super();
 		this.main = main;
 
 		correctAnswer = question.getCorrectAnswer();
+		hintText = new Text("");
 
 		questionText = new Text(question.getQuestion());
 
@@ -58,7 +60,13 @@ public class QuizScreenLayout extends VBox implements EventHandler<ActionEvent> 
 		quit.setId("quit");
 		quit.setOnAction(this);
 
-		this.getChildren().addAll(questionText, answerA, answerB, answerC, answerD, responseText, next, skip, quit);
+		hint = new Button("Hint");
+		hint.setId("hint");
+		hint.setOnAction(this);
+		hintString = question.getHint();
+
+		this.getChildren().addAll(questionText, answerA, answerB, answerC, answerD, responseText, next, skip, quit,
+				hintText, hint);
 
 		this.setAlignment(Pos.CENTER);
 		this.setSpacing(10);
@@ -101,6 +109,9 @@ public class QuizScreenLayout extends VBox implements EventHandler<ActionEvent> 
 				break;
 			case "quit":
 				main.switchToDifficulty();
+				break;
+			case "hint":
+				showHint();
 				break;
 			default:
 				System.out.println("ERROR: No input case in EventHandler");
@@ -147,6 +158,10 @@ public class QuizScreenLayout extends VBox implements EventHandler<ActionEvent> 
 		if (selectedAnswer == correctAnswer) {
 			main.incrCorrAnswers();
 		}
+	}
+
+	private void showHint() {
+		hintText.setText(hintString);
 	}
 
 	// this is a test comment
