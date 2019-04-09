@@ -1,132 +1,170 @@
 {
-    "Algorithms": {
-        "easy": {
-            "q1": {
-                "question": "Which one is correct team name in NBA?",
-                 "answer_a": "Brooklyn Pets",
-                 "answer_b": "Toronto Raptors",
-                 "answer_c": "Los Angeles Slackers",
-                 "answer_d": "Memphis Bearcubs", 
-                 "correct_answer": "b",
-                 "hint": "We the North"
-            }
-        },
-        "medium": {
-            "q1": {
-                "question": "Which one is correct team name in NBA?",
-                 "answer_a": "Brooklyn Pets",
-                 "answer_b": "Toronto Raptors",
-                 "answer_c": "Los Angeles Slackers",
-                 "answer_d": "Memphis Bearcubs", 
-                 "correct_answer": "b",
-                 "hint": "We the North"
-            },
-            "q2": {
-                "question": "Which one is correct team name in NBA?",
-                 "answer_a": "Brooklyn Pets",
-                 "answer_b": "Toronto Raptors",
-                 "answer_c": "Los Angeles Slackers",
-                 "answer_d": "Memphis Bearcubs", 
-                 "correct_answer": "b",
-                 "hint": "We the North"
-            }
-        },
-        "hard": {
-            "q1": {
-                "question": "Which one is correct team name in NBA?",
-                 "answer_a": "Brooklyn Pets",
-                 "answer_b": "Toronto Raptors",
-                 "answer_c": "Los Angeles Slackers",
-                 "answer_d": "Memphis Bearcubs", 
-                 "correct_answer": "b",
-                 "hint": "We the North"
-            }
-        }
+  "Algorithms": {
+    "easy": {
+      "q1": {
+        "question": "What is the best-case time complexity of bubble sort?",
+        "answer_a": "n^2",
+        "answer_b": "n*log(n)",
+        "answer_c": "n*log(n)^2",
+        "answer_d": "n",
+        "correct_answer": "d",
+        "hint": "started from the bottom"
+      },
+      "q2": {
+        "question": "Which of the following sorting algorithms has the lowest worst-case complexity?",
+        "answer_a": "merge sort",
+        "answer_b": "bubble sort",
+        "answer_c": "quick sort",
+        "answer_d": "selection sort",
+        "correct_answer": "a",
+        "hint": "don't merge into oncoming traffic"
+      }
     },
-    "Data Structures": {
-        "easy": {
-            "q1": {
-                "question": "Which one is correct team name in NBA?",
-                 "answer_a": "Brooklyn Pets",
-                 "answer_b": "Toronto Raptors",
-                 "answer_c": "Los Angeles Slackers",
-                 "answer_d": "Memphis Bearcubs", 
-                 "correct_answer": "b",
-                 "hint": "We the North"
-            }
-        },
-        "medium": {
-            "q1": {
-                "question": "Which one is correct team name in NBA?",
-                 "answer_a": "Brooklyn Pets",
-                 "answer_b": "Toronto Raptors",
-                 "answer_c": "Los Angeles Slackers",
-                 "answer_d": "Memphis Bearcubs", 
-                 "correct_answer": "b",
-                 "hint": "We the North"
-            },
-            "q2": {
-                "question": "Which one is correct team name in NBA?",
-                 "answer_a": "Brooklyn Pets",
-                 "answer_b": "Toronto Raptors",
-                 "answer_c": "Los Angeles Slackers",
-                 "answer_d": "Memphis Bearcubs", 
-                 "correct_answer": "b",
-                 "hint": "We the North"
-            }
-        },
-        "hard": {
-            "q1": {
-                "question": "Which one is correct team name in NBA?",
-                 "answer_a": "Brooklyn Pets",
-                 "answer_b": "Toronto Raptors",
-                 "answer_c": "Los Angeles Slackers",
-                 "answer_d": "Memphis Bearcubs", 
-                 "correct_answer": "b",
-                 "hint": "We the North"
-            }
-        }
-    },  "Operating Systems": {
-        "easy": {
-            "q1": {
-                "question": "Which one is correct team name in NBA?",
-                 "answer_a": "Brooklyn Pets",
-                 "answer_b": "Toronto Raptors",
-                 "answer_c": "Los Angeles Slackers",
-                 "answer_d": "Memphis Bearcubs", 
-                 "correct_answer": "b",
-                 "hint": "We the North"
-            }
-        },
-        "medium": {
-            "q1": {
-                "question": "Which one is correct team name in NBA?",
-                 "answer_a": "Brooklyn Pets",
-                 "answer_b": "Toronto Raptors",
-                 "answer_c": "Los Angeles Slackers",
-                 "answer_d": "Memphis Bearcubs", 
-                 "correct_answer": "b",
-                 "hint": "We the North"
-            },
-            "q2": {
-                "question": "Which one is correct team name in NBA?",
-                 "answer_a": "Brooklyn Pets",
-                 "answer_b": "Toronto Raptors",
-                 "answer_c": "Los Angeles Slackers",
-                 "answer_d": "Memphis Bearcubs", 
-                 "correct_answer": "b",
-                 "hint": "We the North"
-            }
-        },  "hard": {
-            "q1": {
-                "question": "Which one is correct team name in NBA?",
-                 "answer_a": "Brooklyn Pets",
-                 "answer_b": "Toronto Raptors",
-                 "answer_c": "Los Angeles Slackers",
-                 "answer_d": "Memphis Bearcubs", 
-                 "correct_answer": "b",
-                 "hint": "We the North"
-            }
-        }
-       }
+    "medium": {
+      "q1": {
+        "question": "Which of the following is not a stable sorting algorithm in its typical implementation?",
+        "answer_a": "insertion sort",
+        "answer_b": "merge sort",
+        "answer_c": "quick sort",
+        "answer_d": "bubble sort",
+        "correct_answer": "c",
+        "hint": "think fast"
+      },
+      "q2": {
+        "question": "Which one of the following in-place sorting algorithms needs the minimum number of swaps?",
+        "answer_a": "quick sort",
+        "answer_b": "selection sort",
+        "answer_c": "insertion sort",
+        "answer_d": "heap sort",
+        "correct_answer": "b",
+        "hint": "select an answer"
+      }
+    },
+    "hard": {
+      "q1": {
+        "question": "Let T be a depth first search tree in an undirected graph G. Vertices u and n are leaves of this tree T. The degrees of both u and n in G are at least 2. which one of the following statements is true?",
+        "answer_a": "there must exist a vertex w adjacent to both u and n in G",
+        "answer_b": "there must exist a vertex w whose removal disconnects u and n in G",
+        "answer_c": "there must exist a cycle in G containing u and n",
+        "answer_d": "there must exist a cycle in G containing u and all its neighbors in G",
+        "correct_answer": "d",
+        "hint": "love thy neighbor"
+      },
+      "q2": {
+        "question": "Let A1, A2, A3, and A4 be four matrices of dimensions 10 x 5, 5 x 20, 20 x 10, and 10 x 5, respectively. The minimum number of scalar multiplications required to find the product A1A2A3A4 using the basic matrix multiplication method is",
+        "answer_a": "1500",
+        "answer_b": "2000",
+        "answer_c": "500",
+        "answer_d": "100",
+        "correct_answer": "a",
+        "hint": "one hundred quinceaneras"
+      }
+    }
+  },
+  "Data Structures": {
+    "easy": {
+      "q1": {
+        "question": "Which one of the following is an application of the stack data structure?",
+        "answer_a": "managing function calls",
+        "answer_b": "the stock span problem",
+        "answer_c": "artithmetic expression evaluation",
+        "answer_d": "all of the above",
+        "correct_answer": "d",
+        "hint": "go above the call of duty"
+      },
+      "q2": {
+        "question": "The best data structure to check whether an arithmetic expression has balanced parenthesis is a",
+        "answer_a": "queue",
+        "answer_b": "list",
+        "answer_c": "tree",
+        "answer_d": "stack",
+        "correct_answer": "d",
+        "hint": "the odds are stacked against you"
+      }
+    },
+    "medium": {
+      "q1": {
+        "question": "To implement Dijkstra’s shortest path algorithm on unweighted graphs so that it runs in linear time, the data structure to be used is",
+        "answer_a": "stack",
+        "answer_b": "queue",
+        "answer_c": "b-tree",
+        "answer_d": "heap",
+        "correct_answer": "b",
+        "hint": "right on cue"
+      },
+      "q2": {
+        "question": "A list of n strings, each of length n, is sorted into lexicographic order using the merge sort algorithm. The worst case running time of this computation is",
+        "answer_a": "O(n*log(n))",
+        "answer_b": "O(n^2*log(n))",
+        "answer_c": "O(n^2 + log(n))",
+        "answer_d": "O(n^3)",
+        "correct_answer": "b",
+        "hint": "you'll be sorry"
+      }
+    },
+    "hard": {
+      "q1": {
+        "question": "Suppose that we have numbers between 1 and 1,000 in a binary search tree and want to search for the number 364. Which of the following sequences could not be the sequence of nodes examined?",
+        "answer_a": "925, 221, 912, 245, 899, 259, 363, 364",
+        "answer_b": "926, 203, 912, 241, 913, 246, 364",
+        "answer_c": "3, 400, 388, 220, 267, 383, 382, 279, 364",
+        "answer_d": "3, 253, 402, 399, 331, 345, 398, 364",
+        "correct_answer": "b",
+        "hint": "i'm feeling lucky"
+      },
+      "q2": {
+        "question": "Consider a binary max-heap implemented using an array. Which one of the following array represents a binary max-heap?",
+        "answer_a": "25, 12, 16, 13, 10, 8, 14",
+        "answer_b": "25, 12, 13, 10, 16, 8, 14",
+        "answer_c": "25, 14, 16, 13, 10, 8, 12",
+        "answer_d": "25, 14, 12, 13, 10, 8, 16",
+        "correct_answer": "c",
+        "hint": "the most popular vitamin"
+      }
+    }
+  },
+  "Miscellaneous": {
+    "easy": {
+      "q1": {
+        "question": "Which one is correct team name in NBA?",
+        "answer_a": "Brooklyn Pets",
+        "answer_b": "Toronto Raptors",
+        "answer_c": "Los Angeles Slackers",
+        "answer_d": "Memphis Bearcubs",
+        "correct_answer": "b",
+        "hint": "We the North"
+      }
+    },
+    "medium": {
+      "q1": {
+        "question": "Which one is correct team name in NBA?",
+        "answer_a": "Brooklyn Pets",
+        "answer_b": "Toronto Raptors",
+        "answer_c": "Los Angeles Slackers",
+        "answer_d": "Memphis Bearcubs",
+        "correct_answer": "b",
+        "hint": "We the North"
+      },
+      "q2": {
+        "question": "Which one is correct team name in NBA?",
+        "answer_a": "Brooklyn Pets",
+        "answer_b": "Toronto Raptors",
+        "answer_c": "Los Angeles Slackers",
+        "answer_d": "Memphis Bearcubs",
+        "correct_answer": "b",
+        "hint": "We the North"
+      }
+    },
+    "hard": {
+      "q1": {
+        "question": "Which one is correct team name in NBA?",
+        "answer_a": "Brooklyn Pets",
+        "answer_b": "Toronto Raptors",
+        "answer_c": "Los Angeles Slackers",
+        "answer_d": "Memphis Bearcubs",
+        "correct_answer": "b",
+        "hint": "We the North"
+      }
+    }
+  }
 }
