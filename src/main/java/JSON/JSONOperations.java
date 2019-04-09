@@ -8,6 +8,7 @@ import java.util.Iterator;
 
 import org.json.*;
 
+import javafx.scene.control.ComboBox;
 import main.Answer;
 import main.AnswerConverter;
 import main.Constants;
@@ -81,7 +82,16 @@ public class JSONOperations {
 	}
 	
 	
-	
+	public static ComboBox<String> returnCategoryList(){
+		JSONObject file = createJSONObject(Constants.FILENAME);
+		ComboBox<String> catList = new ComboBox<String>();
+		Iterator<String> iterator = file.keys();
+		
+		while(iterator.hasNext()) {
+			catList.getItems().add(iterator.next());
+		}
+		return catList;
+	}
 	
 	public static void main(String args[]) {
 		JSONObject obj = createJSONObject("Project2.json");
