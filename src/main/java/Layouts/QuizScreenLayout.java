@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -62,8 +63,10 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 		VBox vbox = new VBox();
 		vbox.setPadding(new Insets(10));
 		vbox.setSpacing(8);
+		vbox.setMaxWidth(600);
 
-		Text questionText = new Text(question.getQuestion());
+		Label questionText = new Label(question.getQuestion());
+		questionText.setWrapText(true);
 
 		hintText = new Text("");
 		correctAnswer = question.getCorrectAnswer();
