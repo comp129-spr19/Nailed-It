@@ -47,6 +47,9 @@ public class JSONOperations {
 	
 	// returns a list of question objects based on category and difficulty.
 	public static ArrayList<Question> getQuestions(String qCategory, String qDifficulty) {
+		//if(!containsCategory(qCategory) && !isValidDiff(qDifficulty)) {
+		//	return null;
+		//}
 		ArrayList<Question> questions = new ArrayList<Question>();
 		
 		JSONObject file = createJSONObject("Project2.json");
@@ -92,6 +95,31 @@ public class JSONOperations {
 		}
 		return catList;
 	}
+	/*
+	private static ArrayList<String> getStrCatList() {
+		JSONObject file = createJSONObject(Constants.FILENAME);
+		ArrayList<String> catList = new ArrayList<String>();
+		Iterator<String> iterator = file.keys();
+		
+		while(iterator.hasNext()) {
+			catList.add(iterator.next());
+		}
+		return catList;
+	}
+	
+	private static boolean containsCategory(String category) {
+		ArrayList<String> catList = getStrCatList();
+		//System.out.println(category);
+		for (String cat : catList) {
+			if (category.equals(cat));
+				return true;
+		}
+		return false;
+	}
+	
+	private static boolean isValidDiff(String diff) {
+		return (diff.equals("easy") || diff.equals("medium") || diff.equals("hard"));
+	} */
 	
 	public static void main(String args[]) {
 		JSONObject obj = createJSONObject("Project2.json");
