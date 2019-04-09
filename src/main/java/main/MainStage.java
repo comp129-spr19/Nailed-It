@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import Layouts.CompletionScreenLayout;
 import Layouts.DiffScreenRowLayout;
 import Layouts.DifficultyScreenLayout;
+import Layouts.MainMenuScreenLayout;
 import Layouts.QuizScreenLayout;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -24,6 +25,7 @@ public class MainStage extends Application {
 	// layouts for different screens throughout application
 	private DifficultyScreenLayout diffScreenLayout;
 	private CompletionScreenLayout completionScreenLayout;
+	private MainMenuScreenLayout mainMenuScreenLayout;
 
 	private Stage stage;
 	private Scene scene;
@@ -57,9 +59,15 @@ public class MainStage extends Application {
 		scene = new Scene(new StackPane(), SCREEN_HEIGHT, SCREEN_WIDTH);
 		scene.getStylesheets().add(STYLE_SOURCE);
 		stage.setScene(scene);
-
-		switchToDifficulty();
+		//switchToDifficulty();
+		switchToMainMenu();
 		stage.show();
+	}
+
+	private void switchToMainMenu() {
+		mainMenuScreenLayout = new MainMenuScreenLayout(this);
+		scene.setRoot(mainMenuScreenLayout);
+		
 	}
 
 	// TODO: outsource to another file
@@ -122,5 +130,15 @@ public class MainStage extends Application {
 	
 	public void incrCorrAnswers() {
 		numCorrAnswers++;
+	}
+
+	public void startQuiz() {
+		switchToDifficulty();
+		
+	}
+
+	public void startEditor() {
+		// TODO Auto-generated method stub
+		
 	}
 }
