@@ -1,4 +1,5 @@
 package main;
+
 import java.util.ArrayList;
 
 import Layouts.CompletionScreenLayout;
@@ -31,7 +32,7 @@ public class MainStage extends Application {
 	// quiz-logic variables
 	private ArrayList<QuizScreenLayout> questions;
 	private int currentQuestionIndex;
-	
+
 	// should be removed when refactoring.
 	private int numCorrAnswers;
 
@@ -89,22 +90,12 @@ public class MainStage extends Application {
 	public void switchToCompletion() {
 
 		// declare new difficulty screen, its layout, and its style
-		CompletionScreenLayout compScreenLayout = new CompletionScreenLayout(this,numCorrAnswers,questions.size());
+		CompletionScreenLayout compScreenLayout = new CompletionScreenLayout(this, numCorrAnswers, questions.size());
 		scene.setRoot(compScreenLayout);
-		
 
-		//scene.setRoot(completionScreenLayout);
+		// scene.setRoot(completionScreenLayout);
 
 	}
-
-	/*
-	 * Initializer for the screen layouts in the application
-	 */
-	/*
-	public void initializeScreenLayouts() {
-		diffScreenLayout = new DifficultyScreenLayout(this);
-		completionScreenLayout = new CompletionScreenLayout(this);
-	}  */
 
 	// TODO: outsource to another file
 	/*
@@ -119,8 +110,12 @@ public class MainStage extends Application {
 		numCorrAnswers = 0;
 		nextQuestion();
 	}
-	
+
 	public void incrCorrAnswers() {
 		numCorrAnswers++;
+	}
+
+	public Stage getStage() {
+		return this.stage;
 	}
 }

@@ -2,15 +2,19 @@ package Layouts;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import main.Answer;
 import main.MainStage;
 import main.Question;
 
-public class QuizScreenLayout extends VBox implements EventHandler<ActionEvent> {
+public class QuizScreenLayout extends BorderPane implements EventHandler<ActionEvent> {
 
 	MainStage main;
 
@@ -24,37 +28,13 @@ public class QuizScreenLayout extends VBox implements EventHandler<ActionEvent> 
 		super();
 		this.main = main;
 
-		correctAnswer = question.getCorrectAnswer();
-		hintText = new Text("");
+		GridPane answerSelection = setMultipleChoiceOptions(question);
+		this.setBottom(answerSelection);
 
-		questionText = new Text(question.getQuestion());
-
-		answerA = new Button("A: " + question.getAnswerA());
-		answerA.setId("A");
-		answerA.setOnAction(this);
-
-		answerB = new Button("B: " + question.getAnswerB());
-		answerB.setId("B");
-		answerB.setOnAction(this);
-
-		answerC = new Button("C: " + question.getAnswerC());
-		answerC.setId("C");
-		answerC.setOnAction(this);
-
-		answerD = new Button("D: " + question.getAnswerD());
-		answerD.setId("D");
-		answerD.setOnAction(this);
-
-		responseText = new Text("");
-
-		next = new Button("Next");
-		next.setId("next");
-		next.setOnAction(this);
-		next.setDisable(true);
-
-		skip = new Button("Skip");
-		skip.setId("skip");
-		skip.setOnAction(this);
+		/*************/
+		HBox hbox = new HBox();
+		hbox.setPadding(new Insets(10));
+		hbox.setSpacing(8);
 
 		quit = new Button("Return to Menu");
 		quit.setId("quit");
@@ -65,12 +45,35 @@ public class QuizScreenLayout extends VBox implements EventHandler<ActionEvent> 
 		hint.setOnAction(this);
 		hintString = question.getHint();
 
-		this.getChildren().addAll(questionText, answerA, answerB, answerC, answerD, responseText, next, skip, quit,
-				hintText, hint);
+		skip = new Button("Skip");
+		skip.setId("skip");
+		skip.setOnAction(this);
 
-		this.setAlignment(Pos.CENTER);
-		this.setSpacing(10);
+		next = new Button("Next");
+		next.setId("next");
+		next.setOnAction(this);
+		next.setDisable(true);
 
+		hbox.getChildren().addAll(quit, hint, skip, next);
+		hbox.setAlignment(Pos.BOTTOM_CENTER);
+
+		/*************/
+
+		VBox vbox = new VBox();
+		vbox.setPadding(new Insets(10));
+		vbox.setSpacing(8);
+
+		Text questionText = new Text(question.getQuestion());
+
+		hintText = new Text("");
+		correctAnswer = question.getCorrectAnswer();
+		responseText = new Text("");
+
+		vbox.setAlignment(Pos.BOTTOM_CENTER);
+
+		vbox.getChildren().addAll(questionText, hintText, responseText, hbox);
+
+		this.setCenter(vbox);
 	}
 
 	/*
@@ -120,6 +123,45 @@ public class QuizScreenLayout extends VBox implements EventHandler<ActionEvent> 
 	}
 
 	/*
+	 * 
+	 */
+	private GridPane setMultipleChoiceOptions(Question question) {
+		GridPane grid = new GridPane();
+		grid.setPadding(new Insets(0, 0, 0, 0));
+		grid.setAlignment(Pos.CENTER);
+		grid.setVgap(0);
+		grid.setHgap(0);
+
+		answerA = new Button("A: " + question.getAnswerA());
+		answerA.setId("A");
+		answerA.setOnAction(this);
+		answerA.setPrefSize(300, 75);
+		GridPane.setConstraints(answerA, 0, 0);
+
+		answerB = new Button("B: " + question.getAnswerB());
+		answerB.setId("B");
+		answerB.setPrefSize(300, 75);
+		answerB.setOnAction(this);
+		GridPane.setConstraints(answerB, 1, 0);
+
+		answerC = new Button("C: " + question.getAnswerC());
+		answerC.setId("C");
+		answerC.setPrefSize(300, 75);
+		answerC.setOnAction(this);
+		GridPane.setConstraints(answerC, 0, 1);
+
+		answerD = new Button("D: " + question.getAnswerD());
+		answerD.setId("D");
+		answerD.setPrefSize(300, 75);
+		answerD.setOnAction(this);
+		GridPane.setConstraints(answerD, 1, 1);
+
+		grid.getChildren().addAll(answerA, answerB, answerC, answerD);
+
+		return grid;
+	}
+
+	/*
 	 * Displays response text based on answer, then disables/enables appropriate
 	 * buttons
 	 * 
@@ -127,6 +169,7 @@ public class QuizScreenLayout extends VBox implements EventHandler<ActionEvent> 
 	private void handleSelection() {
 		setResponse();
 		next.setDisable(false);
+		skip.setDisable(true);
 		disableAnswers();
 	}
 
@@ -160,9 +203,10 @@ public class QuizScreenLayout extends VBox implements EventHandler<ActionEvent> 
 		}
 	}
 
+	/*
+	 * Sets the hintText variable
+	 */
 	private void showHint() {
 		hintText.setText(hintString);
 	}
-
-	// this is a test comment
 }

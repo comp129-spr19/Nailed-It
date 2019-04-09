@@ -30,6 +30,12 @@
 #hard:hover{
 	 -fx-background-color:#b22613
 }
+
 #hard:selected{
 	 -fx-background-color:#b22613
+}
+
+.my-special-button {
+    -fx-pref-height: 100px;
+    -fx-pref-width: 400px;
 }
