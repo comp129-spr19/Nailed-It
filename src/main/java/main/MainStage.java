@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import Layouts.CompletionScreenLayout;
 import Layouts.DiffScreenRowLayout;
 import Layouts.DifficultyScreenLayout;
+import Layouts.EditorScreenLayout;
 import Layouts.MainMenuScreenLayout;
 import Layouts.QuizScreenLayout;
 import javafx.application.Application;
@@ -26,6 +27,7 @@ public class MainStage extends Application {
 	private DifficultyScreenLayout diffScreenLayout;
 	private CompletionScreenLayout completionScreenLayout;
 	private MainMenuScreenLayout mainMenuScreenLayout;
+	private EditorScreenLayout editorScreenLayout;
 
 	private Stage stage;
 	private Scene scene;
@@ -138,7 +140,7 @@ public class MainStage extends Application {
 	}
 
 	public void startEditor() {
-		// TODO Auto-generated method stub
-		
+		editorScreenLayout = new EditorScreenLayout(this);
+		scene.setRoot(editorScreenLayout);
 	}
 }
