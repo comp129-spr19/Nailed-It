@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 public class MainStage extends Application {
 
 	public static final String STYLE_SOURCE = "cssSheets/style.css";
-	public static final String APPLICATION_NAME = "Dorothy's Application"; // TODO: rename the window later
+	public static final String APPLICATION_NAME = "Nailed It"; // TODO: rename the window later
 	public static final int SCREEN_HEIGHT = 600;
 	public static final int SCREEN_WIDTH = 600;
 
