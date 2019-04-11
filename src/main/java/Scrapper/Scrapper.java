@@ -9,7 +9,7 @@ import java.io.IOException;
 import com.gargoylesoftware.*;
 
 public class Scrapper {
-	public static String baseUrl = "https://www.geeksforgeeks.org/algorithms-gq/analysis-of-algorithms-gq/";
+	public static String baseUrl = "https://www.geeksforgeeks.org/algorithms-gq/searching-and-sorting-gq/";
 	public static WebClient client = new WebClient();
 
 public static void main(String args[]) {
@@ -22,7 +22,9 @@ public static void main(String args[]) {
 		HtmlPage page;
 		try {
 			page = client.getPage(baseUrl);
-			System.out.println(page.asXml());
+			//System.out.println(page.asXml());
+			
+			System.out.println(page.getHtmlElementById("mtq_question_text-9-1").asText());
 		} catch (FailingHttpStatusCodeException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
