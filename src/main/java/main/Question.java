@@ -59,4 +59,13 @@ public class Question {
 	public void setCorrectAnswer(Answer correctAnswer) {
 		this.correctAnswer = correctAnswer;
 	}
+	
+	public String toString() {
+		
+		return ("Question: " + this.question + "\nA: " + getAnswerA()
+		  + "\nB: " + getAnswerB()+ "\nC: " + getAnswerC() + "\nD: " + getAnswerD() +
+		  "\nhint: " + getHint() + "\nCorrect answ: " +  getCorrectAnswer().toString());
+		  
+		
+	}
 }
