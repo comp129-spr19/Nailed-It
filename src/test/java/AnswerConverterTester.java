@@ -27,4 +27,9 @@ public class AnswerConverterTester {
 	public void testStringToAnswerReturnsNullAnswerWhenGivenAnInvalidAnswerString() {
 		assertNull(AnswerConverter.stringToAnswer("445646456zzaaa"));
 	}
+	
+	@Test
+	public void testStringToAnswerReturnsCorrectAnswerWhenGivenAValidLowercaseAnswerString() {
+		assertEquals(AnswerConverter.stringToAnswer("d"), Answer.ANSWER_D);
+	}	
 }
