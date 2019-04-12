@@ -33,6 +33,12 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 				listQuestions();
 				}
 			}
+			else if (button.getId().contains("edit")) {
+				String ID = button.getId();
+				ID = ID.substring(0, ID.length() - 4);
+				int toEdit = Integer.parseInt(ID);
+				main.switchToQuestionEditor(questions.get(toEdit));
+			}
 		}
 		
 	}
@@ -73,10 +79,11 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 	private HBox createQuestionBox(int id, Question question) {
 			HBox box = new HBox();
 			
-			CheckBox check = new CheckBox((id+1) +"." + question.getQuestion());
+			CheckBox check = new CheckBox((id+1) + "." + question.getQuestion());
 			check.setId(id + "checkBox");
 			Button edit = new Button("Edit");
 			edit.setId(id+"edit");
+			edit.setOnAction(this);
 			
 			box.getChildren().addAll(check,edit);
 			return box;
