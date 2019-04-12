@@ -13,7 +13,9 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 	MainStage main;
 	
 	private TextField questionText, hintText, answerA, answerB, answerC, answerD;
+	private Text errorMessage, answerLabel;
 	private RadioButton A, B, C, D;
+	private ToggleGroup correctAnswer;
 	private Button submit, quit;
 	
 	public QuestionEditorLayout(Question question, MainStage main) {
@@ -32,19 +34,63 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 
 		hintText = new TextField(question.getHint());
 		
-		quit = new Button("Close without Saving");
-		quit.setId("quit");
-		quit.setOnAction(this);
+		HBox correctAnswerBox = setCorrectAnswer(question);
 		
 		submit = new Button("Save and Close");
 		submit.setId("submit");
 		submit.setOnAction(this);
-		submit.setDisable(true);
+		
+		errorMessage = new Text("");
+		
+		quit = new Button("Close without Saving");
+		quit.setId("quit");
+		quit.setOnAction(this);
 
-		vbox.getChildren().addAll(questionText, hintText, quit, submit);
+		vbox.getChildren().addAll(questionText, hintText, submit, errorMessage, quit, correctAnswerBox);
 		vbox.setAlignment(Pos.BOTTOM_CENTER);
 
 		this.setCenter(vbox);
+	}
+	
+	private HBox setCorrectAnswer(Question question) {
+		answerLabel = new Text("Correct Answer: ");
+		
+		correctAnswer = new ToggleGroup();
+		
+		A = new RadioButton("A");
+		A.setToggleGroup(correctAnswer);
+		
+		B = new RadioButton("B");
+		B.setToggleGroup(correctAnswer);
+		
+		C = new RadioButton("C");
+		C.setToggleGroup(correctAnswer);
+		
+		D = new RadioButton("D");
+		D.setToggleGroup(correctAnswer);
+		
+		switch(question.getCorrectAnswer()) {
+		case ANSWER_A:
+			A.setSelected(true);
+			break;
+		case ANSWER_B:
+			B.setSelected(true);
+			break;
+		case ANSWER_C:
+			C.setSelected(true);
+			break;
+		case ANSWER_D:
+			D.setSelected(true);
+			break;
+		default:
+			//default considered- if there is no correct answer, none should be selected
+		}
+		
+		HBox correctAnswerBox = new HBox();
+		correctAnswerBox.setSpacing(5);
+		correctAnswerBox.getChildren().addAll(answerLabel, A, B, C, D);
+		correctAnswerBox.setAlignment(Pos.CENTER);
+		return correctAnswerBox;
 	}
 	
 	private GridPane setMultipleChoiceOptions(Question question) {
@@ -55,23 +101,19 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 		grid.setHgap(0);
 
 		answerA = new TextField(question.getAnswerA());
-		answerA.setOnAction(this);
 		answerA.setPrefSize(300, 75);
 		GridPane.setConstraints(answerA, 0, 0);
 
 		answerB = new TextField(question.getAnswerB());
 		answerB.setPrefSize(300, 75);
-		answerB.setOnAction(this);
 		GridPane.setConstraints(answerB, 1, 0);
 
 		answerC = new TextField(question.getAnswerC());
 		answerC.setPrefSize(300, 75);
-		answerC.setOnAction(this);
 		GridPane.setConstraints(answerC, 0, 1);
 
 		answerD = new TextField(question.getAnswerD());
 		answerD.setPrefSize(300, 75);
-		answerD.setOnAction(this);
 		GridPane.setConstraints(answerD, 1, 1);
 
 		grid.getChildren().addAll(answerA, answerB, answerC, answerD);
@@ -88,12 +130,49 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 				main.startEditor();
 				break;
 			case "submit":
-				//TODO add logic to update JSON file
-				main.startEditor();
+				if (textFieldEmpty()) {
+					errorMessage.setText("Cannot save if a field is empty.");
+				}
+				else if (noAnswerSelected()) {
+					errorMessage.setText("Cannot save if no correct answer is selected.");
+				}
+				else {
+					submitQuestion();
+					main.startEditor();
+				}
 				break;
 			default:
 				System.out.println("ERROR: No input case in EventHandler");
 			}
 		}
+	}
+	
+	private boolean textFieldEmpty() {
+		TextField[] fields = {questionText, hintText, answerA, answerB, answerC, answerD};
+		boolean emptyFound = false;
+		for (TextField f: fields) {
+			if (f.getText() == null || f.getText().trim().isEmpty()) {
+				emptyFound = true;
+				break;
+			}
+		}
+		return emptyFound;
+	}
+	
+	private boolean noAnswerSelected() {
+		RadioButton[] buttons = {A, B, C, D};
+		boolean selectedFound = false;
+		for (RadioButton b: buttons) {
+			if (b.isSelected()) {
+				selectedFound = true;
+				break;
+			}
+		}
+		return !selectedFound;
+	}
+	
+	private void submitQuestion() {
+		System.out.println("question not submitted- no implementation");
+		//TODO - link to JSONOperations (Mockito)
 	}
 }
