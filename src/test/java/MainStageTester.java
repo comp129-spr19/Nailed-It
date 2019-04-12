@@ -7,7 +7,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import Layouts.EditorScreenLayout;
 import javafx.scene.Scene;
 
-import static org.junit.Assert.;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
 import main.MainStage;
