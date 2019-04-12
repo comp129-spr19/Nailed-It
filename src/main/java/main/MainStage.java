@@ -2,12 +2,7 @@ package main;
 
 import java.util.ArrayList;
 
-import Layouts.CompletionScreenLayout;
-import Layouts.DiffScreenRowLayout;
-import Layouts.DifficultyScreenLayout;
-import Layouts.EditorScreenLayout;
-import Layouts.MainMenuScreenLayout;
-import Layouts.QuizScreenLayout;
+import Layouts.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
@@ -29,6 +24,7 @@ public class MainStage extends Application {
 	private CompletionScreenLayout completionScreenLayout;
 	private MainMenuScreenLayout mainMenuScreenLayout;
 	private EditorScreenLayout editorScreenLayout;
+	private QuestionEditorLayout questionEditorLayout;
 
 	private Stage stage;
 	private Scene scene;
@@ -137,5 +133,10 @@ public class MainStage extends Application {
 	public void startEditor() {
 		editorScreenLayout = new EditorScreenLayout(this);
 		scene.setRoot(editorScreenLayout);
+	}
+	
+	public void switchToQuestionEditor(Question question) {
+		questionEditorLayout = new QuestionEditorLayout(question, this);
+		scene.setRoot(questionEditorLayout);
 	}
 }
