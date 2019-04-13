@@ -7,6 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.*;
 import main.*;
+import JSON.JSONEditor;
 
 public class QuestionEditorLayout extends BorderPane implements EventHandler<ActionEvent> {
 	
@@ -58,15 +59,19 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 		correctAnswer = new ToggleGroup();
 		
 		A = new RadioButton("A");
+		A.setId("A");
 		A.setToggleGroup(correctAnswer);
 		
 		B = new RadioButton("B");
+		B.setId("B");
 		B.setToggleGroup(correctAnswer);
 		
 		C = new RadioButton("C");
+		C.setId("C");
 		C.setToggleGroup(correctAnswer);
 		
 		D = new RadioButton("D");
+		D.setId("D");
 		D.setToggleGroup(correctAnswer);
 		
 		switch(question.getCorrectAnswer()) {
@@ -137,8 +142,13 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 					errorMessage.setText("Cannot save if no correct answer is selected.");
 				}
 				else {
-					submitQuestion();
-					main.startEditor();
+					boolean didSubmit = submitQuestion();
+					if (didSubmit) {
+						main.startEditor();
+					}
+					else {
+						errorMessage.setText("Save failed.");
+					}
 				}
 				break;
 			default:
@@ -171,8 +181,20 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 		return !selectedFound;
 	}
 	
-	private void submitQuestion() {
-		System.out.println("question not submitted- no implementation");
-		//TODO - link to JSONOperations (Mockito)
+	private Answer findCorrectAnswer() {
+		RadioButton[] buttons = {A, B, C, D};
+		String answer = "";
+		for (RadioButton b: buttons) {
+			if (b.isSelected()) {
+				answer = b.getId();
+				break;
+			}
+		}
+		return AnswerConverter.stringToAnswer(answer);
+	}
+	
+	private boolean submitQuestion() {
+		Question update = new Question(questionText.getText(), answerA.getText(), answerB.getText(), answerC.getText(), answerD.getText(), hintText.getText(), findCorrectAnswer());
+		return JSONEditor.updateQuestion(update);
 	}
 }
