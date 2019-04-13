@@ -104,11 +104,24 @@ public class DifficultyScreenLayout extends VBox implements EventHandler<ActionE
 		for (DiffScreenRowLayout row : rows) {
 		boolean[] difficultySet = row.getDifficultySet();
 		// start at index 1, since indexes 1-3 represent difficulties
+		/*for (int i = 1; i < difficultySet.length; i++) {
+			if (difficultySet[i]) {
+				return true;
+			}
+		} */
+		if (checkDiffSet(difficultySet)) {
+			return true;
+		}
+		}
+		return false;
+	}
+
+	public static boolean checkDiffSet(boolean[] difficultySet) {
 		for (int i = 1; i < difficultySet.length; i++) {
 			if (difficultySet[i]) {
 				return true;
 			}
-		}
+		
 		}
 		return false;
 	}

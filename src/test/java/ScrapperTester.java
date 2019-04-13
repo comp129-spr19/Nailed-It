@@ -9,8 +9,7 @@ import org.junit.Test;
 import main.Answer;
 import main.Question;
 
-import org.powermock.*;
-import org.powermock.api.mockito.PowerMockito;
+
 
 import Scrapper.Scrapper;
 public class ScrapperTester {
