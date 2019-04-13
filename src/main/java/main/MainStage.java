@@ -124,6 +124,10 @@ public class MainStage extends Application {
 	public Stage getStage() {
 		return this.stage;
 	}
+	
+	public Scene getScene() {
+		return this.scene;
+	}
 
 	public void startQuiz() {
 		switchToDifficulty();
