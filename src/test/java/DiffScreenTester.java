@@ -25,6 +25,18 @@ public class DiffScreenTester {
 		assertEquals(true,DifficultyScreenLayout.checkDiffSet(x.getDifficultySet()));
 		
 	}
+	@Test 
+	public void testIfSsDifficultySelectedRtFalse() {
+		DiffScreenRowLayout x = mock(DiffScreenRowLayout.class);
+		
+		
+		boolean[] shouldReturnFalse = {true,false,false,false};
+		when(x.getDifficultySet()).thenReturn(shouldReturnFalse);
+		//MainStage main = new MainStage();
+		//DifficultyScreenLayout test = new DifficultyScreenLayout(main); 
+		assertEquals(false,DifficultyScreenLayout.checkDiffSet(x.getDifficultySet()));
+		
+	}
 
 	
 }
