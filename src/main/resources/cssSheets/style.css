@@ -1,29 +1,32 @@
+* {
+	-fx-font-size: 24.0;
+}
 
 #easy {
+  -fx-background-color: #63f601;  
+}
 
-  -fx-background-color: #63f601;
-  
-}#easy:hover {
+#easy:hover {
   -fx-background-color: #3d7a01;
 }
+
 #easy:selected {
   -fx-background-color: #3d7a01;
 }
 
 #medium {
-
    -fx-background-color: #ffff0f;
 }
 
 #medium:hover {
 	-fx-background-color:#e8e825
-}#medium:selected {
+}
+
+#medium:selected {
 	-fx-background-color:#e8e825
 }
 
-
 #hard {
-
    -fx-background-color: #ff0000;
 }
 
@@ -36,6 +39,6 @@
 }
 
 .my-special-button {
-    -fx-pref-height: 100px;
-    -fx-pref-width: 400px;
+    -fx-pref-height: 100.0px;
+    -fx-pref-width: 400.0px;
 }

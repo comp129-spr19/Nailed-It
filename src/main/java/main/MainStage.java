@@ -59,16 +59,6 @@ public class MainStage extends Application {
 
 		scene = new Scene(new StackPane(), SCREEN_HEIGHT, SCREEN_WIDTH);
 		scene.getStylesheets().add(STYLE_SOURCE);
-		
-		/*
-		 * // variable for application scaling Scale appScale = new Scale();
-		 * appScale.setX(1.5); appScale.setY(1.5); appScale.setPivotX(SCREEN_WIDTH / 2);
-		 * appScale.setPivotY(SCREEN_HEIGHT / 2);
-		 * 
-		 * // zoom in on window controls
-		 * scene.getRoot().getTransforms().setAll(appScale);
-		 */
-		
 		stage.setScene(scene);
 		// switchToDifficulty();
 		switchToMainMenu();
@@ -77,11 +67,7 @@ public class MainStage extends Application {
 
 	private void switchToMainMenu() {
 		mainMenuScreenLayout = new MainMenuScreenLayout(this);
-		 
-		Scale mainScale = scaleWindowControls();		
-		mainMenuScreenLayout.getTransforms().setAll(mainScale);
 		scene.setRoot(mainMenuScreenLayout);
-
 	}
 
 	public Scale scaleWindowControls() {
@@ -112,8 +98,6 @@ public class MainStage extends Application {
 	 */
 	public void switchToDifficulty() {
 		diffScreenLayout = new DifficultyScreenLayout(this);
-		Scale diffScale = scaleWindowControls();		
-		diffScreenLayout.getTransforms().setAll(diffScale);		
 		scene.setRoot(diffScreenLayout);
 	}
 
