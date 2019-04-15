@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -42,7 +43,7 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 		hbox.setPadding(new Insets(10));
 		hbox.setSpacing(8);
 
-		quit = new Button("Return to Menu");
+		quit = new Button("Quit");
 		quit.setId("quit");
 		quit.setOnAction(this);
 
@@ -72,6 +73,7 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 
 		Label questionText = new Label(question.getQuestion());
 		questionText.setWrapText(true);
+		questionText.setContentDisplay(ContentDisplay.CENTER);
 
 		hintText = new Text("");
 		correctAnswer = question.getCorrectAnswer();
@@ -199,7 +201,7 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 	 * Validates answer, then displays to user using responseText
 	 */
 	private void setResponse() {
-		String response = new String("Incorrect.");
+		String response = new String("Incorrect. Answer was: " + correctAnswer.toString());
 		if (selectedAnswer == correctAnswer) {
 			response = "Correct.";
 		}
