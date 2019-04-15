@@ -8,19 +8,23 @@ import org.junit.Test;
 
 public class JSONOperationsTester {
 	
-	@Test public void testJSONObjectIsNotNullGivenAValidPathname() {
+	@Test
+	public void testJSONObjectIsNotNullGivenAValidPathname() {
 		assertNotNull(JSONOperations.createJSONObject(Constants.FILENAME));
 	}
 	
-	@Test(expected = JSONException.class) public void testCreateJSONObjectThrowsExceptionWhenGivenAnInvalidPathname() {
+	@Test (expected = JSONException.class) 
+	public void testCreateJSONObjectThrowsExceptionWhenGivenAnInvalidPathname() {
 		JSONOperations.createJSONObject("filenotfound.json");
 	}
 	
-	@Test public void testQuestionArrayListSizeIsNotZeroWithValidCategoryAndDifficulty() {
+	@Test 
+	public void testQuestionArrayListSizeIsNotZeroWithValidCategoryAndDifficulty() {
 		assertTrue(JSONOperations.getQuestions("Algorithms", "hard").size() > 0);
 	}
 	
-	@Test(expected = JSONException.class) public void testGetQuestionsThrowsExceptionWithInvalidCategoryAndDifficulty() {
+	@Test (expected = JSONException.class) 
+	public void testGetQuestionsThrowsExceptionWithInvalidCategoryAndDifficulty() {
 		JSONOperations.getQuestions("Python", "extreme");
 	}
 }

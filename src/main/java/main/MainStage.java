@@ -6,6 +6,7 @@ import Layouts.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
+import javafx.scene.transform.Scale;
 import javafx.stage.Stage;
 
 /*
@@ -18,6 +19,7 @@ public class MainStage extends Application {
 	public static final String APPLICATION_NAME = "Nailed It"; // TODO: rename the window later
 	public static final int SCREEN_HEIGHT = 600;
 	public static final int SCREEN_WIDTH = 600;
+	public static final double SCALE_FACTOR = 2;
 
 	// layouts for different screens throughout application
 	private DifficultyScreenLayout diffScreenLayout;
@@ -66,7 +68,16 @@ public class MainStage extends Application {
 	private void switchToMainMenu() {
 		mainMenuScreenLayout = new MainMenuScreenLayout(this);
 		scene.setRoot(mainMenuScreenLayout);
+	}
 
+	public Scale scaleWindowControls() {
+		Scale scale = new Scale();		
+		scale.setX(SCALE_FACTOR); 
+		scale.setY(SCALE_FACTOR); 
+		scale.setPivotX(SCREEN_WIDTH / 2);
+		scale.setPivotY(SCREEN_HEIGHT / 2);
+		
+		return scale;
 	}
 
 	// TODO: outsource to another file
