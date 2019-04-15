@@ -2,10 +2,17 @@ package main;
 
 // class that represents a question
 public class Question {
-	private String question, answerA, answerB, answerC, answerD, hint;
+	private String name, question, answerA, answerB, answerC, answerD, hint;
 	private Answer correctAnswer;
+	
 	public Question(String question,String answerA, String answerB, String answerC, 
+	 		String answerD, String hint,Answer answer) {
+		this("", question, answerA, answerB, answerC, answerD, hint, answer);
+	}
+	
+	public Question(String name, String question,String answerA, String answerB, String answerC, 
 			 		String answerD, String hint,Answer answer) {
+		this.name = name;
 		this.question = question;
 		
 		this.answerA = answerA;
@@ -67,5 +74,12 @@ public class Question {
 		  "\nhint: " + getHint() + "\nCorrect answ: " +  getCorrectAnswer().toString());
 		  
 		
+	}
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 }

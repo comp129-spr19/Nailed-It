@@ -139,8 +139,8 @@ public class MainStage extends Application {
 		scene.setRoot(editorScreenLayout);
 	}
 	
-	public void switchToQuestionEditor(Question question) {
-		questionEditorLayout = new QuestionEditorLayout(question, this);
+	public void switchToQuestionEditor(String category, String difficulty, Question question) {
+		questionEditorLayout = new QuestionEditorLayout(category, difficulty, question, this);
 		scene.setRoot(questionEditorLayout);
 	}
 }

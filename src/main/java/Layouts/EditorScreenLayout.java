@@ -37,7 +37,9 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 				String ID = button.getId();
 				ID = ID.substring(0, ID.length() - 4);
 				int toEdit = Integer.parseInt(ID);
-				main.switchToQuestionEditor(questions.get(toEdit));
+				String categoryStr = (String) category.getValue();
+				String diffStr = (String) difficulty.getValue();
+				main.switchToQuestionEditor(categoryStr, diffStr, questions.get(toEdit));
 			}
 		}
 		

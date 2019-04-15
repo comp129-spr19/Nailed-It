@@ -12,6 +12,7 @@ import JSON.JSONEditor;
 public class QuestionEditorLayout extends BorderPane implements EventHandler<ActionEvent> {
 	
 	MainStage main;
+	private String category, difficulty, questionName;
 	
 	private TextField questionText, hintText, answerA, answerB, answerC, answerD;
 	private Text errorMessage, answerLabel;
@@ -19,9 +20,12 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 	private ToggleGroup correctAnswer;
 	private Button submit, quit;
 	
-	public QuestionEditorLayout(Question question, MainStage main) {
+	public QuestionEditorLayout(String category, String difficulty, Question question, MainStage main) {
 		super();
 		this.main = main;
+		this.category = category;
+		this.difficulty = difficulty;
+		this.questionName = question.getName();
 
 		GridPane answerSelection = setMultipleChoiceOptions(question);
 		this.setBottom(answerSelection);
@@ -194,7 +198,7 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 	}
 	
 	private boolean submitQuestion() {
-		Question update = new Question(questionText.getText(), answerA.getText(), answerB.getText(), answerC.getText(), answerD.getText(), hintText.getText(), findCorrectAnswer());
-		return JSONEditor.updateQuestion(update);
+		Question update = new Question(questionName, questionText.getText(), answerA.getText(), answerB.getText(), answerC.getText(), answerD.getText(), hintText.getText(), findCorrectAnswer());
+		return JSONEditor.updateQuestion(category, difficulty, update);
 	}
 }
