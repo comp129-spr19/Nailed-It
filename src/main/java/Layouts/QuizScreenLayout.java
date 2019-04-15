@@ -16,6 +16,7 @@ import main.MainStage;
 import main.Question;
 
 public class QuizScreenLayout extends BorderPane implements EventHandler<ActionEvent> {
+	public static final int MAX_ATTEMPTS = 2;
 
 	MainStage main;
 
@@ -24,10 +25,14 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 	private Button next, skip, quit, hint;
 	private Answer correctAnswer, selectedAnswer;
 	private String hintString;
+	private int numAttempts;
+	private boolean complete;
 
 	public QuizScreenLayout(Question question, MainStage main) {
 		super();
 		this.main = main;
+		numAttempts = 0;
+		complete = false;
 
 		GridPane answerSelection = setMultipleChoiceOptions(question);
 		this.setBottom(answerSelection);
@@ -170,10 +175,14 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 	 * 
 	 */
 	private void handleSelection() {
+		numAttempts++;
+		complete = (selectedAnswer == correctAnswer) || (numAttempts >= MAX_ATTEMPTS);
 		setResponse();
-		next.setDisable(false);
-		skip.setDisable(true);
-		disableAnswers();
+		if (complete) {
+			next.setDisable(false);
+			skip.setDisable(true);
+			disableAnswers();
+		}
 	}
 
 	/*
