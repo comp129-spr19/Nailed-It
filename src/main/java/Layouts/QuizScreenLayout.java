@@ -192,7 +192,7 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 	 * Validates answer, then displays to user using responseText
 	 */
 	private void setResponse() {
-		String response = new String("Incorrect.");
+		String response = new String("Incorrect. Answer was: " + correctAnswer.toString());
 		if (selectedAnswer == correctAnswer) {
 			response = "Correct.";
 		}
