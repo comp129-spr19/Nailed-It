@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.HBox;
 import main.MainStage;
@@ -12,38 +13,36 @@ public class DiffScreenRowLayout extends HBox implements EventHandler<ActionEven
 
 	MainStage main;
 
-	private ToggleButton easy, medium, hard, category;
+	private ToggleButton easy, medium, hard;
+	private Label category;
 	private Button next;
 	private String categoryName;
-	
+
 	public DiffScreenRowLayout(String categoryName) {
 		super();
 		this.categoryName = categoryName;
-		
-		category = new ToggleButton(categoryName);
+		this.setSpacing(15);
+
+		category = new Label(categoryName);
 		category.setId("category");
-		category.setOnAction(this);
-		
-		easy = new ToggleButton("EASY");
+		category.setMinWidth(200);
+
+		easy = new ToggleButton("Easy");
 		easy.setId("easy");
 		easy.setOnAction(this);
-		easy.setDisable(true);
 
-		medium = new ToggleButton("MEDIUM");
+		medium = new ToggleButton("Medium");
 		medium.setId("medium");
 		medium.setOnAction(this);
-		medium.setDisable(true);
 
-		hard = new ToggleButton("HARD");
+		hard = new ToggleButton("Hard");
 		hard.setId("hard");
 		hard.setOnAction(this);
-		hard.setDisable(true);
-	
 
-		this.getChildren().addAll(category,easy, medium, hard);
+		this.getChildren().addAll(category, easy, medium, hard);
 
 		this.setAlignment(Pos.CENTER);
-		//this.setSpacing(50);
+		// this.setSpacing(50);
 
 	}
 
@@ -54,36 +53,9 @@ public class DiffScreenRowLayout extends HBox implements EventHandler<ActionEven
 	 */
 	@Override
 	public void handle(ActionEvent e) {
-		 if (e.getSource() instanceof ToggleButton) {
+		if (e.getSource() instanceof ToggleButton) {
 			ToggleButton clicked = (ToggleButton) e.getSource();
-			if (clicked.getId().equals("category")) {
-				if (clicked.isSelected()) {
-				enableDiffButtons();
-				} else {
-					disableDiffButtons();
-				}
-			}
-
 		}
-	}
-	
-	// enable difficulty buttons
-	public void enableDiffButtons() {
-		easy.setDisable(false);
-		medium.setDisable(false);
-		hard.setDisable(false);
-	}
-	
-	// disable difficulty buttons and deselct them
-	public void disableDiffButtons() {
-		easy.setSelected(false);
-		easy.setDisable(true);
-		
-		medium.setSelected(false);
-		medium.setDisable(true);
-		
-		hard.setSelected(false);
-		hard.setDisable(true);
 	}
 
 	// TODO: Determine if this method is usable
@@ -109,12 +81,11 @@ public class DiffScreenRowLayout extends HBox implements EventHandler<ActionEven
 	 * status
 	 */
 	public boolean[] getDifficultySet() {
-		return new boolean[] { category.isSelected(),easy.isSelected(), medium.isSelected(), hard.isSelected() };
+		return new boolean[] { easy.isSelected(), medium.isSelected(), hard.isSelected() };
 	}
 
 	public String getCategory() {
 		return categoryName;
 	}
-
 
 }

@@ -1,8 +1,8 @@
 package Layouts;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import JSON.JSONOperations;
@@ -11,7 +11,6 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import main.Constants;
@@ -19,35 +18,35 @@ import main.MainStage;
 
 public class DifficultyScreenLayout extends VBox implements EventHandler<ActionEvent> {
 
-	
 	MainStage main;
 
 	private ArrayList<DiffScreenRowLayout> rows;
 	private Button next;
 	private Text invalidSelectionText;
-	
+
 	public DifficultyScreenLayout(MainStage main) {
 		super();
 		this.main = main;
+
 		generateRows();
-		
-		
-		next = new Button("CONTINUE");
+
+		next = new Button("Start Quiz");
 		next.setId("next");
-		//next.setDisable(true);
+		// next.setDisable(true);
 		next.setOnAction(this);
-		
+		next.setAlignment(Pos.BOTTOM_CENTER);
+
 		invalidSelectionText = new Text("");
-		this.getChildren().addAll(next,invalidSelectionText);
-		
+
+		this.getChildren().addAll(next, invalidSelectionText);
+
 		this.setSpacing(10);
 		this.setAlignment(Pos.CENTER);
-		
 
 	}
-	
-	// populate array list and rows for this screen. 
-	public void generateRows(){
+
+	// populate array list and rows for this screen.
+	public void generateRows() {
 		JSONObject file = JSONOperations.createJSONObject(Constants.FILENAME);
 		Iterator<String> iterator = file.keys();
 		rows = new ArrayList<DiffScreenRowLayout>();
@@ -58,15 +57,12 @@ public class DifficultyScreenLayout extends VBox implements EventHandler<ActionE
 		}
 	}
 
-	
-	
-
 	/*
 	 * Adjust application behavior off of user input
 	 * 
 	 * @param e User input
 	 */
-	
+
 	@Override
 	public void handle(ActionEvent e) {
 		System.out.println(e.getSource().toString());
@@ -74,7 +70,7 @@ public class DifficultyScreenLayout extends VBox implements EventHandler<ActionE
 			Button clicked = (Button) e.getSource();
 			switch (clicked.getId()) {
 			case "next":
-				
+
 				// create QuizHandler Object
 				if (isDifficultySelected()) {
 					main.genQuestions(rows);
@@ -92,8 +88,8 @@ public class DifficultyScreenLayout extends VBox implements EventHandler<ActionE
 				next.setDisable(true);
 			}
 		}
-	} 
-	
+	}
+
 	/*
 	 * Determines whether a difficulty button is selected
 	 * 
@@ -102,36 +98,33 @@ public class DifficultyScreenLayout extends VBox implements EventHandler<ActionE
 	 */
 	public boolean isDifficultySelected() {
 		for (DiffScreenRowLayout row : rows) {
-		boolean[] difficultySet = row.getDifficultySet();
-		// start at index 1, since indexes 1-3 represent difficulties
-		/*for (int i = 1; i < difficultySet.length; i++) {
-			if (difficultySet[i]) {
+			boolean[] difficultySet = row.getDifficultySet();
+			// start at index 1, since indexes 1-3 represent difficulties
+			/*
+			 * for (int i = 1; i < difficultySet.length; i++) { if (difficultySet[i]) {
+			 * return true; } }
+			 */
+			if (checkDiffSet(difficultySet)) {
 				return true;
 			}
-		} */
-		if (checkDiffSet(difficultySet)) {
-			return true;
-		}
 		}
 		return false;
 	}
 
 	public static boolean checkDiffSet(boolean[] difficultySet) {
-		for (int i = 1; i < difficultySet.length; i++) {
+		for (int i = 0; i < difficultySet.length; i++) {
 			if (difficultySet[i]) {
 				return true;
 			}
-		
+
 		}
 		return false;
 	}
 
 	public void displayNoSelectionMsg() {
-		//Text txt = new Text();
+		// Text txt = new Text();
 		invalidSelectionText.setText("No difficulty selected, cannot proceed");
-		//this.getChildren().add(txt);
+		// this.getChildren().add(txt);
 	}
-
-	
 
 }
