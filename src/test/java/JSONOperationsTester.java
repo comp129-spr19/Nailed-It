@@ -1,15 +1,16 @@
 import static org.junit.Assert.*;
 
 import JSON.JSONOperations;
+import main.Constants;
 
 import org.json.JSONException;
 import org.junit.Test;
 
 public class JSONOperationsTester {
 	
-	@Test 
+	@Test
 	public void testJSONObjectIsNotNullGivenAValidPathname() {
-		assertNotNull(JSONOperations.createJSONObject("Project2.json"));
+		assertNotNull(JSONOperations.createJSONObject(Constants.FILENAME));
 	}
 	
 	@Test (expected = JSONException.class) 
