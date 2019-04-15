@@ -52,12 +52,13 @@ public class JSONOperations {
 		//}
 		ArrayList<Question> questions = new ArrayList<Question>();
 		
-		JSONObject file = createJSONObject("Project2.json");
+		JSONObject file = createJSONObject(Constants.FILENAME);
 		JSONObject category =  file.getJSONObject(qCategory);
 		JSONObject difficulty =  category.getJSONObject(qDifficulty);
 		
 		for (int i = 0; i < difficulty.length(); i++) {
-			JSONObject currentQuestion = difficulty.getJSONObject("q"+ (i+1));
+			String name = "q" + (i+1);
+			JSONObject currentQuestion = difficulty.getJSONObject(name);
 			
 			String questionDescription = currentQuestion.getString("question");
 			String answerA = currentQuestion.getString("answer_a");
@@ -67,7 +68,7 @@ public class JSONOperations {
 			String hint = currentQuestion.getString("hint");
 			Answer correctAnswer = AnswerConverter.stringToAnswer(currentQuestion.getString("correct_answer"));
 			
-			questions.add(new Question(questionDescription,answerA,answerB,answerC,
+			questions.add(new Question(name, questionDescription,answerA,answerB,answerC,
 										answerD,hint, correctAnswer));
 			
 			
@@ -122,7 +123,7 @@ public class JSONOperations {
 	} */
 	
 	public static void main(String args[]) {
-		JSONObject obj = createJSONObject("Project2.json");
+		JSONObject obj = createJSONObject(Constants.FILENAME);
 		System.out.println(obj.length());
 		ArrayList<Question> questions = getQuestions("Algorithms","medium");
 		for (Question question : questions) {
