@@ -99,18 +99,22 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 			switch (clicked.getId()) {
 			case "A":
 				selectedAnswer = Answer.ANSWER_A;
+				answerA.setDisable(true);
 				handleSelection();
 				break;
 			case "B":
 				selectedAnswer = Answer.ANSWER_B;
+				answerB.setDisable(true);
 				handleSelection();
 				break;
 			case "C":
 				selectedAnswer = Answer.ANSWER_C;
+				answerC.setDisable(true);
 				handleSelection();
 				break;
 			case "D":
 				selectedAnswer = Answer.ANSWER_D;
+				answerD.setDisable(true);
 				handleSelection();
 				break;
 			case "next":
@@ -201,7 +205,10 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 	 * Validates answer, then displays to user using responseText
 	 */
 	private void setResponse() {
-		String response = new String("Incorrect. Answer was: " + correctAnswer.toString());
+		String response = new String("Incorrect.");
+		if (complete) {
+			response += " Answer was: " + correctAnswer.toString();
+		}
 		if (selectedAnswer == correctAnswer) {
 			response = "Correct.";
 		}
