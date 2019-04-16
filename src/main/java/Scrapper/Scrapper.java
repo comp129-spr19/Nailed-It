@@ -37,13 +37,17 @@ public class Scrapper {
 		HtmlPage page;
 		try {
 			page = client.getPage(url);
+			int numQuestions = getNumQuestions(url);
+	
 			questions = new ArrayList<Question>();
-			for (int i = 0; i < MAX_QUESTIONS_PER_PAGE; i++) {
+			for (int i = 0; i < numQuestions; i++) {
 				String answers[] = new String[4];
 				Answer validAnswer = null;
 				String question = page
 						.getHtmlElementById(QUESTION_QUERY_FIRST_HALF + (i + 1) + QUESTION_QUERY_SECOND_HALF).asText();
+				int numAnswers = getNumAnswers((i+1),url);
 				for (int j = 0; j < MAX_ANSWERS_PER_PAGE; j++) {
+					if (j < numAnswers) {
 					answers[j] = page
 							.getHtmlElementById(
 									ANSWER_QUERY_FIRST_HALF + (i + 1) + "-" + (j + 1) + ANSWER_QUERY_SECOND_HALF)
@@ -54,6 +58,9 @@ public class Scrapper {
 							.toString();
 					if (checkCorrectAnswer(correctAnswerQuery, j) != null && validAnswer == null) {
 						validAnswer = checkCorrectAnswer(correctAnswerQuery, j);
+					}
+					} else {
+						answers[j] = "N/A";
 					}
 
 				}
@@ -97,14 +104,14 @@ public class Scrapper {
 	}
 
 	
-	private static int getNumQuestions() {
+	private static int getNumQuestions(String url) {
 		HtmlPage page;
 		WebClient client = new WebClient();
 		client.getOptions().setCssEnabled(false);
 		client.getOptions().setJavaScriptEnabled(false);
 		int numQuestions = 0;
 		try {
-			page = client.getPage(baseUrl);
+			page = client.getPage(url);
 			//int i = 0;
 			
 			while (page.getElementById(QUESTION_QUERY_FIRST_HALF + (numQuestions+1) +QUESTION_QUERY_SECOND_HALF) != null) {
@@ -118,7 +125,7 @@ public class Scrapper {
 		return numQuestions;
 	}
 	
-	private static int getNumAnswers(int questionNumber) {
+	private static int getNumAnswers(int questionNumber, String url) {
 		HtmlPage page;
 		WebClient client = new WebClient();
 		client.getOptions().setCssEnabled(false);
@@ -126,7 +133,7 @@ public class Scrapper {
 		int numAnswers = 0;
 		
 		try {
-			page = client.getPage(baseUrl);
+			page = client.getPage(url);
 			//int i = 0;
 			
 			while (page.getElementById(ANSWER_QUERY_FIRST_HALF + (questionNumber) + "-" + (numAnswers+1) + ANSWER_QUERY_SECOND_HALF) != null) {
@@ -142,7 +149,7 @@ public class Scrapper {
 	public static void main(String args[]) {
 
 		ArrayList<Question> q = getQuestions(baseUrl);
-		System.out.println(getNumAnswers(1));
+		//System.out.println(getNumAnswers(1));
 		for (Question x : q) {
 			//System.out.println(x.toString());
 		} 
