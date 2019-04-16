@@ -68,7 +68,7 @@ public class Scrapper {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		client.close();
 		return questions;
 	}
 
@@ -96,12 +96,59 @@ public class Scrapper {
 		return rtAnswer;
 	}
 
+	
+	private static int getNumQuestions() {
+		HtmlPage page;
+		WebClient client = new WebClient();
+		client.getOptions().setCssEnabled(false);
+		client.getOptions().setJavaScriptEnabled(false);
+		int numQuestions = 0;
+		try {
+			page = client.getPage(baseUrl);
+			//int i = 0;
+			
+			while (page.getElementById(QUESTION_QUERY_FIRST_HALF + (numQuestions+1) +QUESTION_QUERY_SECOND_HALF) != null) {
+				
+				numQuestions++;
+			}
+		} catch (FailingHttpStatusCodeException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return numQuestions;
+	}
+	
+	private static int getNumAnswers(int questionNumber) {
+		HtmlPage page;
+		WebClient client = new WebClient();
+		client.getOptions().setCssEnabled(false);
+		client.getOptions().setJavaScriptEnabled(false);
+		int numAnswers = 0;
+		
+		try {
+			page = client.getPage(baseUrl);
+			//int i = 0;
+			
+			while (page.getElementById(ANSWER_QUERY_FIRST_HALF + (questionNumber) + "-" + (numAnswers+1) + ANSWER_QUERY_SECOND_HALF) != null) {
+				
+				numAnswers++;
+			}
+		} catch (FailingHttpStatusCodeException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return numAnswers;
+	}
 	public static void main(String args[]) {
 
 		ArrayList<Question> q = getQuestions(baseUrl);
-
+		System.out.println(getNumAnswers(1));
 		for (Question x : q) {
-			System.out.println(x.toString());
-		}
+			//System.out.println(x.toString());
+		} 
+		
+		
+	
+		
 	}
 }
