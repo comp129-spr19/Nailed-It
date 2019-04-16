@@ -160,9 +160,10 @@ public class Scrapper {
 
 		ArrayList<Question> q = getQuestions("https://www.geeksforgeeks.org/algorithms-gq/graph-shortest-paths-gq/");
 		//System.out.println(getNumAnswers(1));
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/algorithms-gq/analysis-of-algorithms-gq/"));
+		
 		for (Question x : q) {
 			System.out.println(x.toString());
-			
 		} 
 		OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("result.json"), q);
 	}
