@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -16,6 +17,7 @@ import main.MainStage;
 import main.Question;
 
 public class QuizScreenLayout extends BorderPane implements EventHandler<ActionEvent> {
+	public static final int MAX_ATTEMPTS = 2;
 
 	MainStage main;
 
@@ -24,10 +26,14 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 	private Button next, skip, quit, hint;
 	private Answer correctAnswer, selectedAnswer;
 	private String hintString;
+	private int numAttempts;
+	private boolean complete;
 
 	public QuizScreenLayout(Question question, MainStage main) {
 		super();
 		this.main = main;
+		numAttempts = 0;
+		complete = false;
 
 		GridPane answerSelection = setMultipleChoiceOptions(question);
 		this.setBottom(answerSelection);
@@ -37,7 +43,7 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 		hbox.setPadding(new Insets(10));
 		hbox.setSpacing(8);
 
-		quit = new Button("Return to Menu");
+		quit = new Button("Quit");
 		quit.setId("quit");
 		quit.setOnAction(this);
 
@@ -67,6 +73,7 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 
 		Label questionText = new Label(question.getQuestion());
 		questionText.setWrapText(true);
+		questionText.setContentDisplay(ContentDisplay.CENTER);
 
 		hintText = new Text("");
 		correctAnswer = question.getCorrectAnswer();
@@ -92,18 +99,22 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 			switch (clicked.getId()) {
 			case "A":
 				selectedAnswer = Answer.ANSWER_A;
+				answerA.setDisable(true);
 				handleSelection();
 				break;
 			case "B":
 				selectedAnswer = Answer.ANSWER_B;
+				answerB.setDisable(true);
 				handleSelection();
 				break;
 			case "C":
 				selectedAnswer = Answer.ANSWER_C;
+				answerC.setDisable(true);
 				handleSelection();
 				break;
 			case "D":
 				selectedAnswer = Answer.ANSWER_D;
+				answerD.setDisable(true);
 				handleSelection();
 				break;
 			case "next":
@@ -170,10 +181,14 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 	 * 
 	 */
 	private void handleSelection() {
+		numAttempts++;
+		complete = (selectedAnswer == correctAnswer) || (numAttempts >= MAX_ATTEMPTS);
 		setResponse();
-		next.setDisable(false);
-		skip.setDisable(true);
-		disableAnswers();
+		if (complete) {
+			next.setDisable(false);
+			skip.setDisable(true);
+			disableAnswers();
+		}
 	}
 
 	/*
@@ -191,6 +206,9 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 	 */
 	private void setResponse() {
 		String response = new String("Incorrect.");
+		if (complete) {
+			response += " Answer was: " + correctAnswer.toString();
+		}
 		if (selectedAnswer == correctAnswer) {
 			response = "Correct.";
 		}
