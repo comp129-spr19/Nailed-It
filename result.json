@@ -1,0 +1,91 @@
+[ {
+  "name" : "",
+  "question" : "Consider the directed graph shown in the figure below. There are multiple shortest paths between vertices S and T. Which one will be reported by Dijstra?s shortest path algorithm? Assume that, in any iteration, the shortest path to a vertex v is updated only when a strictly shorter path to v is discovered.",
+  "answerA" : "SDT",
+  "answerB" : "SBDT",
+  "answerC" : "SACDT",
+  "answerD" : "SACET",
+  "hint" : "NO HINTS WITH GEEKSFORGEEKS",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "name" : "",
+  "question" : "To implement Dijkstra’s shortest path algorithm on unweighted graphs so that it runs in linear time, the data structure to be used is:",
+  "answerA" : "Queue",
+  "answerB" : "Stack",
+  "answerC" : "Heap",
+  "answerD" : "B-Tree",
+  "hint" : "NO HINTS WITH GEEKSFORGEEKS",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "name" : "",
+  "question" : "Dijkstra’s single source shortest path algorithm when run from vertex a in the below graph, computes the correct shortest path distance to",
+  "answerA" : "only vertex a",
+  "answerB" : "only vertices a, e, f, g, h",
+  "answerC" : "only vertices a, b, c, d",
+  "answerD" : "all the vertices",
+  "hint" : "NO HINTS WITH GEEKSFORGEEKS",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "name" : "",
+  "question" : "In an unweighted, undirected connected graph, the shortest path from a node S to every other node is computed most efficiently, in terms of time complexity by",
+  "answerA" : "Dijkstra’s algorithm starting from S.",
+  "answerB" : "Warshall’s algorithm",
+  "answerC" : "Performing a DFS starting from S.",
+  "answerD" : "Performing a BFS starting from S.",
+  "hint" : "NO HINTS WITH GEEKSFORGEEKS",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "name" : "",
+  "question" : "Suppose we run Dijkstra’s single source shortest-path algorithm on the following edge weighted directed graph with vertex P as the source. In what order do the nodes get included into the set of vertices for which the shortest path distances are finalized? (GATE CS 2004)",
+  "answerA" : "P, Q, R, S, T, U",
+  "answerB" : "P, Q, R, U, S, T",
+  "answerC" : "P, Q, R, U, T, S",
+  "answerD" : "P, Q, T, R, U, S",
+  "hint" : "NO HINTS WITH GEEKSFORGEEKS",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "name" : "",
+  "question" : "What is the time complexity of Bellman-Ford single-source shortest path algorithm on a complete graph of n vertices?",
+  "answerA" : "[Tex]\\Theta(n^2)[/Tex]",
+  "answerB" : "[Tex]\\Theta(n^2 Logn)[/Tex]",
+  "answerC" : "[Tex]\\Theta(n^3)[/Tex]",
+  "answerD" : "[Tex]\\Theta(n^3 Logn)[/Tex]",
+  "hint" : "NO HINTS WITH GEEKSFORGEEKS",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "name" : "",
+  "question" : "In a weighted graph, assume that the shortest path from a source 's' to a destination 't' is correctly calculated using a shortest path algorithm. Is the following statement true? If we increase weight of every edge by 1, the shortest path always remains same.",
+  "answerA" : "Yes",
+  "answerB" : "No",
+  "answerC" : "N/A",
+  "answerD" : "N/A",
+  "hint" : "NO HINTS WITH GEEKSFORGEEKS",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "name" : "",
+  "question" : "Following statement is true or false?\n\nIf we make following changes to  Dijkstra, then it can be used to find \nthe longest simple path, assume that the graph is acyclic.\n\n1) Initialize all distances as minus infinite instead of plus infinite.\n\n2) Modify the relax condition in  Dijkstra's algorithm to update distance\n  of an adjacent v of the currently considered vertex u only\n  if \"dist[u]+graph[u][v] > dist[v]\". In shortest path algo, \n  the sign is opposite. ",
+  "answerA" : "True",
+  "answerB" : "False",
+  "answerC" : "N/A",
+  "answerD" : "N/A",
+  "hint" : "NO HINTS WITH GEEKSFORGEEKS",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "name" : "",
+  "question" : "Which of the following algorithm can be used to efficiently calculate single source shortest paths in a Directed Acyclic Graph?",
+  "answerA" : "Dijkstra",
+  "answerB" : "Bellman-Ford",
+  "answerC" : "Topological Sort",
+  "answerD" : "Strongly Connected Component",
+  "hint" : "NO HINTS WITH GEEKSFORGEEKS",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "name" : "",
+  "question" : "Given a directed graph where weight of every edge is same, we can efficiently find shortest path from a given source to destination using?",
+  "answerA" : "Breadth First Traversal",
+  "answerB" : "Dijkstra's Shortest Path Algorithm",
+  "answerC" : "Neither Breadth First Traversal nor Dijkstra's algorithm can be used",
+  "answerD" : "Depth First Search",
+  "hint" : "NO HINTS WITH GEEKSFORGEEKS",
+  "correctAnswer" : "ANSWER_A"
+} ]

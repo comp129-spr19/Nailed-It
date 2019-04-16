@@ -5,9 +5,16 @@ import com.gargoylesoftware.htmlunit.Page;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import main.*;
+
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gargoylesoftware.*;
 
 public class Scrapper {
@@ -26,6 +33,9 @@ public class Scrapper {
 	// mtq_marker-9-1-1
 	private static final String COR_ANSW_FIRST_HALF = "mtq_marker-";
 	private static final String COR_ANSW_SECOND_HALF = "-1";
+	
+	private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+
 
 	public static ArrayList<Question> getQuestions(String url) {
 
@@ -146,16 +156,14 @@ public class Scrapper {
 		}
 		return numAnswers;
 	}
-	public static void main(String args[]) {
+	public static void main(String args[]) throws JsonGenerationException, JsonMappingException, IOException {
 
 		ArrayList<Question> q = getQuestions("https://www.geeksforgeeks.org/algorithms-gq/graph-shortest-paths-gq/");
 		//System.out.println(getNumAnswers(1));
 		for (Question x : q) {
 			System.out.println(x.toString());
+			
 		} 
-		
-		
-	
-		
+		OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("result.json"), q);
 	}
 }

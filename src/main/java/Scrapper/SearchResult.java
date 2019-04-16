@@ -1,31 +1,33 @@
 package Scrapper;
 
+import java.util.List;
+
 public class SearchResult {
-	
-	private final String title;
-	
-	private final String url;
 
+	private final String question;
 	
-	public SearchResult(String title, String url) {
-		this.title = title;
-		this.url = url;
-	}
-	
-	public String getTitle() {
-		return title;
+	private final List<String> answer;
+
+	public SearchResult(String question, List<String> answer2) {
+		super();
+		this.question = question;
+		this.answer = answer2;
 	}
 
-	public String getUrl() {
-		return url;
+	public String getQuestion() {
+		return question;
+	}
+
+	public List<String> getAnswer() {
+		return answer;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((title == null) ? 0 : title.hashCode());
-		result = prime * result + ((url == null) ? 0 : url.hashCode());
+		result = prime * result + ((answer == null) ? 0 : answer.hashCode());
+		result = prime * result + ((question == null) ? 0 : question.hashCode());
 		return result;
 	}
 
@@ -38,24 +40,23 @@ public class SearchResult {
 		if (getClass() != obj.getClass())
 			return false;
 		SearchResult other = (SearchResult) obj;
-		if (title == null) {
-			if (other.title != null)
+		if (answer == null) {
+			if (other.answer != null)
 				return false;
-		} else if (!title.equals(other.title))
+		} else if (!answer.equals(other.answer))
 			return false;
-		if (url == null) {
-			if (other.url != null)
+		if (question == null) {
+			if (other.question != null)
 				return false;
-		} else if (!url.equals(other.url))
+		} else if (!question.equals(other.question))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "SearchResult [title=" + title + ", url=" + url + "]";
+		return "SearchResult [question=" + question + ", answer=" + answer + "]";
 	}
-
 
 	
 }
