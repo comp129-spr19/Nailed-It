@@ -148,10 +148,10 @@ public class Scrapper {
 	}
 	public static void main(String args[]) {
 
-		ArrayList<Question> q = getQuestions(baseUrl);
+		ArrayList<Question> q = getQuestions("https://www.geeksforgeeks.org/algorithms-gq/graph-shortest-paths-gq/");
 		//System.out.println(getNumAnswers(1));
 		for (Question x : q) {
-			//System.out.println(x.toString());
+			System.out.println(x.toString());
 		} 
 		
 		

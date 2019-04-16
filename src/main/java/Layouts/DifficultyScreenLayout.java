@@ -55,6 +55,10 @@ public class DifficultyScreenLayout extends VBox implements EventHandler<ActionE
 			rows.add(row);
 			this.getChildren().add(row);
 		}
+		
+		DiffScreenWebRow geeksForGeeksRow = new DiffScreenWebRow("GEEKSFORGEEKS");
+		rows.add(geeksForGeeksRow);
+		this.getChildren().add(geeksForGeeksRow);
 	}
 
 	/*
@@ -112,7 +116,7 @@ public class DifficultyScreenLayout extends VBox implements EventHandler<ActionE
 	}
 
 	public static boolean checkDiffSet(boolean[] difficultySet) {
-		for (int i = 1; i < difficultySet.length; i++) {
+		for (int i = 0; i < difficultySet.length; i++) {
 			if (difficultySet[i]) {
 				return true;
 			}

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import JSON.JSONOperations;
 import Layouts.DiffScreenRowLayout;
 import Layouts.QuizScreenLayout;
+import Scrapper.Scrapper;
 
 /*
  * This class will be in charge of generating questions
@@ -20,11 +21,41 @@ public class GenerateQuestionScreens {
 		ArrayList<QuizScreenLayout> questionScreens = new ArrayList<QuizScreenLayout>();
 
 		for (DiffScreenRowLayout row : rows) {
-			addQuestions(row, questionScreens, main);
+			if (row.checkIfWebRow()) {
+				addWebQuestions(row,questionScreens,main);
+			} else {
+				
+				addQuestions(row, questionScreens, main);
+			}
 		}
 
 		return questionScreens;
 
+	}
+
+	// add web questions
+	private static void addWebQuestions(DiffScreenRowLayout row, ArrayList<QuizScreenLayout> questionScreens,
+			MainStage main) {
+		boolean[] set = row.getDifficultySet();
+		
+		if (set[0]) {
+			ArrayList<Question> questions = Scrapper.getQuestions("https://www.geeksforgeeks.org/algorithms-gq/graph-shortest-paths-gq/");
+			ArrayList<QuizScreenLayout> graphScreens = convertQuestionToScreens(questions, main);
+			questionScreens.addAll(graphScreens);
+		}
+		
+		if (set[1]) {
+			ArrayList<Question> questions = Scrapper.getQuestions("https://www.geeksforgeeks.org/algorithms-gq/analysis-of-algorithms-gq/");
+			ArrayList<QuizScreenLayout> algScreens = convertQuestionToScreens(questions, main);
+			questionScreens.addAll(algScreens);
+		}
+		
+		if (set[2]) {
+			ArrayList<Question> questions = Scrapper.getQuestions("https://www.geeksforgeeks.org/algorithms-gq/searching-and-sorting-gq/");
+			ArrayList<QuizScreenLayout> sortingScreens = convertQuestionToScreens(questions, main);
+			questionScreens.addAll(sortingScreens);
+		}
+		
 	}
 
 	private static void addQuestions(DiffScreenRowLayout row, ArrayList<QuizScreenLayout> questionScreens,

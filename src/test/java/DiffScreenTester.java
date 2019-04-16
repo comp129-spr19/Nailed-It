@@ -18,7 +18,7 @@ public class DiffScreenTester {
 		DiffScreenRowLayout x = mock(DiffScreenRowLayout.class);
 		
 		
-		boolean[] shouldReturnTrue = {true,true,true,false};
+		boolean[] shouldReturnTrue = {true,true,false};
 		when(x.getDifficultySet()).thenReturn(shouldReturnTrue);
 		//MainStage main = new MainStage();
 		//DifficultyScreenLayout test = new DifficultyScreenLayout(main); 
@@ -30,7 +30,7 @@ public class DiffScreenTester {
 		DiffScreenRowLayout x = mock(DiffScreenRowLayout.class);
 		
 		
-		boolean[] shouldReturnFalse = {true,false,false,false};
+		boolean[] shouldReturnFalse = {false,false,false};
 		when(x.getDifficultySet()).thenReturn(shouldReturnFalse);
 		//MainStage main = new MainStage();
 		//DifficultyScreenLayout test = new DifficultyScreenLayout(main); 

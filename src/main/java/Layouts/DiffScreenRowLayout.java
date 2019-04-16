@@ -13,11 +13,14 @@ public class DiffScreenRowLayout extends HBox implements EventHandler<ActionEven
 
 	MainStage main;
 
-	private ToggleButton easy, medium, hard;
+	protected ToggleButton easy, medium, hard;
 	private Label category;
 	private Button next;
 	private String categoryName;
 
+	// flag that tells us if this is a user or web row
+	protected boolean isWebRow;
+	
 	public DiffScreenRowLayout(String categoryName) {
 		super();
 		this.categoryName = categoryName;
@@ -43,6 +46,8 @@ public class DiffScreenRowLayout extends HBox implements EventHandler<ActionEven
 
 		this.setAlignment(Pos.CENTER);
 		// this.setSpacing(50);
+		
+		isWebRow = false;
 
 	}
 
@@ -86,6 +91,10 @@ public class DiffScreenRowLayout extends HBox implements EventHandler<ActionEven
 
 	public String getCategory() {
 		return categoryName;
+	}
+	
+	public boolean checkIfWebRow() {
+		return isWebRow;
 	}
 
 }
