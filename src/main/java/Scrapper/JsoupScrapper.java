@@ -25,23 +25,10 @@ public class JsoupScrapper {
 		final Document page = Jsoup.connect("https://www.geeksforgeeks.org/algorithms-gq/analysis-of-algorithms-gq/").get();
 		
 		//result list for all elements
+		final Elements srcElement = page.select("#mtq_question_container-1");
 		
-		
-		final int itemNum = page.getElementsByClass("mtq_question_text").size();
-		
-		final String question = page.getElementsByClass("mtq_question_text").text();
-		
-		final List<String> answer = page.getElementsByClass("mtq_answer_text").eachText();
-		
-		
-		for(String answer1 : answer) {
-		System.out.println(answer1);
-			
+		for (Element x : srcElement) {
+			System.out.println(x.text());
 		}
-		
-		//for (int i = 0; i < itemNum; i++) {
-			
-		//}
-		 //OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("result.json"), resultList);
 	}
 }

@@ -157,14 +157,44 @@ public class Scrapper {
 		return numAnswers;
 	}
 	public static void main(String args[]) throws JsonGenerationException, JsonMappingException, IOException {
-
-		ArrayList<Question> q = getQuestions("https://www.geeksforgeeks.org/algorithms-gq/graph-shortest-paths-gq/");
-		//System.out.println(getNumAnswers(1));
-		q.addAll(getQuestions("https://www.geeksforgeeks.org/algorithms-gq/analysis-of-algorithms-gq/"));
+		/*************
+		 * Algorithms*
+		 *************/
 		
-		for (Question x : q) {
+		// Analysis of Algorithms questions
+		ArrayList<Question> algoQuestions = getQuestions("https://www.geeksforgeeks.org/algorithms-gq/analysis-of-algorithms-gq/");
+		// Search
+		algoQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/algorithms-gq/searching-gq/"));
+		// Sorting and searching
+		algoQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/algorithms-gq/searching-and-sorting-gq/"));
+		// Recurrences
+		algoQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/algorithms-gq/analysis-of-algorithms-recurrences-gq/"));
+		
+		// Divide and Conquer - does not work
+		// Greedy Algorithm - does not work!
+		
+		// Recursion
+		algoQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/algorithms-gq/recursion-gq/"));
+		// Dynamic Programming
+		algoQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/algorithms-gq/dynamic-programming-gq/"));
+		// Bit Algorithms
+		algoQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/algorithms-gq/bit-algorithms-gq/"));
+		// Graph Traversals
+		algoQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/algorithms-gq/graph-traversals-gq/"));
+		// Backtracking
+		algoQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/algorithms-gq/backtracking-gq/"));
+		// Graph Shortest Paths
+		algoQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/algorithms-gq/graph-shortest-paths-gq/"));
+		// Graph Minimum Spanning Tree
+		algoQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/algorithms-gq/graph-minimum-spanning-tree-gq/"));
+		// NP complete
+		algoQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/algorithms-gq/np-complete-gq/"));
+		//Miscellaneous
+		algoQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/algorithms-gq/misc-2-gq/"));
+		
+		for (Question x : algoQuestions) {
 			System.out.println(x.toString());
 		} 
-		OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("result.json"), q);
+		OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("algo_geeksforgeeks.json"), algoQuestions);
 	}
 }
