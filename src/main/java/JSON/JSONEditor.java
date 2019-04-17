@@ -18,7 +18,7 @@ public abstract class JSONEditor {
 		JSONObject file = JSONOperations.createJSONObject(Constants.FILENAME);
 		JSONObject category = file.getJSONObject(categoryStr);
 		JSONObject difficulty = category.getJSONObject(difficultyStr);
-		JSONObject editQ = difficulty.getJSONObject(question.getName());
+		JSONObject editQ = difficulty.getJSONObject(question.getTopic());
 		
 		//altering the question object
 		editQ.put("question", question.getQuestion());
@@ -30,7 +30,7 @@ public abstract class JSONEditor {
 		editQ.put("hint", question.getHint());
 		
 		//placing the edited question into the full file text
-		difficulty.put(question.getName(), editQ);
+		difficulty.put(question.getTopic(), editQ);
 		category.put(difficultyStr, difficulty);
 		file.put(categoryStr, category);
 		

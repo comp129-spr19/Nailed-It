@@ -1,5 +1,6 @@
 package main;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import JSON.JSONOperations;
@@ -16,7 +17,7 @@ import Scrapper.Scrapper;
  */
 
 public class GenerateQuestionScreens {
-	public static ArrayList<QuizScreenLayout> generate(ArrayList<DiffScreenRowLayout> rows, MainStage main) {
+	public static ArrayList<QuizScreenLayout> generate(ArrayList<DiffScreenRowLayout> rows, MainStage main) throws IOException {
 
 		ArrayList<QuizScreenLayout> questionScreens = new ArrayList<QuizScreenLayout>();
 
@@ -35,7 +36,7 @@ public class GenerateQuestionScreens {
 
 	// add web questions
 	private static void addWebQuestions(DiffScreenRowLayout row, ArrayList<QuizScreenLayout> questionScreens,
-			MainStage main) {
+			MainStage main) throws IOException {
 		boolean[] set = row.getDifficultySet();
 		
 		if (set[0]) {

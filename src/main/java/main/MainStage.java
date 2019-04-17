@@ -1,5 +1,6 @@
 package main;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import Layouts.*;
@@ -121,7 +122,7 @@ public class MainStage extends Application {
 	 * @param diffSet An array of booleans representing the difficulty settings the
 	 * user toggles
 	 */
-	public void genQuestions(ArrayList<DiffScreenRowLayout> rows) {
+	public void genQuestions(ArrayList<DiffScreenRowLayout> rows) throws IOException {
 		questions = GenerateQuestionScreens.generate(rows, this);
 		currentQuestionIndex = 0;
 		numCorrAnswers = 0;

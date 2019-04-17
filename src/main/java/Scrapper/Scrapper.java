@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -34,21 +37,24 @@ public class Scrapper {
 	private static final String COR_ANSW_FIRST_HALF = "mtq_marker-";
 	private static final String COR_ANSW_SECOND_HALF = "-1";
 	
+	// title of page
+	private static final String TITLE = "entry-title";
+	
 	private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
 
-	public static ArrayList<Question> getQuestions(String url) {
+	public static ArrayList<Question> getQuestions(String url) throws IOException {
 
 		ArrayList<Question> questions = null;
 		WebClient client = new WebClient();
 		client.getOptions().setCssEnabled(false);
 		client.getOptions().setJavaScriptEnabled(false);
-
+		final Document doc = Jsoup.connect(url).get();
 		HtmlPage page;
 		try {
 			page = client.getPage(url);
 			int numQuestions = getNumQuestions(url);
-	
+			String title = doc.getElementsByClass(TITLE).text();
 			questions = new ArrayList<Question>();
 			for (int i = 0; i < numQuestions; i++) {
 				String answers[] = new String[4];
@@ -75,7 +81,7 @@ public class Scrapper {
 
 				}
 
-				Question newQuestion = new Question(question, answers[0], answers[1], answers[2], answers[3],
+				Question newQuestion = new Question(title, question, answers[0], answers[1], answers[2], answers[3],
 						"NO HINTS WITH GEEKSFORGEEKS", validAnswer);
 				questions.add(newQuestion);
 
@@ -156,11 +162,14 @@ public class Scrapper {
 		}
 		return numAnswers;
 	}
-	public static void main(String args[]) throws JsonGenerationException, JsonMappingException, IOException {
-		/*************
-		 * Algorithms*
-		 *************/
-		
+	
+	/*************
+	 * Algorithms
+	 * @throws IOException 
+	 * @throws JsonMappingException 
+	 * @throws JsonGenerationException *
+	 *************/
+	public static void createAlgoQuestions() throws JsonGenerationException, JsonMappingException, IOException {
 		// Analysis of Algorithms questions
 		ArrayList<Question> algoQuestions = getQuestions("https://www.geeksforgeeks.org/algorithms-gq/analysis-of-algorithms-gq/");
 		// Search
@@ -169,10 +178,8 @@ public class Scrapper {
 		algoQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/algorithms-gq/searching-and-sorting-gq/"));
 		// Recurrences
 		algoQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/algorithms-gq/analysis-of-algorithms-recurrences-gq/"));
-		
 		// Divide and Conquer - does not work
 		// Greedy Algorithm - does not work!
-		
 		// Recursion
 		algoQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/algorithms-gq/recursion-gq/"));
 		// Dynamic Programming
@@ -196,5 +203,9 @@ public class Scrapper {
 			System.out.println(x.toString());
 		} 
 		OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("algo_geeksforgeeks.json"), algoQuestions);
+	}
+	
+	public static void main(String args[]) throws JsonGenerationException, JsonMappingException, IOException {
+		createAlgoQuestions();
 	}
 }

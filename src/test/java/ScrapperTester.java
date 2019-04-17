@@ -1,6 +1,7 @@
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.junit.Before;
@@ -28,7 +29,7 @@ public class ScrapperTester {
 		PowerMockito.when(Scrapper.getQuestions("https://www.geeksforgeeks.org/algorithms-gq/searching-and-sorting-gq/")).thenReturn(sample);
 	}
 	*/
-	@Test public void testSiteOne() {
+	@Test public void testSiteOne() throws IOException {
 		for (Question q :Scrapper.getQuestions("https://www.geeksforgeeks.org/algorithms-gq/graph-shortest-paths-gq/")) {
 			assertNotNull(q);
 		}
@@ -36,7 +37,7 @@ public class ScrapperTester {
 		
 	} 
 	
-	@Test public void testSiteTwo() {
+	@Test public void testSiteTwo() throws IOException {
 		for (Question q :Scrapper.getQuestions("https://www.geeksforgeeks.org/algorithms-gq/searching-and-sorting-gq/")) {
 			assertNotNull(q);
 		}
