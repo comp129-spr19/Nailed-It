@@ -47,7 +47,7 @@ public abstract class JSONEditor {
 	}
 
 	public static boolean addQuestion(String categoryStr, String difficultyStr, Question question) {
-		categoryStr = "Custom";
+		categoryStr = categoryStr;
 		
 		//getting the needed JSON Objects
 		JSONObject file = JSONOperations.createJSONObject(Constants.FILENAME);
