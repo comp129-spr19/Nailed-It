@@ -33,7 +33,7 @@ public class DifficultyScreenLayout extends VBox implements EventHandler<ActionE
 
 		next = new Button("Start Quiz");
 		next.setId("next");
-		// next.setDisable(true);
+		next.setDisable(true);
 		next.setOnAction(this);
 		next.setAlignment(Pos.BOTTOM_CENTER);
 
@@ -52,12 +52,12 @@ public class DifficultyScreenLayout extends VBox implements EventHandler<ActionE
 		Iterator<String> iterator = file.keys();
 		rows = new ArrayList<DiffScreenRowLayout>();
 		while (iterator.hasNext()) {
-			DiffScreenRowLayout row = new DiffScreenRowLayout(iterator.next());
+			DiffScreenRowLayout row = new DiffScreenRowLayout(iterator.next(), this);
 			rows.add(row);
 			this.getChildren().add(row);
 		}
 		
-		DiffScreenWebRow geeksForGeeksRow = new DiffScreenWebRow("GEEKSFORGEEKS");
+		DiffScreenWebRow geeksForGeeksRow = new DiffScreenWebRow("GEEKSFORGEEKS", this);
 		rows.add(geeksForGeeksRow);
 		this.getChildren().add(geeksForGeeksRow);
 	}
@@ -70,12 +70,18 @@ public class DifficultyScreenLayout extends VBox implements EventHandler<ActionE
 
 	@Override
 	public void handle(ActionEvent e) {
-		System.out.println(e.getSource().toString());
-		if (e.getSource() instanceof Button) {
+		// System.out.println(e.getSource().toString());
+		if (e.getSource() instanceof ToggleButton) {
+			if (isDifficultySelected()) {
+				next.setDisable(false);
+			} else {
+				next.setDisable(true);
+			}
+		} else if (e.getSource() instanceof Button) {
 			Button clicked = (Button) e.getSource();
 			switch (clicked.getId()) {
 			case "next":
-
+				
 				// create QuizHandler Object
 				if (isDifficultySelected()) {
 					try {
@@ -90,12 +96,6 @@ public class DifficultyScreenLayout extends VBox implements EventHandler<ActionE
 				break;
 			default:
 				System.out.println("ERROR: No input case in EventHandler");
-			}
-		} else if (e.getSource() instanceof ToggleButton) {
-			if (isDifficultySelected()) {
-				next.setDisable(false);
-			} else {
-				next.setDisable(true);
 			}
 		}
 	}
