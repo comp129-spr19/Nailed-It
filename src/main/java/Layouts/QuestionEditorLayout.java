@@ -19,13 +19,15 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 	private RadioButton A, B, C, D;
 	private ToggleGroup correctAnswer;
 	private Button submit, quit;
+	private boolean isNewQuestion;
 	
-	public QuestionEditorLayout(String category, String difficulty, Question question, MainStage main) {
+	public QuestionEditorLayout(String category, String difficulty, Question question, MainStage main, Boolean isNewQuestion) {
 		super();
 		this.main = main;
 		this.category = category;
 		this.difficulty = difficulty;
 		this.questionName = question.getTopic();
+		this.isNewQuestion = isNewQuestion;
 
 		GridPane answerSelection = setMultipleChoiceOptions(question);
 		this.setBottom(answerSelection);
@@ -199,6 +201,9 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 	
 	private boolean submitQuestion() {
 		Question update = new Question(questionName, questionText.getText(), answerA.getText(), answerB.getText(), answerC.getText(), answerD.getText(), hintText.getText(), findCorrectAnswer());
+		if (this.isNewQuestion) {
+			return JSONEditor.addQuestion(category, difficulty, update);
+		}
 		return JSONEditor.updateQuestion(category, difficulty, update);
 	}
 }

@@ -28,6 +28,7 @@ public class MainStage extends Application {
 	private MainMenuScreenLayout mainMenuScreenLayout;
 	private EditorScreenLayout editorScreenLayout;
 	private QuestionEditorLayout questionEditorLayout;
+	private QuestionEditorLayout newQuestionEditorLayout;
 
 	private Stage stage;
 	private Scene scene;
@@ -38,6 +39,7 @@ public class MainStage extends Application {
 
 	// should be removed when refactoring.
 	private int numCorrAnswers;
+	
 
 	/*
 	 * Application entry point, launches all functions to begin applications
@@ -152,7 +154,13 @@ public class MainStage extends Application {
 	}
 	
 	public void switchToQuestionEditor(String category, String difficulty, Question question) {
-		questionEditorLayout = new QuestionEditorLayout(category, difficulty, question, this);
+		questionEditorLayout = new QuestionEditorLayout(category, difficulty, question, this,false);
 		scene.setRoot(questionEditorLayout);
+	}
+
+	public void switchToNewQuestionEditor(String category, String difficulty) {
+		Question blank = new Question("","","","","","",Answer.ANSWER_A);
+		newQuestionEditorLayout = new QuestionEditorLayout(category,difficulty,blank,this,true);
+		scene.setRoot(newQuestionEditorLayout);
 	}
 }

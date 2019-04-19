@@ -18,7 +18,7 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 	
 	private HBox top;
 	private ComboBox category, difficulty;
-	private Button search;
+	private Button search, addQuestion;
 	
 	private ArrayList<Question> questions;
 	private VBox questionList;
@@ -40,6 +40,8 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 				String categoryStr = (String) category.getValue();
 				String diffStr = (String) difficulty.getValue();
 				main.switchToQuestionEditor(categoryStr, diffStr, questions.get(toEdit));
+			} else if (button.getId().equals("addQuestion")) {
+				main.switchToNewQuestionEditor((String)category.getValue(),(String)difficulty.getValue());
 			}
 		}
 		
@@ -59,11 +61,17 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 		search.setId("search");
 		search.setOnAction(this);
 		
+		addQuestion = new Button("Add Question");
+		addQuestion.setId("addQuestion");
+		addQuestion.setOnAction(this);
+		
 		questionList = new VBox();
+		
+		//addQuestion = new Button("Add Question");
 		
 		
 		top.getChildren().addAll(category, difficulty, search);
-		this.getChildren().addAll(top,questionList);
+		this.getChildren().addAll(top,questionList,addQuestion);
 	}
 	
 	private void listQuestions() {
@@ -74,6 +82,8 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 		for (int i = 0; i < questions.size();i++) {
 			questionList.getChildren().add(createQuestionBox(i,questions.get(i)));
 		}
+		
+	
 		
 		
 	}
