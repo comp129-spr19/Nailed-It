@@ -3,7 +3,6 @@ package Layouts;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.HBox;
@@ -15,15 +14,16 @@ public class DiffScreenRowLayout extends HBox implements EventHandler<ActionEven
 
 	protected ToggleButton easy, medium, hard;
 	private Label category;
-	private Button next;
 	private String categoryName;
-
+	private DifficultyScreenLayout parentPane;
+	
 	// flag that tells us if this is a user or web row
 	protected boolean isWebRow;
 	
-	public DiffScreenRowLayout(String categoryName) {
+	public DiffScreenRowLayout(String categoryName, DifficultyScreenLayout parentPane) {
 		super();
 		this.categoryName = categoryName;
+		this.parentPane = parentPane;
 		this.setSpacing(15);
 
 		category = new Label(categoryName);
@@ -32,15 +32,15 @@ public class DiffScreenRowLayout extends HBox implements EventHandler<ActionEven
 
 		easy = new ToggleButton("Easy");
 		easy.setId("easy");
-		easy.setOnAction(this);
+		easy.setOnAction(this.parentPane);
 
 		medium = new ToggleButton("Medium");
 		medium.setId("medium");
-		medium.setOnAction(this);
+		medium.setOnAction(this.parentPane);
 
 		hard = new ToggleButton("Hard");
 		hard.setId("hard");
-		hard.setOnAction(this);
+		hard.setOnAction(this.parentPane);
 
 		this.getChildren().addAll(category, easy, medium, hard);
 

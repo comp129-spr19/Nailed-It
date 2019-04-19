@@ -6,8 +6,8 @@ package Layouts;
 
 public class DiffScreenWebRow extends DiffScreenRowLayout {
 
-	public DiffScreenWebRow(String categoryName) {
-		super(categoryName);
+	public DiffScreenWebRow(String categoryName, DifficultyScreenLayout parentPane) {
+		super(categoryName, parentPane);
 		this.easy.setText("Graphs");
 		this.medium.setText("Algorithms");
 		this.hard.setText("Sorting");
