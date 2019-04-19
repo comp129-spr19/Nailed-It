@@ -46,8 +46,42 @@ public abstract class JSONEditor {
 		}
 	}
 
-	public static boolean addQuestion() {
-		return false;
+	public static boolean addQuestion(String categoryStr, String difficultyStr, Question question) {
+		categoryStr = "Custom";
+		
+		//getting the needed JSON Objects
+		JSONObject file = JSONOperations.createJSONObject(Constants.FILENAME);
+		JSONObject category = file.getJSONObject(categoryStr);
+		JSONObject difficulty = category.getJSONObject(difficultyStr);
+		JSONObject newQ = new JSONObject();
+		
+		//finding out what new question's name is
+		String name = "q" + (difficulty.length() + 1);
+		
+		//altering the question object
+		newQ.put("question", question.getQuestion());
+		newQ.put("answer_a", question.getAnswerA());
+		newQ.put("answer_b", question.getAnswerB());
+		newQ.put("answer_c", question.getAnswerC());
+		newQ.put("answer_d", question.getAnswerD());
+		newQ.put("correct_answer", question.getCorrectAnswer().toString());
+		newQ.put("hint", question.getHint());
+		
+		//placing the edited question into the full file text
+		difficulty.put(name, newQ);
+		category.put(difficultyStr, difficulty);
+		file.put(categoryStr, category);
+		
+		try {
+			//rewriting the full file text to the JSON file
+			FileWriter file2 = new FileWriter(Constants.FILENAME);
+			file2.write(file.toString());
+			file2.close();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	public static boolean deleteQuestion() {
