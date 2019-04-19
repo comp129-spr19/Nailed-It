@@ -1,5 +1,6 @@
 package Layouts;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -77,7 +78,12 @@ public class DifficultyScreenLayout extends VBox implements EventHandler<ActionE
 
 				// create QuizHandler Object
 				if (isDifficultySelected()) {
-					main.genQuestions(rows);
+					try {
+						main.genQuestions(rows);
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				} else {
 					displayNoSelectionMsg();
 				}

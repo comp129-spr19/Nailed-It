@@ -2,7 +2,7 @@ package main;
 
 // class that represents a question
 public class Question {
-	private String name, question, answerA, answerB, answerC, answerD, hint;
+	private String topic, question, answerA, answerB, answerC, answerD, hint;
 	private Answer correctAnswer;
 	
 	public Question(String question,String answerA, String answerB, String answerC, 
@@ -12,7 +12,7 @@ public class Question {
 	
 	public Question(String name, String question,String answerA, String answerB, String answerC, 
 			 		String answerD, String hint,Answer answer) {
-		this.name = name;
+		this.topic = name;
 		this.question = question;
 		
 		this.answerA = answerA;
@@ -76,10 +76,10 @@ public class Question {
 		
 	}
 	
-	public String getName() {
-		return name;
+	public String getTopic() {
+		return topic;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setTopic(String title) {
+		this.topic = title;
 	}
 }

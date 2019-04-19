@@ -25,7 +25,7 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 		this.main = main;
 		this.category = category;
 		this.difficulty = difficulty;
-		this.questionName = question.getName();
+		this.questionName = question.getTopic();
 
 		GridPane answerSelection = setMultipleChoiceOptions(question);
 		this.setBottom(answerSelection);

@@ -47,11 +47,6 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 		quit.setId("quit");
 		quit.setOnAction(this);
 
-		hint = new Button("Hint");
-		hint.setId("hint");
-		hint.setOnAction(this);
-		hintString = question.getHint();
-
 		skip = new Button("Skip");
 		skip.setId("skip");
 		skip.setOnAction(this);
@@ -61,7 +56,17 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 		next.setOnAction(this);
 		next.setDisable(true);
 
-		hbox.getChildren().addAll(quit, hint, skip, next);
+		if ("NO HINTS WITH GEEKSFORGEEKS".equals(question.getHint())) {
+			hint = null; // because hint is null, do not add to hbox
+			hbox.getChildren().addAll(quit, skip, next);
+		} else {
+			hint = new Button("Hint");
+			hint.setId("hint");
+			hint.setOnAction(this);
+			hintString = question.getHint();
+			hbox.getChildren().addAll(quit, hint, skip, next);
+		}
+
 		hbox.setAlignment(Pos.BOTTOM_CENTER);
 
 		/*************/
