@@ -68,7 +68,7 @@ public class MainStage extends Application {
 		stage.show();
 	}
 
-	private void switchToMainMenu() {
+	public void switchToMainMenu() {
 		mainMenuScreenLayout = new MainMenuScreenLayout(this);
 		scene.setRoot(mainMenuScreenLayout);
 	}
