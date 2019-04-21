@@ -16,8 +16,8 @@ public class test
 	public static void main(String[] args) 
 	{
 		ProblemsClientV3 client = new ProblemsClientV3(
-				"<access_token>", 
-				"<endpoint>");
+				"cca1223f4cc2ad09f9d863d5361c534d", 
+				"4e9d390b.compilers.sphere-engine.com");
 		
 		try {
 			JsonObject response = client.test();
