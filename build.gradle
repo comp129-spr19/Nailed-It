@@ -37,6 +37,12 @@ dependencies {
 	//open source api gateway
 	compile 'com.mashape.unirest:unirest-java:1.4.9'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.8'
+	// sphere engine dependencies
+	compile 'com.squareup.okhttp3:okhttp:3.9.0'
+	compile 'com.google.code.gson:gson:2.3.1'
+	
+
+
 }
 
 test {
