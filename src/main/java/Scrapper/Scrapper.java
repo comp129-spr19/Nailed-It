@@ -290,14 +290,33 @@ public class Scrapper {
 		OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("DBMS_geeksforgeeks.json"), q);
 	}
 	
+	private static void createCompTheoryQuestions() throws JsonGenerationException, JsonMappingException, IOException {
+		// creates array for list of questions to add
+		//gets questions for Regular languages and finite automata
+		ArrayList<Question> q = getQuestions("https://www.geeksforgeeks.org/regular-languages-and-finite-automata-gq/");
+		// Context free languages and push down automata
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/context-free-languages-and-push-down-automata-gq/"));
+		// recursively enumerate sets and turing machines
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/recursively-enumerable-sets-and-turing-machines-gq/"));
+		// Undecidability
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/undecidability-gq/"));
+		
+		//Prints out to terminal
+		for (Question x : q) {
+			System.out.println(x.toString());
+		} 
+		
+		// Maps and creates the JSON file : CompTheory_geeksforgeeks.json
+		OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("CompTheory_geeksforgeeks.json"), q);
+		
+	}
 	public static void main(String args[]) throws JsonGenerationException, JsonMappingException, IOException {
 		//createAlgoQuestions();
 		//createDSQuestions();
-		createOSQuestions();
+		//createOSQuestions();
 		//createDBMSQuestions();
+		createCompTheoryQuestions();
 	}
-
-
 
 
 }
