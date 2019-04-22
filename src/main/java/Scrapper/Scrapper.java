@@ -209,7 +209,7 @@ public class Scrapper {
 	}
 	
 	private static void createDSQuestions() throws JsonGenerationException, JsonMappingException, IOException {
-		// Stack questions
+				// Stack questions
 				ArrayList<Question> dsQuestions = getQuestions("https://www.geeksforgeeks.org/data-structure-gq/stack-gq/");
 				// Queue
 				dsQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/data-structure-gq/queue-gq/"));
@@ -243,8 +243,36 @@ public class Scrapper {
 				OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("ds_geeksforgeeks.json"), dsQuestions);
 	}
 	
+	private static void createOSQuestions() throws JsonGenerationException, JsonMappingException, IOException {
+		// creates array for list of questions to add
+		//gets questions for OS process Management
+		ArrayList<Question> q = getQuestions("https://www.geeksforgeeks.org/operating-systems-gq/process-synchronization-gq/");
+		// Memory management
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/operating-systems-gq/memory-management-gq/"));
+		// OS input output systems
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/operating-systems-gq/iinput-output-systems-gq/"));
+		// UNIX	
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/operating-systems-gq/unix-gq/"));
+		// OS CPU scheduling
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/cpu-scheduling-gq/"));
+		// Deadlock
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/deadlock-gq/"));
+
+		
+		//Prints out to terminal
+		for (Question x : q) {
+			System.out.println(x.toString());
+		} 
+		
+		// Maps and creates the JSON file : os_geeksforgeeks.json
+		OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("os_geeksforgeeks.json"), q);
+	}
+	
 	public static void main(String args[]) throws JsonGenerationException, JsonMappingException, IOException {
 		//createAlgoQuestions();
-		createDSQuestions();
+		//createDSQuestions();
+		createOSQuestions();
 	}
+
+
 }
