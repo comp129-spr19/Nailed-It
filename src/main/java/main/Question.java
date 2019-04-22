@@ -2,17 +2,19 @@ package main;
 
 // class that represents a question
 public class Question {
-	private String topic, question, answerA, answerB, answerC, answerD, hint;
+	private String name, topic, question, answerA, answerB, answerC, answerD, hint;
 	private Answer correctAnswer;
 	
-	public Question(String question,String answerA, String answerB, String answerC, 
+	public Question(String topic, String question,String answerA, String answerB, String answerC, 
 	 		String answerD, String hint,Answer answer) {
-		this("", question, answerA, answerB, answerC, answerD, hint, answer);
+		this("", topic, question, answerA, answerB, answerC, answerD, hint, answer);
 	}
 	
-	public Question(String name, String question,String answerA, String answerB, String answerC, 
+	public Question(String name, String topic, String question,String answerA, String answerB, String answerC, 
 			 		String answerD, String hint,Answer answer) {
-		this.topic = name;
+		this.name = name;
+		
+		this.topic = topic;
 		this.question = question;
 		
 		this.answerA = answerA;
@@ -67,19 +69,24 @@ public class Question {
 		this.correctAnswer = correctAnswer;
 	}
 	
-	public String toString() {
-		
-		return ("Question: " + this.question + "\nA: " + getAnswerA()
-		  + "\nB: " + getAnswerB()+ "\nC: " + getAnswerC() + "\nD: " + getAnswerD() +
-		  "\nhint: " + getHint() + "\nCorrect answ: " +  getCorrectAnswer().toString());
-		  
-		
-	}
-	
 	public String getTopic() {
 		return topic;
 	}
-	public void setTopic(String title) {
-		this.topic = title;
+	public void setTopic(String topic) {
+		this.topic = topic;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String toString() {
+		return ("Question: " + this.question + "\nA: " + getAnswerA()
+		  + "\nB: " + getAnswerB()+ "\nC: " + getAnswerC() + "\nD: " + getAnswerD() +
+		  "\nhint: " + getHint() + "\nCorrect answ: " +  getCorrectAnswer().toString());
 	}
 }

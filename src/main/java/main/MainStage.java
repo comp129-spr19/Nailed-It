@@ -159,7 +159,7 @@ public class MainStage extends Application {
 	}
 
 	public void switchToNewQuestionEditor(String category, String difficulty) {
-		Question blank = new Question("","","","","","",Answer.ANSWER_A);
+		Question blank = new Question("","","","","","","", Answer.ANSWER_A);
 		newQuestionEditorLayout = new QuestionEditorLayout(category,difficulty,blank,this,true);
 		scene.setRoot(newQuestionEditorLayout);
 	}

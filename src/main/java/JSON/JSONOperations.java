@@ -59,7 +59,8 @@ public class JSONOperations {
 		for (int i = 0; i < difficulty.length(); i++) {
 			String name = "q" + (i+1);
 			JSONObject currentQuestion = difficulty.getJSONObject(name);
-			
+
+			String topic = currentQuestion.getString("topic");
 			String questionDescription = currentQuestion.getString("question");
 			String answerA = currentQuestion.getString("answer_a");
 			String answerB = currentQuestion.getString("answer_b");
@@ -68,7 +69,7 @@ public class JSONOperations {
 			String hint = currentQuestion.getString("hint");
 			Answer correctAnswer = AnswerConverter.stringToAnswer(currentQuestion.getString("correct_answer"));
 			
-			questions.add(new Question(name, questionDescription,answerA,answerB,answerC,
+			questions.add(new Question(name, topic, questionDescription,answerA,answerB,answerC,
 										answerD,hint, correctAnswer));
 			
 			
