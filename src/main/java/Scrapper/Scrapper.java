@@ -268,11 +268,36 @@ public class Scrapper {
 		OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("os_geeksforgeeks.json"), q);
 	}
 	
+	private static void createDBMSQuestions() throws JsonGenerationException, JsonMappingException, IOException {
+		// creates array for list of questions to add
+		//gets questions for ER and Relational Models
+		ArrayList<Question> q = getQuestions("https://www.geeksforgeeks.org/dbms-gq/er-and-relational-models-gq/");
+		// Database Design (Normal Forms)
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/dbms-gq/database-design-normal-forms-gq/"));
+		// SQL
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/dbms-gq/sql-gq/"));
+		// Transactions and concurrency control
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/dbms-gq/transactions-and-concurrency-control-gq/"));
+		// File Structures
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/dbms-gq/file-structures-sequential-files-indexing-b-and-b-trees-gq/"));
+		
+		//Prints out to terminal
+		for (Question x : q) {
+			System.out.println(x.toString());
+		} 
+		
+		// Maps and creates the JSON file : DBMS_geeksforgeeks.json
+		OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("DBMS_geeksforgeeks.json"), q);
+	}
+	
 	public static void main(String args[]) throws JsonGenerationException, JsonMappingException, IOException {
 		//createAlgoQuestions();
 		//createDSQuestions();
 		createOSQuestions();
+		//createDBMSQuestions();
 	}
+
+
 
 
 }
