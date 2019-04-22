@@ -82,7 +82,7 @@ public class Scrapper {
 				}
 
 				Question newQuestion = new Question(title, question, answers[0], answers[1], answers[2], answers[3],
-						"NO HINTS WITH GEEKSFORGEEKS", validAnswer);
+						"None", validAnswer);
 				questions.add(newQuestion);
 
 			}
@@ -199,13 +199,52 @@ public class Scrapper {
 		//Miscellaneous
 		algoQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/algorithms-gq/misc-2-gq/"));
 		
+		//Prints out to terminal
 		for (Question x : algoQuestions) {
 			System.out.println(x.toString());
 		} 
+		
+		// Maps and creates the JSON file : algo_geeksforgeeks.json
 		OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("algo_geeksforgeeks.json"), algoQuestions);
 	}
 	
+	private static void createDSQuestions() throws JsonGenerationException, JsonMappingException, IOException {
+		// Stack questions
+				ArrayList<Question> dsQuestions = getQuestions("https://www.geeksforgeeks.org/data-structure-gq/stack-gq/");
+				// Queue
+				dsQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/data-structure-gq/queue-gq/"));
+				// Binary Search Trees
+				dsQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/data-structure-gq/binary-search-trees-gq/"));
+				// Balanced Binary Search Trees
+				dsQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/data-structure-gq/balanced-binary-search-trees-gq/"));
+				// Graph
+				dsQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/data-structure-gq/graph-gq/"));
+				// Hash
+				dsQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/data-structure-gq/hash-gq/"));
+				// Array
+				dsQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/data-structure-gq/array-gq/"));
+				// DS miscellaneous
+				dsQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/data-structure-gq/misc-3-gq/"));
+				// B and B+ trees
+				dsQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/data-structure-gq/b-and-b-trees-gq/"));
+				// Heap
+				dsQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/data-structure-gq/heap-gq/"));
+				// Tree traversal
+				dsQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/data-structure-gq/tree-traversals-gq/"));
+				
+				//LINKED LIST AND BINARY SEARCH TREES LINKS DID NOT WORK
+				
+				//Prints out to terminal
+				for (Question x : dsQuestions) {
+					System.out.println(x.toString());
+				} 
+				
+				// Maps and creates the JSON file : ds_geeksforgeeks.json
+				OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("ds_geeksforgeeks.json"), dsQuestions);
+	}
+	
 	public static void main(String args[]) throws JsonGenerationException, JsonMappingException, IOException {
-		createAlgoQuestions();
+		//createAlgoQuestions();
+		createDSQuestions();
 	}
 }
