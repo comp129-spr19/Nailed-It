@@ -1,5 +1,5 @@
 [ {
-  "topic" : "Stack",
+  "name" : "Stack",
   "question" : "Following is C like pseudo code of a function that takes a number as an argument, and uses a stack S to do processing.\n\nvoid fun(int n)\n{\n    Stack S;  // Say it creates an empty stack S\n    while (n > 0)\n    {\n      // This line pushes the value of n%2 to stack S\n      push(&S, n%2);\n\n      n = n/2;\n    }\n\n    // Run while Stack S is not empty\n    while (!isEmpty(&S))\n      printf(\"%d \", pop(&S)); // pop an element from S and print it\n}\nWhat does the above function do in general?",
   "answerA" : "Prints binary representation of n in reverse order",
   "answerB" : "Prints binary representation of n",
@@ -8,7 +8,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Stack",
+  "name" : "Stack",
   "question" : "Which one of the following is an application of Stack Data Structure?",
   "answerA" : "Managing function calls",
   "answerB" : "The stock span problem",
@@ -17,7 +17,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "Stack",
+  "name" : "Stack",
   "question" : "Which of the following is true about linked list implementation of stack?",
   "answerA" : "In push operation, if new nodes are inserted at the beginning of linked list, then in pop operation, nodes must be removed from end.",
   "answerB" : "In push operation, if new nodes are inserted at the end, then in pop operation, nodes must be removed from the beginning.",
@@ -26,7 +26,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "Stack",
+  "name" : "Stack",
   "question" : "Consider the following pseudocode that uses a stack\n\n   declare a stack of characters\n   while ( there are more characters in the word to read )\n   {\n      read a character\n      push the character on the stack\n   }\n   while ( the stack is not empty )\n   {\n      pop a character off the stack\n      write the character to the screen\n   }\nWhat is output for input \"geeksquiz\"?",
   "answerA" : "geeksquizgeeksquiz",
   "answerB" : "ziuqskeeg",
@@ -35,7 +35,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Stack",
+  "name" : "Stack",
   "question" : "Following is an incorrect pseudocode for the algorithm which is supposed to determine whether a sequence of parentheses is balanced:\n\n   declare a character stack \n   while ( more input is available)\n   {\n      read a character\n      if ( the character is a '(' ) \n         push it on the stack\n      else if ( the character is a ')' and the stack is not empty )\n         pop a character off the stack\n      else\n         print \"unbalanced\" and exit\n    }\n    print \"balanced\"\nWhich of these unbalanced sequences does the above code think is balanced? Source: http://www.cs.colorado.edu/~main/questions/chap07q.html",
   "answerA" : "((())",
   "answerB" : "())(()",
@@ -44,7 +44,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Stack",
+  "name" : "Stack",
   "question" : "The following postfix expression with single digit operands is evaluated using a stack:\n\n              8 2 3 ^ / 2 3 * + 5 1 * - \nNote that ^ is the exponentiation operator. The top two elements of the stack after the first * is evaluated are:",
   "answerA" : "6, 1",
   "answerB" : "5, 7",
@@ -53,7 +53,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Stack",
+  "name" : "Stack",
   "question" : "Let S be a stack of size n >= 1. Starting with the empty stack, suppose we push the first n natural numbers in sequence, and then perform n pop operations. Assume that Push and Pop operation take X seconds each, and Y seconds elapse between the end of one such stack operation and the start of the next operation. For m >= 1, define the stack-life of m as the time elapsed from the end of Push(m) to the start of the pop operation that removes m from S. The average stack-life of an element of this stack is",
   "answerA" : "n(X+ Y)",
   "answerB" : "3Y + 2X",
@@ -62,7 +62,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "Stack",
+  "name" : "Stack",
   "question" : "A single array A[1..MAXSIZE] is used to implement two stacks. The two stacks grow from opposite ends of the array. Variables top1 and top2 (topl< top 2) point to the location of the topmost element in each of the stacks. If the space is to be used efficiently, the condition for “stack full” is (GATE CS 2004)",
   "answerA" : "(top1 = MAXSIZE/2) and (top2 = MAXSIZE/2+1)",
   "answerB" : "top1 + top2 = MAXSIZE",
@@ -71,7 +71,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "Stack",
+  "name" : "Stack",
   "question" : "Assume that the operators +, -, × are left associative and ^ is right associative. The order of precedence (from highest to lowest) is ^, x , +, -. The postfix expression corresponding to the infix expression a + b × c - d ^ e ^ f is",
   "answerA" : "abc × + def ^ ^ -",
   "answerB" : "abc × + de ^ f ^ -",
@@ -80,7 +80,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Stack",
+  "name" : "Stack",
   "question" : "To evaluate an expression without any embedded function calls:",
   "answerA" : "One stack is enough",
   "answerB" : "Two stacks are needed",
@@ -89,7 +89,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Queue",
+  "name" : "Queue",
   "question" : "Following is C like pseudo code of a function that takes a Queue as an argument, and uses a stack S to do processing.\n\nvoid fun(Queue *Q)\n{\n    Stack S;  // Say it creates an empty stack S\n\n    // Run while Q is not empty\n    while (!isEmpty(Q))\n    {\n        // deQueue an item from Q and push the dequeued item to S\n        push(&S, deQueue(Q));\n    }\n\n    // Run while Stack S is not empty\n    while (!isEmpty(&S))\n    {\n      // Pop an item from S and enqueue the poppped item to Q\n      enQueue(Q, pop(&S));\n    }\n}\nWhat does the above function do in general?",
   "answerA" : "Removes the last from Q",
   "answerB" : "Keeps the Q same as it was before the call",
@@ -98,7 +98,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "Queue",
+  "name" : "Queue",
   "question" : "Which one of the following is an application of Queue Data Structure?",
   "answerA" : "When a resource is shared among multiple consumers.",
   "answerB" : "When data is transferred asynchronously (data not necessarily received at same rate as sent) between two processes",
@@ -107,7 +107,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "Queue",
+  "name" : "Queue",
   "question" : "How many stacks are needed to implement a queue. Consider the situation where no other data structure like arrays, linked list is available to you.",
   "answerA" : "1",
   "answerB" : "2",
@@ -116,7 +116,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Queue",
+  "name" : "Queue",
   "question" : "How many queues are needed to implement a stack. Consider the situation where no other data structure like arrays, linked list is available to you.",
   "answerA" : "1",
   "answerB" : "2",
@@ -125,7 +125,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Queue",
+  "name" : "Queue",
   "question" : "A priority queue can efficiently implemented using which of the following data structures? Assume that the number of insert and peek (operation to see the current highest priority item) and extraction (remove the highest priority item) operations are almost same.",
   "answerA" : "Array",
   "answerB" : "Linked List",
@@ -134,7 +134,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "Queue",
+  "name" : "Queue",
   "question" : "Which of the following is true about linked list implementation of queue?",
   "answerA" : "In push operation, if new nodes are inserted at the beginning of linked list, then in pop operation, nodes must be removed from end.",
   "answerB" : "In push operation, if new nodes are inserted at the end, then in pop operation, nodes must be removed from the beginning.",
@@ -143,7 +143,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "Queue",
+  "name" : "Queue",
   "question" : "Suppose a circular queue of capacity (n – 1) elements is implemented with an array of n elements. Assume that the insertion and deletion operation are carried out using REAR and FRONT as array index variables, respectively. Initially, REAR = FRONT = 0. The conditions to detect queue full and queue empty are",
   "answerA" : "Full: (REAR+1) mod n == FRONT, empty: REAR == FRONT",
   "answerB" : "Full: (REAR+1) mod n == FRONT, empty: (FRONT+1) mod n == REAR",
@@ -152,7 +152,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Queue",
+  "name" : "Queue",
   "question" : "A Priority-Queue is implemented as a Max-Heap. Initially, it has 5 elements. The level-order traversal of the heap is given below: 10, 8, 5, 3, 2 Two new elements ”1‘ and ”7‘ are inserted in the heap in that order. The level-order traversal of the heap after the insertion of the elements is:",
   "answerA" : "10, 8, 7, 5, 3, 2, 1",
   "answerB" : "10, 8, 7, 2, 3, 1, 5",
@@ -161,7 +161,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "Queue",
+  "name" : "Queue",
   "question" : "An implementation of a queue Q, using two stacks S1 and S2, is given below:\n\nvoid insert(Q, x) {\n   push (S1, x);\n}\n \nvoid delete(Q){\n   if(stack-empty(S2)) then \n      if(stack-empty(S1)) then {\n          print(“Q is empty”);\n          return;\n      }\n      else while (!(stack-empty(S1))){\n          x=pop(S1);\n          push(S2,x);\n      }\n   x=pop(S2);\n}\nLet n insert and m (<=n) delete operations be performed in an arbitrary order on an empty queue Q. Let x and y be the number of push and pop operations performed respectively in the process. Which one of the following is true for all m and n?",
   "answerA" : "n+m <= x < 2n and 2m <= y <= n+m",
   "answerB" : "n+m <= x < 2n and 2m<= y <= 2n",
@@ -170,7 +170,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Queue",
+  "name" : "Queue",
   "question" : "Consider the following operation along with Enqueue and Dequeue operations on queues, where k is a global parameter.\n\nMultiDequeue(Q){\n   m = k\n   while (Q is not empty and m  > 0) {\n      Dequeue(Q)\n      m = m - 1\n   }\n}\nWhat is the worst case time complexity of a sequence of n MultiDequeue() operations on an initially empty queue? (GATE CS 2013) (A) (B) (C) (D)",
   "answerA" : "A",
   "answerB" : "B",
@@ -179,7 +179,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Binary Search Trees",
+  "name" : "Binary Search Trees",
   "question" : "What is the worst case time complexity for search, insert and delete operations in a general Binary Search Tree?",
   "answerA" : "O(n) for all",
   "answerB" : "O(Logn) for all",
@@ -188,7 +188,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Binary Search Trees",
+  "name" : "Binary Search Trees",
   "question" : "In delete operation of BST, we need inorder successor (or predecessor) of a node when the node to be deleted has both left and right child as non-empty. Which of the following is true about inorder successor needed in delete operation?",
   "answerA" : "Inorder Successor is always a leaf node",
   "answerB" : "Inorder successor is always either a leaf node or a node with empty left child",
@@ -197,7 +197,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Binary Search Trees",
+  "name" : "Binary Search Trees",
   "question" : "We are given a set of n distinct elements and an unlabeled binary tree with n nodes. In how many ways can we populate the tree with the given set so that it becomes a binary search tree? (GATE CS 2011)",
   "answerA" : "0",
   "answerB" : "1",
@@ -206,7 +206,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Binary Search Trees",
+  "name" : "Binary Search Trees",
   "question" : "How many distinct binary search trees can be created out of 4 distinct keys?",
   "answerA" : "4",
   "answerB" : "14",
@@ -215,7 +215,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Binary Search Trees",
+  "name" : "Binary Search Trees",
   "question" : "Which of the following traversal outputs the data in sorted order in a BST?",
   "answerA" : "Preorder",
   "answerB" : "Inorder",
@@ -224,7 +224,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Binary Search Trees",
+  "name" : "Binary Search Trees",
   "question" : "Suppose the numbers 7, 5, 1, 8, 3, 6, 0, 9, 4, 2 are inserted in that order into an initially empty binary search tree. The binary search tree uses the usual ordering on natural numbers. What is the in-order traversal sequence of the resultant tree?",
   "answerA" : "7 5 1 0 3 2 4 6 8 9",
   "answerB" : "0 2 4 3 1 6 5 9 8 7",
@@ -233,7 +233,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "Binary Search Trees",
+  "name" : "Binary Search Trees",
   "question" : "The following numbers are inserted into an empty binary search tree in the given order: 10, 1, 3, 5, 15, 12, 16. What is the height of the binary search tree (the height is the maximum distance of a leaf node from the root)? (GATE CS 2004)",
   "answerA" : "2",
   "answerB" : "3",
@@ -242,7 +242,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Binary Search Trees",
+  "name" : "Binary Search Trees",
   "question" : "The preorder traversal sequence of a binary search tree is 30, 20, 10, 15, 25, 23, 39, 35, 42. Which one of the following is the postorder traversal sequence of the same tree?",
   "answerA" : "10, 20, 15, 23, 25, 35, 42, 39, 30",
   "answerB" : "15, 10, 25, 23, 20, 42, 35, 39, 30",
@@ -251,7 +251,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "Binary Search Trees",
+  "name" : "Binary Search Trees",
   "question" : "Consider the following Binary Search Tree\n\n\n               10\n             /    \n            5      20\n           /      /             \n          4     15    30\n               /  \n              11       \nIf we randomly search one of the keys present in above BST, what would be the expected number of comparisons?",
   "answerA" : "2.75",
   "answerB" : "2.25",
@@ -260,7 +260,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "Binary Search Trees",
+  "name" : "Binary Search Trees",
   "question" : "Which of the following traversals is sufficient to construct BST from given traversals 1) Inorder 2) Preorder 3) Postorder",
   "answerA" : "Any one of the given three traversals is sufficient",
   "answerB" : "Either 2 or 3 is sufficient",
@@ -269,7 +269,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Balanced Binary Search Trees",
+  "name" : "Balanced Binary Search Trees",
   "question" : "The worst case running time to search for an element in a balanced in a binary search tree with n2^n elements is \n (A) \n (B) \n (C) \n (D)",
   "answerA" : "A",
   "answerB" : "B",
@@ -278,7 +278,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "Balanced Binary Search Trees",
+  "name" : "Balanced Binary Search Trees",
   "question" : "What is the maximum height of any AVL-tree with 7 nodes? Assume that the height of a tree with a single node is 0.",
   "answerA" : "2",
   "answerB" : "3",
@@ -287,7 +287,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Balanced Binary Search Trees",
+  "name" : "Balanced Binary Search Trees",
   "question" : "What is the worst case possible height of AVL tree?",
   "answerA" : "2Logn \n Assume base of log is 2",
   "answerB" : "1.44log n \n Assume base of log is 2",
@@ -296,7 +296,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Balanced Binary Search Trees",
+  "name" : "Balanced Binary Search Trees",
   "question" : "Which of the following is AVL Tree?\n\nA\n        100\n     /      \n    50       200\n   /           \n 10            300\n\n\nB\n           100\n       /       \n     50        200\n    /        /     \n  10       150     300\n /\n5\n\n\nC\n            100\n       /          \n     50            200\n    /            /     \n  10    60       150     300\n /                         \n5                   180       400",
   "answerA" : "Only A",
   "answerB" : "A and C",
@@ -305,7 +305,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Balanced Binary Search Trees",
+  "name" : "Balanced Binary Search Trees",
   "question" : "Consider the following AVL tree.\n\n         60\n      /       \n    20      100\n           /   \n         80    120     \nWhich of the following is updated AVL tree after insertion of 70\n\nA\n        70\n      /      \n    60      100\n   /       /    \n 20       80    120 \n\nB\n        100\n      /      \n    60      120\n   /       /  \n 20   70   80   \n\n\nC\n        80\n      /      \n    60      100\n   /         \n 20   70      120\n\nD\n        80\n      /      \n    60      100\n   /       /   \n 20      70    120  ",
   "answerA" : "A",
   "answerB" : "B",
@@ -314,7 +314,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "Balanced Binary Search Trees",
+  "name" : "Balanced Binary Search Trees",
   "question" : "Which of the following is a self-adjusting or self-balancing Binary Search Tree",
   "answerA" : "Splay Tree",
   "answerB" : "AVL Tree",
@@ -323,7 +323,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "Balanced Binary Search Trees",
+  "name" : "Balanced Binary Search Trees",
   "question" : "Consider the following left-rotate and right-rotate functions commonly used in self-adjusting BSTs\n\nT1, T2 and T3 are subtrees of the tree rooted with y (on left side) \nor x (on right side)           \n                y                               x\n               /      Right Rotation          /  \n              x   T3   – - – - – - – >        T1   y \n             /        < - - - - - - -            / \n            T1  T2     Left Rotation            T2  T3\nWhich of the following is tightest upper bound for left-rotate and right-rotate operations.",
   "answerA" : "O(1)",
   "answerB" : "O(Logn)",
@@ -332,7 +332,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Balanced Binary Search Trees",
+  "name" : "Balanced Binary Search Trees",
   "question" : "Which of the following is true",
   "answerA" : "The AVL trees are more balanced compared to Red Black Trees, but they may cause more rotations during insertion and deletion.",
   "answerB" : "Heights of AVL and Red-Black trees are generally same, but AVL Trees may cause more rotations during insertion and deletion.",
@@ -341,7 +341,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Balanced Binary Search Trees",
+  "name" : "Balanced Binary Search Trees",
   "question" : "Which of the following is true about Red Black Trees?",
   "answerA" : "The path from the root to the furthest leaf is no more than twice as long as the path from the root to the nearest leaf",
   "answerB" : "At least one children of every black node is red",
@@ -350,7 +350,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Balanced Binary Search Trees",
+  "name" : "Balanced Binary Search Trees",
   "question" : "Which of the following is true about AVL and Red Black Trees?",
   "answerA" : "In AVL tree insert() operation, we first traverse from root to newly inserted node and then from newly inserted node to root. While in Red Black tree insert(), we only traverse once from root to newly inserted node.",
   "answerB" : "In both AVL and Red Black insert operations, we traverse only once from root to newly inserted node,",
@@ -359,7 +359,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Graph",
+  "name" : "Graph",
   "question" : "Which of the following is an advantage of adjacency list representation over adjacency matrix representation of a graph?",
   "answerA" : "In adjacency list representation, space is saved for sparse graphs.",
   "answerB" : "DFS and BSF can be done in O(V + E) time for adjacency list representation. These operations take O(V^2) time in adjacency matrix representation. Here is V and E are number of vertices and edges respectively.",
@@ -368,7 +368,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "Graph",
+  "name" : "Graph",
   "question" : "The degree sequence of a simple graph is the sequence of the degrees of the nodes in the graph in decreasing order. Which of the following sequences can not be the degree sequence of any graph? \nI. 7, 6, 5, 4, 4, 3, 2, 1\nII. 6, 6, 6, 6, 3, 3, 2, 2\nIII. 7, 6, 6, 4, 4, 3, 2, 2\nIV. 8, 7, 7, 6, 4, 2, 1, 1 ",
   "answerA" : "I and II",
   "answerB" : "III and IV",
@@ -377,7 +377,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "Graph",
+  "name" : "Graph",
   "question" : "The time complexity of computing the transitive closure of a binary relation on a set of n elements is known to be:",
   "answerA" : "O(n)",
   "answerB" : "O(nLogn)",
@@ -386,7 +386,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "Graph",
+  "name" : "Graph",
   "question" : "The most efficient algorithm for finding the number of connected components in an undirected graph on n vertices and m edges has time complexity. (A) (n) (B) (m) (C) (m + n) (D) (mn)",
   "answerA" : "A",
   "answerB" : "B",
@@ -395,7 +395,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "Graph",
+  "name" : "Graph",
   "question" : "Consider an undirected unweighted graph G. Let a breadth-first traversal of G be done starting from a node r. Let d(r, u) and d(r, v) be the lengths of the shortest paths from r to u and v respectively, in G. lf u is visited before v during the breadth-first traversal, which of the following statements is correct? (GATE CS 2001)",
   "answerA" : "d(r, u) < d (r, v)",
   "answerB" : "d(r, u) > d(r, v)",
@@ -404,7 +404,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "Graph",
+  "name" : "Graph",
   "question" : "How many undirected graphs (not necessarily connected) can be constructed out of a given set V= {V 1, V 2,…V n} of n vertices ?",
   "answerA" : "n(n-l)/2",
   "answerB" : "2^n",
@@ -413,7 +413,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "Graph",
+  "name" : "Graph",
   "question" : "Which of the following statements is/are TRUE for an undirected graph? P: Number of odd degree vertices is even Q: Sum of degrees of all vertices is even",
   "answerA" : "P Only",
   "answerB" : "Q Only",
@@ -422,7 +422,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "Graph",
+  "name" : "Graph",
   "question" : "Consider an undirected random graph of eight vertices. The probability that there is an edge between a pair of vertices is 1/2. What is the expected number of unordered cycles of length three?",
   "answerA" : "1/8",
   "answerB" : "1",
@@ -431,7 +431,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "Graph",
+  "name" : "Graph",
   "question" : "Given an undirected graph G with V vertices and E edges, the sum of the degrees of all vertices is",
   "answerA" : "E",
   "answerB" : "2E",
@@ -440,7 +440,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Graph",
+  "name" : "Graph",
   "question" : "How many undirected graphs (not necessarily connected) can be constructed out of a given set V = {v1, v2, ... vn} of n vertices?",
   "answerA" : "n(n-1)/2",
   "answerB" : "2n",
@@ -449,7 +449,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "Hash",
+  "name" : "Hash",
   "question" : "A hash table of length 10 uses open addressing with hash function h(k)=k mod 10, and linear probing. After inserting 6 values into an empty hash table, the table is as shown below. \n \n Which one of the following choices gives a possible order in which the key values could have been inserted in the table?",
   "answerA" : "46, 42, 34, 52, 23, 33",
   "answerB" : "34, 42, 23, 52, 33, 46",
@@ -458,7 +458,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "Hash",
+  "name" : "Hash",
   "question" : "How many different insertion sequences of the key values using the same hash function and linear probing will result in the hash table shown above?",
   "answerA" : "10",
   "answerB" : "20",
@@ -467,7 +467,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "Hash",
+  "name" : "Hash",
   "question" : "The keys 12, 18, 13, 2, 3, 23, 5 and 15 are inserted into an initially empty hash table of length 10 using open addressing with hash function h(k) = k mod 10 and linear probing. What is the resultant hash table?",
   "answerA" : "A",
   "answerB" : "B",
@@ -476,7 +476,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "Hash",
+  "name" : "Hash",
   "question" : "Consider a hash table of size seven, with starting index zero, and a hash function (3x + 4)mod7. Assuming the hash table is initially empty, which of the following is the contents of the table when the sequence 1, 3, 8, 10 is inserted into the table using closed hashing? Note that ‘_’ denotes an empty location in the table.",
   "answerA" : "8, _, _, _, _, _, 10",
   "answerB" : "1, 8, 10, _, _, _, 3",
@@ -485,7 +485,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Hash",
+  "name" : "Hash",
   "question" : "Consider a hash table of size seven, with starting index zero, and a hash function (3x + 4)mod7. Assuming the hash table is initially empty, which of the following is the contents of the table when the sequence 1, 3, 8, 10 is inserted into the table using closed hashing? Note that ‘_’ denotes an empty location in the table.",
   "answerA" : "8, _, _, _, _, _, 10",
   "answerB" : "1, 8, 10, _, _, _, 3",
@@ -494,7 +494,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Hash",
+  "name" : "Hash",
   "question" : "Given the following input (4322, 1334, 1471, 9679, 1989, 6171, 6173, 4199) and the hash function x mod 10, which of the following statements are true? i. 9679, 1989, 4199 hash to the same value ii. 1471, 6171 has to the same value iii. All elements hash to the same value iv. Each element hashes to a different value (GATE CS 2004)",
   "answerA" : "i only",
   "answerB" : "ii only",
@@ -503,7 +503,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "Hash",
+  "name" : "Hash",
   "question" : "Consider a hash table with 100 slots. Collisions are resolved using chaining. Assuming simple uniform hashing, what is the probability that the first 3 slots are unfilled after the first 3 insertions?",
   "answerA" : "(97 × 97 × 97)/1003",
   "answerB" : "(99 × 98 × 97)/1003",
@@ -512,7 +512,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Hash",
+  "name" : "Hash",
   "question" : "Which one of the following hash functions on integers will distribute keys most uniformly over 10 buckets numbered 0 to 9 for i ranging from 0 to 2020?",
   "answerA" : "h(i) =i2 mod 10",
   "answerB" : "h(i) =i3 mod 10",
@@ -521,7 +521,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Hash",
+  "name" : "Hash",
   "question" : "Given a hash table T with 25 slots that stores 2000 elements, the load factor α for T is __________",
   "answerA" : "80",
   "answerB" : "0.0125",
@@ -530,7 +530,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Hash",
+  "name" : "Hash",
   "question" : "Which of the following statement(s) is TRUE?\n1. A hash function takes a message of arbitrary length and generates a fixed length code.\n2. A hash function takes a message of fixed length and generates a code of variable length.\n3. A hash function may give the same hash value for distinct messages.\n  ",
   "answerA" : "I only",
   "answerB" : "II and III only",
@@ -539,7 +539,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "Array",
+  "name" : "Array",
   "question" : "A program P reads in 500 integers in the range [0..100] exepresenting the scores of 500 students. It then prints the frequency of each score above 50. What would be the best way for P to store the frequencies? (GATE CS 2005)",
   "answerA" : "An array of 50 numbers",
   "answerB" : "An array of 100 numbers",
@@ -548,7 +548,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Array",
+  "name" : "Array",
   "question" : "Which of the following operations is not O(1) for an array of sorted data. You may assume that array elements are distinct.",
   "answerA" : "Find the ith largest element",
   "answerB" : "Delete an element",
@@ -557,7 +557,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Array",
+  "name" : "Array",
   "question" : "The minimum number of comparisons required to determine if an integer appears more than n/2 times in a sorted array of n integers is",
   "answerA" : "Θ(n)",
   "answerB" : "Θ(logn)",
@@ -566,7 +566,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Array",
+  "name" : "Array",
   "question" : "Let A be a square matrix of size n x n. Consider the following program. What is the expected output?\n\n\nC = 100\nfor i = 1 to n do\n    for j = 1 to n do\n    {\n        Temp = A[i][j] + C\n        A[i][j] = A[j][i]\n        A[j][i] = Temp - C\n    } \nfor i = 1 to n do\n    for j = 1 to n do\n        Output(A[i][j]);",
   "answerA" : "The matrix A itself",
   "answerB" : "Transpose of matrix A",
@@ -575,7 +575,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Array",
+  "name" : "Array",
   "question" : "An algorithm performs (logN)1/2 find operations, N insert operations, (logN)1/2 operations, and (logN)1/2 decrease-key operations on a set of data items with keys drawn from a linearly ordered set. For a delete operation, a pointer is provided to the record that must be deleted. For the decrease-key operation, a pointer is provided to the record that has its key decreased. Which one of the following data structures is the most suited for the algorithm to use, if the goal is to achieve the best total asymptotic complexity considering all the operations?",
   "answerA" : "Unsorted array",
   "answerB" : "Min-heap",
@@ -584,7 +584,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Array",
+  "name" : "Array",
   "question" : "Consider an array consisting of –ve and +ve numbers. What would be the worst time comparisons an algorithm can take in order to segregate the numbers having same sign altogether i.e all +ve on one side and then all -ve on the other ?",
   "answerA" : "N-1",
   "answerB" : "N",
@@ -593,7 +593,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Array",
+  "name" : "Array",
   "question" : "Let A[1...n] be an array of n distinct numbers. If i < j and A[i] > A[j], then the pair (i, j) is called an inversion of A. What is the expected number of inversions in any permutation on n elements ?",
   "answerA" : "θ(n)",
   "answerB" : "θ(lgn)",
@@ -602,7 +602,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "Array",
+  "name" : "Array",
   "question" : "A three dimensional array in ‘C’ is declared as int A[x][y][z]. Here, the address of an item at the location A[p][q][r] can be computed as follows (where w is the word length of an integer):",
   "answerA" : "&A[0][0][0] + w(y * z * q + z * p + r)",
   "answerB" : "&A[0][0][0] + w(y * z * p + z*q + r)",
@@ -611,7 +611,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Array",
+  "name" : "Array",
   "question" : "Which of the following is an illegal array definition?",
   "answerA" : "Type COLONGE : (LIME, PINE, MUSK, MENTHOL); var a : array [COLONGE] of REAL;",
   "answerB" : "var a : array [REAL] of REAL;",
@@ -620,7 +620,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Array",
+  "name" : "Array",
   "question" : "Consider an array A[20, 10], assume 4 words per memory cell and the base address of array A is 100. What is the address of A[11, 5] ? Assume row major storage.",
   "answerA" : "560",
   "answerB" : "565",
@@ -629,7 +629,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Data Structures Misc",
+  "name" : "Data Structures Misc",
   "question" : "Which data structure is used for balancing of symbols?",
   "answerA" : "Stack",
   "answerB" : "Queue",
@@ -638,7 +638,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Data Structures Misc",
+  "name" : "Data Structures Misc",
   "question" : "Which data structure is used in redo-undo feature?",
   "answerA" : "Stack",
   "answerB" : "Queue",
@@ -647,7 +647,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Data Structures Misc",
+  "name" : "Data Structures Misc",
   "question" : "Which data structure is most efficient to find the top 10 largest items out of 1 million items stored in file?",
   "answerA" : "Min heap",
   "answerB" : "Max heap",
@@ -656,7 +656,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Data Structures Misc",
+  "name" : "Data Structures Misc",
   "question" : "The best data structure to check whether an arithmetic expression has balanced parentheses is a (GATE CS 2004)",
   "answerA" : "queue",
   "answerB" : "stack",
@@ -665,7 +665,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Data Structures Misc",
+  "name" : "Data Structures Misc",
   "question" : "A data structure is required for storing a set of integers such that each of the following operations can be done in (log n) time, where n is the number of elements in the set.\n\n   o\tDelection of the smallest element \n   o\tInsertion of an element if it is not already present in the set\nWhich of the following data structures can be used for this purpose?",
   "answerA" : "A heap can be used but not a balanced binary search tree",
   "answerB" : "A balanced binary search tree can be used but not a heap",
@@ -674,7 +674,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Data Structures Misc",
+  "name" : "Data Structures Misc",
   "question" : "The most appropriate matching for the following pairs\nX: depth first search            1: heap\nY: breadth-first search          2: queue\nZ: sorting                       3: stack\nis (GATE CS 2000):",
   "answerA" : "X—1 Y—2 Z-3",
   "answerB" : "X—3 Y—1 Z-2",
@@ -683,7 +683,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "Data Structures Misc",
+  "name" : "Data Structures Misc",
   "question" : "Which among the following data structures is best suited for storing very large numbers (numbers that cannot be stored in long long int). Following are the operations needed for these large numbers.",
   "answerA" : "Array",
   "answerB" : "Linked List",
@@ -692,7 +692,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Data Structures Misc",
+  "name" : "Data Structures Misc",
   "question" : "Which data structure is best suited for converting recursive implementation to iterative implementation of an algorithm?",
   "answerA" : "Queue",
   "answerB" : "Stack",
@@ -701,7 +701,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Data Structures Misc",
+  "name" : "Data Structures Misc",
   "question" : "Consider a situation where a client receives packets from a server. There may be differences in speed of the client and the server. Which data structure is best suited for synchronization?",
   "answerA" : "Circular Linked List",
   "answerB" : "Queue",
@@ -710,7 +710,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Data Structures Misc",
+  "name" : "Data Structures Misc",
   "question" : "Which of the following data structures is best suited for efficient implementation of priority queue?",
   "answerA" : "Array",
   "answerB" : "Linked List",
@@ -719,7 +719,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "B and B+ Trees",
+  "name" : "B and B+ Trees",
   "question" : "Consider a B+-tree in which the maximum number of keys in a node is 5. What is the minimum number of keys in any non-root node? (GATE CS 2010)",
   "answerA" : "1",
   "answerB" : "2",
@@ -728,7 +728,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "B and B+ Trees",
+  "name" : "B and B+ Trees",
   "question" : "Which one of the following is a key factor for preferring B-trees to binary search trees for indexing database relations?",
   "answerA" : "Database relations have a large number of records",
   "answerB" : "Database relations are sorted on the primary key",
@@ -737,7 +737,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "B and B+ Trees",
+  "name" : "B and B+ Trees",
   "question" : "B+ trees are preferred to binary trees in databases because (GATE CS 2000)",
   "answerA" : "Disk capacities are greater than memory capacities",
   "answerB" : "Disk access is much slower than memory access",
@@ -746,7 +746,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "B and B+ Trees",
+  "name" : "B and B+ Trees",
   "question" : "Which of the following is FALSE about B/B+ tree",
   "answerA" : "B/B+ trees grow upward while Binary Search Trees grow downward.",
   "answerB" : "Time complexity of search operation in B/B+ tree is better than Red Black Trees in general.",
@@ -755,7 +755,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "B and B+ Trees",
+  "name" : "B and B+ Trees",
   "question" : "A B-tree of order 4 is built from scratch by 10 successive insertions. What is the maximum number of node splitting operations that may take place?",
   "answerA" : "3",
   "answerB" : "4",
@@ -764,7 +764,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "B and B+ Trees",
+  "name" : "B and B+ Trees",
   "question" : "The order of a leaf node in a tree B+ ? is the maximum number of (value, data record pointer) pairs it can hold. Given that the block size is 1K bytes, data record pointer is 7 bytes long, the value field is 9 bytes long and a block pointer is 6 bytes long, what is the order of the leaf node?",
   "answerA" : "63",
   "answerB" : "64",
@@ -773,7 +773,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "B and B+ Trees",
+  "name" : "B and B+ Trees",
   "question" : "The order of an internal node in a B+ tree index is the maximum number of children it can have. Suppose that a child pointer takes 6 bytes, the search field value takes 14 bytes, and the block size is 512 bytes. What is the order of the internal node?",
   "answerA" : "24",
   "answerB" : "25",
@@ -782,7 +782,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "B and B+ Trees",
+  "name" : "B and B+ Trees",
   "question" : "Consider the following 2-3-4 tree (i.e., B-tree with a minimum degree of two) in which each data item is a letter. The usual alphabetical ordering of letters is used in constructing the tree. What is the result of inserting G in the above tree ?\n\nA) \n\nB) \n\nC) \n\nD) None of the above",
   "answerA" : "A",
   "answerB" : "B",
@@ -791,7 +791,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "B and B+ Trees",
+  "name" : "B and B+ Trees",
   "question" : "A B+ -tree index is to be built on the Name attribute of the relation STUDENT. Assume that all student names are of length 8 bytes, disk block are size 512 bytes, and index pointers are of size 4 bytes. Given this scenario, what would be the best choice of the degree (i.e. the number of pointers per node) of the B+ -tree?",
   "answerA" : "16",
   "answerB" : "42",
@@ -800,7 +800,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "B and B+ Trees",
+  "name" : "B and B+ Trees",
   "question" : "With reference to the B+ tree index of order 1 shown below, the minimum number of nodes (including the root node) that must be fetched in order to satisfy the following query: “Get all records with a search key greater than or equal to 7 and less than 15” is ________",
   "answerA" : "4",
   "answerB" : "5",
@@ -809,7 +809,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Heap",
+  "name" : "Heap",
   "question" : "What is the time complexity of Build Heap operation. Build Heap is used to build a max(or min) binary heap from a given array. Build Heap is used in Heap Sort as a first step for sorting.",
   "answerA" : "O(nLogn)",
   "answerB" : "O(n^2)",
@@ -818,7 +818,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "Heap",
+  "name" : "Heap",
   "question" : "Suppose we are sorting an array of eight integers using heapsort, and we have just finished some heapify (either maxheapify or minheapify) operations. The array now looks like this: 16 14 15 10 12 27 28 How many heapify operations have been performed on root of heap?",
   "answerA" : "1",
   "answerB" : "2",
@@ -827,7 +827,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Heap",
+  "name" : "Heap",
   "question" : "A max-heap is a heap where the value of each parent is greater than or equal to the values of its children. Which of the following is a max-heap? (GATE CS 2011)",
   "answerA" : "A",
   "answerB" : "B",
@@ -836,7 +836,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Heap",
+  "name" : "Heap",
   "question" : "A 3-ary max heap is like a binary max heap, but instead of 2 children, nodes have 3 children. A 3-ary heap can be represented by an array as follows: The root is stored in the first location, a[0], nodes in the next level, from left to right, is stored from a[1] to a[3]. The nodes from the second level of the tree from left to right are stored from a[4] location onward. An item x can be inserted into a 3-ary heap containing n items by placing x in the location a[n] and pushing it up the tree to satisfy the heap property. Which one of the following is a valid sequence of elements in an array representing 3-ary max heap?",
   "answerA" : "1, 3, 5, 6, 8, 9",
   "answerB" : "9, 6, 3, 1, 8, 5",
@@ -845,7 +845,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "Heap",
+  "name" : "Heap",
   "question" : "Suppose the elements 7, 2, 10 and 4 are inserted, in that order, into the valid 3- ary max heap found in the above question, Which one of the following is the sequence of items in the array representing the resultant heap?",
   "answerA" : "10, 7, 9, 8, 3, 1, 5, 2, 6, 4",
   "answerB" : "10, 9, 8, 7, 6, 5, 4, 3, 2, 1",
@@ -854,7 +854,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Heap",
+  "name" : "Heap",
   "question" : "Consider a binary max-heap implemented using an array. Which one of the following array represents a binary max-heap? (GATE CS 2009)",
   "answerA" : "25,12,16,13,10,8,14",
   "answerB" : "25,12,16,13,10,8,14",
@@ -863,7 +863,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "Heap",
+  "name" : "Heap",
   "question" : "What is the content of the array after two delete operations on the correct answer to the previous question?",
   "answerA" : "14,13,12,10,8",
   "answerB" : "14,12,13,8,10",
@@ -872,7 +872,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "Heap",
+  "name" : "Heap",
   "question" : "We have a binary heap on n elements and wish to insert n more elements (not necessarily one after another) into this heap. The total time required for this is (A) (logn) (B) (n) (C) (nlogn) (D) (n^2)",
   "answerA" : "A",
   "answerB" : "B",
@@ -881,7 +881,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Heap",
+  "name" : "Heap",
   "question" : "In a min-heap with n elements with the smallest element at the root, the 7th smallest element can be found in time a) (n log n) b) (n) c) (log n) d) (1) The question was not clear in original GATE exam. For clarity, assume that there are no duplicates in Min-Heap and accessing heap elements below root is allowed.",
   "answerA" : "a",
   "answerB" : "b",
@@ -890,7 +890,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "Heap",
+  "name" : "Heap",
   "question" : "In a binary max heap containing n numbers, the smallest element can be found in time (GATE CS 2006)",
   "answerA" : "0(n)",
   "answerB" : "O(logn)",
@@ -899,7 +899,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Tree Traversals",
+  "name" : "Tree Traversals",
   "question" : "Following function is supposed to calculate the maximum depth or height of a Binary tree -- the number of nodes along the longest path from the root node down to the farthest leaf node.\n\nint maxDepth(struct node* node)\n{\n   if (node==NULL)\n       return 0;\n   else\n   {\n       /* compute the depth of each subtree */\n       int lDepth = maxDepth(node->left);\n       int rDepth = maxDepth(node->right);\n \n       /* use the larger one */\n       if (lDepth > rDepth)\n           return X;\n       else return Y;\n   }\n}\nWhat should be the values of X and Y so that the function works correctly?",
   "answerA" : "X = lDepth, Y = rDepth",
   "answerB" : "X = lDepth + 1, Y = rDepth + 1",
@@ -908,7 +908,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Tree Traversals",
+  "name" : "Tree Traversals",
   "question" : "What is common in three different types of traversals (Inorder, Preorder and Postorder)?",
   "answerA" : "Root is visited before right subtree",
   "answerB" : "Left subtree is always visited before right subtree",
@@ -917,7 +917,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Tree Traversals",
+  "name" : "Tree Traversals",
   "question" : "The inorder and preorder traversal of a binary tree are d b e a f c g and a b d e c f g, respectively. The postorder traversal of the binary tree is:",
   "answerA" : "d e b f g c a",
   "answerB" : "e d b g f c a",
@@ -926,7 +926,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Tree Traversals",
+  "name" : "Tree Traversals",
   "question" : "What does the following function do for a given binary tree?\n\nint fun(struct node *root)\n{\n   if (root == NULL)\n      return 0;\n   if (root->left == NULL && root->right == NULL)\n      return 0;\n   return 1 + fun(root->left) + fun(root->right);\n}",
   "answerA" : "Counts leaf nodes",
   "answerB" : "Counts internal nodes",
@@ -935,7 +935,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Tree Traversals",
+  "name" : "Tree Traversals",
   "question" : "Which of the following pairs of traversals is not sufficient to build a binary tree from the given traversals?",
   "answerA" : "Preorder and Inorder",
   "answerB" : "Preorder and Postorder",
@@ -944,7 +944,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Tree Traversals",
+  "name" : "Tree Traversals",
   "question" : "Consider two binary operators ' ' and '' with the precedence of operator being lower than that of the operator. Operator is right associative while operator is left associative. Which one of the following represents the parse tree for expression (7 3 ­ 4 ­ 3 2)? (GATE CS 2011)",
   "answerA" : "A",
   "answerB" : "B",
@@ -953,7 +953,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Tree Traversals",
+  "name" : "Tree Traversals",
   "question" : "Which traversal of tree resembles the breadth first search of the graph?",
   "answerA" : "Preorder",
   "answerB" : "Inorder",
@@ -962,7 +962,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "Tree Traversals",
+  "name" : "Tree Traversals",
   "question" : "Which of the following tree traversal uses a queue data structure?",
   "answerA" : "Preorder",
   "answerB" : "Inorder",
@@ -971,7 +971,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "Tree Traversals",
+  "name" : "Tree Traversals",
   "question" : "Which of the following cannot generate the full binary tree?",
   "answerA" : "Inorder and Preorder",
   "answerB" : "Inorder and Postorder",
@@ -980,7 +980,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "Tree Traversals",
+  "name" : "Tree Traversals",
   "question" : "Consider the following C program segment\n\nstruct CellNode\n{\n  struct CelINode *leftchild;\n  int element;\n  struct CelINode *rightChild;\n}\n\nint Dosomething(struct CelINode *ptr)\n{\n    int value = 0;\n    if (ptr != NULL)\n    {\n      if (ptr->leftChild != NULL)\n        value = 1 + DoSomething(ptr->leftChild);\n      if (ptr->rightChild != NULL)\n        value = max(value, 1 + DoSomething(ptr->rightChild));\n    }\n    return (value);\n}\nThe value returned by the function DoSomething when a pointer to the root of a non-empty tree is passed as argument is (GATE CS 2004)",
   "answerA" : "The number of leaf nodes in the tree",
   "answerB" : "The number of nodes in the tree",
