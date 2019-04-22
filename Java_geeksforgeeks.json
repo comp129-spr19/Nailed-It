@@ -1,0 +1,766 @@
+[ {
+  "topic" : "Java Inheritance",
+  "question" : "Output of following Java Program?\n\nclass Base {\n    public void show() {\n       System.out.println(\"Base::show() called\");\n    }\n}\n \nclass Derived extends Base {\n    public void show() {\n       System.out.println(\"Derived::show() called\");\n    }\n}\n \npublic class Main {\n    public static void main(String[] args) {\n        Base b = new Derived();;\n        b.show();\n    }\n}",
+  "answerA" : "Derived::show() called",
+  "answerB" : "Base::show() called",
+  "answerC" : "N/A",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Inheritance",
+  "question" : "\nclass Base {\n    final public void show() {\n       System.out.println(\"Base::show() called\");\n    }\n}\n \nclass Derived extends Base {\n    public void show() {\n       System.out.println(\"Derived::show() called\");\n    }\n}\n \nclass Main {\n    public static void main(String[] args) {\n        Base b = new Derived();;\n        b.show();\n    }\n}",
+  "answerA" : "Base::show() called",
+  "answerB" : "Derived::show() called",
+  "answerC" : "Compiler Error",
+  "answerD" : "Runtime Error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "Java Inheritance",
+  "question" : "\nclass Base {\n    public static void show() {\n       System.out.println(\"Base::show() called\");\n    }\n}\n \nclass Derived extends Base {\n    public static void show() {\n       System.out.println(\"Derived::show() called\");\n    }\n}\n \nclass Main {\n    public static void main(String[] args) {\n        Base b = new Derived();;\n        b.show();\n    }\n}",
+  "answerA" : "Base::show() called",
+  "answerB" : "Derived::show() called",
+  "answerC" : "Compiler Error",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Inheritance",
+  "question" : "Which of the following is true about inheritance in Java?\n\n\n1) Private methods are final.\n2) Protected members are accessible within a package and \n   inherited classes outside the package.\n3) Protected methods are final.\n4) We cannot override private methods. ",
+  "answerA" : "1, 2 and 4",
+  "answerB" : "Only 1 and 2",
+  "answerC" : "1, 2 and 3",
+  "answerD" : "2, 3 and 4",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Inheritance",
+  "question" : "Output of following Java program?\n\nclass Base {\n    public void Print() {\n        System.out.println(\"Base\");\n    }         \n}\n\nclass Derived extends Base {    \n    public void Print() {\n        System.out.println(\"Derived\");\n    }\n}\n\nclass Main{\n    public static void DoPrint( Base o ) {\n        o.Print();   \n    }\n    public static void main(String[] args) {\n        Base x = new Base();\n        Base y = new Derived();\n        Derived z = new Derived();\n        DoPrint(x);\n        DoPrint(y);\n        DoPrint(z);\n    }\n}",
+  "answerA" : "Base\nDerived\nDerived",
+  "answerB" : "Base\nBase\nDerived",
+  "answerC" : "Base\nDerived\nBase",
+  "answerD" : "Compiler Error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Inheritance",
+  "question" : "Predict the output of following program. Note that fun() is public in base and private in derived.\n\nclass Base {\n    public void foo() { System.out.println(\"Base\"); }\n}\n \nclass Derived extends Base {\n    private void foo() { System.out.println(\"Derived\"); } \n}\n \npublic class Main {\n    public static void main(String args[]) {\n        Base b = new Derived();\n        b.foo();\n    }\n} ",
+  "answerA" : "Base",
+  "answerB" : "Derived",
+  "answerC" : "Compiler Error",
+  "answerD" : "Runtime Error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "Java Inheritance",
+  "question" : "Which of the following is true about inheritance in Java. 1) In Java all classes inherit from the Object class directly or indirectly. The Object class is root of all classes. 2) Multiple inheritance is not allowed in Java. 3) Unlike C++, there is nothing like type of inheritance in Java where we can specify whether the inheritance is protected, public or private.",
+  "answerA" : "1, 2 and 3",
+  "answerB" : "1 and 2",
+  "answerC" : "2 and 3",
+  "answerD" : "1 and 3",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Inheritance",
+  "question" : "Predict the output of following Java Program\n\n// filename Main.java\nclass Grandparent {\n    public void Print() {\n        System.out.println(\"Grandparent's Print()\");\n    }\n}\n \nclass Parent extends Grandparent {\n    public void Print() {\n        System.out.println(\"Parent's Print()\");\n    }\n}\n \nclass Child extends Parent {\n    public void Print() {\n        super.super.Print(); \n        System.out.println(\"Child's Print()\");\n    }\n}\n \npublic class Main {\n    public static void main(String[] args) {\n        Child c = new Child();\n        c.Print();\n    }\n}",
+  "answerA" : "Compiler Error in super.super.Print()",
+  "answerB" : "Grandparent's Print()\nParent's Print()\nChild's Print()",
+  "answerC" : "Runtime Error",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Inheritance",
+  "question" : "\nfinal class Complex {\n\n    private final double re;\n    private final double im;\n\n    public Complex(double re, double im) {\n        this.re = re;\n        this.im = im;\n    }\n\n    public String toString() {\n        return \"(\" + re + \" + \" + im + \"i)\";\n    }\n}\n\nclass Main {\n  public static void main(String args[])\n  {\n       Complex c = new Complex(10, 15);\n       System.out.println(\"Complex number is \" + c);\n  }         \n}",
+  "answerA" : "Complex number is (10.0 + 15.0i)",
+  "answerB" : "Compiler Error",
+  "answerC" : "Complex number is SOME_GARBAGE",
+  "answerD" : "Complex number is Complex@8e2fb5\nHere 8e2fb5 is hash code of c",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Abstract Class and Interface",
+  "question" : "Which of the following is FALSE about abstract classes in Java",
+  "answerA" : "If we derive an abstract class and do not implement all the abstract methods, then the derived class should also be marked as abstract using 'abstract' keyword",
+  "answerB" : "Abstract classes can have constructors",
+  "answerC" : "A class can be made abstract without any abstract method",
+  "answerD" : "A class can inherit from multiple abstract classes.",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "topic" : "Java Abstract Class and Interface",
+  "question" : "Which of the following is true about interfaces in java.\n\n\n1) An interface can contain following type of members.\n....public, static, final fields (i.e., constants) \n....default and static methods with bodies\n\n2) An instance of interface can be created.\n\n3) A class can implement multiple interfaces.\n\n4) Many classes can implement the same interface.",
+  "answerA" : "1, 3 and 4",
+  "answerB" : "1, 2 and 4",
+  "answerC" : "2, 3 and 4",
+  "answerD" : "1, 2, 3 and 4",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Abstract Class and Interface",
+  "question" : "Predict the output of the following program.\n\nabstract class demo\n{\n    public int a;\n    demo()\n    {\n        a = 10;\n    }\n\n    abstract public void set();\n    \n    abstract final public void get();\n\n}\n\nclass Test extends demo\n{\n\n    public void set(int a)\n    {\n        this.a = a;\n    }\n\n    final public void get()\n    {\n        System.out.println(\"a = \" + a);\n    }\n\n    public static void main(String[] args)\n    {\n        Test obj = new Test();\n        obj.set(20);\n        obj.get();\n    }\n}\n ",
+  "answerA" : "a = 10",
+  "answerB" : "a = 20",
+  "answerC" : "Compilation error",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "Java Abstract Class and Interface",
+  "question" : "Type IV JDBC driver is a driver",
+  "answerA" : "which is written in C++",
+  "answerB" : "which requires an intermediate layer",
+  "answerC" : "which communicates through Java sockets",
+  "answerD" : "which translates JDBC function calls into API not native to DBMS",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "Java Abstract Class and Interface",
+  "question" : "Which of the following statement(s) with regard to an abstract class in JAVA is/are TRUE ? I. An abstract class is one that is not used to create objects. II. An abstract class is designed only to act as a base class to be inherited by other classes.",
+  "answerA" : "Only I",
+  "answerB" : "Only II",
+  "answerC" : "Neither I nor II",
+  "answerD" : "Both I and II",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "topic" : "Java Abstract Class and Interface",
+  "question" : "Which of the following is used to make an Abstract class?",
+  "answerA" : "Making atleast one member function as pure virtual function",
+  "answerB" : "Making atleast one member function as virtual function",
+  "answerC" : "Declaring as Abstract class using virtual keyword",
+  "answerD" : "Declaring as Abstract class using static keyword",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Abstract Class and Interface",
+  "question" : "We can make a class abstract by",
+  "answerA" : "Declaring it abstract using the virtual keyword",
+  "answerB" : "Making at least one member function as virtual function",
+  "answerC" : "Making at least one member function as pure virtual function",
+  "answerD" : "Making all member function const",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "Java Arrays",
+  "question" : "Which of the following is FALSE about arrays on Java",
+  "answerA" : "A java array is always an object",
+  "answerB" : "Length of array can be changed after creation of array",
+  "answerC" : "Arrays in Java are always allocated on heap",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java Arrays",
+  "question" : "Predict the output?\n\n// file name: Main.java\npublic class Main {\n    public static void main(String args[]) {\n       int arr[] = {10, 20, 30, 40, 50};\n       for(int i=0; i < arr.length; i++)\n       {\n             System.out.print(\" \" + arr[i]);              \n       }\n    }\n}",
+  "answerA" : "10 20 30 40 50",
+  "answerB" : "Compiler Error",
+  "answerC" : "10 20 30 40",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Arrays",
+  "question" : "\nclass Test {\n   public static void main(String args[]) {\n     int arr[2];  \n     System.out.println(arr[0]);\n     System.out.println(arr[1]);\n   }\n}",
+  "answerA" : "0\n0",
+  "answerB" : "garbage value\ngarbage value",
+  "answerC" : "Compiler Error",
+  "answerD" : "Exception",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "Java Arrays",
+  "question" : "\nclass Test {\n   public static void main(String args[]) {\n     int arr[] = new int[2];  \n     System.out.println(arr[0]);\n     System.out.println(arr[1]);\n   }\n}",
+  "answerA" : "0\n0",
+  "answerB" : "garbage value\ngarbage value",
+  "answerC" : "Compiler Error",
+  "answerD" : "Exception",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Arrays",
+  "question" : "\npublic class Main {\n    public static void main(String args[]) {\n        int arr[][] = new int[4][];\n        arr[0] = new int[1];\n        arr[1] = new int[2];\n        arr[2] = new int[3];\n        arr[3] = new int[4];\n \n        int i, j, k = 0;\n        for (i = 0; i < 4; i++) {\n            for (j = 0; j < i + 1; j++) {\n                arr[i][j] = k;\n                k++;\n            }\n        }\n        for (i = 0; i < 4; i++) {\n            for (j = 0; j < i + 1; j++) {\n                System.out.print(\" \" + arr[i][j]);\n                k++;\n            }\n            System.out.println();\n        }\n    }\n} ",
+  "answerA" : "Compiler Error",
+  "answerB" : "\n 0\n 1 2\n 3 4 5\n 6 7 8 9 ",
+  "answerC" : "\n 0\n 0 0\n 0 0 0\n 0 0 0 0 ",
+  "answerD" : "\n 9\n 7 8\n 4 5 6\n 0 1 2 3 ",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java Arrays",
+  "question" : "Output of following Java program?\n\nclass Test\n{\n    public static void main (String[] args) \n    {\n        int arr1[] = {1, 2, 3};\n        int arr2[] = {1, 2, 3};\n        if (arr1 == arr2) \n            System.out.println(\"Same\");\n        else\n            System.out.println(\"Not same\");\n    }\n}",
+  "answerA" : "Same",
+  "answerB" : "Not Same",
+  "answerC" : "N/A",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java Arrays",
+  "question" : "Output of following Java program?\n\nimport java.util.Arrays;\nclass Test\n{\n    public static void main (String[] args) \n    {\n        int arr1[] = {1, 2, 3};\n        int arr2[] = {1, 2, 3};\n        if (Arrays.equals(arr1, arr2))\n            System.out.println(\"Same\");\n        else\n            System.out.println(\"Not same\");\n    }\n}",
+  "answerA" : "Same",
+  "answerB" : "Not Same",
+  "answerC" : "N/A",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Arrays",
+  "question" : "\nclass Test\n{\n    public static void main (String[] args) \n    {\n        int arr1[] = {1, 2, 3};\n        int arr2[] = {1, 2, 3};\n        if (arr1.equals(arr2))\n            System.out.println(\"Same\");\n        else\n            System.out.println(\"Not same\");\n    }\n}",
+  "answerA" : "Same",
+  "answerB" : "Not same",
+  "answerC" : "N/A",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java Arrays",
+  "question" : "Consider the following C program which is supposed to compute the transpose of a given 4 x 4 matrix M. Note that, there is an X in the program which indicates some missing statements. Choose the correct option to replace X in the program.\n\n#include<stdio.h>\n#define ROW 4\n#define COL 4\nint M[ROW][COL] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};\nmain()\n{\n    int i, j, t;\n    for (i = 0; i < 4; ++i)\n    {\n        X\n    }\n    for (1 = 0; i < 4; ++i)\n        for (j = 0; j < 4; ++j)\n            printf (\"%d\", M[i][j]);\n}\n \nA)\t\nfor(j = 0; j < 4; ++j){\n     t = M[i][j];\n     M[i][j] = M[j][i];\n     M[j][i] = t;\n}\n \nB)\t\nfor(j = 0; j < 4; ++j){\n     M[i][j] = t;\n     t = M[j][i];\n     M[j][i] = M[i][j];\n}\n \nC)\n\t\nfor(j = i; j < 4; ++j){\n     t = M[i][j];\n     M[i][j] = M[j][i];\n     M[j][i] = t;\n}\n \nD)\t\nfor(j = i; j < 4; ++j){\n     M[i][j] = t;\n     t = M[j][i];\n     M[j][i] = M[i][j];\n}\n ",
+  "answerA" : "A",
+  "answerB" : "B",
+  "answerC" : "C",
+  "answerD" : "D",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "Java Data Types",
+  "question" : "\nclass Main {   \n   public static void main(String args[]) {      \n         int t;      \n         System.out.println(t); \n    }   \n}",
+  "answerA" : "0",
+  "answerB" : "garbage value",
+  "answerC" : "compiler error",
+  "answerD" : "runtime error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "Java Data Types",
+  "question" : "Predict the output of following Java program.\n\nclass Test { \n    public static void main(String[] args) { \n      for(int i = 0; 0; i++) \n      { \n          System.out.println(\"Hello\"); \n          break; \n      } \n    } \n} ",
+  "answerA" : "Hello",
+  "answerB" : "Empty Output",
+  "answerC" : "Compiler error",
+  "answerD" : "Runtime error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "Java Data Types",
+  "question" : "Predict the output of the following program.\n\n class Test\n{\n    public static void main(String[] args)\n    {\n        Double object = new Double(\"2.4\");\n        int a = object.intValue();\n        byte b = object.byteValue();\n        float d = object.floatValue();\n        double c = object.doubleValue();\n\n        System.out.println(a + b + c + d );\n\n    }\n}",
+  "answerA" : "8",
+  "answerB" : "8.8",
+  "answerC" : "8.800000095367432",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "Java Data Types",
+  "question" : "Which of the following statements is/are TRUE regarding JAVA ? (a) Constants that cannot be changed are declared using the ‘static’ keyword. (b) A class can only inherit one class but can implement multiple interfaces.",
+  "answerA" : "Only (a) is TRUE.",
+  "answerB" : "Only (b) is TRUE.",
+  "answerC" : "Both (a) and (b) are TRUE.",
+  "answerD" : "Neither (a) nor (b) are TRUE.",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java Constructors",
+  "question" : "Predict the output?\n\npackage main;\nclass T {\n  int t = 20;\n}\nclass Main {\n   public static void main(String args[]) {\n      T t1 = new T();\n      System.out.println(t1.t);\n   }\n}",
+  "answerA" : "20",
+  "answerB" : "0",
+  "answerC" : "Compiler Error",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Constructors",
+  "question" : "Predict the output of following Java program\n\nclass T {\n  int t = 20;\n  T() {\n    t = 40;\n  }\n}\nclass Main {\n   public static void main(String args[]) {\n      T t1 = new T();\n      System.out.println(t1.t);\n   }\n}",
+  "answerA" : "20",
+  "answerB" : "40",
+  "answerC" : "Compiler Error",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java Constructors",
+  "question" : "Which of the following is/are true about constructors in Java?\n\n\n1) Constructor name should be same as class name.\n2) If you don't define a constructor for a class, \n    a default parameterless constructor is automatically\n    created by the compiler. \n3) The default constructor calls super() and initializes all \n   instance variables to default value like 0, null.\n4) If we want to parent class constructor, it must be called in \n   first line of constructor.",
+  "answerA" : "1",
+  "answerB" : "1, 2",
+  "answerC" : "1, 2 and 3",
+  "answerD" : "1, 2, 3 and 4",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "topic" : "Java Constructors",
+  "question" : "Is there any compiler error in the below Java program?\n\nclass Point {\n    int m_x, m_y; \n    public Point(int x, int y) {    m_x = x;    m_y = y;  }\n    public static void main(String args[]) \n    {\n      Point p = new Point();\n    }\n}\n",
+  "answerA" : "Yes",
+  "answerB" : "No",
+  "answerC" : "N/A",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Constructors",
+  "question" : "Output of following Java program\n\nclass Point {\n  int m_x, m_y;\n  \n  public Point(int x, int y) { m_x = x; m_y = y; }\n  public Point() { this(10, 10); }\n  public int getX() { return m_x; }\n  public int getY() { return m_y; }\n  \n  public static void main(String args[]) {\n    Point p = new Point();\n    System.out.println(p.getX());\n  }\n} ",
+  "answerA" : "10",
+  "answerB" : "0",
+  "answerC" : "compiler error",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Constructors",
+  "question" : "\nfinal class Complex {\n    private  double re,  im;\n    public Complex(double re, double im) {\n        this.re = re;\n        this.im = im;\n    }\n    Complex(Complex c)\n    {\n      System.out.println(\"Copy constructor called\");\n      re = c.re;\n      im = c.im;\n    }            \n    public String toString() {\n        return \"(\" + re + \" + \" + im + \"i)\";\n    }            \n}\nclass Main {\n    public static void main(String[] args) {\n        Complex c1 = new Complex(10, 15);\n        Complex c2 = new Complex(c1);    \n        Complex c3 = c1;  \n        System.out.println(c2);\n    }\n}",
+  "answerA" : "Copy constructor called\n(10.0 + 15.0i)",
+  "answerB" : "Copy constructor called\n(0.0 + 0.0i)",
+  "answerC" : "(10.0 + 15.0i)",
+  "answerD" : "(0.0 + 0.0i)",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Constructors",
+  "question" : "\nclass Test\n{\n    static int a;\n    \n    static\n    {\n        a = 4;\n        System.out.println (\"inside static blockn\");\n        System.out.println (\"a = \" + a);\n    }\n    \n    Test()\n    {\n        System.out.println (\"ninside constructorn\");\n        a = 10;\n    }\n    \n    public static void func()\n    {\n        a = a + 1;\n        System.out.println (\"a = \" + a);\n    }\n    \n    public static void main(String[] args)\n    {\n\n        Test obj = new Test();\n        obj.func();\n\n    }\n}\n ",
+  "answerA" : "inside static block\na = 4\ninside constructor\na = 11",
+  "answerB" : "Compiler Error",
+  "answerC" : "Run Time Error",
+  "answerD" : "inside static block\na = 4\ninside constructor\na = 5",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Exception Handling",
+  "question" : "Predict the output of following Java program\n\nclass Main {\n   public static void main(String args[]) {\n      try {\n         throw 10;\n      }\n      catch(int e) {\n         System.out.println(\"Got the  Exception \" + e);\n      }\n  }\n}",
+  "answerA" : "Got the Exception 10",
+  "answerB" : "Got the Exception 0",
+  "answerC" : "Compiler Error",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "Java Exception Handling",
+  "question" : "\nclass Test extends Exception { }\n \nclass Main {\n   public static void main(String args[]) { \n      try {\n         throw new Test();\n      }\n      catch(Test t) {\n         System.out.println(\"Got the Test Exception\");\n      }\n      finally {\n         System.out.println(\"Inside finally block \");\n      }\n  }\n}",
+  "answerA" : "Got the Test Exception\nInside finally block ",
+  "answerB" : "Got the Test Exception",
+  "answerC" : "Inside finally block ",
+  "answerD" : "Compiler Error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Exception Handling",
+  "question" : "Output of following Java program?\n\nclass Main {\n   public static void main(String args[]) {\n      int x = 0;\n      int y = 10;\n      int z = y/x;\n  }\n}",
+  "answerA" : "Compiler Error",
+  "answerB" : "Compiles and runs fine",
+  "answerC" : "Compiles fine but throws ArithmeticException exception",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "Java Exception Handling",
+  "question" : "\nclass Base extends Exception {}\nclass Derived extends Base  {}\n\npublic class Main {\n  public static void main(String args[]) {\n   // some other stuff\n   try {\n       // Some monitored code\n       throw new Derived();\n    }\n    catch(Base b)     { \n       System.out.println(\"Caught base class exception\"); \n    }\n    catch(Derived d)  { \n       System.out.println(\"Caught derived class exception\"); \n    }\n  }\n} ",
+  "answerA" : "Caught base class exception",
+  "answerB" : "Caught derived class exception",
+  "answerC" : "Compiler Error because derived is not throwable",
+  "answerD" : "Compiler Error because base class exception is caught before derived class",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "topic" : "Java Exception Handling",
+  "question" : "\nclass Test\n{\n    public static void main (String[] args)\n    {\n        try\n        {\n            int a = 0;\n            System.out.println (\"a = \" + a);\n            int b = 20 / a;\n            System.out.println (\"b = \" + b);\n        }\n\n        catch(ArithmeticException e)\n        {\n            System.out.println (\"Divide by zero error\");\n        }\n\n        finally\n        {\n            System.out.println (\"inside the finally block\");\n        }\n    }\n}\n",
+  "answerA" : "Compile error",
+  "answerB" : "Divide by zero error",
+  "answerC" : "\na = 0\nDivide by zero error\ninside the finally block",
+  "answerD" : "a = 0",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "Java Exception Handling",
+  "question" : "\nclass Test\n{\n    public static void main(String[] args)\n    {\n        try\n        {\n            int a[]= {1, 2, 3, 4};\n            for (int i = 1; i <= 4; i++)\n            {\n                System.out.println (\"a[\" + i + \"]=\" + a[i] + \"n\");\n            }\n        }\n        \n        catch (Exception e)\n        {\n            System.out.println (\"error = \" + e);\n        }\n        \n        catch (ArrayIndexOutOfBoundsException e)\n        {\n            System.out.println (\"ArrayIndexOutOfBoundsException\");\n        }\n    }\n}",
+  "answerA" : "Compiler error",
+  "answerB" : "Run time error",
+  "answerC" : "ArrayIndexOutOfBoundsException",
+  "answerD" : "Error Code is printed",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Exception Handling",
+  "question" : "Predict the output of the following program.\n\nclass Test\n{\n    String str = \"a\";\n\n    void A()\n    {\n        try\n        {\n            str +=\"b\";\n            B();\n        }\n        catch (Exception e)\n        {\n            str += \"c\";\n        }\n    }\n\n    void B() throws Exception\n    {\n        try\n        {\n            str += \"d\";\n            C();\n        }\n        catch(Exception e)\n        {\n            throw new Exception();\n        }\n        finally\n        {\n            str += \"e\";\n        }\n\n        str += \"f\";\n\n    }\n    \n    void C() throws Exception\n    {\n        throw new Exception();\n    }\n\n    void display()\n    {\n        System.out.println(str);\n    }\n\n    public static void main(String[] args)\n    {\n        Test object = new Test();\n        object.A();\n        object.display();\n    }\n\n}",
+  "answerA" : "abdef",
+  "answerB" : "abdec",
+  "answerC" : "abdefc",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java Exception Handling",
+  "question" : "Predict the output of the following program.\n\nclass Test\n{   int count = 0;\n\n    void A() throws Exception\n    {\n        try\n        {\n            count++;\n            \n            try\n            {\n                count++;\n\n                try\n                {\n                    count++;\n                    throw new Exception();\n\n                }\n                \n                catch(Exception ex)\n                {\n                    count++;\n                    throw new Exception();\n                }\n            }\n            \n            catch(Exception ex)\n            {\n                count++;\n            }\n        }\n        \n        catch(Exception ex)\n        {\n            count++;\n        }\n\n    }\n\n    void display()\n    {\n        System.out.println(count);\n    }\n\n    public static void main(String[] args) throws Exception\n    {\n        Test obj = new Test();\n        obj.A();\n        obj.display();\n    }\n}",
+  "answerA" : "4",
+  "answerB" : "5",
+  "answerC" : "6",
+  "answerD" : "Compilation error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java Exception Handling",
+  "question" : "Which of these is a super class of all errors and exceptions in the Java language?",
+  "answerA" : "RunTimeExceptions",
+  "answerB" : "Throwable",
+  "answerC" : "Catchable",
+  "answerD" : "None of the above",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java Exception Handling",
+  "question" : "The built-in base class in Java, which is used to handle all exceptions is",
+  "answerA" : "Raise",
+  "answerB" : "Exception",
+  "answerC" : "Error",
+  "answerD" : "Throwable",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "topic" : "Java Packages",
+  "question" : "Which of the following is/are true about packages in Java?\n\n1) Every class is part of some package. \n2) All classes in a file are part of the same package. \n3) If no package is specified, the classes in the file \n   go into a special unnamed package \n4) If no package is specified, a new package is created with \n   folder name of class and the class is put in this package. ",
+  "answerA" : "Only 1, 2 and 3",
+  "answerB" : "Only 1, 2 and 4",
+  "answerC" : "Only 4",
+  "answerD" : "Only 1 and 3",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Packages",
+  "question" : "Which of the following is/are advantages of packages?",
+  "answerA" : "Packages avoid name clashes",
+  "answerB" : "Classes, even though they are visible outside their package, can have fields visible to packages only",
+  "answerC" : "We can have hidden classes that are used by the packages, but not visible outside.",
+  "answerD" : "All of the above",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "topic" : "Java Packages",
+  "question" : "Predict the output of following Java program\n\n// Note static keyword after import.\nimport static java.lang.System.*;\n  \nclass StaticImportDemo\n{\n   public static void main(String args[])\n   {      \n        out.println(\"GeeksforGeeks\");\n   }\n}",
+  "answerA" : "Compiler Error",
+  "answerB" : "Runtime Error",
+  "answerC" : "GeeksforGeeks",
+  "answerD" : "None of the above",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "Java Packages",
+  "question" : "Which of the following statement(s) is/are TRUE regarding Java Servelets ? (a) A Java Servlet is a server-side component that runs on the web server and extends the capabilities of a server. (b) A Servlet can use the user interface classes like AWT or Swing.",
+  "answerA" : "Only (a) is TRUE.",
+  "answerB" : "Only (b) is TRUE.",
+  "answerC" : "Both (a) and (b) are TRUE.",
+  "answerD" : "Neither (a) nor (b) is TRUE.",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Packages",
+  "question" : "Which one of the following is correct?",
+  "answerA" : "Java applets can not be written in any programming language",
+  "answerB" : "An applet is not a small program",
+  "answerC" : "An applet can be run on its own",
+  "answerD" : "Applets are embedded in another applications",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "topic" : "Java Class and Object",
+  "question" : "Predict the output of following Java program?\n\nclass Test {\n  int i;\n} \nclass Main {\n   public static void main(String args[]) { \n     Test t; \n     System.out.println(t.i); \n}  ",
+  "answerA" : "0",
+  "answerB" : "garbage value",
+  "answerC" : "compiler error",
+  "answerD" : "runtime error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "Java Class and Object",
+  "question" : "Predict the output of following Java program\n\nclass Test {\n  int i;\n} \nclass Main {\n  public static void main(String args[]) { \n      Test t = new Test(); \n      System.out.println(t.i);\n   } \n}",
+  "answerA" : "garbage value",
+  "answerB" : "0",
+  "answerC" : "compiler error",
+  "answerD" : "runtime error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java Class and Object",
+  "question" : "\nclass demo\n{\n    int a, b;\n    \n    demo()\n    {\n        a = 10;\n        b = 20;\n    }\n    \n    public void print()\n    {\n        System.out.println (\"a = \" + a + \" b = \" + b + \"n\");\n    }\n}\n\nclass Test\n{\n\n    public static void main(String[] args)\n    {\n        demo obj1 = new demo();\n        demo obj2 = obj1;\n\n        obj1.a += 1;\n        obj1.b += 1;\n\n        System.out.println (\"values of obj1 : \");\n        obj1.print();\n        System.out.println (\"values of obj2 : \");\n        obj2.print();\n\n    }\n}\n",
+  "answerA" : "Compile error",
+  "answerB" : "values of obj1: \na = 11 b = 21\nvalues of obj2: \na = 11 b = 21",
+  "answerC" : "values of obj1: \na = 11 b = 21\nvalues of obj2: \na = 10 b = 20",
+  "answerD" : "values of obj1: \na = 11 b = 20\nvalues of obj2: \na = 10 b = 21",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java Class and Object",
+  "question" : "Predict the output of following Java program. \n\n class demoClass\n{\n    int a = 1;\n\n    void func()\n    {\n        demo obj = new demo();\n        obj.display();\n    }\n\n\n    class demo\n    {\n        int b = 2;\n\n        void display()\n        {\n            System.out.println(\"na = \" + a);\n        }\n    }\n\n    void get()\n    {\n        System.out.println(\"nb = \" + b);\n    }\n}\n\n\nclass Test\n{\n    public static void main(String[] args)\n    {\n        demoClass obj = new demoClass();\n        obj.func();\n        obj.get();\n\n    }\n}\n\n",
+  "answerA" : "a = 1\nb = 2",
+  "answerB" : "Compilation error",
+  "answerC" : "b = 2\na = 1",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java Class and Object",
+  "question" : "Predict the output of the following program.\n\n \nclass First\n{\n\n    void display()\n    {\n        System.out.println(\"Inside First\");\n    }\n}\n\nclass Second extends First\n{\n\n    void display()\n    {\n        System.out.println(\"Inside Second\");\n    }\n}\n\n\nclass Test\n{\n\n    public static void main(String[] args)\n    {\n        First obj1 =  new First();\n        Second obj2 =  new Second();\n\n        First ref;\n        ref = obj1;\n        ref.display();\n\n        ref = obj2;\n        ref.display();\n    }\n}\n",
+  "answerA" : "Compilation error",
+  "answerB" : "Inside First\nInside Second",
+  "answerC" : "Inside First\nInside First",
+  "answerD" : "Runtime error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java Class and Object",
+  "question" : "Predict the output of the following program.\n\n class Test\n{\n    int a = 1;\n    int b = 2;\n\n    Test func(Test obj)\n    {\n        Test obj3 = new Test();\n        obj3 = obj;\n        obj3.a = obj.a++ + ++obj.b;\n        obj.b = obj.b;\n        return obj3;\n    }\n\n    public static void main(String[] args)\n    {\n        Test obj1 = new Test();\n        Test obj2 = obj1.func(obj1);\n\n        System.out.println(\"obj1.a = \" + obj1.a + \"  obj1.b = \" + obj1.b);\n        System.out.println(\"obj2.a = \" + obj2.a + \"  obj1.b = \" + obj2.b);\n\n    }\n}\n",
+  "answerA" : "obj1.a = 1  obj1.b = 2\nobj2.a = 4  obj2.b = 3",
+  "answerB" : "obj1.a = 4  obj1.b = 3\nobj2.a = 4  obj2.b = 3",
+  "answerC" : "Compilation error",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java Class and Object",
+  "question" : "Predict the output of the following program.\n\n class Test\n{\n    int a = 1;\n    int b = 2;\n\n    Test func(Test obj)\n    {\n        Test obj3 = new Test();\n        obj3 = obj;\n        obj3.a = obj.a++ + ++obj.b;\n        obj.b = obj.b;\n        return obj3;\n    }\n\n    public static void main(String[] args)\n    {\n        Test obj1 = new Test();\n        Test obj2 = obj1.func(obj1);\n\n        System.out.println(\"obj1.a = \" + obj1.a + \"  obj1.b = \" + obj1.b);\n        System.out.println(\"obj2.a = \" + obj2.a + \"  obj1.b = \" + obj2.b);\n\n    }\n}\n",
+  "answerA" : "obj1.a = 1  obj1.b = 2\nobj2.a = 4  obj2.b = 3",
+  "answerB" : "obj1.a = 4  obj1.b = 3\nobj2.a = 4  obj2.b = 3",
+  "answerC" : "Compilation error",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java Class and Object",
+  "question" : "What is the output of the following JAVA program ?\n\nClass Test {\n    public static void main(String[] args) {\n        Test obj = new Test();\n        obj.start();\n    }\n    void start() {\n        String stra = ”do”;\n            String strb = method(stra);\n        System.out.print(“: ”+stra + strb);\n    }\n    String method(String stra) {\n        stra = stra + ”good”;\n        System.out.print(stra);\n        return“ good”;\n    }\n}",
+  "answerA" : "dogood : dogoodgood",
+  "answerB" : "dogood : gooddogood",
+  "answerC" : "dogood : dodogood",
+  "answerD" : "dogood : dogood",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "topic" : "Java Class and Object",
+  "question" : "Java uses threads to enable the entire environment to be ______.",
+  "answerA" : "Symmetric",
+  "answerB" : "Asymmetric",
+  "answerC" : "Synchronous",
+  "answerD" : "Asynchronous",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "topic" : "Java Class and Object",
+  "question" : "In Java, when we implement an interface method, it must be declared as:",
+  "answerA" : "Private",
+  "answerB" : "Protected",
+  "answerC" : "Public",
+  "answerD" : "Friend",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "Java Functions",
+  "question" : "Output of following Java program?\n\nclass Main {\n    public static void main(String args[]) {   \n             System.out.println(fun());\n    } \n \n    int fun()\n    {\n      return 20;\n    }\n}",
+  "answerA" : "20",
+  "answerB" : "compiler error",
+  "answerC" : "0",
+  "answerD" : "garbage balue",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java Functions",
+  "question" : "\npublic class Main { \n    public static void main(String args[]) { \n       String x = null; \n       giveMeAString(x); \n       System.out.println(x); \n    } \n    static void giveMeAString(String y) \n    { \n       y = \"GeeksQuiz\"; \n    } \n}",
+  "answerA" : "GeeksQuiz",
+  "answerB" : "null",
+  "answerC" : "Compiler Error",
+  "answerD" : "Exception",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java Functions",
+  "question" : "\nclass Test {\npublic static void swap(Integer i, Integer j) {\n      Integer temp = new Integer(i);\n      i = j;\n      j = temp;\n   }\n   public static void main(String[] args) {\n      Integer i = new Integer(10);\n      Integer j = new Integer(20);\n      swap(i, j);\n      System.out.println(\"i = \" + i + \", j = \" + j);\n   }\n}",
+  "answerA" : "i = 10, j = 20",
+  "answerB" : "i = 20, j = 10",
+  "answerC" : "i = 10, j = 10",
+  "answerD" : "i = 20, j = 20",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Functions",
+  "question" : "\nclass intWrap {\n   int x;\n} \npublic class Main { \n    public static void main(String[] args) {\n       intWrap i = new intWrap();\n       i.x = 10;\n       intWrap j = new intWrap();\n       j.x = 20;\n       swap(i, j);\n       System.out.println(\"i.x = \" + i.x + \", j.x = \" + j.x);\n    } \n    public static void swap(intWrap i, intWrap j) {\n       int temp = i.x;\n       i.x = j.x;\n       j.x = temp;\n    }\n}",
+  "answerA" : "i.x = 20, j.x = 10",
+  "answerB" : "i.x = 10, j.x = 20",
+  "answerC" : "i.x = 10, j.x = 10",
+  "answerD" : "i.x = 20, j.x = 20",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Functions",
+  "question" : "In Java, can we make functions inline like C++?",
+  "answerA" : "Yes",
+  "answerB" : "No",
+  "answerC" : "N/A",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java Functions",
+  "question" : "Predict the output?\n\nclass Main {\n    public static void main(String args[]) {   \n             System.out.println(fun());\n    }   \n    static int fun(int x = 0)\n    {\n      return x;\n    }\n}",
+  "answerA" : "0",
+  "answerB" : "Garbage Value",
+  "answerC" : "Compiler Error",
+  "answerD" : "Runtime Error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "Java Functions",
+  "question" : "Predict the output of the following program.\n\nclass Test\n{\n    public void demo(String str)\n    {\n        String[] arr = str.split(\";\");\n        for (String s : arr)\n        {\n            System.out.println(s);\n        }\n    }\n\n    public static void main(String[] args)\n    {\n        char array[] = {'a', 'b', ' ', 'c', 'd', ';', 'e', 'f', ' ', \n                        'g', 'h', ';', 'i', 'j', ' ', 'k', 'l'};\n        String str = new String(array);\n        Test obj = new Test();\n        obj.demo(str);\n    }\n}\n",
+  "answerA" : "ab cd\nef gh\nij kl",
+  "answerB" : "ab\ncd;ef\ngh;ij\nkl",
+  "answerC" : "Compilation error",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Functions",
+  "question" : "Predict the output of the following program.\n\n\nclass Test\n{\n    public static void main(String[] args)\n    {\n        StringBuffer a = new StringBuffer(\"geeks\");\n        StringBuffer b = new StringBuffer(\"forgeeks\");\n        a.delete(1,3);\n        a.append(b);\n        System.out.println(a);\n    }\n}",
+  "answerA" : "gsforgeeks",
+  "answerB" : "gksforgeeks",
+  "answerC" : "geksforgeeks",
+  "answerD" : "Compilation error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java Functions",
+  "question" : "Predict the output of the following program.\n\n class Test\n{\n\n    public static void main(String[] args)\n    {\n        String obj1 = new String(\"geeks\");\n        String obj2 = new String(\"geeks\");\n\n        if(obj1.hashCode() == obj2.hashCode())\n            System.out.println(\"hashCode of object1 is equal to object2\");\n\n        if(obj1 == obj2)\n            System.out.println(\"memory address of object1 is same as object2\");\n\n        if(obj1.equals(obj2))\n            System.out.println(\"value of object1 is equal to object2\");\n    }\n}\n",
+  "answerA" : "hashCode of object1 is equal to object2\nvalue of object1 is equal to object2",
+  "answerB" : "hashCode of object1 is equal to object2\nmemory address of object1 is same as object2\nvalue of object1 is equal to object2",
+  "answerC" : "memory address of object1 is same as object2\nvalue of object1 is equal to object2",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Functions",
+  "question" : "Predict the output of the following program.\n\n class Test implements Cloneable\n{\n    int a;\n\n    Test cloning()\n    {\n        try\n        {\n            return (Test) super.clone();\n        }\n        catch(CloneNotSupportedException e)\n        {\n            System.out.println(\"CloneNotSupportedException is caught\");\n            return this;\n        }\n    }\n}\n\nclass demo\n{\n\n    public static void main(String args[])\n    {\n        Test obj1 = new Test();\n        Test obj2;\n        obj1.a = 10;\n        obj2 = obj1.cloning();\n        obj2.a = 20;\n\n        System.out.println(\"obj1.a = \" + obj1.a);\n        System.out.println(\"obj2.a = \" + obj2.a);\n    }\n}\n",
+  "answerA" : "obj1.a = 10\nobj2.a = 20",
+  "answerB" : "obj1.a = 20\nobj2.a = 20",
+  "answerC" : "obj1.a = 10\nobj2.a = 10",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java final keyword",
+  "question" : "What is the use of final keyword in Java?",
+  "answerA" : "When a class is made final, a sublcass of it can not be created.",
+  "answerB" : "When a method is final, it can not be overridden.",
+  "answerC" : "When a variable is final, it can be assigned value only once.",
+  "answerD" : "All of the above",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "topic" : "Java final keyword",
+  "question" : "Output of follwoing Java program\n\nclass Main {\n public static void main(String args[]){\n   final int i;\n   i = 20;\n   System.out.println(i);\n }\n}",
+  "answerA" : "20",
+  "answerB" : "Compiler Error",
+  "answerC" : "0",
+  "answerD" : "Garbage value",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java final keyword",
+  "question" : "\nclass Main {\n public static void main(String args[]){\n    final int i;\n    i = 20;\n    i = 30;\n    System.out.println(i);\n }\n}",
+  "answerA" : "30",
+  "answerB" : "Compiler Error",
+  "answerC" : "Garbage value",
+  "answerD" : "0",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java final keyword",
+  "question" : "\nclass Base {\n  public final void show() {\n       System.out.println(\"Base::show() called\");\n    }\n}\nclass Derived extends Base {\n    public void show() {  \n       System.out.println(\"Derived::show() called\");\n    }\n}\npublic class Main {\n    public static void main(String[] args) {\n        Base b = new Derived();;\n        b.show();\n    }\n}",
+  "answerA" : "Derived::show() called",
+  "answerB" : "Base::show() called",
+  "answerC" : "Compiler Error",
+  "answerD" : "Exception",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "Java Operators",
+  "question" : "Predict the output of following Java Program\n\nclass Test {\n    public static void main(String args[])  {\n       int x = -4;\n       System.out.println(x>>1);  \n       int y = 4;\n       System.out.println(y>>1);  \n    }   \n}",
+  "answerA" : "Compiler Error: Operator >> cannot be applied to negative numbers",
+  "answerB" : "-2\n2",
+  "answerC" : "2\n2",
+  "answerD" : "0\n2",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java Operators",
+  "question" : "Predict the output of following Java program. Assume that int is stored using 32 bits.\n\nclass Test {\n    public static void main(String args[])  {\n       int x = -1;  \n       System.out.println(x>>>29);  \n       System.out.println(x>>>30);  \n       System.out.println(x>>>31);  \n   }   \n} ",
+  "answerA" : "7\n3\n1",
+  "answerB" : "15\n7\n3",
+  "answerC" : "0\n0\n0",
+  "answerD" : "1\n1\n1",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Operators",
+  "question" : "\nclass Test {\n    public static void main(String args[])  {\n       System.out.println(10  +  20 + \"GeeksQuiz\"); \n       System.out.println(\"GeeksQuiz\" + 10 + 20); \n   }  \n}",
+  "answerA" : "30GeeksQuiz\nGeeksQuiz30",
+  "answerB" : "1020GeeksQuiz\nGeeksQuiz1020",
+  "answerC" : "30GeeksQuiz\nGeeksQuiz1020",
+  "answerD" : "1020GeeksQuiz\nGeeksQuiz30",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "Java Operators",
+  "question" : "\nclass Test {\n    public static void main(String args[])  {\n       System.out.println(10*20 + \"GeeksQuiz\");\n       System.out.println(\"GeeksQuiz\" + 10*20);\n   } \n}",
+  "answerA" : "10*20GeeksQuiz\nGeeksQuiz10*20",
+  "answerB" : "200GeeksQuiz\nGeeksQuiz200",
+  "answerC" : "200GeeksQuiz\nGeeksQuiz10*20",
+  "answerD" : "1020GeeksQuiz\nGeeksQuiz220",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java Operators",
+  "question" : "Which of the following is not an operator in Java?",
+  "answerA" : "instanceof",
+  "answerB" : "sizeof",
+  "answerC" : "new",
+  "answerD" : ">>>=",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java Operators",
+  "question" : "\nclass Base {}\n\nclass Derived extends Base {\n   public static void main(String args[]){\n      Base a = new Derived();\n      System.out.println(a instanceof Derived);\n   }\n}",
+  "answerA" : "true",
+  "answerB" : "false",
+  "answerC" : "N/A",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Operators",
+  "question" : "\nclass Test\n{\n    public static void main(String args[])\n    {\n        String s1 = \"geeksquiz\";\n        String s2 = \"geeksquiz\";\n        System.out.println(\"s1 == s2 is:\" + s1 == s2);\n    }\n}",
+  "answerA" : "true",
+  "answerB" : "false",
+  "answerC" : "compiler error",
+  "answerD" : "throws an exception",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "Java Operators",
+  "question" : "\nclass demo\n{\n    int a, b, c;\n    demo(int a, int b, int c)\n    {\n        this.a = a;\n        this.b = b;\n    }\n    \n    demo()\n    {\n        a = b = c = 0;\n    }\n    \n    demo operator+(const demo &obj)\n    {\n        demo object;\n        object.a = this.a + obj.a;\n        object.b = this.b + obj.b;\n        object.c = this.c + obj.c;\n        return object;\n    }\n}\n\nclass Test\n{\n    public static void main(String[] args)\n    {\n\n        demo obj1 = new demo(1, 2, 3);\n        demo obj2 = new demo(1, 2, 3);\n        demo obj3 = new demo();\n\n        obj3 = obj1 + obj2;\n        System.out.println (\"obj3.a = \" + obj3.a);\n        System.out.println (\"obj3.b = \" + obj3.c);\n        System.out.println (\"obj3.c = \" + obj3.c);\n\n    }\n}\n",
+  "answerA" : "Compile Error",
+  "answerB" : "Run Time Error",
+  "answerC" : "Segmentation Fault",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "Java Operators",
+  "question" : "Predict the output of the following program.\n\n class Test\n{\n    boolean[] array = new boolean[3];\n    int count = 0;\n\n    void set(boolean[] arr, int x)\n    {\n        arr[x] = true;\n        count++;\n    }\n\n    void func()\n    {\n        if(array[0] && array[++count - 2] | array [count - 1])\n            count++;\n\n        System.out.println(\"count = \" + count);\n    }\n\n\n    public static void main(String[] args)\n    {\n        Test object = new Test();\n        object.set(object.array, 0);\n        object.set(object.array, 1);\n        object.func();\n    }\n}\n ",
+  "answerA" : "2",
+  "answerB" : "3",
+  "answerC" : "4",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "Java Operators",
+  "question" : "What is the output of the following Java program?\nClass Test\n{\n public static void main (String [] args)\n {\n int x = 0;\n int y = 0;\n for (int z = 0; z < 5; z++)\n {\n if((++x > 2) || (++y > 2))\n {\n x++;\n }\n }\n System.out.println( x + \" \" + y);\n }\n}",
+  "answerA" : "8 2",
+  "answerB" : "8 5",
+  "answerC" : "8 3",
+  "answerD" : "5 3",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+} ]
