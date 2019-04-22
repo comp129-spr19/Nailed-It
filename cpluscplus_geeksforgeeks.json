@@ -1,55 +1,640 @@
 [ {
-  "topic" : "C++ References",
-  "question" : "What is the return value of f(p, p) if the value of p is initialized to 5 before the call? Note that the first parameter is passed by reference, whereas the second parameter is passed by value.\n\nint f(int &x, int c) {\n   c  = c - 1;\n   if (c == 0) return 1;\n   x = x + 1;\n   return f(x, c) * x;\n} ",
-  "answerA" : "3024",
-  "answerB" : "6561",
-  "answerC" : "55440",
-  "answerD" : "161051",
+  "topic" : "C++ this pointer",
+  "question" : "Which of the following is true about this pointer?",
+  "answerA" : "It is passed as a hidden argument to all function calls",
+  "answerB" : "It is passed as a hidden argument to all non-static function calls",
+  "answerC" : "It is passed as a hidden argument to all static functions",
+  "answerD" : "None of the above",
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "C++ References",
-  "question" : "Which of the following is FALSE about references in C++",
-  "answerA" : "References cannot be NULL",
-  "answerB" : "A reference must be initialized when declared",
-  "answerC" : "Once a reference is created, it cannot be later made to reference another object; it cannot be reset.",
-  "answerD" : "References cannot refer to constant value",
+  "topic" : "C++ this pointer",
+  "question" : "What is the use of this pointer?",
+  "answerA" : "When local variable’s name is same as member’s name, we can access member using this pointer.",
+  "answerB" : "To return reference to the calling object",
+  "answerC" : "Can be used for chained function calls on an object",
+  "answerD" : "All of the above",
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "C++ References",
-  "question" : "Which of the following functions must use reference.",
-  "answerA" : "Assignment operator function",
-  "answerB" : "Copy Constructor",
-  "answerC" : "Destructor",
-  "answerD" : "Parameterized constructor",
+  "topic" : "C++ this pointer",
+  "question" : "Predict the output of following C++ program.\n\n#include<iostream>\nusing namespace std;\n\nclass Test\n{\nprivate:\n  int x;\npublic:\n  Test(int x = 0) { this->x = x; }\n  void change(Test *t) { this = t; }\n  void print() { cout << \"x = \" << x << endl; }\n};\n\nint main()\n{\n  Test obj(5);\n  Test *ptr = new Test (10);\n  obj.change(ptr);\n  obj.print();\n  return 0;\n}",
+  "answerA" : "x = 5",
+  "answerB" : "x = 10",
+  "answerC" : "Compiler Error",
+  "answerD" : "Runtime Error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "C++ this pointer",
+  "question" : "Predict the output of following C++ program\n\n#include<iostream>\nusing namespace std;\n\nclass Test\n{\nprivate:\n  int x;\n  int y;\npublic:\n  Test(int x = 0, int y = 0) { this->x = x; this->y = y; }\n  static void fun1() { cout << \"Inside fun1()\"; }\n  static void fun2() { cout << \"Inside fun2()\"; this->fun1(); }\n};\n\nint main()\n{\n  Test obj;\n  obj.fun2();\n  return 0;\n}",
+  "answerA" : "Inside fun2() Inside fun1()",
+  "answerB" : "Inside fun2()",
+  "answerC" : "Inside fun1() Inside fun2()",
+  "answerD" : "Compiler Error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "topic" : "C++ this pointer",
+  "question" : "Predict the output of following C++ program?\n\n#include<iostream>\nusing namespace std;\n\nclass Test\n{\nprivate:\n  int x;\npublic:\n  Test() {x = 0;}\n  void destroy()  { delete this; }\n  void print() { cout << \"x = \" << x; }\n};\n\nint main()\n{\n  Test obj;\n  obj.destroy();\n  obj.print();\n  return 0;\n}",
+  "answerA" : "x = 0",
+  "answerB" : "undefined behavior",
+  "answerC" : "compiler error",
+  "answerD" : "N/A",
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "C++ References",
-  "question" : "Predict the output of following C++ program.\n\n#include<iostream>\nusing namespace std;\n\nint &fun()\n{\n    static int x = 10;\n    return x;\n}\nint main()\n{\n    fun() = 30;\n    cout << fun();\n    return 0;\n}",
-  "answerA" : "Compiler Error: Function cannot be used as lvalue",
-  "answerB" : "10",
-  "answerC" : "30",
+  "topic" : "C++ Function Overloading and Default Arguments",
+  "question" : "Which of the following in Object Oriented Programming is supported by Function overloading and default arguments features of C++.",
+  "answerA" : "Inheritance",
+  "answerB" : "Polymorphism",
+  "answerC" : "Encapsulation",
+  "answerD" : "None of the above",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Function Overloading and Default Arguments",
+  "question" : "Output?\n\n#include<iostream>\nusing namespace std;\n\nint fun(int x = 0, int y = 0, int z)\n{  return (x + y + z); }\n\nint main()\n{\n   cout << fun(10);\n   return 0;\n}",
+  "answerA" : "10",
+  "answerB" : "0",
+  "answerC" : "20",
+  "answerD" : "Compiler Error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "topic" : "C++ Function Overloading and Default Arguments",
+  "question" : "Which of the following overloaded functions are NOT allowed in C++? 1) Function declarations that differ only in the return type\n    int fun(int x, int y);\n         void fun(int x, int y); \n2) Functions that differ only by static keyword in return type\n    int fun(int x, int y);\n         static int fun(int x, int y); \n3)Parameter declarations that differ only in a pointer * versus an array []\nint fun(int *ptr, int n);\nint fun(int ptr[], int n); \n4) Two parameter declarations that differ only in their default arguments\nint fun( int x, int y); \nint fun( int x, int y = 10); ",
+  "answerA" : "All of the above",
+  "answerB" : "All except 2)",
+  "answerC" : "All except 1)",
+  "answerD" : "All except 2 and 4",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "C++ Function Overloading and Default Arguments",
+  "question" : "Predict the output of following C++ program?\n\ninclude<iostream>\nusing namespace std;\n \nclass Test\n{\nprotected:\n    int x;\npublic:\n    Test (int i):x(i) { }\n    void fun() const  { cout << \"fun() const \" << endl; }\n    void fun()        {  cout << \"fun() \" << endl;     }\n};\n \nint main()\n{\n    Test t1 (10);\n    const Test t2 (20);\n    t1.fun();\n    t2.fun();\n    return 0;\n}",
+  "answerA" : "Compiler Error",
+  "answerB" : "fun() \n fun() const",
+  "answerC" : "fun() const \n fun() const",
+  "answerD" : "fun() \n fun()",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Function Overloading and Default Arguments",
+  "question" : "Output of following program?\n\n#include <iostream>\nusing namespace std;\n\nint fun(int=0, int = 0);\n\nint main()\n{\n  cout << fun(5);\n  return 0;\n}\n\nint fun(int x, int y) { return (x+y); }",
+  "answerA" : "Compiler Error",
+  "answerB" : "5",
+  "answerC" : "0",
+  "answerD" : "10",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Function Overloading and Default Arguments",
+  "question" : "What is the output of this C++ program?\n#include \nusing namespace std;\nvoid square (int *x)\n{\n*x = (*x)++ * (*x);\n}\nvoid square (int *x, int *y)\n{\n*x = (*x) * --(*y);\n}\nint main ( )\n{\nint number = 30;\nsquare(&number, &number);\ncout << number;\nreturn 0;\n}",
+  "answerA" : "910",
+  "answerB" : "920",
+  "answerC" : "870",
+  "answerD" : "900",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "C++ Static Keyword",
+  "question" : "Predict the output of following C++ program.\n\n#include <iostream>\nusing namespace std;\n\nclass Test\n{\n    static int x;\npublic:\n    Test() { x++; }\n    static int getX() {return x;}\n};\n\nint Test::x = 0;\n\nint main()\n{\n    cout << Test::getX() << \" \";\n    Test t[5];\n    cout << Test::getX();\n}",
+  "answerA" : "0 0",
+  "answerB" : "5 5",
+  "answerC" : "0 5",
+  "answerD" : "Compiler Error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "C++ Static Keyword",
+  "question" : "\n#include <iostream>\nusing namespace std;\n\nclass Player\n{\nprivate:\n    int id;\n    static int next_id;\npublic:\n    int getID() { return id; }\n    Player()  {  id = next_id++; }\n};\nint Player::next_id = 1;\n\nint main()\n{\n  Player p1;\n  Player p2;\n  Player p3;\n  cout << p1.getID() << \" \";\n  cout << p2.getID() << \" \";\n  cout << p3.getID();\n  return 0;\n}",
+  "answerA" : "Compiler Error",
+  "answerB" : "1 2 3",
+  "answerC" : "1 1 1",
+  "answerD" : "3 3 3",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Static Keyword",
+  "question" : "Which of the following is true?",
+  "answerA" : "Static methods cannot be overloaded.",
+  "answerB" : "Static data members can only be accessed by static methods.",
+  "answerC" : "Non-static data members can be accessed by static methods.",
+  "answerD" : "Static methods can only access static members (data and methods)",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "topic" : "C++ Static Keyword",
+  "question" : "Predict the output of following C++ program.\n\n#include <iostream>\nusing namespace std;\n\nclass A\n{\nprivate:\n    int x;\npublic:\n    A(int _x)  {  x = _x; }\n    int get()  { return x; }\n};\n\nclass B\n{\n    static A a;\npublic:\n   static int get()\n   {  return a.get(); }\n};\n\nint main(void)\n{\n    B b;\n    cout << b.get();\n    return 0;\n}",
+  "answerA" : "0",
+  "answerB" : "Linker Error: Undefined reference B::a",
+  "answerC" : "Linker Error: Cannot access static a",
+  "answerD" : "Linker Error: multiple functions with same name get()",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Static Keyword",
+  "question" : "\n#include<iostream>\nusing namespace std;\n\nclass Test\n{\nprivate:\n    static int count;\npublic:\n    Test& fun(); \n};\n\nint Test::count = 0;\n\nTest& Test::fun()\n{\n    Test::count++;\n    cout << Test::count << \" \";\n    return *this;\n}\n\nint main()\n{\n    Test t;\n    t.fun().fun().fun().fun();\n    return 0;\n}",
+  "answerA" : "Compiler Error",
+  "answerB" : "4 4 4 4",
+  "answerC" : "1 1 1 1",
+  "answerD" : "1 2 3 4",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "topic" : "C++ Static Keyword",
+  "question" : "Output of following C++ program?\n\n#include <iostream>\nclass Test\n{\npublic:\n    void fun();\n};\nstatic void Test::fun()   \n{\n    std::cout<<\"fun() is staticn\";\n}\nint main()\n{\n    Test::fun();   \n    return 0;\n}\nContributed by Pravasi Meet",
+  "answerA" : "fun() is static",
+  "answerB" : "Empty Screen",
+  "answerC" : "Compiler Error",
   "answerD" : "N/A",
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "C++ References",
-  "question" : "\n#include<iostream>\nusing namespace std;\n\nint &fun()\n{\n    int x = 10;\n    return x;\n}\nint main()\n{\n    fun() = 30;\n    cout << fun();\n    return 0;\n}\n",
-  "answerA" : "May cause runtime error",
-  "answerB" : "May cause compiler error",
-  "answerC" : "Always works fine.",
+  "topic" : "C++ friend keyword",
+  "question" : "Predict the output of following program.\n\n#include <iostream>\nusing namespace std;\nclass A\n{\nprotected:\n    int x;\npublic:\n    A() {x = 0;}\n    friend void show();\n};\n\nclass B: public A\n{\npublic:\n    B() : y (0) {}\nprivate:\n    int y;\n};\n\nvoid show()\n{\n    A a;\n    B b;\n    cout << \"The default value of A::x = \" << a.x << \" \";\n    cout << \"The default value of B::y = \" << b.y;\n}",
+  "answerA" : "Compiler Error in show() because x is protected in class A",
+  "answerB" : "Compiler Error in show() because y is private in class b",
+  "answerC" : "The default value of A::x = 0 The default value of B::y = 0",
+  "answerD" : "Compiler Dependent",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ friend keyword",
+  "question" : "Predict the output the of following program.\n\n#include <iostream>\nusing namespace std;\n\nclass B;\nclass A {\n    int a;\npublic:\n    A():a(0) { }\n    void show(A& x, B& y);\n};\n\nclass B {\nprivate:\n    int b;\npublic:\n    B():b(0) { }\n    friend void A::show(A& x, B& y);\n};\n\nvoid A::show(A& x, B& y) {\n    x.a = 10;\n    cout << \"A::a=\" << x.a << \" B::b=\" << y.b;\n}\n\nint main() {\n    A a;\n    B b;\n    a.show(a,b);\n    return 0;\n}",
+  "answerA" : "Compiler Error",
+  "answerB" : "A::a=10 B::b=0",
+  "answerC" : "A::a=0 B::b=0",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ friend keyword",
+  "question" : "If a function is friend of a class, which one of the following is wrong?",
+  "answerA" : "A function can only be declared a friend by a class itself.",
+  "answerB" : "Friend functions are not members of a class, they are associated with it.",
+  "answerC" : "Friend functions are members of a class.",
+  "answerD" : "It can have access to all members of the class, even private ones.",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "C++ friend keyword",
+  "question" : "Which one of the following is correct, when a class grants friend status to another class?",
+  "answerA" : "The member functions of the class generating friendship can access the members of the friend class.",
+  "answerB" : "All member functions of the class granted friendship have unrestricted access to the members of the class granting the friendship.",
+  "answerC" : "Class friendship is reciprocal to each other.",
+  "answerD" : "There is no such concept.",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Inheritance",
+  "question" : "\n#include<iostream>\n \nusing namespace std;\nclass Base1 {\n public:\n     Base1()\n     { cout << \" Base1's constructor called\" << endl;  }\n};\n \nclass Base2 {\n public:\n     Base2()\n     { cout << \"Base2's constructor called\" << endl;  }\n};\n \nclass Derived: public Base1, public Base2 {\n   public:\n     Derived()\n     {  cout << \"Derived's constructor called\" << endl;  }\n};\n \nint main()\n{\n   Derived d;\n   return 0;\n}",
+  "answerA" : "Compiler Dependent\n",
+  "answerB" : "Base1′s constructor called\n Base2′s constructor called\n Derived’s constructor called\n",
+  "answerC" : "Base2′s constructor called\n Base1′s constructor called\n Derived’s constructor called\n",
+  "answerD" : "Compiler Error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Inheritance",
+  "question" : "Output?\n\n#include <iostream>  \nusing namespace std;\n\nclass Base1 {\n public:\n     ~Base1()  { cout << \" Base1's destructor\" << endl; }\n};\n  \nclass Base2 {\n public:\n     ~Base2()  { cout << \" Base2's destructor\" << endl; }\n};\n  \nclass Derived: public Base1, public Base2 {\n   public:\n     ~Derived()  { cout << \" Derived's destructor\" << endl; }\n};\n  \nint main()\n{\n   Derived d;\n   return 0;\n}\n",
+  "answerA" : "Base1's destructor\nBase2's destructor\nDerived's destructor",
+  "answerB" : "Derived's destructor\nBase2's destructor\nBase1's destructor",
+  "answerC" : "Derived's destructor",
+  "answerD" : "Compiler Dependent",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Inheritance",
+  "question" : "Assume that an integer takes 4 bytes and there is no alignment in following classes, predict the output.\n\n#include<iostream>\nusing namespace std;\n\nclass base {\n    int arr[10];\n};\n\nclass b1: public base { };\n\nclass b2: public base { };\n\nclass derived: public b1, public b2 {};\n\nint main(void)\n{\n  cout << sizeof(derived);\n  return 0;\n}",
+  "answerA" : "40",
+  "answerB" : "80",
+  "answerC" : "0",
+  "answerD" : "4",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Inheritance",
+  "question" : "\n#include<iostream>\n \nusing namespace std;\nclass P {\npublic:\n   void print()  { cout <<\" Inside P\"; }\n};\n \nclass Q : public P {\npublic:\n   void print() { cout <<\" Inside Q\"; }\n};\n \nclass R: public Q { };\n \nint main(void)\n{\n  R r; \n  r.print();\n  return 0;\n}",
+  "answerA" : "Inside P",
+  "answerB" : "Inside Q",
+  "answerC" : "Compiler Error: Ambiguous call to print()",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Inheritance",
+  "question" : "Output?\n\n#include<iostream>\nusing namespace std;\n\nclass Base {\nprivate:\n     int i, j;\npublic:\n    Base(int _i = 0, int _j = 0): i(_i), j(_j) { }\n};\nclass Derived: public Base {\npublic:\n     void show(){\n        cout<<\" i = \"<<i<<\"  j = \"<<j;\n     }\n};\nint main(void) {\n  Derived d;\n  d.show();\n  return 0;\n}",
+  "answerA" : "i = 0 j = 0",
+  "answerB" : "Compiler Error: i and j are private in Base",
+  "answerC" : "Compiler Error: Could not call constructor of Base",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Inheritance",
+  "question" : "\n#include<iostream>\nusing namespace std;\n\nclass Base {};\n\nclass Derived: public Base {};\n\nint main()\n{\n    Base *bp = new Derived;\n    Derived *dp = new Base;\n}",
+  "answerA" : "No Compiler Error",
+  "answerB" : "Compiler Error in line \"Base *bp = new Derived;\"",
+  "answerC" : "Compiler Error in line \" Derived *dp = new Base;\"",
+  "answerD" : "Runtime Error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "C++ Inheritance",
+  "question" : "\n#include<iostream>\nusing namespace std;\n\nclass Base\n{\npublic:\n    void show()\n    {\n        cout<<\" In Base \";\n    }\n};\n\nclass Derived: public Base\n{\npublic:\n    int x;\n    void show()\n    {\n        cout<<\"In Derived \";\n    }\n    Derived()\n    {\n        x = 10;\n    }\n};\n\nint main(void)\n{\n    Base *bp, b;\n    Derived d;\n    bp = &d;\n    bp->show();\n    cout << bp->x;    \n    return 0;\n}\n",
+  "answerA" : "Compiler Error in line \" bp->show()\"",
+  "answerB" : "Compiler Error in line \" cout << bp->x\"",
+  "answerC" : "In Base 10",
+  "answerD" : "In Derived 10",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Inheritance",
+  "question" : "\n#include<iostream>\nusing namespace std;\n\nclass Base\n{\npublic:\n    int fun()  { cout << \"Base::fun() called\"; }\n    int fun(int i)  { cout << \"Base::fun(int i) called\"; }\n};\n\nclass Derived: public Base\n{\npublic:\n    int fun() {  cout << \"Derived::fun() called\"; }\n};\n\nint main()\n{\n    Derived d;\n    d.fun(5);\n    return 0;\n}",
+  "answerA" : "Base::fun(int i) called",
+  "answerB" : "Derived::fun() called",
+  "answerC" : "Base::fun() called",
+  "answerD" : "Compiler Error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "topic" : "C++ Inheritance",
+  "question" : "\n#include<iostream>\nusing namespace std;\n\nclass Base {\npublic:\n    int fun()          {    cout << \"Base::fun() called\";     }\n    int fun(int i)     {   cout << \"Base::fun(int i) called\";  }\n};\n\nclass Derived: public Base  {\npublic:\n    int fun()   {     cout << \"Derived::fun() called\";   }\n};\n\nint main()  {\n    Derived d;\n    d.Base::fun(5);\n    return 0;\n}",
+  "answerA" : "Compiler Error",
+  "answerB" : "Base::fun(int i) called",
+  "answerC" : "N/A",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Inheritance",
+  "question" : "Output of following program?\n\n#include <iostream>\n#include<string>\nusing namespace std;\n\nclass Base\n{\npublic:\n    virtual string print() const\n    {\n        return \"This is Base class\";\n    }\n};\n\nclass Derived : public Base\n{\npublic:\n    virtual string print() const\n    {\n        return \"This is Derived class\";\n    }\n};\n\nvoid describe(Base p)\n{\n    cout << p.print() << endl;\n}\n\nint main()\n{\n    Base b;\n    Derived d;\n    describe(b);\n    describe(d);\n    return 0;\n}",
+  "answerA" : "This is Derived class\nThis is Base class",
+  "answerB" : "This is Base class\nThis is Derived class",
+  "answerC" : "This is Base class\nThis is Base class",
+  "answerD" : "Compiler Error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "C++ const keyword",
+  "question" : "Predict the output of following program\n\n#include <iostream>\nusing namespace std;\nint main()\n{\n    const char* p = \"12345\";\n    const char **q = &p;\n    *q = \"abcde\";\n    const char *s = ++p;\n    p = \"XYZWVU\";\n    cout << *++s;\n    return 0;\n}",
+  "answerA" : "Compiler Error",
+  "answerB" : "c",
+  "answerC" : "b",
+  "answerD" : "Garbage Value",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ const keyword",
+  "question" : "In C++, const qualifier can be applied to 1) Member functions of a class 2) Function arguments 3) To a class data member which is declared as static 4) Reference variables",
+  "answerA" : "Only 1, 2 and 3",
+  "answerB" : "Only 1, 2 and 4",
+  "answerC" : "All",
+  "answerD" : "Only 1, 3 and 4",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "C++ const keyword",
+  "question" : "Predict the output of following program.\n\n#include <iostream>\nusing namespace std;\nclass Point\n{\n    int x, y;\npublic:\n Point(int i = 0, int j =0)\n   { x = i; y = j;  }\n   int getX() const { return x; }\n   int getY() {return y;}\n};\n\nint main()\n{\n    const Point t;\n    cout << t.getX() << \" \";\n    cout << t.gety();\n    return 0;\n}",
+  "answerA" : "Garbage Values",
+  "answerB" : "0 0",
+  "answerC" : "Compiler Error in line cout << t.getX() << \" \";",
+  "answerD" : "Compiler Error in line cout << t.gety();",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "topic" : "C++ const keyword",
+  "question" : "\n#include <stdio.h>\nint main()\n{\n   const int x;\n   x = 10;\n   printf(\"%d\", x);\n   return 0;\n}",
+  "answerA" : "Compiler Error",
+  "answerB" : "10",
+  "answerC" : "0",
+  "answerD" : "Runtime Error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "C++ const keyword",
+  "question" : "Output of C++ program?\n\n#include <iostream>\nint const s=9;\nint main()\n{\n    std::cout << s;\n    return 0;\n}\nContributed by Pravasi Meet",
+  "answerA" : "9",
+  "answerB" : "Compiler Error",
+  "answerC" : "N/A",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "C++ new and delete",
+  "question" : "How to create a dynamic array of pointers (to integers) of size 10 using new in C++? Hint: We can create a non-dynamic array using int *arr[10]",
+  "answerA" : "int *arr = new int *[10];",
+  "answerB" : "int **arr = new int *[10];",
+  "answerC" : "int *arr = new int [10];",
+  "answerD" : "Not Possible",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ new and delete",
+  "question" : "Which of the following is true about new when compared with malloc. 1) new is an operator, malloc is a function 2) new calls constructor, malloc doesn't 3) new returns appropriate pointer, malloc returns void * and pointer needs to typecast to appropriate type.",
+  "answerA" : "1 and 3",
+  "answerB" : "2 and 3",
+  "answerC" : "1 and 2",
+  "answerD" : "All 1, 2 and 3",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "topic" : "C++ new and delete",
+  "question" : "Predict the output?\n\n#include <iostream>\nusing namespace std;\n\nclass Test \n{\n  int x;\n  Test() { x = 5;}\n};\n\nint main()\n{\n   Test *t = new Test;\n   cout << t->x;\n}",
+  "answerA" : "Compiler Error",
+  "answerB" : "5",
+  "answerC" : "Garbage Value",
   "answerD" : "0",
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "C++ References",
-  "question" : "Output of following C++ program?\n\n#include<iostream>\nusing namespace std;\n\nint main()\n{\n  int x = 10;\n  int& ref = x;\n  ref = 20;\n  cout << \"x = \" << x << endl ;\n  x = 30;\n  cout << \"ref = \" << ref << endl;\n  return 0;\n}",
-  "answerA" : "x = 20\nref = 30",
-  "answerB" : "x = 20\nref = 20",
-  "answerC" : "x = 10\nref = 30",
-  "answerD" : "x = 30\nref = 30",
+  "topic" : "C++ new and delete",
+  "question" : "What happens when delete is used for a NULL pointer?\n\n int *ptr = NULL;\n delete ptr; ",
+  "answerA" : "Compiler Error",
+  "answerB" : "Run-time Crash",
+  "answerC" : "No Effect",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "C++ new and delete",
+  "question" : "Is it fine to call delete twice for a pointer?\n\n#include<iostream>\nusing namespace std;\n\nint main()\n{\n    int *ptr = new int;\n    delete ptr;\n    delete ptr;\n    return 0;\n}",
+  "answerA" : "Yes",
+  "answerB" : "No",
+  "answerC" : "N/A",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Virtual Functions",
+  "question" : "Which of the following is true about virtual functions in C++.",
+  "answerA" : "Virtual functions are functions that can be overridden in derived class with the same signature.",
+  "answerB" : "Virtual functions enable run-time polymorphism in a inheritance hierarchy.",
+  "answerC" : "If a function is 'virtual' in the base class, the most-derived class's implementation of the function is called according to the actual type of the object referred to, regardless of the declared type of the pointer or reference. In non-virtual functions, the functions are called according to the type of reference or pointer.",
+  "answerD" : "All of the above",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "topic" : "C++ Virtual Functions",
+  "question" : "Predict output of the following program\n\n#include<iostream>\nusing namespace std;\n\nclass Base\n{\npublic:\n    virtual void show() { cout<<\" In Base n\"; }\n};\n\nclass Derived: public Base\n{\npublic:\n    void show() { cout<<\"In Derived n\"; }\n};\n\nint main(void)\n{\n    Base *bp = new Derived;\n    bp->show();\n\n    Base &br = *bp;\n    br.show();\n\n    return 0;\n}",
+  "answerA" : "In Base \nIn Base ",
+  "answerB" : "In Base \nIn Derived",
+  "answerC" : "In Derived\nIn Derived",
+  "answerD" : "In Derived\nIn Base ",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "C++ Virtual Functions",
+  "question" : "Output of following program\n\n#include<iostream>\nusing namespace std;\n\nclass Base\n{\npublic:\n    virtual void show() { cout<<\" In Base n\"; }\n};\n\nclass Derived: public Base\n{\npublic:\n    void show() { cout<<\"In Derived n\"; }\n};\n\nint main(void)\n{\n    Base *bp, b;\n    Derived d;\n    bp = &d;\n    bp->show();\n    bp = &b;\n    bp->show();\n    return 0;\n}",
+  "answerA" : "In Base \nIn Base ",
+  "answerB" : "In Base \nIn Derived",
+  "answerC" : "In Derived\nIn Derived",
+  "answerD" : "In Derived\nIn Base ",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "topic" : "C++ Virtual Functions",
+  "question" : "Which of the following is true about pure virtual functions? 1) Their implementation is not provided in a class where they are declared. 2) If a class has a pure virtual function, then the class becomes abstract class and an instance of this class cannot be created.",
+  "answerA" : "Both 1 and 2",
+  "answerB" : "Only 1",
+  "answerC" : "Only 2",
+  "answerD" : "Neither 1 nor 2",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "C++ Virtual Functions",
+  "question" : "\n#include<iostream>\nusing namespace std;\n\nclass Base\n{\npublic:\n    virtual void show() = 0;\n};\n\nint main(void)\n{\n    Base b;\n    Base *bp;\n    return 0;\n}",
+  "answerA" : "There are compiler errors in lines \"Base b;\" and \"Base bp;\"",
+  "answerB" : "There is compiler error in line \"Base b;\"",
+  "answerC" : "There is compiler error in line \"Base bp;\"",
+  "answerD" : "No compiler Error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Virtual Functions",
+  "question" : "Predict the output of following program.\n\n#include<iostream>\nusing namespace std;\nclass Base\n{\npublic:\n    virtual void show() = 0;\n};\n\nclass Derived : public Base { };\n\nint main(void)\n{\n    Derived q;\n    return 0;\n}",
+  "answerA" : "Compiler Error: there cannot be an empty derived class",
+  "answerB" : "Compiler Error: Derived is abstract",
+  "answerC" : "No compiler Error",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Virtual Functions",
+  "question" : "\n#include<iostream>\nusing namespace std;\n\nclass Base\n{\npublic:\n    virtual void show() = 0;\n};\n\nclass Derived: public Base\n{\npublic:\n    void show() { cout<<\"In Derived n\"; }\n};\n\nint main(void)\n{\n    Derived d;\n    Base &br = d;\n    br.show();\n    return 0;\n}",
+  "answerA" : "Compiler Error in line \"Base &br = d;\"",
+  "answerB" : "Empty Output",
+  "answerC" : "In Derived",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "C++ Virtual Functions",
+  "question" : "Can a constructor be virtual? Will the following program compile?\n\n#include <iostream>\nusing namespace std;\nclass Base {\npublic:\n  virtual Base() {}   \n};\nint main() {\n   return 0;\n}",
+  "answerA" : "Yes",
+  "answerB" : "No",
+  "answerC" : "N/A",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Virtual Functions",
+  "question" : "Can a destructor be virtual? Will the following program compile?\n\n#include <iostream>\nusing namespace std;\nclass Base {\npublic:\n  virtual ~Base() {}   \n};\nint main() {\n   return 0;\n}",
+  "answerA" : "Yes",
+  "answerB" : "No",
+  "answerC" : "N/A",
+  "answerD" : "N/A",
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "C++ Virtual Functions",
+  "question" : "\n#include<iostream>\nusing namespace std;\nclass Base  {\npublic:\n    Base()    { cout<<\"Constructor: Base\"<<endl; }\n    virtual ~Base()   { cout<<\"Destructor : Base\"<<endl; }\n};\nclass Derived: public Base {\npublic:\n    Derived()   { cout<<\"Constructor: Derived\"<<endl; }\n    ~Derived()  { cout<<\"Destructor : Derived\"<<endl; }\n};\nint main()  {\n    Base *Var = new Derived();\n    delete Var;\n    return 0;\n}",
+  "answerA" : "Constructor: Base\nConstructor: Derived\nDestructor : Derived\nDestructor : Base",
+  "answerB" : "Constructor: Base\nConstructor: Derived\nDestructor : Base",
+  "answerC" : "Constructor: Base\nConstructor: Derived\nDestructor : Derived",
+  "answerD" : "Constructor: Derived\nDestructor : Derived",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "C++ Templates",
+  "question" : "Which of the following is true about templates.\n 1) Template is a feature of C++ that allows us to write one code for different data types.\n\n 2) We can write one function that can be used for all data types including user defined types. Like sort(), max(), min(), ..etc.\n\n 3) We can write one class or struct that can be used for all data types including user defined types. Like Linked List, Stack, Queue ..etc.\n\n 4) Template is an example of compile time polymorphism.",
+  "answerA" : "1 and 2",
+  "answerB" : "1, 2 and 3",
+  "answerC" : "1, 2 and 4",
+  "answerD" : "1, 2, 3 and 4",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "topic" : "C++ Templates",
+  "question" : "Predict the output?\n\n#include <iostream>\nusing namespace std;\n\ntemplate <typename T>\nvoid fun(const T&x)\n{\n    static int count = 0;\n    cout << \"x = \" << x << \" count = \" << count << endl;\n    ++count;\n    return;\n}\n\nint main()\n{\n    fun<int> (1); \n    cout << endl;\n    fun<int>(1); \n    cout << endl;\n    fun<double>(1.1);\n    cout << endl;\n    return 0;\n}\n",
+  "answerA" : "x = 1 count = 0\n\nx = 1 count = 1\n\nx = 1.1 count = 0",
+  "answerB" : "x = 1 count = 0\n\nx = 1 count = 0\n\nx = 1.1 count = 0",
+  "answerC" : "x = 1 count = 0\n\nx = 1 count = 1\n\nx = 1.1 count = 2",
+  "answerD" : "Compiler Error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "C++ Templates",
+  "question" : "\n#include <iostream>\nusing namespace std;\n\ntemplate <typename T>\nT max(T x, T y)\n{\n    return (x > y)? x : y;\n}\nint main()\n{\n    cout << max(3, 7) << std::endl;\n    cout << max(3.0, 7.0) << std::endl;\n    cout << max(3, 7.0) << std::endl;\n    return 0;\n}",
+  "answerA" : "7\n7.0\n7.0",
+  "answerB" : "Compiler Error in all cout statements as data type is not specified.",
+  "answerC" : "Compiler Error in last cout statement as call to max is ambiguous.",
+  "answerD" : "None of the above",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "C++ Templates",
+  "question" : "Output of following program?\n\n#include <iostream>\nusing namespace std;\n\ntemplate <class T>\nclass Test\n{\nprivate:\n    T val;\npublic:\n    static int count;\n    Test()  {   count++;   }\n};\n\ntemplate<class T>\nint Test<T>::count = 0;\n\nint main()\n{\n    Test<int> a;\n    Test<int> b;\n    Test<double> c;\n    cout << Test<int>::count   << endl;\n    cout << Test<double>::count << endl;\n    return 0;\n}",
+  "answerA" : "0\n0",
+  "answerB" : "1\n1",
+  "answerC" : "2\n1",
+  "answerD" : "1\n0",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "C++ Templates",
+  "question" : "Output of following program? Assume that the size of char is 1 byte and size of int is 4 bytes, and there is no alignment done by the compiler.\n\n#include<iostream>\n#include<stdlib.h>\nusing namespace std;\n\ntemplate<class T, class U>\nclass A  {\n    T x;\n    U y;\n    static int count;\n};\n\nint main()  {\n   A<char, char> a;\n   A<int, int> b;\n   cout << sizeof(a) << endl;\n   cout << sizeof(b) << endl;\n   return 0;\n}",
+  "answerA" : "6\n12",
+  "answerB" : "2\n8",
+  "answerC" : "Compiler Error: There can not be more than one template arguments.",
+  "answerD" : "8\n8",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Templates",
+  "question" : "Output of following program? Assume that the size of int is 4 bytes and size of double is 8 bytes, and there is no alignment done by the compiler.\n\n#include<iostream>\n#include<stdlib.h>\nusing namespace std;\n\ntemplate<class T, class U, class V=double>\nclass A  {\n    T x;\n    U y;\n    V z;\n    static int count;\n};\n\nint main()\n{\n   A<int, int> a;\n   A<double, double> b;\n   cout << sizeof(a) << endl;\n   cout << sizeof(b) << endl;\n   return 0;\n}",
+  "answerA" : "16\n24",
+  "answerB" : "8\n16",
+  "answerC" : "20\n28",
+  "answerD" : "Compiler Error: template parameters cannot have default values.",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "C++ Templates",
+  "question" : "Output of following program.\n\n#include <iostream>\nusing namespace std;\n\ntemplate <class T, int max>\nint arrMin(T arr[], int n)\n{\n   int m = max;\n   for (int i = 0; i < n; i++)\n      if (arr[i] < m)\n         m = arr[i];\n\n   return m;\n}\n\nint main()\n{\n   int arr1[]  = {10, 20, 15, 12};\n   int n1 = sizeof(arr1)/sizeof(arr1[0]);\n\n   char arr2[] = {1, 2, 3};\n   int n2 = sizeof(arr2)/sizeof(arr2[0]);\n\n   cout << arrMin<int, 10000>(arr1, n1) << endl;\n   cout << arrMin<char, 256>(arr2, n2);\n   return 0;\n}",
+  "answerA" : "Compiler error, template argument must be a data type.",
+  "answerB" : "10\n1",
+  "answerC" : "10000\n256",
+  "answerD" : "1\n1",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Templates",
+  "question" : "Output?\n\n#include <iostream>\nusing namespace std;\n\ntemplate <int i>\nvoid fun()\n{\n   i = 20;\n   cout << i;\n}\n\nint main()\n{\n   fun<10>();\n   return 0;\n}",
+  "answerA" : "10",
+  "answerB" : "20",
+  "answerC" : "Compiler Error",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "C++ Templates",
+  "question" : "Output?\n\n#include <iostream>\nusing namespace std;\n\ntemplate <class T>\nT max (T &a, T &b)\n{\n    return (a > b)? a : b;\n}\n\ntemplate <>\nint max <int> (int &a, int &b)\n{\n    cout << \"Called \";\n    return (a > b)? a : b;\n}\n\nint main ()\n{\n    int a = 10, b = 20;\n    cout << max <int> (a, b);\n}",
+  "answerA" : "20",
+  "answerB" : "Called 20",
+  "answerC" : "Compiler Error",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Templates",
+  "question" : "Output?\n\n#include <iostream>\nusing namespace std;\n \ntemplate<int n> struct funStruct\n{\n    static const int val = 2*funStruct<n-1>::val;\n};\n \ntemplate<> struct funStruct<0>\n{\n    static const int val = 1 ;\n};\n \nint main()\n{\n    cout << funStruct<10>::val << endl;\n    return 0;\n}",
+  "answerA" : "Compiler Error",
+  "answerB" : "1024",
+  "answerC" : "2",
+  "answerD" : "1",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Exception Handling",
+  "question" : "\n#include <iostream>\nusing namespace std;\nint main()\n{\n   int x = -1;\n   try {\n      cout << \"Inside try n\";\n      if (x < 0)\n      {\n         throw x;\n         cout << \"After throw n\";\n      }\n   }\n   catch (int x ) {\n      cout << \"Exception Caught n\";\n   }\n\n   cout << \"After catch n\";\n   return 0;\n}",
+  "answerA" : "Inside try\nException Caught\nAfter throw \nAfter catch",
+  "answerB" : "Inside try\nException Caught\nAfter catch",
+  "answerC" : "Inside try\nException Caught",
+  "answerD" : "Inside try\nAfter throw\nAfter catch",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Exception Handling",
+  "question" : "What is the advantage of exception handling?\n\n\n1) Remove error-handling code from the software's main line of code.\n\n2) A method writer can chose to handle certain exceptions and delegate \n   others to the caller.\n\n3) An exception that occurs in a function can be handled anywhere in\n   the function call stack. ",
+  "answerA" : "Only 1",
+  "answerB" : "1, 2 and 3",
+  "answerC" : "1 and 3",
+  "answerD" : "1 and 2",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Exception Handling",
+  "question" : "What should be put in a try block?\n\n\n1. Statements that might cause exceptions\n2. Statements that should be skipped in case of an exception ",
+  "answerA" : "Only 1",
+  "answerB" : "Only 2",
+  "answerC" : "Both 1 and 2",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "C++ Exception Handling",
+  "question" : "Output of following program\n\n#include<iostream>\nusing namespace std;\n\nclass Base {};\nclass Derived: public Base {};\nint main()\n{\n   Derived d;\n   try {\n       throw d;\n   }\n   catch(Base b) {\n        cout<<\"Caught Base Exception\";\n   }\n   catch(Derived d) {\n        cout<<\"Caught Derived Exception\";\n   }\n   return 0;\n}",
+  "answerA" : "Caught Derived Exception",
+  "answerB" : "Caught Base Exception",
+  "answerC" : "Compiler Error",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Exception Handling",
+  "question" : "\n#include <iostream>\nusing namespace std;\n\nint main()\n{\n    try\n    {\n       throw 'a';\n    }\n    catch (int param)\n    {\n        cout << \"int exceptionn\";\n    }\n    catch (...)\n    {\n        cout << \"default exceptionn\";\n    }\n    cout << \"After Exception\";\n    return 0;\n}",
+  "answerA" : "default exception\nAfter Exception",
+  "answerB" : "int exception\nAfter Exception",
+  "answerC" : "int exception",
+  "answerD" : "default exception",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "C++ Exception Handling",
+  "question" : "\n#include <iostream>\nusing namespace std;\n\nint main()\n{\n    try\n    {\n       throw 10;\n    }\n    catch (...)\n    {\n        cout << \"default exceptionn\";\n    }\n    catch (int param)\n    {\n        cout << \"int exceptionn\";\n    }\n\n    return 0;\n}",
+  "answerA" : "default exception",
+  "answerB" : "int exception",
+  "answerC" : "Compiler Error",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "C++ Exception Handling",
+  "question" : "\n#include <iostream>\nusing namespace std;\n\nint main()\n{\n    try\n    {\n        try\n        {\n            throw 20;\n        }\n        catch (int n)\n        {\n            cout << \"Inner Catchn\";\n            throw;\n        }\n    }\n    catch (int x)\n    {\n        cout << \"Outer Catchn\";\n    }\n    return 0;\n}",
+  "answerA" : "Outer Catch",
+  "answerB" : "Inner Catch",
+  "answerC" : "Inner Catch\nOuter Catch",
+  "answerD" : "Compiler Error",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "C++ Exception Handling",
+  "question" : "\n#include <iostream>\nusing namespace std;\n\nclass Test {\npublic:\n   Test() { cout << \"Constructing an object of Test \" << endl; }\n  ~Test() { cout << \"Destructing an object of Test \"  << endl; }\n};\n\nint main() {\n  try {\n    Test t1;\n    throw 10;\n  } catch(int i) {\n    cout << \"Caught \" << i << endl;\n  }\n}",
+  "answerA" : "Caught 10",
+  "answerB" : "Constructing an object of Test \nCaught 10",
+  "answerC" : "Constructing an object of Test \nDestructing an object of Test \nCaught 10",
+  "answerD" : "Compiler Errror",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "C++ Exception Handling",
+  "question" : "\n#include <iostream>\nusing namespace std;\n\nclass Test {\n  static int count;\n  int id;\npublic:\n  Test() {\n    count++;\n    id = count;\n    cout << \"Constructing object number \" << id << endl;\n    if(id == 4)\n       throw 4;\n  }\n  ~Test() { cout << \"Destructing object number \" << id << endl; }\n};\n\nint Test::count = 0;\n\nint main() {\n  try {\n    Test array[5];\n  } catch(int i) {\n    cout << \"Caught \" << i << endl;\n  }\n}",
+  "answerA" : "Constructing object number 1\nConstructing object number 2\nConstructing object number 3\nConstructing object number 4\nDestructing object number 1\nDestructing object number 2\nDestructing object number 3\nDestructing object number 4\nCaught 4",
+  "answerB" : "Constructing object number 1\nConstructing object number 2\nConstructing object number 3\nConstructing object number 4\nDestructing object number 3\nDestructing object number 2\nDestructing object number 1\nCaught 4",
+  "answerC" : "Constructing object number 1\nConstructing object number 2\nConstructing object number 3\nConstructing object number 4\nDestructing object number 4\nDestructing object number 3\nDestructing object number 2\nDestructing object number 1\nCaught 4",
+  "answerD" : "Constructing object number 1\nConstructing object number 2\nConstructing object number 3\nConstructing object number 4\nDestructing object number 1\nDestructing object number 2\nDestructing object number 3\nCaught 4",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ Exception Handling",
+  "question" : "Which of the following is true about exception handling in C++? 1) There is a standard exception class like Exception class in Java. 2) All exceptions are unchecked in C++, i.e., compiler doesn't check if the exceptions are caught or not. 3) In C++, a function can specify the list of exceptions that it can throw using comma separated list like following.\n\n  void fun(int a, char b) throw (Exception1, Exception2, ..) ",
+  "answerA" : "1 and 3",
+  "answerB" : "1, 2 and 3",
+  "answerC" : "1 and 2",
+  "answerD" : "2 and 3",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
 } ]
