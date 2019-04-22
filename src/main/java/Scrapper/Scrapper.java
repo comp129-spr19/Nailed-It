@@ -336,33 +336,16 @@ public class Scrapper {
 	private static void createJavaQuestions() throws JsonGenerationException, JsonMappingException, IOException {
 		// creates array for list of questions to add
 		//gets questions for Inheritance
-		ArrayList<Question> q = getQuestions("https://www.geeksforgeeks.org/java-gq/inheritance-2-gq/");
-		// 
+		ArrayList<Question> q = getQuestions("https://www.geeksforgeeks.org/java-gq/inheritance-2-gq/"); 
 		q.addAll(getQuestions("https://www.geeksforgeeks.org/java-gq/abstract-class-and-interface-in-java-gq/"));
-		// 
 		q.addAll(getQuestions("https://www.geeksforgeeks.org/java-gq/arrays-gq/"));
-
-		// 
 		q.addAll(getQuestions("https://www.geeksforgeeks.org/java-gq/data-types-2-gq/"));
-		// 
 		q.addAll(getQuestions("https://www.geeksforgeeks.org/java-gq/constructors-2-gq/"));
-
-		// 
 		q.addAll(getQuestions("https://www.geeksforgeeks.org/java-gq/exception-handling-2-gq/"));
-
-		// 
 		q.addAll(getQuestions("https://www.geeksforgeeks.org/java-gq/packages-gq/"));
-
-		// 
-		q.addAll(getQuestions("https://www.geeksforgeeks.org/java-gq/class-and-object-2-gq/"));
-
-		// 
-		q.addAll(getQuestions("https://www.geeksforgeeks.org/java-gq/functions-2-gq/"));
-
-		// 
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/java-gq/class-and-object-2-gq/")); 
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/java-gq/functions-2-gq/")); 
 		q.addAll(getQuestions("https://www.geeksforgeeks.org/java-gq/final-keyword-gq/"));
-
-		// 
 		q.addAll(getQuestions("https://www.geeksforgeeks.org/java-gq/operators-gq/"));
 
 
@@ -404,6 +387,24 @@ public class Scrapper {
 		// Maps and creates the JSON file : cplusplus_geeksforgeeks.json
 		OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("cpluscplus_geeksforgeeks.json"), q);
 	}
+
+	private static void createCQuestions() throws JsonGenerationException, JsonMappingException, IOException {
+		ArrayList<Question> q = getQuestions("https://www.geeksforgeeks.org/c-quiz-101-gq/");
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/c-quiz-103-gq/")); 
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/c-quiz-104-gq/")); 
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/c-quiz-108-gq/")); 
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/c-quiz-110-gq/")); 
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/c-quiz-111-gq/")); 
+		
+		//Prints out to terminal
+		for (Question x : q) {
+			System.out.println(x.toString());
+		} 
+		
+		// Maps and creates the JSON file : c_geeksforgeeks.json
+		OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("c_geeksforgeeks.json"), q);
+		
+	}
 	
 	public static void main(String args[]) throws JsonGenerationException, JsonMappingException, IOException {
 		//createAlgoQuestions();
@@ -413,6 +414,8 @@ public class Scrapper {
 		//createCompTheoryQuestions();
 		//createPythonQuestions(); 
 		//createJavaQuestions();
-		createCplusplusQuestions();
+		//createCplusplusQuestions();
+		createCQuestions();
 	}
+
 }
