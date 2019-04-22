@@ -310,13 +310,35 @@ public class Scrapper {
 		OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("CompTheory_geeksforgeeks.json"), q);
 		
 	}
+	
+	private static void createPythonQuestions() throws JsonGenerationException, JsonMappingException, IOException {
+		// creates array for list of questions to add
+		//gets questions for OPERATORS
+		ArrayList<Question> q = getQuestions("https://www.geeksforgeeks.org/operators-gq/");
+		// functions- LINK DOES NOT WORK WITH SCRAPPER
+//		q.addAll(getQuestions("https://www.geeksforgeeks.org/functions-python-gq/"));
+		// Data Type
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/data-type-gq/"));
+		// Output
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/output-type-gq/"));
+		// Miscellaneous
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/miscellaneous-gq/"));
+		
+		//Prints out to terminal
+		for (Question x : q) {
+			System.out.println(x.toString());
+		} 
+		
+		// Maps and creates the JSON file : Python_geeksforgeeks.json
+		OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("Python_geeksforgeeks.json"), q);
+	}
+	
 	public static void main(String args[]) throws JsonGenerationException, JsonMappingException, IOException {
 		//createAlgoQuestions();
 		//createDSQuestions();
 		//createOSQuestions();
 		//createDBMSQuestions();
-		createCompTheoryQuestions();
+		//createCompTheoryQuestions();
+		createPythonQuestions(); 
 	}
-
-
 }
