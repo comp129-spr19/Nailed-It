@@ -376,6 +376,50 @@ public class Scrapper {
 		OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("Java_geeksforgeeks.json"), q);
 	}
 	
+	private static void createCplusplusQuestions() throws JsonGenerationException, JsonMappingException, IOException {
+		// creates array for list of questions to add
+		//gets questions for references
+		ArrayList<Question> q = getQuestions("https://www.geeksforgeeks.org/c-plus-plus-gq/references-gq/");
+		// LINK TO C++ CONSTRUCTOR DOES NOT WORK
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/c-plus-plus-gq/constructors-gq/"));
+		// 
+		//q.addAll(getQuestions("https://www.geeksforgeeks.org/c-plus-plus-gq/class-and-object-gq/"));
+		// 
+		//q.addAll(getQuestions("https://www.geeksforgeeks.org/c-plus-plus-gq/misc-c-gq/"));
+		// 
+		//q.addAll(getQuestions("https://www.geeksforgeeks.org/c-plus-plus-gq/destructors-gq/"));
+		// 
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/c-plus-plus-gq/operator-overloading-gq/"));
+		// 
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/c-plus-plus-gq/this-pointer-gq/"));
+		// 
+		//q.addAll(getQuestions("https://www.geeksforgeeks.org/c-plus-plus-gq/function-overloading-2-gq/"));
+		// 
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/c-plus-plus-gq/static-keyword-gq/"));
+		// 
+		//q.addAll(getQuestions("https://www.geeksforgeeks.org/c-plus-plus-gq/friend-function-and-class-gq/"));
+		// 
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/c-plus-plus-gq/inheritance-gq/"));
+		// 
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/c-plus-plus-gq/const-keyword-gq/"));
+		// 
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/c-plus-plus-gq/new-and-delete-gq/"));
+		// 
+		//q.addAll(getQuestions("https://www.geeksforgeeks.org/c-plus-plus-gq/virtual-functions-gq/"));
+		// 
+		//q.addAll(getQuestions("https://www.geeksforgeeks.org/c-plus-plus-gq/templates-gq/"));
+		// 
+		q.addAll(getQuestions("https://www.geeksforgeeks.org/c-plus-plus-gq/exception-handling-gq/"));
+		
+		//Prints out to terminal
+		for (Question x : q) {
+			System.out.println(x.toString());
+		} 
+		
+		// Maps and creates the JSON file : cplusplus_geeksforgeeks.json
+		OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("cpluscplus_geeksforgeeks.json"), q);
+	}
+	
 	public static void main(String args[]) throws JsonGenerationException, JsonMappingException, IOException {
 		//createAlgoQuestions();
 		//createDSQuestions();
@@ -383,6 +427,7 @@ public class Scrapper {
 		//createDBMSQuestions();
 		//createCompTheoryQuestions();
 		//createPythonQuestions(); 
-		createJavaQuestions();
+		//createJavaQuestions();
+		createCplusplusQuestions();
 	}
 }

@@ -1,0 +1,55 @@
+[ {
+  "topic" : "C++ References",
+  "question" : "What is the return value of f(p, p) if the value of p is initialized to 5 before the call? Note that the first parameter is passed by reference, whereas the second parameter is passed by value.\n\nint f(int &x, int c) {\n   c  = c - 1;\n   if (c == 0) return 1;\n   x = x + 1;\n   return f(x, c) * x;\n} ",
+  "answerA" : "3024",
+  "answerB" : "6561",
+  "answerC" : "55440",
+  "answerD" : "161051",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ References",
+  "question" : "Which of the following is FALSE about references in C++",
+  "answerA" : "References cannot be NULL",
+  "answerB" : "A reference must be initialized when declared",
+  "answerC" : "Once a reference is created, it cannot be later made to reference another object; it cannot be reset.",
+  "answerD" : "References cannot refer to constant value",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_D"
+}, {
+  "topic" : "C++ References",
+  "question" : "Which of the following functions must use reference.",
+  "answerA" : "Assignment operator function",
+  "answerB" : "Copy Constructor",
+  "answerC" : "Destructor",
+  "answerD" : "Parameterized constructor",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_B"
+}, {
+  "topic" : "C++ References",
+  "question" : "Predict the output of following C++ program.\n\n#include<iostream>\nusing namespace std;\n\nint &fun()\n{\n    static int x = 10;\n    return x;\n}\nint main()\n{\n    fun() = 30;\n    cout << fun();\n    return 0;\n}",
+  "answerA" : "Compiler Error: Function cannot be used as lvalue",
+  "answerB" : "10",
+  "answerC" : "30",
+  "answerD" : "N/A",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_C"
+}, {
+  "topic" : "C++ References",
+  "question" : "\n#include<iostream>\nusing namespace std;\n\nint &fun()\n{\n    int x = 10;\n    return x;\n}\nint main()\n{\n    fun() = 30;\n    cout << fun();\n    return 0;\n}\n",
+  "answerA" : "May cause runtime error",
+  "answerB" : "May cause compiler error",
+  "answerC" : "Always works fine.",
+  "answerD" : "0",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+}, {
+  "topic" : "C++ References",
+  "question" : "Output of following C++ program?\n\n#include<iostream>\nusing namespace std;\n\nint main()\n{\n  int x = 10;\n  int& ref = x;\n  ref = 20;\n  cout << \"x = \" << x << endl ;\n  x = 30;\n  cout << \"ref = \" << ref << endl;\n  return 0;\n}",
+  "answerA" : "x = 20\nref = 30",
+  "answerB" : "x = 20\nref = 20",
+  "answerC" : "x = 10\nref = 30",
+  "answerD" : "x = 30\nref = 30",
+  "hint" : "None",
+  "correctAnswer" : "ANSWER_A"
+} ]
