@@ -10,15 +10,14 @@ import main.*;
 public abstract class JSONEditor {
 
 	/*
-	 * Takes in updates to a question along with question category and difficulty
+	 * Takes in updates to a question along with question category
 	 * Changes JSON file accordingly
 	 */
-	public static boolean updateQuestion(String categoryStr, String difficultyStr, Question question) {
+	public static boolean updateQuestion(String categoryStr, Question question) {
 		//getting the needed JSON Objects
 		JSONObject file = JSONOperations.createJSONObject(Constants.FILENAME);
 		JSONObject category = file.getJSONObject(categoryStr);
-		JSONObject difficulty = category.getJSONObject(difficultyStr);
-		JSONObject editQ = difficulty.getJSONObject(question.getName());
+		JSONObject editQ = category.getJSONObject(question.getName());
 		
 		//altering the question object
 		editQ.put("topic", question.getTopic());
@@ -31,8 +30,7 @@ public abstract class JSONEditor {
 		editQ.put("hint", question.getHint());
 		
 		//placing the edited question into the full file text
-		difficulty.put(question.getName(), editQ);
-		category.put(difficultyStr, difficulty);
+		category.put(question.getName(), editQ);
 		file.put(categoryStr, category);
 		
 		try {
@@ -47,15 +45,14 @@ public abstract class JSONEditor {
 		}
 	}
 
-	public static boolean addQuestion(String categoryStr, String difficultyStr, Question question) {
+	public static boolean addQuestion(String categoryStr, Question question) {
 		//getting the needed JSON Objects
 		JSONObject file = JSONOperations.createJSONObject(Constants.FILENAME);
 		JSONObject category = file.getJSONObject(categoryStr);
-		JSONObject difficulty = category.getJSONObject(difficultyStr);
 		JSONObject newQ = new JSONObject();
 		
 		//finding out what new question's name is
-		String name = "q" + (difficulty.length() + 1);
+		String name = "q" + (category.length() + 1);
 		
 		//filling the question object
 		newQ.put("topic", question.getTopic());
@@ -68,8 +65,7 @@ public abstract class JSONEditor {
 		newQ.put("hint", question.getHint());
 		
 		//placing the new question into the full file text
-		difficulty.put(name, newQ);
-		category.put(difficultyStr, difficulty);
+		category.put(name, newQ);
 		file.put(categoryStr, category);
 		
 		try {
@@ -84,17 +80,15 @@ public abstract class JSONEditor {
 		}
 	}
 
-	public static boolean deleteQuestion(String categoryStr, String difficultyStr, Question question) {
+	public static boolean deleteQuestion(String categoryStr, Question question) {
 		//getting the needed JSON Objects
 		JSONObject file = JSONOperations.createJSONObject(Constants.FILENAME);
 		JSONObject category = file.getJSONObject(categoryStr);
-		JSONObject difficulty = category.getJSONObject(difficultyStr);
 		
 		//removing the question requested
-		//difficulty.remove(question.getName());
+		category.remove(question.getName());
 		
 		//placing the altered file text back into the file object
-		category.put(difficultyStr, difficulty);
 		file.put(categoryStr, category);
 		
 		try {

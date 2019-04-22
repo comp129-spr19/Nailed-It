@@ -20,11 +20,11 @@ public class JSONOperationsTester {
 	
 	@Test 
 	public void testQuestionArrayListSizeIsNotZeroWithValidCategoryAndDifficulty() {
-		assertTrue(JSONOperations.getQuestions("Algorithms", "hard").size() > 0);
+		assertTrue(JSONOperations.getQuestions("Algorithms").size() > 0);
 	}
 	
 	@Test (expected = JSONException.class) 
 	public void testGetQuestionsThrowsExceptionWithInvalidCategoryAndDifficulty() {
-		JSONOperations.getQuestions("Python", "extreme");
+		JSONOperations.getQuestions("Python");
 	}
 }

@@ -17,7 +17,7 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 	private MainStage main;
 	
 	private HBox top;
-	private ComboBox category, difficulty;
+	private ComboBox category;
 	private Button search, addQuestion,returnToMainMenu;
 	
 	private ArrayList<Question> questions;
@@ -28,9 +28,8 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 		if (e.getSource() instanceof Button) {
 			Button button = (Button) e.getSource();
 			if (button.getId().equals("search")) {
-				if (!(difficulty.getSelectionModel().isEmpty()) &&
-					!(category.getSelectionModel().isEmpty())) {
-				listQuestions();
+				if (!(category.getSelectionModel().isEmpty())) {
+					listQuestions();
 				}
 			}
 			else if (button.getId().contains("edit")) {
@@ -38,12 +37,11 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 				ID = ID.substring(0, ID.length() - 4);
 				int toEdit = Integer.parseInt(ID);
 				String categoryStr = (String) category.getValue();
-				String diffStr = (String) difficulty.getValue();
-				main.switchToQuestionEditor(categoryStr, diffStr, questions.get(toEdit));
+				main.switchToQuestionEditor(categoryStr, questions.get(toEdit));
 			} else if (button.getId().equals("addQuestion")) {
 				//if (category.getValue() == null)
 				//System.out.println("CREED");
-				main.switchToNewQuestionEditor((String)category.getValue(),(String)difficulty.getValue());
+				main.switchToNewQuestionEditor((String)category.getValue());
 			} else if (button.getId().equals("returnToMainMenu")) {
 				main.switchToMainMenu();
 			}
@@ -56,10 +54,7 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 		this.main = main;
 		
 		top = new HBox();
-		difficulty = new ComboBox();
 		category = JSONOperations.returnCategoryList();
-		difficulty = new ComboBox<String>();
-		difficulty.getItems().addAll("easy", "medium", "hard");
 		
 		search = new Button("Search");
 		search.setId("search");
@@ -75,16 +70,15 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 		//addQuestion = new Button("Add Question");
 		
 		
-		top.getChildren().addAll(category, difficulty, search);
+		top.getChildren().addAll(category, search);
 		this.getChildren().addAll(top,questionList,returnToMainMenu);
 		this.setSpacing(50);
 	}
 	
 	private void listQuestions() {
 		String categoryStr = (String) category.getValue();
-		String diffStr = (String) difficulty.getValue();
 		questionList.getChildren().clear();
-		 questions = JSONOperations.getQuestions(categoryStr, diffStr);
+		 questions = JSONOperations.getQuestions(categoryStr);
 		for (int i = 0; i < questions.size();i++) {
 			questionList.getChildren().add(createQuestionBox(i,questions.get(i)));
 		}

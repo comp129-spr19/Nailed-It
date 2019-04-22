@@ -45,8 +45,8 @@ public class JSONOperations {
 		return content;
 	}
 	
-	// returns a list of question objects based on category and difficulty.
-	public static ArrayList<Question> getQuestions(String qCategory, String qDifficulty) {
+	// returns a list of question objects based on category.
+	public static ArrayList<Question> getQuestions(String qCategory) {
 		//if(!containsCategory(qCategory) && !isValidDiff(qDifficulty)) {
 		//	return null;
 		//}
@@ -54,11 +54,10 @@ public class JSONOperations {
 		
 		JSONObject file = createJSONObject(Constants.FILENAME);
 		JSONObject category =  file.getJSONObject(qCategory);
-		JSONObject difficulty =  category.getJSONObject(qDifficulty);
 		
-		for (int i = 0; i < difficulty.length(); i++) {
+		for (int i = 0; i < category.length(); i++) {
 			String name = "q" + (i+1);
-			JSONObject currentQuestion = difficulty.getJSONObject(name);
+			JSONObject currentQuestion = category.getJSONObject(name);
 
 			String topic = currentQuestion.getString("topic");
 			String questionDescription = currentQuestion.getString("question");
@@ -126,7 +125,7 @@ public class JSONOperations {
 	public static void main(String args[]) {
 		JSONObject obj = createJSONObject(Constants.FILENAME);
 		System.out.println(obj.length());
-		ArrayList<Question> questions = getQuestions("Algorithms","medium");
+		ArrayList<Question> questions = getQuestions("Algorithms");
 		for (Question question : questions) {
 			System.out.println(question.getQuestion() + question.getAnswerA());
 		}

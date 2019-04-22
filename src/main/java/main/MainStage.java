@@ -153,14 +153,14 @@ public class MainStage extends Application {
 		scene.setRoot(editorScreenLayout);
 	}
 	
-	public void switchToQuestionEditor(String category, String difficulty, Question question) {
-		questionEditorLayout = new QuestionEditorLayout(category, difficulty, question, this,false);
+	public void switchToQuestionEditor(String category, Question question) {
+		questionEditorLayout = new QuestionEditorLayout(category, question, this,false);
 		scene.setRoot(questionEditorLayout);
 	}
 
-	public void switchToNewQuestionEditor(String category, String difficulty) {
+	public void switchToNewQuestionEditor(String category) {
 		Question blank = new Question("","","","","","","", Answer.ANSWER_A);
-		newQuestionEditorLayout = new QuestionEditorLayout(category,difficulty,blank,this,true);
+		newQuestionEditorLayout = new QuestionEditorLayout(category,blank,this,true);
 		scene.setRoot(newQuestionEditorLayout);
 	}
 }
