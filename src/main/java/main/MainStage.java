@@ -2,8 +2,15 @@ package main;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
-import Layouts.*;
+import Layouts.CompletionScreenLayout;
+import Layouts.DiffScreenRowLayout;
+import Layouts.DifficultyScreenLayout;
+import Layouts.EditorScreenLayout;
+import Layouts.MainMenuScreenLayout;
+import Layouts.QuestionEditorLayout;
+import Layouts.QuizScreenLayout;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
@@ -39,7 +46,6 @@ public class MainStage extends Application {
 
 	// should be removed when refactoring.
 	private int numCorrAnswers;
-	
 
 	/*
 	 * Application entry point, launches all functions to begin applications
@@ -74,12 +80,12 @@ public class MainStage extends Application {
 	}
 
 	public Scale scaleWindowControls() {
-		Scale scale = new Scale();		
-		scale.setX(SCALE_FACTOR); 
-		scale.setY(SCALE_FACTOR); 
+		Scale scale = new Scale();
+		scale.setX(SCALE_FACTOR);
+		scale.setY(SCALE_FACTOR);
 		scale.setPivotX(SCREEN_WIDTH / 2);
 		scale.setPivotY(SCREEN_HEIGHT / 2);
-		
+
 		return scale;
 	}
 
@@ -126,6 +132,7 @@ public class MainStage extends Application {
 	 */
 	public void genQuestions(ArrayList<DiffScreenRowLayout> rows) throws IOException {
 		questions = GenerateQuestionScreens.generate(rows, this);
+		Collections.shuffle(questions);
 		currentQuestionIndex = 0;
 		numCorrAnswers = 0;
 		nextQuestion();
@@ -138,7 +145,7 @@ public class MainStage extends Application {
 	public Stage getStage() {
 		return this.stage;
 	}
-	
+
 	public Scene getScene() {
 		return this.scene;
 	}
@@ -152,15 +159,15 @@ public class MainStage extends Application {
 		editorScreenLayout = new EditorScreenLayout(this);
 		scene.setRoot(editorScreenLayout);
 	}
-	
+
 	public void switchToQuestionEditor(String category, Question question) {
-		questionEditorLayout = new QuestionEditorLayout(category, question, this,false);
+		questionEditorLayout = new QuestionEditorLayout(category, question, this, false);
 		scene.setRoot(questionEditorLayout);
 	}
 
 	public void switchToNewQuestionEditor(String category) {
-		Question blank = new Question("","","","","","","", Answer.ANSWER_A);
-		newQuestionEditorLayout = new QuestionEditorLayout(category,blank,this,true);
+		Question blank = new Question("", "", "", "", "", "", "", Answer.ANSWER_A);
+		newQuestionEditorLayout = new QuestionEditorLayout(category, blank, this, true);
 		scene.setRoot(newQuestionEditorLayout);
 	}
 }
