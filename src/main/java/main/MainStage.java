@@ -13,9 +13,11 @@ import Layouts.MainMenuScreenLayout;
 import Layouts.QuestionEditorLayout;
 import Layouts.QuizScreenLayout;
 import javafx.application.Application;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.scene.transform.Scale;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 /*
@@ -67,6 +69,16 @@ public class MainStage extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		stage = primaryStage;
 		stage.setTitle(APPLICATION_NAME);
+
+		Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+		stage.setX(primaryScreenBounds.getMinX());
+		stage.setY(primaryScreenBounds.getMinY());
+		stage.setWidth(primaryScreenBounds.getWidth());
+		stage.setMinWidth(primaryScreenBounds.getWidth());
+		stage.setMaxWidth(primaryScreenBounds.getWidth());
+		stage.setHeight(primaryScreenBounds.getHeight());
+		stage.setMinHeight(primaryScreenBounds.getHeight());
+		stage.setMaxHeight(primaryScreenBounds.getHeight());
 
 		scene = new Scene(new StackPane(), SCREEN_HEIGHT, SCREEN_WIDTH);
 		scene.getStylesheets().add(STYLE_SOURCE);
