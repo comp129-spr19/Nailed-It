@@ -4,6 +4,8 @@ import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 import com.gargoylesoftware.htmlunit.Page;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
+
+import JSON.JSONEditor;
 import main.*;
 
 import java.io.File;
@@ -49,12 +51,12 @@ public class Scrapper {
 		WebClient client = new WebClient();
 		client.getOptions().setCssEnabled(false);
 		client.getOptions().setJavaScriptEnabled(false);
-		final Document doc = Jsoup.connect(url).get();
+		//final Document doc = Jsoup.connect(url).get();
 		HtmlPage page;
 		try {
 			page = client.getPage(url);
 			int numQuestions = getNumQuestions(url);
-			String title = doc.getElementsByClass(TITLE).text();
+			//String title = doc.getElementsByClass(TITLE).text();
 			questions = new ArrayList<Question>();
 			for (int i = 0; i < numQuestions; i++) {
 				String answers[] = new String[4];
@@ -81,7 +83,7 @@ public class Scrapper {
 
 				}
 
-				Question newQuestion = new Question(title, question, answers[0], answers[1], answers[2], answers[3],
+				Question newQuestion = new Question("None", question, answers[0], answers[1], answers[2], answers[3],
 						"None", validAnswer);
 				questions.add(newQuestion);
 
@@ -171,6 +173,9 @@ public class Scrapper {
 	 *************/
 	public static void createAlgoQuestions() throws JsonGenerationException, JsonMappingException, IOException {
 		// Analysis of Algorithms questions
+		String category = "Algorithms";
+		JSONEditor.addCategory(category);
+		
 		ArrayList<Question> algoQuestions = getQuestions("https://www.geeksforgeeks.org/algorithms-gq/analysis-of-algorithms-gq/");
 		// Search
 		algoQuestions.addAll(getQuestions("https://www.geeksforgeeks.org/algorithms-gq/searching-gq/"));
@@ -201,14 +206,17 @@ public class Scrapper {
 		
 		//Prints out to terminal
 		for (Question x : algoQuestions) {
-			System.out.println(x.toString());
+			JSONEditor.addQuestion(category, x);
 		} 
 		
 		// Maps and creates the JSON file : algo_geeksforgeeks.json
-		OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("algo_geeksforgeeks.json"), algoQuestions);
+		//OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("algo_geeksforgeeks.json"), algoQuestions);
 	}
 	
 	private static void createDSQuestions() throws JsonGenerationException, JsonMappingException, IOException {
+		
+		String category = "Data Structures";
+		JSONEditor.addCategory(category);
 				// Stack questions
 				ArrayList<Question> dsQuestions = getQuestions("https://www.geeksforgeeks.org/data-structure-gq/stack-gq/");
 				// Queue
@@ -236,11 +244,11 @@ public class Scrapper {
 				
 				//Prints out to terminal
 				for (Question x : dsQuestions) {
-					System.out.println(x.toString());
+					JSONEditor.addQuestion(category, x);
 				} 
 				
 				// Maps and creates the JSON file : ds_geeksforgeeks.json
-				OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("ds_geeksforgeeks.json"), dsQuestions);
+				//OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("ds_geeksforgeeks.json"), dsQuestions);
 	}
 	
 	private static void createOSQuestions() throws JsonGenerationException, JsonMappingException, IOException {
@@ -269,6 +277,9 @@ public class Scrapper {
 	}
 	
 	private static void createDBMSQuestions() throws JsonGenerationException, JsonMappingException, IOException {
+		String category = "Database";
+		JSONEditor.addCategory(category);
+		
 		// creates array for list of questions to add
 		//gets questions for ER and Relational Models
 		ArrayList<Question> q = getQuestions("https://www.geeksforgeeks.org/dbms-gq/er-and-relational-models-gq/");
@@ -283,14 +294,17 @@ public class Scrapper {
 		
 		//Prints out to terminal
 		for (Question x : q) {
-			System.out.println(x.toString());
+			JSONEditor.addQuestion(category, x);
 		} 
 		
 		// Maps and creates the JSON file : DBMS_geeksforgeeks.json
-		OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("DBMS_geeksforgeeks.json"), q);
+		//OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("DBMS_geeksforgeeks.json"), q);
 	}
 	
 	private static void createCompTheoryQuestions() throws JsonGenerationException, JsonMappingException, IOException {
+		String category = "Comp Theory";
+		JSONEditor.addCategory(category);
+		
 		// creates array for list of questions to add
 		//gets questions for Regular languages and finite automata
 		ArrayList<Question> q = getQuestions("https://www.geeksforgeeks.org/regular-languages-and-finite-automata-gq/");
@@ -303,15 +317,18 @@ public class Scrapper {
 		
 		//Prints out to terminal
 		for (Question x : q) {
-			System.out.println(x.toString());
+			//System.out.println(x.toString());
+			JSONEditor.addQuestion(category, x);
 		} 
 		
 		// Maps and creates the JSON file : CompTheory_geeksforgeeks.json
-		OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("CompTheory_geeksforgeeks.json"), q);
+		//OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("CompTheory_geeksforgeeks.json"), q);
 		
 	}
 	
 	private static void createPythonQuestions() throws JsonGenerationException, JsonMappingException, IOException {
+		String category = "Python";
+		JSONEditor.addCategory(category);
 		// creates array for list of questions to add
 		//gets questions for OPERATORS
 		ArrayList<Question> q = getQuestions("https://www.geeksforgeeks.org/operators-gq/");
@@ -326,7 +343,8 @@ public class Scrapper {
 		
 		//Prints out to terminal
 		for (Question x : q) {
-			System.out.println(x.toString());
+			//System.out.println(x.toString());
+			JSONEditor.addQuestion(category, x);
 		} 
 		
 		// Maps and creates the JSON file : Python_geeksforgeeks.json
@@ -334,6 +352,9 @@ public class Scrapper {
 	}
 	
 	private static void createJavaQuestions() throws JsonGenerationException, JsonMappingException, IOException {
+		String category = "Java";
+		JSONEditor.addCategory(category);
+		
 		// creates array for list of questions to add
 		//gets questions for Inheritance
 		ArrayList<Question> q = getQuestions("https://www.geeksforgeeks.org/java-gq/inheritance-2-gq/"); 
@@ -352,11 +373,11 @@ public class Scrapper {
 		
 		//Prints out to terminal
 		for (Question x : q) {
-			System.out.println(x.toString());
+			JSONEditor.addQuestion(category, x);
 		} 
 		
 		// Maps and creates the JSON file : Java_geeksforgeeks.json
-		OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("Java_geeksforgeeks.json"), q);
+		//OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(new File("Java_geeksforgeeks.json"), q);
 	}
 	
 	private static void createCplusplusQuestions() throws JsonGenerationException, JsonMappingException, IOException {
@@ -407,15 +428,15 @@ public class Scrapper {
 	}
 	
 	public static void main(String args[]) throws JsonGenerationException, JsonMappingException, IOException {
-		//createAlgoQuestions();
-		//createDSQuestions();
-		//createOSQuestions();
-		//createDBMSQuestions();
-		//createCompTheoryQuestions();
-		//createPythonQuestions(); 
-		//createJavaQuestions();
+	createAlgoQuestions();
+		createDSQuestions();
+		createOSQuestions();
+		createDBMSQuestions();
+		createCompTheoryQuestions();
+		createPythonQuestions(); 
+		createJavaQuestions();
 		//createCplusplusQuestions();
-		createCQuestions();
+		//createCQuestions();
 	}
 
 }

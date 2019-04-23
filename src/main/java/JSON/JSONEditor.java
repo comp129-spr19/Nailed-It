@@ -65,7 +65,8 @@ public abstract class JSONEditor {
 		newQ.put("hint", question.getHint());
 		
 		//placing the new question into the full file text
-		category.put(name, newQ);
+		
+		category.putOpt(name, newQ);
 		file.put(categoryStr, category);
 		
 		try {

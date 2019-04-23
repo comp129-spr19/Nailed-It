@@ -1,5 +1,6 @@
 [ {
-  "topic" : "OS Process Management",
+  "name" : "",
+  "topic" : "None",
   "question" : "Consider the following code fragment:\n\n  if (fork() == 0)\n  { a = a + 5; printf(\"%d,%dn\", a, &a); }\n  else { a = a –5; printf(\"%d, %dn\", a, &a); } \nLet u, v be the values printed by the parent process, and x, y be the values printed by the child process. Which one of the following is TRUE?",
   "answerA" : "u = x + 10 and v = y",
   "answerB" : "u = x + 10 and v != y",
@@ -8,7 +9,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "OS Process Management",
+  "name" : "",
+  "topic" : "None",
   "question" : "The atomic fetch-and-set x, y instruction unconditionally sets the memory location x to 1 and fetches the old value of x in y without allowing any intervening access to the memory location x. consider the following implementation of P and V functions on a binary semaphore .\n\nvoid P (binary_semaphore *s) {\n  unsigned y;\n  unsigned *x = &(s->value);\n  do {\n     fetch-and-set x, y;\n  } while (y);\n}\n\nvoid V (binary_semaphore *s) {\n  S->value = 0;\n}\nWhich one of the following is true?",
   "answerA" : "The implementation may not work if context switching is disabled in P.",
   "answerB" : "Instead of using fetch-and-set, a pair of normal load/store can be used",
@@ -17,7 +19,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "OS Process Management",
+  "name" : "",
+  "topic" : "None",
   "question" : "Three concurrent processes X, Y, and Z execute three different code segments that access and update certain shared variables. Process X executes the P operation (i.e., wait) on semaphores a, b and c; process Y executes the P operation on semaphores b, c and d; process Z executes the P operation on semaphores c, d, and a before entering the respective code segments. After completing the execution of its code segment, each process invokes the V operation (i.e., signal) on its three semaphores. All semaphores are binary semaphores initialized to one. Which one of the following represents a deadlockfree order of invoking the P operations by the processes? (GATE CS 2013)",
   "answerA" : "X: P(a)P(b)P(c) Y:P(b)P(c)P(d) Z:P(c)P(d)P(a)",
   "answerB" : "X: P(b)P(a)P(c) Y:P(b)P(c)P(d) Z:P(a)P(c)P(d)",
@@ -26,7 +29,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "OS Process Management",
+  "name" : "",
+  "topic" : "None",
   "question" : "A shared variable x, initialized to zero, is operated on by four concurrent processes W, X, Y, Z as follows. Each of the processes W and X reads x from memory, increments by one, stores it to memory, and then terminates. Each of the processes Y and Z reads x from memory, decrements by two, stores it to memory, and then terminates. Each process before reading x invokes the P operation (i.e., wait) on a counting semaphore S and invokes the V operation (i.e., signal) on the semaphore S after storing x to memory. Semaphore S is initialized to two. What is the maximum possible value of x after all processes complete execution? (GATE CS 2013)",
   "answerA" : "-2",
   "answerB" : "-1",
@@ -35,7 +39,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "OS Process Management",
+  "name" : "",
+  "topic" : "None",
   "question" : "A shared variable x, initialized to zero, is operated on by four concurrent processes W, X, Y, Z as follows. Each of the processes W and X reads x from memory, increments by one, stores it to memory, and then terminates. Each of the processes Y and Z reads x from memory, decrements by two, stores it to memory, and then terminates. Each process before reading x invokes the P operation (i.e., wait) on a counting semaphore S and invokes the V operation (i.e., signal) on the semaphore S after storing x to memory. Semaphore S is initialized to two. What is the maximum possible value of x after all processes complete execution? (GATE CS 2013)",
   "answerA" : "-2",
   "answerB" : "-1",
@@ -44,7 +49,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "OS Process Management",
+  "name" : "",
+  "topic" : "None",
   "question" : "A certain computation generates two arrays a and b such that a[i]=f(i) for 0 ≤ i < n and b[i]=g(a[i]) for 0 ≤ i < n. Suppose this computation is decomposed into two concurrent processes X and Y such that X computes the array a and Y computes the array b. The processes employ two binary semaphores R and S, both initialized to zero. The array a is shared by the two processes. The structures of the processes are shown below.\nProcess X:                         Process Y:\nprivate i;                         private i;\nfor (i=0; i < n; i++) {            for (i=0; i < n; i++) {\n   a[i] = f(i);                       EntryY(R, S);\n   ExitX(R, S);                       b[i]=g(a[i]);\n}                                 }\nWhich one of the following represents the CORRECT implementations of ExitX and EntryY? (A)\nExitX(R, S) {\n  P(R);\n  V(S);\n}\n\nEntryY (R, S) {\n  P(S);\n  V(R);\n}\n(B)\nExitX(R, S) {\n  V(R);\n  V(S);\n}\n\nEntryY(R, S) {\n  P(R);\n  P(S);\n}\n(C)\nExitX(R, S) {\n  P(S);\n  V(R);\n}\nEntryY(R, S) {\n  V(S);\n  P(R);\n}\n(D)\nExitX(R, S) {\n  V(R);\n  P(S);\n}\nEntryY(R, S) {\n  V(S);\n  P(R);\n}",
   "answerA" : "A",
   "answerB" : "B",
@@ -53,7 +59,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "OS Process Management",
+  "name" : "",
+  "topic" : "None",
   "question" : "Three concurrent processes X, Y, and Z execute three different code segments that access and update certain shared variables. Process X executes the P operation (i.e., wait) on semaphores a, b and c; process Y executes the P operation on semaphores b, c and d; process Z executes the P operation on semaphores c, d, and a before entering the respective code segments. After completing the execution of its code segment, each process invokes the V operation (i.e., signal) on its three semaphores. All semaphores are binary semaphores initialized to one. Which one of the following represents a deadlock-free order of invoking the P operations by the processes?",
   "answerA" : "X: P(a)P(b)P(c) Y: P(b)P(c)P(d) Z: P(c)P(d)P(a)",
   "answerB" : "X: P(b)P(a)P(c) Y: P(b)P(c)P(d) Z: P(a)P(c)P(d)",
@@ -62,7 +69,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "OS Process Management",
+  "name" : "",
+  "topic" : "None",
   "question" : "A shared variable x, initialized to zero, is operated on by four concurrent processes W, X, Y, Z as follows. Each of the processes W and X reads x from memory, increments by one, stores it to memory, and then terminates. Each of the processes Y and Z reads x from memory, decrements by two, stores it to memory, and then terminates. Each process before reading x invokes the P operation (i.e., wait) on a counting semaphore S and invokes the V operation (i.e., signal) on the semaphore S after storing x to memory. Semaphore S is initialized to two. What is the maximum possible value of x after all processes complete execution?",
   "answerA" : "-2",
   "answerB" : "-1",
@@ -71,7 +79,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "OS Process Management",
+  "name" : "",
+  "topic" : "None",
   "question" : "A certain computation generates two arrays a and b such that a[i]=f(i) for 0 ≤ i < n and b[i]=g(a[i]) for 0 ≤ i < n. Suppose this computation is decomposed into two concurrent processes X and Y such that X computes the array a and Y computes the array b. The processes employ two binary semaphores R and S, both initialized to zero. The array a is shared by the two processes. The structures of the processes are shown below.\nProcess X:                         Process Y:\nprivate i;                         private i;\nfor (i=0; i < n; i++) {            for (i=0; i < n; i++) {\n   a[i] = f(i);                       EntryY(R, S);\n   ExitX(R, S);                       b[i]=g(a[i]);\n}                                 }\nWhich one of the following represents the CORRECT implementations of ExitX and EntryY? (A)\nExitX(R, S) {\n  P(R);\n  V(S);\n}\n\nEntryY (R, S) {\n  P(S);\n  V(R);\n}\n(B)\nExitX(R, S) {\n  V(R);\n  V(S);\n}\n\nEntryY(R, S) {\n  P(R);\n  P(S);\n}\n(C)\nExitX(R, S) {\n  P(S);\n  V(R);\n}\nEntryY(R, S) {\n  V(S);\n  P(R);\n}\n(D)\nExitX(R, S) {\n  V(R);\n  P(S);\n}\nEntryY(R, S) {\n  V(S);\n  P(R);\n}",
   "answerA" : "A",
   "answerB" : "B",
@@ -80,7 +89,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "OS Process Management",
+  "name" : "",
+  "topic" : "None",
   "question" : "A process executes the code\n\nfork();\nfork();\nfork(); \nThe total number of child processes created is",
   "answerA" : "3",
   "answerB" : "4",
@@ -89,7 +99,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "OS Memory Management",
+  "name" : "",
+  "topic" : "None",
   "question" : "Which of the following page replacement algorithms suffers from Belady’s anomaly?",
   "answerA" : "FIFO",
   "answerB" : "LRU",
@@ -98,7 +109,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "OS Memory Management",
+  "name" : "",
+  "topic" : "None",
   "question" : "What is the swap space in the disk used for?",
   "answerA" : "Saving temporary html pages",
   "answerB" : "Saving process data",
@@ -107,7 +119,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "OS Memory Management",
+  "name" : "",
+  "topic" : "None",
   "question" : "Increasing the RAM of a computer typically improves performance because:",
   "answerA" : "Virtual memory increases",
   "answerB" : "Larger RAMs are faster",
@@ -116,7 +129,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "OS Memory Management",
+  "name" : "",
+  "topic" : "None",
   "question" : "A computer system supports 32-bit virtual addresses as well as 32-bit physical addresses. Since the virtual address space is of the same size as the physical address space, the operating system designers decide to get rid of the virtual memory entirely. Which one of the following is true?",
   "answerA" : "Efficient implementation of multi-user support is no longer possible",
   "answerB" : "The processor cache organization can be made more efficient now",
@@ -125,7 +139,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "OS Memory Management",
+  "name" : "",
+  "topic" : "None",
   "question" : "A CPU generates 32-bit virtual addresses. The page size is 4 KB. The processor has a translation look-aside buffer (TLB) which can hold a total of 128 page table entries and is 4-way set associative. The minimum size of the TLB tag is:",
   "answerA" : "11 bits",
   "answerB" : "13 bits",
@@ -134,7 +149,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "OS Memory Management",
+  "name" : "",
+  "topic" : "None",
   "question" : "Virtual memory is",
   "answerA" : "Large secondary memory",
   "answerB" : "Large main memory",
@@ -143,7 +159,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "OS Memory Management",
+  "name" : "",
+  "topic" : "None",
   "question" : "Page fault occurs when",
   "answerA" : "When a requested page is in memory",
   "answerB" : "When a requested page is not in memory",
@@ -152,7 +169,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "OS Memory Management",
+  "name" : "",
+  "topic" : "None",
   "question" : "Thrashing occurs when",
   "answerA" : "When a page fault occurs",
   "answerB" : "Processes on system frequently access pages not memory",
@@ -161,7 +179,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "OS Memory Management",
+  "name" : "",
+  "topic" : "None",
   "question" : "A computer uses 46–bit virtual address, 32–bit physical address, and a three–level paged page table organization. The page table base register stores the base address of the first–level table (T1), which occupies exactly one page. Each entry of T1 stores the base address of a page of the second–level table (T2). Each entry of T2 stores the base address of a page of the third–level table (T3). Each entry of T3 stores a page table entry (PTE). The PTE is 32 bits in size. The processor used in the computer has a 1 MB 16 way set associative virtually indexed physically tagged cache. The cache block size is 64 bytes. What is the size of a page in KB in this computer? (GATE 2013)",
   "answerA" : "2",
   "answerB" : "4",
@@ -170,7 +189,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "OS Memory Management",
+  "name" : "",
+  "topic" : "None",
   "question" : "Consider data given in the above question. What is the minimum number of page colours needed to guarantee that no two synonyms map to different sets in the processor cache of this computer? (GATE CS 2013)",
   "answerA" : "2",
   "answerB" : "4",
@@ -179,7 +199,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "OS Input Output Systems",
+  "name" : "",
+  "topic" : "None",
   "question" : "Which of the following is major part of time taken when accessing data on the disk?",
   "answerA" : "Settle time",
   "answerB" : "Rotational latency",
@@ -188,7 +209,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "OS Input Output Systems",
+  "name" : "",
+  "topic" : "None",
   "question" : "We describe a protocol of input device communication below. a. Each device has a distinct address b. The bus controller scans each device in sequence of increasing address value to determine if the entity wishes to communicate. c. The device ready to communicate leaves it data in IO register. d. The data is picked up and the controller moves to step-a above. Identify the form of communication best describes the IO mode amongst the following: Source: nptel",
   "answerA" : "Programmed mode of data transfer",
   "answerB" : "DMA",
@@ -197,7 +219,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "OS Input Output Systems",
+  "name" : "",
+  "topic" : "None",
   "question" : "From amongst the following given scenarios determine the right one to justify interrupt mode of data-transfer: Source: nptel",
   "answerA" : "Bulk transfer of several kilo-byte",
   "answerB" : "Moderately large data transfer but more that 1 KB",
@@ -206,7 +229,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "OS Input Output Systems",
+  "name" : "",
+  "topic" : "None",
   "question" : "Normally user programs are prevented from handling I/O directly by I/O instructions in them. For CPUs having explicit I/O instructions, such I/O protection is ensured by having the I/O instructions privileged. In a CPU with memory mapped I/O, there is no explicit I/O instruction. Which one of the following is true for a CPU with memory mapped I/O? (GATE CS 2005)",
   "answerA" : "I/O protection is ensured by operating system routine(s)",
   "answerB" : "I/O protection is ensured by a hardware trap",
@@ -215,7 +239,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "OS Input Output Systems",
+  "name" : "",
+  "topic" : "None",
   "question" : "Put the following disk scheduling policies results in minimum amount of head movement.",
   "answerA" : "FCFS",
   "answerB" : "Circular SCAN",
@@ -224,7 +249,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "OS Input Output Systems",
+  "name" : "",
+  "topic" : "None",
   "question" : "Consider a hard disk with 16 recording surfaces (0-15) having 16384 cylinders (0-16383) and each cylinder contains 64 sectors (0-63). Data storage capacity in each sector is 512 bytes. Data are organized cylinder-wise and the addressing format is . A file of size 42797 KB is stored in the disk and the starting disk location of the file is <1200, 9, 40>. What is the cylinder number of the last sector of the file, if it is stored in a contiguous manner?",
   "answerA" : "1281",
   "answerB" : "1282",
@@ -233,7 +259,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "OS Input Output Systems",
+  "name" : "",
+  "topic" : "None",
   "question" : "A file system with 300 GByte disk uses a file descriptor with 8 direct block addresses, 1 indirect block address and 1 doubly indirect block address. The size of each disk block is 128 Bytes and the size of each disk block address is 8 Bytes. The maximum possible file size in this file system is",
   "answerA" : "3 Kbytes",
   "answerB" : "35 Kbytes",
@@ -242,7 +269,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "OS Input Output Systems",
+  "name" : "",
+  "topic" : "None",
   "question" : "A computer handles several interrupt sources of which the following are relevant for this question.\n\n\n. Interrupt from CPU temperature sensor (raises interrupt if \n  CPU temperature is too high)\n. Interrupt from Mouse(raises interrupt if the mouse is moved \n  or a button is pressed)\n. Interrupt from Keyboard(raises interrupt when a key is \n  pressed or released)\n. Interrupt from Hard Disk(raises interrupt when a disk \n  read is completed)\nWhich one of these will be handled at the HIGHEST priority?",
   "answerA" : "Interrupt from Hard Disk",
   "answerB" : "Interrupt from Mouse",
@@ -251,7 +279,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "OS Input Output Systems",
+  "name" : "",
+  "topic" : "None",
   "question" : "An application loads 100 libraries at start-up. Loading each library requires exactly one disk access. The seek time of the disk to a random location is given as 10 ms. Rotational speed of disk is 6000 rpm. If all 100 libraries are loaded from random locations on the disk, how long does it take to load all libraries? (The time to transfer data from the disk block once the head has been positioned at the start of the block may be neglected)",
   "answerA" : "0.50 s",
   "answerB" : "1.50 s",
@@ -260,7 +289,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "OS Input Output Systems",
+  "name" : "",
+  "topic" : "None",
   "question" : "A CPU generally handles an interrupt by executing an interrupt service routine",
   "answerA" : "As soon as an interrupt is raised",
   "answerB" : "By checking the interrupt register at the end of fetch cycle.",
@@ -269,7 +299,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "UNIX",
+  "name" : "",
+  "topic" : "None",
   "question" : "Which of the following commands or sequences of commands will rename a file x to file y in a Unix system? I. mv y, x II. mv x, y III. cp y, x (rm x) IV. cp x, y (rm x)",
   "answerA" : "II and III",
   "answerB" : "II and IV",
@@ -278,7 +309,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "UNIX",
+  "name" : "",
+  "topic" : "None",
   "question" : "A student wishes to create symbolic links in a computer system running Unix. Three text files named \"file 1\", \"file 2\" and \"file 3\" exist in her current working directory, and the student has read and write permissions for all three files. Assume that file 1 contains information about her hobbies, file 2 contains information about her friends and file 3 contains information about her courses. The student executes the following sequence of commands from her current working directory\nln -s file 1 file 2\nln -s file 2 file 3\nWhich of the following types of information would be lost from her file system? (I) Hobbies (II) Friends (III) Courses",
   "answerA" : "(I) and (II) only",
   "answerB" : "(II) and (III) only",
@@ -287,7 +319,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "UNIX",
+  "name" : "",
+  "topic" : "None",
   "question" : "The shell command\nfind -name passwd -print\nis executed in /etc directory of a computer system running Unix. Which of the following shell commands will give the same information as the above command when executed in the same directory?  ",
   "answerA" : "ls passwd",
   "answerB" : "cat passwd",
@@ -296,7 +329,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "UNIX",
+  "name" : "",
+  "topic" : "None",
   "question" : "A user level process in Unix traps the signal sent on a Ctrl-C input, and has a signal handling routine that saves appropriate files before terminating the process. When a Ctrl-C input is given to this process, what is the mode in which the signal handling routine executes?",
   "answerA" : "kernel mode",
   "answerB" : "superuser mode",
@@ -305,7 +339,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "UNIX",
+  "name" : "",
+  "topic" : "None",
   "question" : "Consider the following statements : (a) UNIX provides three types of permissions * Read * Write * Execute (b) UNIX provides three sets of permissions * permission for owner * permission for group * permission for others Which of the above statement/s is/are true ?",
   "answerA" : "only (a)",
   "answerB" : "only (b)",
@@ -314,7 +349,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "UNIX",
+  "name" : "",
+  "topic" : "None",
   "question" : "Match the following WINDOWS system calls and UNIX system calls with reference to process control and File manipulation.",
   "answerA" : "(1)",
   "answerB" : "(2)",
@@ -323,7 +359,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "UNIX",
+  "name" : "",
+  "topic" : "None",
   "question" : "The linux command “mknod myfifo b 4 16”",
   "answerA" : "Will create a character device if the user is root",
   "answerB" : "Will create a named pipe FIFO if the user is root",
@@ -332,7 +369,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "UNIX",
+  "name" : "",
+  "topic" : "None",
   "question" : "Which statement is not correct about “init” process in Unix?",
   "answerA" : "It is generally the parent of the login shell.",
   "answerB" : "It has PID 1.",
@@ -341,7 +379,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "UNIX",
+  "name" : "",
+  "topic" : "None",
   "question" : "Unix command to change the case of first three lines of file “shortlist” from lower to upper",
   "answerA" : "$ tr ‘[a – z]’ ‘[A – Z]’ shortlist ¦ head-3",
   "answerB" : "$ head-3 shortlist ¦ tr ‘[a – z]’ ‘[A – Z]’",
@@ -350,7 +389,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "UNIX",
+  "name" : "",
+  "topic" : "None",
   "question" : "Match the following vi commands in Unix:",
   "answerA" : "(1)",
   "answerB" : "(2)",
@@ -359,7 +399,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "OS CPU Scheduling",
+  "name" : "",
+  "topic" : "None",
   "question" : "Consider three processes (process id 0, 1, 2 respectively) with compute time bursts 2, 4 and 8 time units. All processes arrive at time zero. Consider the longest remaining time first (LRTF) scheduling algorithm. In LRTF ties are broken by giving priority to the process with the lowest process id. The average turn around time is:",
   "answerA" : "13 units",
   "answerB" : "14 units",
@@ -368,7 +409,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "OS CPU Scheduling",
+  "name" : "",
+  "topic" : "None",
   "question" : "Consider three processes, all arriving at time zero, with total execution time of 10, 20 and 30 units, respectively. Each process spends the first 20% of execution time doing I/O, the next 70% of time doing computation, and the last 10% of time doing I/O again. The operating system uses a shortest remaining compute time first scheduling algorithm and schedules a new process either when the running process gets blocked on I/O or when the running process finishes its compute burst. Assume that all I/O operations can be overlapped as much as possible. For what percentage of time does the CPU remain idle?",
   "answerA" : "0%",
   "answerB" : "10.6%",
@@ -377,7 +419,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "OS CPU Scheduling",
+  "name" : "",
+  "topic" : "None",
   "question" : "Consider three CPU-intensive processes, which require 10, 20 and 30 time units and arrive at times 0, 2 and 6, respectively. How many context switches are needed if the operating system implements a shortest remaining time first scheduling algorithm? Do not count the context switches at time zero and at the end.",
   "answerA" : "1",
   "answerB" : "2",
@@ -386,7 +429,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "OS CPU Scheduling",
+  "name" : "",
+  "topic" : "None",
   "question" : "Which of the following process scheduling algorithm may lead to starvation",
   "answerA" : "FIFO",
   "answerB" : "Round Robin",
@@ -395,7 +439,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "OS CPU Scheduling",
+  "name" : "",
+  "topic" : "None",
   "question" : "If the quantum time of round robin algorithm is very large, then it is equivalent to:",
   "answerA" : "First in first out",
   "answerB" : "Shortest Job Next",
@@ -404,7 +449,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "OS CPU Scheduling",
+  "name" : "",
+  "topic" : "None",
   "question" : "A scheduling algorithm assigns priority proportional to the waiting time of a process. Every process starts with priority zero (the lowest priority). The scheduler re-evaluates the process priorities every T time units and decides the next process to schedule. Which one of the following is TRUE if the processes have no I/O operations and all arrive at time zero?",
   "answerA" : "This algorithm is equivalent to the first-come-first-serve algorithm",
   "answerB" : "This algorithm is equivalent to the round-robin algorithm.",
@@ -413,7 +459,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "OS CPU Scheduling",
+  "name" : "",
+  "topic" : "None",
   "question" : "Consider the 3 processes, P1, P2 and P3 shown in the table.\nProcess           Arrival time         Time Units Required\n   P1                0                         5\n   P2                1                         7\n   P3                3                         4\nThe completion order of the 3 processes under the policies FCFS and RR2 (round robin scheduling with CPU quantum of 2 time units) are",
   "answerA" : "FCFS: P1, P2, P3\n RR2: P1, P2, P3",
   "answerB" : " FCFS: P1, P3, P2\n RR2: P1, P3, P2",
@@ -422,7 +469,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "OS CPU Scheduling",
+  "name" : "",
+  "topic" : "None",
   "question" : "Consider the following table of arrival time and burst time for three processes P0, P1 and P2.\nProcess   Arrival time   Burst Time\nP0            0 ms          9 ms\nP1            1 ms          4 ms\nP2            2 ms          9 ms\nThe pre-emptive shortest job first scheduling algorithm is used. Scheduling is carried out only at arrival or completion of processes. What is the average waiting time for the three processes?",
   "answerA" : "5.0 ms",
   "answerB" : "4.33 ms",
@@ -431,7 +479,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "OS CPU Scheduling",
+  "name" : "",
+  "topic" : "None",
   "question" : "Which of the following statements are true?\nI. Shortest remaining time first scheduling may cause starvation\nII. Preemptive scheduling may cause starvation\nIII. Round robin is better than FCFS in terms of response time",
   "answerA" : "I only",
   "answerB" : "I and III only",
@@ -440,7 +489,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "OS CPU Scheduling",
+  "name" : "",
+  "topic" : "None",
   "question" : "In the following process state transition diagram for a uniprocessor system, assume that there are always some processes in the ready state: Now consider the following statements:\n\nI. If a process makes a transition D, it would result in \n   another process making transition A immediately.\nII. A process P2 in blocked state can make transition E \n    while another process P1 is in running state.\nIII. The OS uses preemptive scheduling.\nIV. The OS uses non-preemptive scheduling.\nWhich of the above statements are TRUE?",
   "answerA" : "I and II",
   "answerB" : "I and III",
@@ -449,7 +499,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "Deadlock",
+  "name" : "",
+  "topic" : "None",
   "question" : "Suppose n processes, P1, …. Pn share m identical resource units, which can be reserved and released one at a time. The maximum resource requirement of process Pi is Si, where Si > 0. Which one of the following is a sufficient condition for ensuring that deadlock does not occur?",
   "answerA" : "A",
   "answerB" : "B",
@@ -458,7 +509,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "Deadlock",
+  "name" : "",
+  "topic" : "None",
   "question" : "Consider the following snapshot of a system running n processes. Process i is holding Xi instances of a resource R, 1 <= i <= n. currently, all instances of R are occupied. Further, for all i, process i has placed a request for an additional Yi instances while holding the Xi instances it already has. There are exactly two processes p and q such that Yp = Yq = 0. Which one of the following can serve as a necessary condition to guarantee that the system is not approaching a deadlock?",
   "answerA" : "min (Xp, Xq) < max (Yk) where k != p and k != q",
   "answerB" : "Xp + Xq >= min (Yk) where k != p and k != q",
@@ -467,7 +519,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Deadlock",
+  "name" : "",
+  "topic" : "None",
   "question" : "Three concurrent processes X, Y, and Z execute three different code segments that access and update certain shared variables. Process X executes the P operation (i.e., wait) on semaphores a, b and c; process Y executes the P operation on semaphores b, c and d; process Z executes the P operation on semaphores c, d, and a before entering the respective code segments. After completing the execution of its code segment, each process invokes the V operation (i.e., signal) on its three semaphores. All semaphores are binary semaphores initialized to one. Which one of the following represents a deadlockfree order of invoking the P operations by the processes? (GATE CS 2013)",
   "answerA" : "X: P(a)P(b)P(c) Y:P(b)P(c)P(d) Z:P(c)P(d)P(a)",
   "answerB" : "X: P(b)P(a)P(c) Y:P(b)P(c)P(d) Z:P(a)P(c)P(d)",
@@ -476,7 +529,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Deadlock",
+  "name" : "",
+  "topic" : "None",
   "question" : "A system has n resources R0,...,Rn-1,and k processes P0,....Pk-1.The implementation of the resource request logic of each process Pi is as follows: \n\n if (i % 2 == 0) {\n      if (i < n) request Ri\n      if (i+2 < n) request Ri+2\n}\nelse {\n      if (i < n) request Rn-i\n      if (i+2 < n) request Rn-i-2\n}\nIn which one of the following situations is a deadlock possible?",
   "answerA" : "n=40, k=26",
   "answerB" : "n=21, k=12",
@@ -485,7 +539,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Deadlock",
+  "name" : "",
+  "topic" : "None",
   "question" : "Consider a system with 4 types of resources R1 (3 units), R2 (2 units), R3 (3 units), R4 (2 units). A non-preemptive resource allocation policy is used. At any given instance, a request is not entertained if it cannot be completely satisfied. Three processes P1, P2, P3 request the sources as follows if executed independently.\nProcess P1: \nt=0: requests 2 units of R2 \nt=1: requests 1 unit of R3 \nt=3: requests 2 units of R1 \nt=5: releases 1 unit of R2    \n        and 1 unit of R1. \nt=7: releases 1 unit of R3 \nt=8: requests 2 units of R4 \nt=10: Finishes\n\nProcess P2: \nt=0: requests 2 units of R3 \nt=2: requests 1 unit of R4 \nt=4: requests 1 unit of R1 \nt=6: releases 1 unit of R3 \nt=8: Finishes\n\nProcess P3: \nt=0: requests 1 unit of R4 \nt=2: requests 2 units of R1 \nt=5: releases 2 units of R1 \nt=7: requests 1 unit of R2 \nt=8: requests 1 unit of R3 \nt=9: Finishes\nWhich one of the following statements is TRUE if all three processes run concurrently starting at time t=0? ",
   "answerA" : "All processes will finish without any deadlock",
   "answerB" : "Only P1 and P2 will be in deadlock.",
@@ -494,7 +549,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Deadlock",
+  "name" : "",
+  "topic" : "None",
   "question" : "Which of the following is NOT true of deadlock prevention and deadlock avoidance schemes?",
   "answerA" : "In deadlock prevention, the request for resources is always granted if the resulting state is safe",
   "answerB" : "In deadlock avoidance, the request for resources is always granted if the result state is safe",
@@ -503,7 +559,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "Deadlock",
+  "name" : "",
+  "topic" : "None",
   "question" : "An operating system uses the Banker’s algorithm for deadlock avoidance when managing the allocation of three resource types X, Y, and Z to three processes P0, P1, and P2. The table given below presents the current system state. Here, the Allocation matrix shows the current number of resources of each type allocated to each process and the Max matrix shows the maximum number of resources of each type required by each process during its execution. There are 3 units of type X, 2 units of type Y and 2 units of type Z still available. The system is currently in a safe state. Consider the following independent requests for additional resources in the current state:\nREQ1: P0 requests 0 units of X,  \n      0 units of Y and 2 units of Z\nREQ2: P1 requests 2 units of X, \n      0 units of Y and 0 units of Z\nWhich one of the following is TRUE?",
   "answerA" : "Only REQ1 can be permitted.",
   "answerB" : "Only REQ2 can be permitted.",
@@ -512,7 +569,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Deadlock",
+  "name" : "",
+  "topic" : "None",
   "question" : "A system contains three programs and each requires three tape units for its operation. The minimum number of tape units which the system must have such that deadlocks never arise is _________.",
   "answerA" : "6",
   "answerB" : "7",
@@ -521,7 +579,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Deadlock",
+  "name" : "",
+  "topic" : "None",
   "question" : "Consider the following snapshot of a system running n processes. Process i is holding Xi instances of a resource R, 1 <= i <= n. currently, all instances of R are occupied. Further, for all i, process i has placed a request for an additional Yi instances while holding the Xi instances it already has. There are exactly two processes p and q such that Yp = Yq = 0. Which one of the following can serve as a necessary condition to guarantee that the system is not approaching a deadlock?",
   "answerA" : "min (Xp, Xq) < max (Yk) where k != p and k != q",
   "answerB" : "Xp + Xq >= min (Yk) where k != p and k != q",
@@ -530,7 +589,8 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "Deadlock",
+  "name" : "",
+  "topic" : "None",
   "question" : "Suppose n processes, P1, …. Pn share m identical resource units, which can be reserved and released one at a time. The maximum resource requirement of process Pi is Si, where Si > 0. Which one of the following is a sufficient condition for ensuring that deadlock does not occur?",
   "answerA" : "A",
   "answerB" : "B",
