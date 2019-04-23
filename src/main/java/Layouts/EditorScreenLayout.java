@@ -2,6 +2,7 @@ package Layouts;
 
 import java.util.ArrayList;
 
+import JSON.JSONEditor;
 import JSON.JSONOperations;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -18,7 +19,7 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 	
 	private HBox top;
 	private ComboBox category;
-	private Button search, addQuestion,returnToMainMenu;
+	private Button search, addQuestion,returnToMainMenu,reloadBackup;
 	
 	private ArrayList<Question> questions;
 	private VBox questionList;
@@ -44,6 +45,8 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 				main.switchToNewQuestionEditor((String)category.getValue());
 			} else if (button.getId().equals("returnToMainMenu")) {
 				main.switchToMainMenu();
+			} else if (button.getId().equals("reloadBackup")) {
+				JSONEditor.reloadBackupFile();
 			}
 		}
 		
@@ -64,6 +67,10 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 		returnToMainMenu.setId("returnToMainMenu");
 		returnToMainMenu.setOnAction(this);
 		
+		reloadBackup = new Button("Reset Questions");
+		reloadBackup.setId("reloadBackup");
+		reloadBackup.setOnAction(this);
+		
 		
 		questionList = new VBox();
 		
@@ -71,7 +78,7 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 		
 		
 		top.getChildren().addAll(category, search);
-		this.getChildren().addAll(top,questionList,returnToMainMenu);
+		this.getChildren().addAll(top,questionList,returnToMainMenu,reloadBackup);
 		this.setSpacing(50);
 	}
 	

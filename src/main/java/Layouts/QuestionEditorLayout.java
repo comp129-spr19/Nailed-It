@@ -12,21 +12,21 @@ import JSON.JSONEditor;
 public class QuestionEditorLayout extends BorderPane implements EventHandler<ActionEvent> {
 	
 	MainStage main;
-	private String category, questionName, questionTopic;
+	private String category;
+	private Question question;
 	
 	private TextField questionText, hintText, answerA, answerB, answerC, answerD;
 	private Text errorMessage, answerLabel;
 	private RadioButton A, B, C, D;
 	private ToggleGroup correctAnswer;
-	private Button submit, quit;
+	private Button submit, quit, delete;
 	private boolean isNewQuestion;
 	
 	public QuestionEditorLayout(String category, Question question, MainStage main, Boolean isNewQuestion) {
 		super();
 		this.main = main;
 		this.category = category;
-		this.questionName = question.getName();
-		this.questionTopic = question.getTopic();
+		this.question = question;
 		this.isNewQuestion = isNewQuestion;
 
 		GridPane answerSelection = setMultipleChoiceOptions(question);
@@ -52,8 +52,12 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 		quit = new Button("Close without Saving");
 		quit.setId("quit");
 		quit.setOnAction(this);
+		
+		delete = new Button("Delete Question");
+		delete.setId("delete");
+		delete.setOnAction(this);
 
-		vbox.getChildren().addAll(questionText, hintText, submit, errorMessage, quit, correctAnswerBox);
+		vbox.getChildren().addAll(questionText, hintText, submit, errorMessage, quit, delete, correctAnswerBox);
 		vbox.setAlignment(Pos.BOTTOM_CENTER);
 
 		this.setCenter(vbox);
@@ -157,6 +161,9 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 					}
 				}
 				break;
+			case "delete":
+				main.switchToDeleteConfirm(category, question);
+				break;
 			default:
 				System.out.println("ERROR: No input case in EventHandler");
 			}
@@ -200,7 +207,7 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 	}
 	
 	private boolean submitQuestion() {
-		Question update = new Question(questionName, questionTopic, questionText.getText(), answerA.getText(), answerB.getText(), answerC.getText(), answerD.getText(), hintText.getText(), findCorrectAnswer());
+		Question update = new Question(question.getName(), question.getTopic(), questionText.getText(), answerA.getText(), answerB.getText(), answerC.getText(), answerD.getText(), hintText.getText(), findCorrectAnswer());
 		if (this.isNewQuestion) {
 			return JSONEditor.addQuestion(category, update);
 		}
