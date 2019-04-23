@@ -1,5 +1,5 @@
 [ {
-  "topic" : "C Quiz – 101",
+  "name" : "C Quiz – 101",
   "question" : "Suppose that in a C program snippet, followings statements are used.\n\ni) sizeof(int);\nii) sizeof(int*);\niii) sizeof(int**);\nAssuming size of pointer is 4 bytes and size of int is also 4 bytes, pick the most correct answer from the given options.",
   "answerA" : "Only i) would compile successfully and it would return size as 4.",
   "answerB" : "i), ii) and iii) would compile successfully and size of each would be same i.e. 4",
@@ -8,7 +8,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "C Quiz – 101",
+  "name" : "C Quiz – 101",
   "question" : "Assume int is 4 bytes, char is 1 byte and float is 4 bytes. Also, assume that pointer size is 4 bytes (i.e. typical case)\n\nchar *pChar;\nint *pInt;\nfloat *pFloat;\n\nsizeof(pChar);\nsizeof(pInt);\nsizeof(pFloat);\nWhat’s the size returned for each of sizeof() operator?",
   "answerA" : "4 4 4",
   "answerB" : "1 4 4",
@@ -17,7 +17,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "C Quiz – 101",
+  "name" : "C Quiz – 101",
   "question" : "\n#include \"stdlib.h\"\nint main()\n{\n int *pInt;\n int **ppInt1;\n int **ppInt2;\n\n pInt = (int*)malloc(sizeof(int));\n ppInt1 = (int**)malloc(10*sizeof(int*));\n ppInt2 = (int**)malloc(10*sizeof(int*));\n\n free(pInt);\n free(ppInt1);\n free(*ppInt2);\n return 0;\n}\nChoose the correct statement w.r.t. above C program.",
   "answerA" : "malloc() for ppInt1 and ppInt2 isn’t correct. It’ll give compile time error.",
   "answerB" : "free(*ppInt2) is not correct. It’ll give compile time error.",
@@ -26,7 +26,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "C Quiz – 101",
+  "name" : "C Quiz – 101",
   "question" : "\n#include \"stdio.h\" \nint main()\n{\n void *pVoid;\n pVoid = (void*)0;\n printf(\"%lu\",sizeof(pVoid));\n return 0;\n}\nPick the best statement for the above C program snippet.",
   "answerA" : "Assigning (void *)0 to pVoid isn’t correct because memory hasn’t been allocated. That’s why no compile error but it'll result in run time error.",
   "answerB" : "Assigning (void *)0 to pVoid isn’t correct because a hard coded value (here zero i.e. 0) can’t assigned to any pointer. That’s why it'll result in compile error.",
@@ -35,7 +35,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "C Quiz – 101",
+  "name" : "C Quiz – 101",
   "question" : "Consider the following variable declarations and definitions in C\n\ni) int var_9 = 1;\nii) int 9_var = 2;\niii) int _ = 3;\nChoose the correct statement w.r.t. above variables.",
   "answerA" : "Both i) and iii) are valid.",
   "answerB" : "Only i) is valid.",
@@ -44,7 +44,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "C Quiz – 101",
+  "name" : "C Quiz – 101",
   "question" : "Let x be an integer which can take a value of 0 or 1. The statement if(x = =0) x = 1; else x = 0; is equivalent to which one of the following?",
   "answerA" : "x=1+x;",
   "answerB" : "x=1—x;",
@@ -53,7 +53,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "C Quiz – 101",
+  "name" : "C Quiz – 101",
   "question" : "A program attempts to generate as many permutations as possible of the string, 'abcd' by pushing the characters a, b, c, d in the same order onto a stack, but it may pop off the top character at any time. Which one of the following strings CANNOT be generated using this program?",
   "answerA" : "abcd",
   "answerB" : "dcba",
@@ -62,7 +62,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "C Quiz – 101",
+  "name" : "C Quiz – 101",
   "question" : "Consider following two C - program : \n P1 :\n\nint main()\n{\n    int (*ptr)(int ) = fun;\n    (*ptr)(3);\n    return 0;\n}\n\nint fun(int n)\n{\n  for(;n > 0; n--)\n    printf(\"GeeksQuiz \");\n  return 0;\n}\nP2 :\n\nint main()\n{\n    void demo();\n    void (*fun)();\n    fun = demo;\n    (*fun)();\n    fun();\n    return 0;\n}\n\nvoid demo()\n{\n    printf(\"GeeksQuiz \");\n}\nWhich of the following option is correct?",
   "answerA" : "P1 printed \"GeeksQuiz GeeksQuiz\" and P2 printed \"GeeksQuiz GeeksQuiz\"",
   "answerB" : "P1 printed \"GeeksQuiz GeeksQuiz\" and P2 gives compiler error",
@@ -71,7 +71,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "C Quiz – 101",
+  "name" : "C Quiz – 101",
   "question" : "Choose the best statement with respect to following three program snippets.\n\n/*Program Snippet 1 with for loop*/\nfor (i = 0; i < 10; i++)\n{\n   /*statement1*/\n   continue;\n   /*statement2*/\n}\n\n/*Program Snippet 2 with while loop*/\ni = 0;\nwhile (i < 10)\n{\n   /*statement1*/\n   continue;\n   /*statement2*/\n   i++;\n}\n\n/*Program Snippet 3 with do-while loop*/\ni = 0;\ndo\n{\n   /*statement1*/\n   continue;\n   /*statement2*/\n   i++;\n}while (i < 10);",
   "answerA" : "All the loops are equivalent i.e. any of the three can be chosen and they all will perform exactly same.",
   "answerB" : "continue can't be used with all the three loops in C.",
@@ -80,7 +80,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "C Quiz – 103",
+  "name" : "C Quiz – 103",
   "question" : "For a given integer, which of the following operators can be used to “set” and “reset” a particular bit respectively?",
   "answerA" : "| and &",
   "answerB" : "&& and ||",
@@ -89,7 +89,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "C Quiz – 103",
+  "name" : "C Quiz – 103",
   "question" : "What’s going to happen when we compile and run the following C program snippet?\n\n#include \"stdio.h\"\nint main()\n{\n int a = 10;\n int b = 15;\n\n printf(\"=%d\",(a+1),(b=a+2));\n printf(\" %d=\",b);\n\n return 0;\n}",
   "answerA" : "=11 15=",
   "answerB" : "=11 12=",
@@ -98,7 +98,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "C Quiz – 103",
+  "name" : "C Quiz – 103",
   "question" : "What’s going to happen when we compile and run the following C program snippet?\n\n#include \"stdio.h\"\nint main()\n{\n int a = 10;\n\n printf(\"=%d %d=\",(a+1));\n\n return 0;\n}",
   "answerA" : "=11 0=",
   "answerB" : "=11 X= where X would depend on Compiler implementation",
@@ -107,7 +107,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "C Quiz – 103",
+  "name" : "C Quiz – 103",
   "question" : "Which of the following functions from “stdio.h” can be used in place of printf()?",
   "answerA" : "fputs() with FILE stream as stdout.",
   "answerB" : "fprintf() with FILE stream as stdout.",
@@ -116,7 +116,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "C Quiz – 103",
+  "name" : "C Quiz – 103",
   "question" : "As per C language standard, which of the followings is/are not keyword(s)? Pick the best statement. auto make main sizeof elseif",
   "answerA" : "None of the above is keywords in C.",
   "answerB" : "make main elseif",
@@ -125,7 +125,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "C Quiz – 104",
+  "name" : "C Quiz – 104",
   "question" : "With respect to following “for” loops in C, pick the best statement Assume that there is a prior declaration of 'i' in all cases\n\nfor (i < 10; i = 0 ; i++) // (i)\nfor (i < 10; i++ ; i = 0) // (ii)\nfor (i = 0; i < 10 ; i++) // (iii)\nfor (i = 0; i++ ; i < 10) // (iv)\nfor (i++; i = 0 ; i < 10) // (v)\nfor (i++; i < 0 ; i = 10) // (vi)",
   "answerA" : "All the above “for” loops would compile successfully.",
   "answerB" : "All the above “for” loops would compile successfully. Except (iii), the behaviour of all the other “for” loops depend on compiler implementation.",
@@ -134,7 +134,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "C Quiz – 104",
+  "name" : "C Quiz – 104",
   "question" : "With respect to following “for” loops in C, pick the best statement. Assume that there is a prior declaration of 'i' in all cases\n\nfor (i = 0; i < 10 ; i++) // (i)\nfor ( ; i < 10 ; i++) // (ii)\nfor (i = 0;  ; i++) // (iii)\nfor (i = 0; i < 10 ; ) // (iv)\nfor ( ; ; ) // (v)",
   "answerA" : "Only (i) and (v) would compile successfully. Also (v) can be used as infinite loop.",
   "answerB" : "Only (i) would compile successfully.",
@@ -143,7 +143,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "C Quiz – 104",
+  "name" : "C Quiz – 104",
   "question" : "What’s going to happen when we compile and run the following C program?\n\n#include \"stdio.h\"\n\nint main()\n{\n  int i = 1, j;\n  for ( ; ; )\n  { \n    if (i)\n        j = --i;\n    if (j < 10)\n       printf(\"GeeksQuiz\", j++);\n    else\n       break;\n  }\n  return 0;\n}",
   "answerA" : "Compile Error.",
   "answerB" : "No compile error but it will run into infinite loop printing GeeksQuiz.",
@@ -152,7 +152,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "C Quiz – 104",
+  "name" : "C Quiz – 104",
   "question" : "What’s going to happen when we compile and run the following C program?\n\n#include \"stdio.h\"\nint main()\n{\n int j = 0;\n for ( ; j < 10 ; )\n { \n   if (j < 10)\n     printf(\"Geeks\", j++);\n   else\n     continue;\n   printf(“Quiz”);\n }\n return 0;\n}",
   "answerA" : "Compile Error due to use of continue in for loop.",
   "answerB" : "No compile error but it will run into infinite loop printing Geeks.",
@@ -161,7 +161,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "C Quiz – 104",
+  "name" : "C Quiz – 104",
   "question" : "Which of the following statement is correct for switch controlling expression?",
   "answerA" : "Only int can be used in “switch” control expression.",
   "answerB" : "Both int and char can be used in “switch” control expression.",
@@ -170,7 +170,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "C Quiz – 108",
+  "name" : "C Quiz – 108",
   "question" : "In the below statement, ptr1 and ptr2 are uninitialized pointers to int i.e. they are pointing to some random address that may or may not be valid address.\n\nint* ptr1, ptr2;",
   "answerA" : "TRUE",
   "answerB" : "FALSE",
@@ -179,7 +179,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "C Quiz – 108",
+  "name" : "C Quiz – 108",
   "question" : "Anyone of the followings can be used to declare a node for a singly linked list. If we use the first declaration, “struct node * nodePtr;” would be used to declare pointer to a node. If we use the second declaration, “NODEPTR nodePtr;” can be used to declare pointer to a node.\n\n/* First declaration */\nstruct node {\nint data;\nstruct node * nextPtr;\n};\n\n/* Second declaration */\ntypedef struct node{\nint data;\nNODEPTR nextPtr;\n} * NODEPTR;",
   "answerA" : "TRUE",
   "answerB" : "FALSE",
@@ -188,7 +188,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "C Quiz – 108",
+  "name" : "C Quiz – 108",
   "question" : "Anyone of the following can be used to declare a node for a singly linked list and “NODEPTR nodePtr;” can be used to declare pointer to a node using any of the following\n\n/* First declaration */\ntypedef struct node\n{\n int data;\n struct node *nextPtr;\n}* NODEPTR;\n\n/* Second declaration */\nstruct node\n{\n int data;\n struct node * nextPtr;\n};\ntypedef struct node * NODEPTR;",
   "answerA" : "TRUE",
   "answerB" : "FALSE",
@@ -197,7 +197,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "C Quiz – 108",
+  "name" : "C Quiz – 108",
   "question" : "Both of the following declarations for function pointers are equivalent. Second one (i.e. with typedef) looks cleaner.\n\n/* First Declaration */\nint (*funPtr1)(int), (*funPtr2)(int);\n\n/* Second Declaration*/\ntypedef int (*funPtr)(int);\nfunPtr funPtr1, funPtr2;",
   "answerA" : "TRUE",
   "answerB" : "FALSE",
@@ -206,7 +206,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "topic" : "C Quiz – 108",
+  "name" : "C Quiz – 108",
   "question" : "In a C file (say sourcefile1.c), an array is defined as follows. Here, we don’t need to mention arrary arr size explicitly in [] because the size would be determined by the number of elements used in the initialization.\n\nint arr[] = {1,2,3,4,5};\nIn another C file (say sourcefile2.c), the same array is declared for usage as follows:\n\nextern int arr[];\nIn sourcefile2.c, we can use sizeof() on arr to find out the actual size of arr.",
   "answerA" : "TRUE",
   "answerB" : "FALSE",
@@ -215,7 +215,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "C Quiz – 108",
+  "name" : "C Quiz – 108",
   "question" : "Choose the correct option to fill the ?1 and ?2 so that the program prints an input string in reverse order. Assume that the input string is terminated by a new line character.\n#include <stdio.h>\nvoid wrt_it (void);\nint main (void)\n{\n    printf(\"Enter Text\"); \n    printf (\"n\");\n    wrt_ it();\n    printf (\"n\");\n    return 0;\n}\nvoid wrt_it (void)\n{\n    int c;\n    if (?1)\n        wrt_it();\n    ?2\n}",
   "answerA" : "?1 is  getchar() ! = '\\n' ?2 is  getchar(c);",
   "answerB" : "?1 is  (c = getchar()); ! = '\\n' ?2 is  getchar(c);",
@@ -224,7 +224,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "C Quiz – 110",
+  "name" : "C Quiz – 110",
   "question" : "Suppose someone writes increment macro (i.e. which increments the value by one) in following ways:\n\n#define INC1(a) ((a)+1)\n\n#define INC2 (a) ((a)+1)\n\n#define INC3( a ) (( a ) + 1)\n\n#define INC4 ( a ) (( a ) + 1)\nPick the correct statement for the above macros.",
   "answerA" : "Only INC1 is correct.",
   "answerB" : "All (i.e. INC1, INC2, INC3 and INC4) are correct.",
@@ -233,7 +233,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "C Quiz – 110",
+  "name" : "C Quiz – 110",
   "question" : "The following program won’t compile because there’re space between macro name and open parenthesis.\n\n#include \"stdio.h\"\n\n#define MYINC   (  a  )  (  ( a )  +  1 )\n\nint main()\n{\n\n printf(\"GeeksQuiz!\");\n\n return 0;\n}",
   "answerA" : "TRUE",
   "answerB" : "FALSE",
@@ -242,7 +242,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "C Quiz – 110",
+  "name" : "C Quiz – 110",
   "question" : "Typically, library header files in C (e.g. stdio.h) contain not only declaration of functions and macro definitions but they contain definition of user defined data types (e.g. struct, union etc), typedefs and definition of global variables as well. So if we include the same header file more than once in a C program, it would result in compile issue because re-definition of many of the constructs of the header file would happen. So it means the following program will give compile error.\n\n#include “stdio.h”\n#include “stdio.h”\n#include “stdio.h”\n\nint main()\n{\n printf(“Whether this statement would be printed?”)\n return 0;\n}\n",
   "answerA" : "TRUE",
   "answerB" : "FALSE",
@@ -251,7 +251,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "C Quiz – 110",
+  "name" : "C Quiz – 110",
   "question" : "The below program would give compile error because comma has been used after foo(). Instead, semi-colon should be used i.e. the way it has been used after bar(). That's why if we use semi-colon after foo(), the program would compile and run successfully while printing \"GeeksQuiz\"\n\n#include \"stdio.h\"\n\nvoid foo(void)\n{\n printf(\"Geeks\");\n}\nvoid bar(void)\n{\n printf(\"Quiz\");\n}\n\nint main()\n{\n foo(), bar();\n return 0;\n}",
   "answerA" : "TRUE",
   "answerB" : "FALSE",
@@ -260,7 +260,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "C Quiz – 110",
+  "name" : "C Quiz – 110",
   "question" : "In C, 1D array of int can be defined as follows and both are correct.\n\nint array1D[4] = {1,2,3,4};\nint array1D[] = {1,2,3,4};\nBut given the following definitions (along-with initialization) of 2D arrays\n\nint array2D[2][4] = {1,2,3,4,5,6,7,8}; /* (i) */\nint array2D[][4] = {1,2,3,4,5,6,7,8}; /* (ii) */\nint array2D[2][] = {1,2,3,4,5,6,7,8}; /* (iii) */\nint array2D[][] = {1,2,3,4,5,6,7,8}; /* (iv) */\nPick the correct statements.",
   "answerA" : "Only (i) is correct.",
   "answerB" : "Only (i) and (ii) are correct.",
@@ -269,7 +269,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "C Quiz – 110",
+  "name" : "C Quiz – 110",
   "question" : "Which one of the choices given below would be printed when the following program is executed?\n\n#include\nvoid swap (int *x, int *y)\n{\n    static int *temp;\n    temp = x;\n    x = y;\n    y = temp;\n}\nvoid printab ()\n{\n    static int i, a = -3, b = -6;\n    i = 0;\n    while (i <= 4)\n    {\n        if ((i++)%2 == 1) continue;\n        a = a + i;\n        b = b + i;\n    }\n    swap (&a, &b);\n    printf(\"a =  %d, b = %dn\", a, b);\n}\nmain()\n{\n    printab();\n    printab();\n} ",
   "answerA" : "a = 0, b = 3\n a = 0, b = 3",
   "answerB" : "a = 3, b = 0\n a = 12, b = 9",
@@ -278,7 +278,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "C Quiz – 110",
+  "name" : "C Quiz – 110",
   "question" : "The following function computes the value of mCn correctly for all legal values m and n (m≥1,n≥0 and m>n) \n\n int func(int m, int n)\n{\n    if (E) return 1;\n    else return(func(m -1, n) + func(m - 1, n - 1));\n}\nIn the above function, which of the following is the correct expression for E?",
   "answerA" : "(n = = 0) || (m = = 1)",
   "answerB" : "(n = = 0) && (m = = 1)",
@@ -287,7 +287,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "C Quiz – 111",
+  "name" : "C Quiz – 111",
   "question" : "Pick the best statement for the following program snippet:\n\n#include <stdio.h>\n\nint main()\n{\n int var;  /*Suppose address of var is 2000 */\n\n void *ptr = &var;\n *ptr = 5;\n printf(\"var=%d and *ptr=%d\",var,*ptr);\n             \n return 0;\n}",
   "answerA" : "It will print “var=5 and *ptr=2000”",
   "answerB" : "It will print “var=5 and *ptr=5”",
@@ -296,7 +296,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "C Quiz – 111",
+  "name" : "C Quiz – 111",
   "question" : "Pick the best statement for the following program snippet:\n\n#include \"stdio.h\"\nvoid foo(void)\n{\n static int staticVar;\n staticVar++;\n printf(\"foo: %dn\",staticVar);\n}\n\nvoid bar(void)\n{\n static int staticVar;\n staticVar++;\n printf(\"bar: %dn\",staticVar);\n}\n\nint main()\n{\n foo(), bar(), foo();\n return 0;\n}",
   "answerA" : "Compile error because same static variable name is used in both foo and bar. Since these static variables retain their values even after function is over, same name can’t be used in both the functions.",
   "answerB" : "Compile error because semicolon isn’t used while calling foo() and bar() in side main function.",
@@ -305,7 +305,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "topic" : "C Quiz – 111",
+  "name" : "C Quiz – 111",
   "question" : "Pick the best statement for the below:\n\nint arr[50] = {0,1,2,[47]=47,48,49};",
   "answerA" : "This isn’t allowed in C and it’ll give compile error",
   "answerB" : "This is allowed in C as per standard. Basically, it’ll initialize arr[0], arr[1], arr[2], arr[47], arr[48] and arr[49] to 0,1,2,47,48 and 49 respectively. The remaining elements of the array would be initialized to 0.",
@@ -314,7 +314,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "topic" : "C Quiz – 111",
+  "name" : "C Quiz – 111",
   "question" : "Pick the best statement for the below program:\n\n#include \"stdio.h\"\n \nvoid fun(int n)\n{\n   int idx;\n   int arr1[n] = {0};\n   int arr2[n];\n \n   for (idx=0; idx<n; idx++)\n       arr2[idx] = 0;    \n}\n \nint main()\n{\n   fun(4);\n   return 0;\n}\n",
   "answerA" : "Definition of both arr1 and arr2 is incorrect because variable is used to specify the size of array. That’s why compile error.",
   "answerB" : "Apart from definition of arr1 arr2, initialization of arr1 is also incorrect. arr1 can’t be initialized due to its size being specified as variable. That’s why compile error.",
@@ -323,7 +323,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "C Quiz – 111",
+  "name" : "C Quiz – 111",
   "question" : "Pick the best statement for the below program:\n\n#include \"stdio.h\"\n\nint size = 4;\nint arr[size];\n\nint main()\n{\n if(arr[0])\n  printf(\"Initialized to ZERO\");\n else\n  printf(\"Not initialized to ZERO\");\n\n return 0;\n}",
   "answerA" : "No compile error and it’ll print “Initialized to ZERO”.",
   "answerB" : "No compile error and it’ll print “Not initialized to ZERO”.",
@@ -332,7 +332,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "topic" : "C Quiz – 111",
+  "name" : "C Quiz – 111",
   "question" : "Consider the following C program:\n\n#include <stdio.h>\ntypedef struct \n{\n    char *a;\n    char *b;\n} t;\nvoid f1(t s);\nvoid f2(t *p);\nmain()\n{\n    static t s = {\"A\", \"B\"};\n    printf (\"%s %sn\", s.a, s.b);\n    f1(s);\n    printf (\"%s %sn\", s.a, s.b);\n    f2(&s);\n}\nvoid f1(t s)\n{\n    s.a = \"U\";\n    s.b = \"V\";\n    printf (\"%s %sn\", s.a, s.b);\n    return;\n}\nvoid f2(t *p)\n{\n    p -> a  = \"V\";\n    p -> b = \"W\";\n    printf(\"%s %sn\", p -> a, p -> b);\n    return;\n}\nWhat is the output generated by the program ?",
   "answerA" : "A B U V V W V W",
   "answerB" : "A B U V A B V W",
