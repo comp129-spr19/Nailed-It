@@ -126,4 +126,42 @@ public abstract class JSONEditor {
 		
 	}
 	
+	public static boolean addCategory(String category) {
+		
+		if (categoryDoesNotExist(category)) {
+		
+		JSONObject file = JSONOperations.createJSONObject(Constants.FILENAME);
+		file.put(category, new JSONObject());
+		
+		try {
+			//reloading the full file text to the Project2 JSON file
+			FileWriter file2 = new FileWriter(Constants.FILENAME);
+			file2.write(file.toString());
+			file2.close();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+		return false;
+	}
+
+	// checks to see if category exists
+	private static boolean categoryDoesNotExist(String category) {
+		ArrayList<String> currCategories = JSONOperations.returnCategories();
+		
+		for (String cat : currCategories) {
+			if (cat.equals(category)) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public static void main(String[] args) {
+		addCategory("test");
+	}
+	
+	
 }
