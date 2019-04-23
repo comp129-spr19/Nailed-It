@@ -28,8 +28,6 @@ public class MainStage extends Application {
 
 	public static final String STYLE_SOURCE = "cssSheets/style.css";
 	public static final String APPLICATION_NAME = "Nailed It"; // TODO: rename the window later
-	public static final int SCREEN_HEIGHT = 600;
-	public static final int SCREEN_WIDTH = 600;
 	public static final double SCALE_FACTOR = 2;
 
 	// layouts for different screens throughout application
@@ -41,6 +39,8 @@ public class MainStage extends Application {
 	private QuestionEditorLayout newQuestionEditorLayout;
 	private ConfirmDeleteLayout confirmDeleteLayout;
 
+	private int screenHeight;
+	private int screenWidth;
 	private Stage stage;
 	private Scene scene;
 
@@ -80,7 +80,7 @@ public class MainStage extends Application {
 		stage.setMinHeight(primaryScreenBounds.getHeight());
 		stage.setMaxHeight(primaryScreenBounds.getHeight());
 
-		scene = new Scene(new StackPane(), SCREEN_HEIGHT, SCREEN_WIDTH);
+		scene = new Scene(new StackPane(), getScreenHeight(), getScreenWidth());
 		scene.getStylesheets().add(STYLE_SOURCE);
 		stage.setScene(scene);
 		// switchToDifficulty();
@@ -97,8 +97,8 @@ public class MainStage extends Application {
 		Scale scale = new Scale();
 		scale.setX(SCALE_FACTOR);
 		scale.setY(SCALE_FACTOR);
-		scale.setPivotX(SCREEN_WIDTH / 2);
-		scale.setPivotY(SCREEN_HEIGHT / 2);
+		scale.setPivotX(getScreenHeight() / 2);
+		scale.setPivotY(getScreenHeight() / 2);
 
 		return scale;
 	}
@@ -191,5 +191,13 @@ public class MainStage extends Application {
 	public void switchToDeleteConfirm(String category, Question question) {
 		confirmDeleteLayout = new ConfirmDeleteLayout(category, question, this);
 		scene.setRoot(confirmDeleteLayout);
+	}
+
+	public int getScreenHeight() {
+		return this.screenHeight;
+	}
+
+	public int getScreenWidth() {
+		return this.screenWidth;
 	}
 }
