@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import Layouts.CompletionScreenLayout;
+import Layouts.ConfirmDeleteLayout;
 import Layouts.DiffScreenRowLayout;
 import Layouts.DifficultyScreenLayout;
 import Layouts.EditorScreenLayout;
@@ -36,6 +37,7 @@ public class MainStage extends Application {
 	private EditorScreenLayout editorScreenLayout;
 	private QuestionEditorLayout questionEditorLayout;
 	private QuestionEditorLayout newQuestionEditorLayout;
+	private ConfirmDeleteLayout confirmDeleteLayout;
 
 	private Stage stage;
 	private Scene scene;
@@ -169,5 +171,10 @@ public class MainStage extends Application {
 		Question blank = new Question("", "", "", "", "", "", "", Answer.ANSWER_A);
 		newQuestionEditorLayout = new QuestionEditorLayout(category, blank, this, true);
 		scene.setRoot(newQuestionEditorLayout);
+	}
+
+	public void switchToDeleteConfirm(String category, Question question) {
+		confirmDeleteLayout = new ConfirmDeleteLayout(category, question, this);
+		scene.setRoot(confirmDeleteLayout);
 	}
 }

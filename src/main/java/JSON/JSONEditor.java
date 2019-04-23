@@ -80,13 +80,20 @@ public abstract class JSONEditor {
 		}
 	}
 
-	public static boolean deleteQuestion(String categoryStr, Question question) {
+	public static boolean deleteQuestion(String categoryStr, String question) {
 		//getting the needed JSON Objects
 		JSONObject file = JSONOperations.createJSONObject(Constants.FILENAME);
 		JSONObject category = file.getJSONObject(categoryStr);
 		
 		//removing the question requested
-		category.remove(question.getName());
+		int index = Integer.parseInt(question.substring(1));
+		for (int j = index; j < category.length(); j++) {
+			//put next question into current question space
+			JSONObject moveQ = category.getJSONObject("q" + (j+1));
+			category.put("q" + j, moveQ);
+		}
+		//remove last question
+		category.remove("q" + category.length());
 		
 		//placing the altered file text back into the file object
 		file.put(categoryStr, category);

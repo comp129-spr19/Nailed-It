@@ -12,21 +12,21 @@ import JSON.JSONEditor;
 public class QuestionEditorLayout extends BorderPane implements EventHandler<ActionEvent> {
 	
 	MainStage main;
-	private String category, questionName, questionTopic;
+	private String category;
+	private Question question;
 	
 	private TextField questionText, hintText, answerA, answerB, answerC, answerD;
 	private Text errorMessage, answerLabel;
 	private RadioButton A, B, C, D;
 	private ToggleGroup correctAnswer;
-	private Button submit, quit;
+	private Button submit, quit, delete;
 	private boolean isNewQuestion;
 	
 	public QuestionEditorLayout(String category, Question question, MainStage main, Boolean isNewQuestion) {
 		super();
 		this.main = main;
 		this.category = category;
-		this.questionName = question.getName();
-		this.questionTopic = question.getTopic();
+		this.question = question;
 		this.isNewQuestion = isNewQuestion;
 
 		GridPane answerSelection = setMultipleChoiceOptions(question);
@@ -38,8 +38,12 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 		vbox.setMaxWidth(600);
 		
 		questionText = new TextField(question.getQuestion());
+		Tooltip q = new Tooltip("Question");
+		questionText.setTooltip(q);
 
 		hintText = new TextField(question.getHint());
+		Tooltip hint = new Tooltip("Hint");
+		hintText.setTooltip(hint);
 		
 		HBox correctAnswerBox = setCorrectAnswer(question);
 		
@@ -52,8 +56,12 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 		quit = new Button("Close without Saving");
 		quit.setId("quit");
 		quit.setOnAction(this);
+		
+		delete = new Button("Delete Question");
+		delete.setId("delete");
+		delete.setOnAction(this);
 
-		vbox.getChildren().addAll(questionText, hintText, submit, errorMessage, quit, correctAnswerBox);
+		vbox.getChildren().addAll(questionText, hintText, submit, errorMessage, quit, delete, correctAnswerBox);
 		vbox.setAlignment(Pos.BOTTOM_CENTER);
 
 		this.setCenter(vbox);
@@ -110,22 +118,31 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 		grid.setAlignment(Pos.CENTER);
 		grid.setVgap(0);
 		grid.setHgap(0);
+		
 
 		answerA = new TextField(question.getAnswerA());
 		answerA.setPrefSize(300, 75);
 		GridPane.setConstraints(answerA, 0, 0);
+		Tooltip a = new Tooltip("A");
+		answerA.setTooltip(a);
 
 		answerB = new TextField(question.getAnswerB());
 		answerB.setPrefSize(300, 75);
 		GridPane.setConstraints(answerB, 1, 0);
-
+		Tooltip b = new Tooltip("B");
+		answerB.setTooltip(b);
+		
 		answerC = new TextField(question.getAnswerC());
 		answerC.setPrefSize(300, 75);
 		GridPane.setConstraints(answerC, 0, 1);
-
+		Tooltip c = new Tooltip("C");
+		answerC.setTooltip(c);
+		
 		answerD = new TextField(question.getAnswerD());
 		answerD.setPrefSize(300, 75);
 		GridPane.setConstraints(answerD, 1, 1);
+		Tooltip d = new Tooltip("D");
+		answerD.setTooltip(d);
 
 		grid.getChildren().addAll(answerA, answerB, answerC, answerD);
 
@@ -156,6 +173,9 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 						errorMessage.setText("Save failed.");
 					}
 				}
+				break;
+			case "delete":
+				main.switchToDeleteConfirm(category, question);
 				break;
 			default:
 				System.out.println("ERROR: No input case in EventHandler");
@@ -200,7 +220,7 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 	}
 	
 	private boolean submitQuestion() {
-		Question update = new Question(questionName, questionTopic, questionText.getText(), answerA.getText(), answerB.getText(), answerC.getText(), answerD.getText(), hintText.getText(), findCorrectAnswer());
+		Question update = new Question(question.getName(), question.getTopic(), questionText.getText(), answerA.getText(), answerB.getText(), answerC.getText(), answerD.getText(), hintText.getText(), findCorrectAnswer());
 		if (this.isNewQuestion) {
 			return JSONEditor.addQuestion(category, update);
 		}
