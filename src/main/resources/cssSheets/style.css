@@ -45,13 +45,13 @@
 }
 
 #medium:hover {
-	-fx-background-color:#a0dcf8;
+	-fx-background-color:#b8e5fa;
 	-fx-background-radius: 12;
 	-fx-text-fill: white;
 }
 
 #medium:selected {
-	-fx-background-color:#a0dcf8;
+	-fx-background-color:#b8e5fa;
 	-fx-background-radius: 12;
 	-fx-text-fill: white;
 }
@@ -63,13 +63,13 @@
 }
 
 #hard:hover{
-	-fx-background-color:#83bce2;
+	-fx-background-color:#98c7e7;
 	-fx-background-radius: 12;
 	-fx-text-fill: white;
 }
 
 #hard:selected{
-	-fx-background-color:#83bce2;
+	-fx-background-color:#98c7e7;
 	-fx-background-radius: 12;
 	-fx-text-fill: white;
 }
