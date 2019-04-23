@@ -2,17 +2,12 @@ package Layouts;
 
 import java.util.ArrayList;
 
-import JSON.JSONEditor;
-import JSON.JSONOperations;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import main.MainStage;
-import main.Question;
+import JSON.*;
+import javafx.event.*;
+import javafx.geometry.*;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import main.*;
 
 public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent> {
 	private MainStage main;
@@ -47,6 +42,7 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 				main.switchToMainMenu();
 			} else if (button.getId().equals("reloadBackup")) {
 				JSONEditor.reloadBackupFile();
+				main.startEditor();
 			}
 		}
 		
@@ -63,6 +59,8 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 		search.setId("search");
 		search.setOnAction(this);
 		
+		HBox bottomStuff = new HBox();
+		
 		returnToMainMenu = new Button("Main Menu");
 		returnToMainMenu.setId("returnToMainMenu");
 		returnToMainMenu.setOnAction(this);
@@ -71,6 +69,8 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 		reloadBackup.setId("reloadBackup");
 		reloadBackup.setOnAction(this);
 		
+		bottomStuff.getChildren().addAll(returnToMainMenu, reloadBackup);
+		bottomStuff.setSpacing(10);
 		
 		questionList = new VBox();
 		
@@ -78,7 +78,7 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 		
 		
 		top.getChildren().addAll(category, search);
-		this.getChildren().addAll(top,questionList,returnToMainMenu,reloadBackup);
+		this.getChildren().addAll(top,questionList,bottomStuff);
 		this.setSpacing(50);
 	}
 	
@@ -99,16 +99,15 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 	}
 
 	private HBox createQuestionBox(int id, Question question) {
-			HBox box = new HBox();
-			
-			CheckBox check = new CheckBox((id+1) + "." + question.getQuestion());
-			check.setId(id + "checkBox");
-			Button edit = new Button("Edit");
-			edit.setId(id+"edit");
-			edit.setOnAction(this);
-			
-			box.getChildren().addAll(check,edit);
-			return box;
+		HBox box = new HBox();
 		
+		CheckBox check = new CheckBox((id+1) + "." + question.getQuestion());
+		check.setId(id + "checkBox");
+		Button edit = new Button("Edit");
+		edit.setId(id+"edit");
+		edit.setOnAction(this);
+		
+		box.getChildren().addAll(check,edit);
+		return box;
 	}
 }

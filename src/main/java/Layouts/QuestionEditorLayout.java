@@ -38,8 +38,12 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 		vbox.setMaxWidth(600);
 		
 		questionText = new TextField(question.getQuestion());
+		Tooltip q = new Tooltip("Question");
+		questionText.setTooltip(q);
 
 		hintText = new TextField(question.getHint());
+		Tooltip hint = new Tooltip("Hint");
+		hintText.setTooltip(hint);
 		
 		HBox correctAnswerBox = setCorrectAnswer(question);
 		
@@ -114,22 +118,31 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 		grid.setAlignment(Pos.CENTER);
 		grid.setVgap(0);
 		grid.setHgap(0);
+		
 
 		answerA = new TextField(question.getAnswerA());
 		answerA.setPrefSize(300, 75);
 		GridPane.setConstraints(answerA, 0, 0);
+		Tooltip a = new Tooltip("A");
+		answerA.setTooltip(a);
 
 		answerB = new TextField(question.getAnswerB());
 		answerB.setPrefSize(300, 75);
 		GridPane.setConstraints(answerB, 1, 0);
-
+		Tooltip b = new Tooltip("B");
+		answerB.setTooltip(b);
+		
 		answerC = new TextField(question.getAnswerC());
 		answerC.setPrefSize(300, 75);
 		GridPane.setConstraints(answerC, 0, 1);
-
+		Tooltip c = new Tooltip("C");
+		answerC.setTooltip(c);
+		
 		answerD = new TextField(question.getAnswerD());
 		answerD.setPrefSize(300, 75);
 		GridPane.setConstraints(answerD, 1, 1);
+		Tooltip d = new Tooltip("D");
+		answerD.setTooltip(d);
 
 		grid.getChildren().addAll(answerA, answerB, answerC, answerD);
 
