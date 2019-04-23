@@ -109,6 +109,9 @@ public class MainStage extends Application {
 	 */
 	public void nextQuestion() {
 		if (currentQuestionIndex < questions.size()) {
+			System.out.println("Question num " + currentQuestionIndex);
+			System.out.println("TOTAL QUESTIONS " + questions.size());
+			questions.get(currentQuestionIndex).setQuestionCounterText(currentQuestionIndex+1, questions.size());
 			scene.setRoot(questions.get(currentQuestionIndex));
 			currentQuestionIndex++;
 		} else if (currentQuestionIndex == questions.size()) {
@@ -146,7 +149,7 @@ public class MainStage extends Application {
 	 */
 	public void genQuestions(ArrayList<DiffScreenRowLayout> rows) throws IOException {
 		questions = GenerateQuestionScreens.generate(rows, this);
-		Collections.shuffle(questions);
+		//Collections.shuffle(questions);
 		currentQuestionIndex = 0;
 		numCorrAnswers = 0;
 		nextQuestion();

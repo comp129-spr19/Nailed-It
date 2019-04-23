@@ -21,13 +21,14 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 
 	MainStage main;
 
-	private Text questionText, responseText, hintText;
+	private Text questionText, responseText, hintText,headerOne,headerTwo,questionNumber,totalQuestions;
 	private Button answerA, answerB, answerC, answerD;
 	private Button next, skip, quit, hint;
 	private Answer correctAnswer, selectedAnswer;
 	private String hintString;
 	private int numAttempts;
 	private boolean complete;
+	private HBox header;
 
 	public QuizScreenLayout(Question question, MainStage main) {
 		super();
@@ -35,6 +36,17 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 		numAttempts = 0;
 		complete = false;
 
+		header = new HBox();
+		headerOne = new Text("Question ");
+		headerTwo = new Text(" out of ");
+		questionNumber = new Text("");
+		totalQuestions = new Text("");
+		header.getChildren().addAll(headerOne,questionNumber,headerTwo,totalQuestions);
+		this.setTop(header);
+		
+		
+		
+		
 		GridPane answerSelection = setMultipleChoiceOptions(question);
 		this.setBottom(answerSelection);
 
@@ -234,5 +246,10 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 	 */
 	private void showHint() {
 		hintText.setText(hintString);
+	}
+	
+	public void setQuestionCounterText(int qNumber, int totalQuestions) {
+		this.questionNumber.setText(""+qNumber);
+		this.totalQuestions.setText(""+totalQuestions);
 	}
 }
