@@ -96,6 +96,17 @@ public class JSONOperations {
 		}
 		return catList;
 	}
+	
+	public static ArrayList<String> returnCategories(){
+		JSONObject file = createJSONObject(Constants.FILENAME);
+		ArrayList<String> catList = new ArrayList<String>();
+		Iterator<String> iterator = file.keys();
+		
+		while(iterator.hasNext()) {
+			catList.add(iterator.next());
+		}
+		return catList;
+	}
 	/*
 	private static ArrayList<String> getStrCatList() {
 		JSONObject file = createJSONObject(Constants.FILENAME);
