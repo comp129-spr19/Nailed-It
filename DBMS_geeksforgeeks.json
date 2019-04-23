@@ -1,5 +1,5 @@
 [ {
-  "name" : "ER and Relational Models",
+  "topic" : "ER and Relational Models",
   "question" : "Consider the following relational schema.\n\n    Students(rollno: integer, sname: string)\n    Courses(courseno: integer, cname: string)\n    Registration(rollno: integer, courseno: integer, percent: real)\nWhich of the following queries are equivalent to this query in English?\n      \"Find the distinct names of all students who score \n       more than 90% in the course numbered 107\"",
   "answerA" : "I, II, III and IV",
   "answerB" : "I, II and III only",
@@ -8,7 +8,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "ER and Relational Models",
+  "topic" : "ER and Relational Models",
   "question" : "Given the basic ER and relational models, which of the following is INCORRECT?",
   "answerA" : "An attribute of an entity can have more than one value",
   "answerB" : "An attribute of an entity can be composite",
@@ -17,7 +17,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "ER and Relational Models",
+  "topic" : "ER and Relational Models",
   "question" : "Suppose (A, B) and (C,D) are two relation schemas. Let r1 and r2 be the corresponding relation instances. B is a foreign key that refers to C in r2. If data in r1 and r2 satisfy referential integrity constraints, which of the following is ALWAYS TRUE?",
   "answerA" : "A",
   "answerB" : "B",
@@ -26,7 +26,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "ER and Relational Models",
+  "topic" : "ER and Relational Models",
   "question" : "Consider the following relations A, B, C. How many tuples does the result of the following relational algebra expression contain? Assume that the schema of A U B is the same as that of A.\n\nTable A\nId   Name    Age\n----------------\n12   Arun    60\n15   Shreya  24\n99   Rohit   11\n\n\nTable B\nId   Name   Age\n----------------\n15   Shreya  24\n25   Hari    40\n98   Rohit   20\n99   Rohit   11\n\n\nTable C\nId   Phone  Area\n-----------------\n10   2200   02  \n99   2100   01",
   "answerA" : "7",
   "answerB" : "4",
@@ -35,7 +35,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "ER and Relational Models",
+  "topic" : "ER and Relational Models",
   "question" : "Consider a relational table r with sufficient number of records, having attributes A1, A2,…, An and let 1 <= p <= n. Two queries Q1 and Q2 are given below. The database can be configured to do ordered indexing on Ap or hashing on Ap. Which of the following statements is TRUE?",
   "answerA" : "Ordered indexing will always outperform hashing for both queries",
   "answerB" : "Hashing will always outperform ordered indexing for both queries",
@@ -44,7 +44,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "ER and Relational Models",
+  "topic" : "ER and Relational Models",
   "question" : "Which of the following tuple relational calculus expression(s) is/are equivalent to ",
   "answerA" : "I only ",
   "answerB" : "II only ",
@@ -53,7 +53,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "ER and Relational Models",
+  "topic" : "ER and Relational Models",
   "question" : "1) Let R and S be two relations with the following schema R (P,Q,R1,R2,R3) S (P,Q,S1,S2) Where {P, Q} is the key for both schemas. Which of the following queries are equivalent?",
   "answerA" : "Only I and II",
   "answerB" : "Only I and III",
@@ -62,7 +62,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "ER and Relational Models",
+  "topic" : "ER and Relational Models",
   "question" : "Consider the following ER diagram. The minimum number of tables needed to represent M, N, P, R1, R2 is",
   "answerA" : "2",
   "answerB" : "3",
@@ -71,7 +71,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "ER and Relational Models",
+  "topic" : "ER and Relational Models",
   "question" : "Consider the data given in above question. Which of the following is a correct attribute set for one of the tables for the correct answer to the above question?",
   "answerA" : "{M1, M2, M3, P1}",
   "answerB" : "{M1, P1, N1, N2}",
@@ -80,7 +80,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "ER and Relational Models",
+  "topic" : "ER and Relational Models",
   "question" : "Information about a collection of students is given by the relation studinfo(studId, name, sex). The relation enroll(studId, courseId) gives which student has enrolled for (or taken) that course(s). Assume that every course is taken by at least one male and at least one female student. What does the following relational algebra expression represent?",
   "answerA" : "Courses in which all the female students are enrolled.",
   "answerB" : "Courses in which a proper subset of female students are enrolled.",
@@ -89,7 +89,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Database Design(Normal Forms)",
+  "topic" : "Database Design(Normal Forms)",
   "question" : "Relation R has eight attributes ABCDEFGH. Fields of R contain only atomic values. F = {CH -> G, A -> BC, B -> CFH, E -> A, F -> EG} is a set of functional dependencies (FDs) so that F+ is exactly the set of FDs that hold for R. How many candidate keys does the relation R have?",
   "answerA" : "3",
   "answerB" : "4",
@@ -98,7 +98,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Database Design(Normal Forms)",
+  "topic" : "Database Design(Normal Forms)",
   "question" : "Consider the FDs given in above question. The relation R is",
   "answerA" : "in 1NF, but not in 2NF.",
   "answerB" : "in 2NF, but not in 3NF.",
@@ -107,7 +107,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Database Design(Normal Forms)",
+  "topic" : "Database Design(Normal Forms)",
   "question" : "Which of the following is TRUE?",
   "answerA" : "Every relation in 3NF is also in BCNF",
   "answerB" : "A relation R is in 3NF if every non-prime attribute of R is fully functionally dependent on every key of R",
@@ -116,7 +116,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Database Design(Normal Forms)",
+  "topic" : "Database Design(Normal Forms)",
   "question" : "Consider a relational table with a single record for each registered student with the following attributes.\n\n1. Registration_Num: Unique registration number\n   of each registered student\n2. UID: Unique identity number, unique at the \n   national level for each citizen\n3. BankAccount_Num: Unique account number at\n   the bank. A student can have multiple accounts\n   or join accounts. This attribute stores the \n   primary account number.\n4. Name: Name of the student\n5. Hostel_Room: Room number of the hostel \nWhich one of the following option is INCORRECT?",
   "answerA" : "BankAccount_Num is candidate key",
   "answerB" : "Registration_Num can be a primary key",
@@ -125,7 +125,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Database Design(Normal Forms)",
+  "topic" : "Database Design(Normal Forms)",
   "question" : "Consider the following relational schema:\nSuppliers(sid:integer, sname:string, city:string, street:string)\nParts(pid:integer, pname:string, color:string)\nCatalog(sid:integer, pid:integer, cost:real)\nAssume that, in the suppliers relation above, each supplier and each street within a city has a unique name, and (sname, city) forms a candidate key. No other functional dependencies are implied other than those implied by primary and candidate keys. Which one of the following is TRUE about the above schema?",
   "answerA" : "The schema is in BCNF",
   "answerB" : "The schema is in 3NF but not in BCNF",
@@ -134,7 +134,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Database Design(Normal Forms)",
+  "topic" : "Database Design(Normal Forms)",
   "question" : "Consider the following relational schemes for a library database: Book (Title, Author, Catalog_no, Publisher, Year, Price) Collection (Title, Author, Catalog_no) with in the following functional dependencies:\n\nI. Title Author --> Catalog_no\nII. Catalog_no --> Title, Author, Publisher, Year\nIII. Publisher Title Year --> Price \nAssume {Author, Title} is the key for both schemes. Which of the following statements is true?",
   "answerA" : "Both Book and Collection are in BCNF",
   "answerB" : "Both Book and Collection are in 3NF only",
@@ -143,7 +143,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Database Design(Normal Forms)",
+  "topic" : "Database Design(Normal Forms)",
   "question" : "Consider the relation scheme R = {E, F, G, H, I, J, K, L, M, M} and the set of functional dependencies {{E, F} -> {G}, {F} -> {I, J}, {E, H} -> {K, L}, K -> {M}, L -> {N} on R. What is the key for R?",
   "answerA" : "{E, F}",
   "answerB" : "{E, F, H}",
@@ -152,7 +152,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Database Design(Normal Forms)",
+  "topic" : "Database Design(Normal Forms)",
   "question" : "Given the following two statements:\n\n  S1: Every table with two single-valued \n      attributes is in 1NF, 2NF, 3NF and BCNF.\n\n  S2: AB->C, D->E, E->C is a minimal cover for \n      the set of functional dependencies \n      AB->C, D->E, AB->E, E->C. \nWhich one of the following is CORRECT?",
   "answerA" : "S1 is TRUE and S2 is FALSE.",
   "answerB" : "Both S1 and S2 are TRUE.",
@@ -161,7 +161,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Database Design(Normal Forms)",
+  "topic" : "Database Design(Normal Forms)",
   "question" : "The maximum number of superkeys for the relation schema R(E,F,G,H) with E as the key is",
   "answerA" : "5",
   "answerB" : "6",
@@ -170,7 +170,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Database Design(Normal Forms)",
+  "topic" : "Database Design(Normal Forms)",
   "question" : "Given the STUDENTS relation as shown below. For (StudentName, StudentAge) to be the key for this instance, the value X should not be equal to",
   "answerA" : "18",
   "answerB" : "19",
@@ -179,7 +179,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "SQL",
+  "topic" : "SQL",
   "question" : "Which of the following statements are TRUE about an SQL query? P : An SQL query can contain a HAVING clause even if it does not have a GROUP BY clause Q : An SQL query can contain a HAVING clause only if it has a GROUP BY clause R : All attributes used in the GROUP BY clause must appear in the SELECT clause S : Not all attributes used in the GROUP BY clause need to appear in the SELECT clause",
   "answerA" : "P and R",
   "answerB" : "P and S",
@@ -188,7 +188,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "SQL",
+  "topic" : "SQL",
   "question" : "Table A\nId   Name    Age\n----------------\n12   Arun    60\n15   Shreya  24\n99   Rohit   11\n\n\nTable B\nId   Name   Age\n----------------\n15   Shreya  24\n25   Hari    40\n98   Rohit   20\n99   Rohit   11\n\n\nTable C\nId   Phone  Area\n-----------------\n10   2200   02  \n99   2100   01\nConsider the above tables A, B and C. How many tuples does the result of the following SQL query contains?\n\nSELECT A.id \nFROM   A \nWHERE  A.age > ALL (SELECT B.age \n                    FROM   B \n                    WHERE  B. name = \"arun\") ",
   "answerA" : "4",
   "answerB" : "3",
@@ -197,7 +197,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "SQL",
+  "topic" : "SQL",
   "question" : "Consider a database table T containing two columns X and Y each of type integer. After the creation of the table, one record (X=1, Y=1) is inserted in the table. Let MX and My denote the respective maximum values of X and Y among all records in the table at any point in time. Using MX and MY, new records are inserted in the table 128 times with X and Y values being MX+1, 2*MY+1 respectively. It may be noted that each time after the insertion, values of MX and MY change. What will be the output of the following SQL query after the steps mentioned above are carried out?\n\nSELECT Y FROM T WHERE X=7;",
   "answerA" : "127",
   "answerB" : "255",
@@ -206,7 +206,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "SQL",
+  "topic" : "SQL",
   "question" : "Database table by name Loan_Records is given below.\nBorrower    Bank_Manager   Loan_Amount\n Ramesh      Sunderajan     10000.00\n Suresh      Ramgopal       5000.00\n Mahesh      Sunderajan     7000.00\nWhat is the output of the following SQL query?\nSELECT Count(*) \nFROM  ( (SELECT Borrower, Bank_Manager \n       FROM   Loan_Records) AS S \n        NATURAL JOIN (SELECT Bank_Manager, \n                             Loan_Amount \n                      FROM   Loan_Records) AS T );",
   "answerA" : "3",
   "answerB" : "9",
@@ -215,7 +215,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "SQL",
+  "topic" : "SQL",
   "question" : "A relational schema for a train reservation database is given below. Passenger (pid, pname, age) Reservation (pid, class, tid)\nTable: Passenger\npid   pname   age\n-----------------\n 0    Sachin   65\n 1    Rahul    66\n 2    Sourav   67\n 3    Anil     69\n\nTable : Reservation\npid  class  tid\n---------------\n 0    AC   8200\n 1    AC   8201\n 2    SC   8201\n 5    AC   8203\n 1    SC   8204\n 3    AC   8202\nWhat pids are returned by the following SQL query for the above instance of the tables?\nSLECT pid\nFROM Reservation ,\nWHERE class ‘AC’ AND\n    EXISTS (SELECT *\n       FROM Passenger\n       WHERE age > 65 AND\n       Passenger. pid = Reservation.pid)",
   "answerA" : "1, 0",
   "answerB" : "1, 2",
@@ -224,7 +224,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "SQL",
+  "topic" : "SQL",
   "question" : "Let R and S be relational schemes such that R={a,b,c} and S={c}. Now consider the following queries on the database:\nIV) SELECT R.a, R.b\n       FROM R,S\n            WHERE R.c=S.c\nWhich of the above queries are equivalent?",
   "answerA" : "I and II",
   "answerB" : "I and III",
@@ -233,7 +233,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "SQL",
+  "topic" : "SQL",
   "question" : "Consider the following relational schema:\nSuppliers(sid:integer, sname:string, city:string, street:string)\nParts(pid:integer, pname:string, color:string)\nCatalog(sid:integer, pid:integer, cost:real)\nConsider the following relational query on the above database:\nSELECT S.sname\n    FROM Suppliers S\n        WHERE S.sid NOT IN (SELECT C.sid\n                            FROM Catalog C\n                            WHERE C.pid NOT IN (SELECT P.pid  \n                                                FROM Parts P\n                                                WHERE P.color<> 'blue'))\nAssume that relations corresponding to the above schema are not empty. Which one of the following is the correct interpretation of the above query?",
   "answerA" : "Find the names of all suppliers who have supplied a non-blue part.",
   "answerB" : "Find the names of all suppliers who have not supplied a non-blue part.",
@@ -242,7 +242,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "SQL",
+  "topic" : "SQL",
   "question" : "Consider the table employee(empId, name, department, salary) and the two queries Q1 ,Q2 below. Assuming that department 5 has more than one employee, and we want to find the employees who get higher salary than anyone in the department 5, which one of the statements is TRUE for any arbitrary employee table?\n\nQ1 : Select e.empId\n     From employee e\n     Where not exists\n        (Select * From employee s where s.department = “5” and \n                                        s.salary >=e.salary)\nQ2 : Select e.empId\n     From employee e\n     Where e.salary > Any\n    (Select distinct salary From employee s Where s.department = “5”)",
   "answerA" : "Q1 is the correct query",
   "answerB" : "Q2 is the correct query",
@@ -251,7 +251,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "SQL",
+  "topic" : "SQL",
   "question" : "Given the following statements:\n\n    S1: A foreign key declaration can always \n        be replaced by an equivalent check\n        assertion in SQL.\n    S2: Given the table R(a,b,c) where a and\n        b together form the primary key, the \n        following is a valid table definition.\n        CREATE TABLE S (\n            a INTEGER,\n            d INTEGER,\n            e INTEGER,\n            PRIMARY KEY (d),\n            FOREIGN KEY (a) references R) \nWhich one of the following statements is CORRECT?",
   "answerA" : "S1 is TRUE and S2 is FALSE.",
   "answerB" : "Both S1 and S2 are TRUE.",
@@ -260,7 +260,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "SQL",
+  "topic" : "SQL",
   "question" : "Given the following schema:\n\n     employees(emp-id, first-name, last-name, hire-date, dept-id, salary)\n     departments(dept-id, dept-name, manager-id, location-id) \nYou want to display the last names and hire dates of all latest hires in their respective departments in the location ID 1700. You issue the following query:\n\nSQL> SELECT last-name, hire-date\n     FROM employees\n     WHERE (dept-id, hire-date) IN\n     (SELECT dept-id, MAX(hire-date)\n     FROM employees JOIN departments USING(dept-id)\n     WHERE location-id = 1700\n     GROUP BY dept-id); \nWhat is the outcome?",
   "answerA" : "It executes but does not give the correct result.",
   "answerB" : "It executes and gives the correct result.",
@@ -269,7 +269,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Transactions and concurrency control",
+  "topic" : "Transactions and concurrency control",
   "question" : "Consider the following transactions with data items P and Q initialized to zero:\nT1: read (P) ;\n    read (Q) ;\n    if P = 0 then Q : = Q + 1 ;\n    write (Q) ;\nT2: read (Q) ;\n    read (P) ;\n    if Q = 0 then P : = P + 1 ;\n    write (P) ;\nAny non-serial interleaving of T1 and T2 for concurrent execution leads to",
   "answerA" : "A serializable schedule",
   "answerB" : "A schedule that is not conflict serializable",
@@ -278,7 +278,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Transactions and concurrency control",
+  "topic" : "Transactions and concurrency control",
   "question" : "Which of the following concurrency control protocols ensure both conflict serialzability and freedom from deadlock? I. 2-phase locking II. Time-stamp ordering",
   "answerA" : "I only",
   "answerB" : "II only",
@@ -287,7 +287,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Transactions and concurrency control",
+  "topic" : "Transactions and concurrency control",
   "question" : "Consider the following schedule for transactions T1, T2 and T3: Which one of the schedules below is the correct serialization of the above?",
   "answerA" : "T1->>T3->>T2",
   "answerB" : "T2->>T1->>T3",
@@ -296,7 +296,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Transactions and concurrency control",
+  "topic" : "Transactions and concurrency control",
   "question" : "Consider the following four schedules due to three transactions (indicated by the subscript) using read and write on a data item x, denoted by r(x) and w(x) respectively. Which one of them is conflict serializable.",
   "answerA" : "A",
   "answerB" : "B",
@@ -305,7 +305,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Transactions and concurrency control",
+  "topic" : "Transactions and concurrency control",
   "question" : "Consider the following schedule S of transactions T1, T2, T3, T4: Which one of the following statements is CORRECT?",
   "answerA" : "S is conflict-serializable but not recoverable",
   "answerB" : "S is not conflict-serializable but is recoverable",
@@ -314,7 +314,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Transactions and concurrency control",
+  "topic" : "Transactions and concurrency control",
   "question" : "Consider the transactions T1, T2, and T3 and the schedules S1 and S2 given below.\n\nT1: r1(X); r1(Z); w1(X); w1(Z)\nT2: r2(Y); r2(Z); w2(Z)\nT3: r3(Y); r3(X); w3(Y)\nS1: r1(X); r3(Y); r3(X); r2(Y); r2(Z);\n    w3(Y); w2(Z); r1(Z); w1(X); w1(Z)\nS2: r1(X); r3(Y); r2(Y); r3(X); r1(Z);\n    r2(Z); w3(Y); w1(X); w2(Z); w1(Z) \nWhich one of the following statements about the schedules is TRUE?",
   "answerA" : "Only S1 is conflict-serializable.",
   "answerB" : "Only S2 is conflict-serializable.",
@@ -323,7 +323,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Transactions and concurrency control",
+  "topic" : "Transactions and concurrency control",
   "question" : "Consider the following log sequence of two transactions on a bank account, with initial balance 12000, that transfer 2000 to a mortgage payment and then apply a 5% interest.\n\n  1. T1 start\n  2. T1 B old=12000 new=10000\n  3. T1 M old=0 new=2000\n  4. T1 commit\n  5. T2 start\n  6. T2 B old=10000 new=10500\n  7. T2 commit \nSuppose the database system cra shes just before log record 7 is written. When the system is restarted, which one statement is true of the recovery procedure?",
   "answerA" : "We must redo log record 6 to set B to 10500",
   "answerB" : "We must undo log record 6 to set B to 10000 and then redo log records 2 and 3.",
@@ -332,7 +332,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Transactions and concurrency control",
+  "topic" : "Transactions and concurrency control",
   "question" : "Which of the following scenarios may lead to an irrecoverable error in a database system ?",
   "answerA" : "A transaction writes a data item after it is read by an uncommitted transaction",
   "answerB" : "A transaction reads a data item after it is read by an uncommitted transaction",
@@ -341,7 +341,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Transactions and concurrency control",
+  "topic" : "Transactions and concurrency control",
   "question" : "Consider three data items D1, D2 and D3 and the following execution schedule of transactions T1, T2 and T3. In the diagram, R(D) and W(D) denote the actions reading and writing the data item D respectively. Which of the following statements is correct?",
   "answerA" : "The schedule is serializable as T2; T3; T1",
   "answerB" : "The schedule is serializable as T2; T1; T3",
@@ -350,7 +350,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Transactions and concurrency control",
+  "topic" : "Transactions and concurrency control",
   "question" : "Consider the following transaction involving two bank accounts x and y.\n\nread(x);  x := x – 50;  write(x);  read(y);  y := y + 50;  write(y) \nThe constraint that the sum of the accounts x and y should remain constant is that of",
   "answerA" : "Atomicity",
   "answerB" : "Consistency",
@@ -359,7 +359,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "File structures (sequential files, indexing, B and B+ trees)",
+  "topic" : "File structures (sequential files, indexing, B and B+ trees)",
   "question" : "An index is clustered, if",
   "answerA" : "it is on a set of fields that form a candidate key.",
   "answerB" : "it is on a set of fields that include the primary key.",
@@ -368,7 +368,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "File structures (sequential files, indexing, B and B+ trees)",
+  "topic" : "File structures (sequential files, indexing, B and B+ trees)",
   "question" : "Consider a B+-tree in which the maximum number of keys in a node is 5. What is the minimum number of keys in any non-root node?",
   "answerA" : "1",
   "answerB" : "2",
@@ -377,7 +377,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "File structures (sequential files, indexing, B and B+ trees)",
+  "topic" : "File structures (sequential files, indexing, B and B+ trees)",
   "question" : "A clustering index is defined on the fields which are of type",
   "answerA" : "non-key and ordering",
   "answerB" : "non-key and non-ordering",
@@ -386,7 +386,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "File structures (sequential files, indexing, B and B+ trees)",
+  "topic" : "File structures (sequential files, indexing, B and B+ trees)",
   "question" : "A FAT (file allocation table) based file system is being used and the total overhead of each entry in the FAT is 4 bytes in size. Given a 100 x 106 bytes disk on which the file system is stored and data block size is 103 bytes, the maximum size of a file that can be stored on this disk in units of 106 bytes is ____________.",
   "answerA" : "99.55 to 99.65",
   "answerB" : "100.5 to 101.4",
@@ -395,7 +395,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "File structures (sequential files, indexing, B and B+ trees)",
+  "topic" : "File structures (sequential files, indexing, B and B+ trees)",
   "question" : "In the index allocation scheme of blocks to a file, the maximum possible size of the file depends on :",
   "answerA" : "the size of the blocks, and the size of the ad­dress of the blocks.",
   "answerB" : "the number of blocks used for the index, and the size of the blocks.",
@@ -404,7 +404,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "File structures (sequential files, indexing, B and B+ trees)",
+  "topic" : "File structures (sequential files, indexing, B and B+ trees)",
   "question" : "A file is organized so that the ordering of data records is the same as or close to the ordering of data entries in some index. Then that index is called",
   "answerA" : "Dense",
   "answerB" : "Sparse",
@@ -413,7 +413,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "File structures (sequential files, indexing, B and B+ trees)",
+  "topic" : "File structures (sequential files, indexing, B and B+ trees)",
   "question" : "Q 82_Part A A database table T1 has 2000 records and occupies 80 disk blocks. Another table T2 has 400 records and occupies 20 disk blocks. These two tables have to be joined as per a specified join condition that needs to be evaluated for every pair of records from these two tables. The memory buffer space available can hold exactly one block of records for T1 and one block of records for T2 simultaneously at any point in time. No index is available on either table. If Nested-loop join algorithm is employed to perform the join, with the most appropriate choice of table to be used in outer loop, the number of block accesses required for reading the data are  ",
   "answerA" : "800000",
   "answerB" : "40080",
@@ -422,7 +422,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "File structures (sequential files, indexing, B and B+ trees)",
+  "topic" : "File structures (sequential files, indexing, B and B+ trees)",
   "question" : "Q82_Part B A database table T1 has 2000 records and occupies 80 disk blocks. Another table T2 has 400 records and occupies 20 disk blocks. These two tables have to be joined as per a specified join condition that needs to be evaluated for every pair of records from these two tables. The memory buffer space available can hold exactly one block of records for T1 and one block of records for T2 simultaneously at any point in time. No index is available on either table. If, instead of Nested-loop join, Block nested-loop join is used, again with the most appropriate choice of table in the outer loop, the reduction in number of block accesses required for reading the data will be  ",
   "answerA" : "0",
   "answerB" : "30400",
@@ -431,7 +431,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "File structures (sequential files, indexing, B and B+ trees)",
+  "topic" : "File structures (sequential files, indexing, B and B+ trees)",
   "question" : "Which of the following is correct?",
   "answerA" : "B-trees are for storing data on disk and B+ trees are for main memory.",
   "answerB" : "Range queries are faster on B+ trees.",
@@ -440,10 +440,10 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "File structures (sequential files, indexing, B and B+ trees)",
+  "topic" : "File structures (sequential files, indexing, B and B+ trees)",
   "question" : "There are 5 records in a database.\n\nName     Age    Occupation    Category\nRama     27       CON            A\nAbdul    22       ENG            A\nJeniffer 28       DOC            B\nMaya     32       SER            D\nDev      24       MUS            C\nThere is an index file associated with this and it contain the values 1, 3, 2, 5 and 4. Which one of the fields is the index built form?",
   "answerA" : "Age",
-  "answerB" : "Name",
+  "answerB" : "topic",
   "answerC" : "Occupation",
   "answerD" : "Category",
   "hint" : "None",

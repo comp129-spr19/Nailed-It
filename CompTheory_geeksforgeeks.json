@@ -1,5 +1,5 @@
 [ {
-  "name" : "Regular languages and finite automata",
+  "topic" : "Regular languages and finite automata",
   "question" : "Consider the languages L1 = and L2 = {a}. Which one of the following represents L1 L2* U L1*",
   "answerA" : "A",
   "answerB" : "B",
@@ -8,7 +8,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Regular languages and finite automata",
+  "topic" : "Regular languages and finite automata",
   "question" : "Consider the DFA given. Which of the following are FALSE?\n\n1. Complement of L(A) is context-free.\n2. L(A) = L((11*0+0)(0 + 1)*0*1*)\n3. For the language accepted by A, A is the minimal DFA.\n4. A accepts all strings over {0, 1} of length at least 2. ",
   "answerA" : "1 and 3 only",
   "answerB" : "2 and 4 only",
@@ -17,7 +17,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Regular languages and finite automata",
+  "topic" : "Regular languages and finite automata",
   "question" : "Given the language L = {ab, aa, baa}, which of the following strings are in L*?\n\n1) abaabaaabaa\n2) aaaabaaaa\n3) baaaaabaaaab\n4) baaaaabaa ",
   "answerA" : "1, 2 and 3",
   "answerB" : "2, 3 and 4",
@@ -26,7 +26,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Regular languages and finite automata",
+  "topic" : "Regular languages and finite automata",
   "question" : "Given the language L = {ab, aa, baa}, which of the following strings are in L*?\n\n1) abaabaaabaa\n2) aaaabaaaa\n3) baaaaabaaaab\n4) baaaaabaa ",
   "answerA" : "1, 2 and 3",
   "answerB" : "2, 3 and 4",
@@ -35,7 +35,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Regular languages and finite automata",
+  "topic" : "Regular languages and finite automata",
   "question" : "Consider the set of strings on {0,1} in which, every substring of 3 symbols has at most two zeros. For example, 001110 and 011001 are in the language, but 100010 is not. All strings of length less than 3 are also in the language. A partially completed DFA that accepts this language is shown below. The missing arcs in the DFA are",
   "answerA" : "A",
   "answerB" : "B",
@@ -44,7 +44,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Regular languages and finite automata",
+  "topic" : "Regular languages and finite automata",
   "question" : "Definition of a language L with alphabet {a} is given as following.\n\n             L={| k>0, and n is a positive integer constant}\nWhat is the minimum number of states needed in DFA to recognize L?",
   "answerA" : "k+1",
   "answerB" : "n+1",
@@ -53,7 +53,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Regular languages and finite automata",
+  "topic" : "Regular languages and finite automata",
   "question" : "A deterministic finite automation (DFA)D with alphabet {a,b} is given below Which of the following finite state machines is a valid minimal DFA which accepts the same language as D?",
   "answerA" : "A",
   "answerB" : "B",
@@ -62,7 +62,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Regular languages and finite automata",
+  "topic" : "Regular languages and finite automata",
   "question" : "Let w be any string of length n is {0,1}*. Let L be the set of all substrings of w. What is the minimum number of states in a non-deterministic finite automaton that accepts L?",
   "answerA" : "n-1",
   "answerB" : "n",
@@ -71,7 +71,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Regular languages and finite automata",
+  "topic" : "Regular languages and finite automata",
   "question" : "Which one of the following languages over the alphabet {0,1} is described by the regular expression: (0+1)*0(0+1)*0(0+1)*?",
   "answerA" : "The set of all strings containing the substring 00.",
   "answerB" : "The set of all strings containing at most two 0’s.",
@@ -80,7 +80,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Regular languages and finite automata",
+  "topic" : "Regular languages and finite automata",
   "question" : "Which one of the following is FALSE?",
   "answerA" : "There is unique minimal DFA for every regular language",
   "answerB" : "Every NFA can be converted to an equivalent PDA.",
@@ -89,7 +89,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Context free languages and Push-down automata",
+  "topic" : "Context free languages and Push-down automata",
   "question" : "Consider the following languages. Which one of the following statements is FALSE?",
   "answerA" : "L2 is context-free.",
   "answerB" : "L1 intersection L2 is context-free.",
@@ -98,7 +98,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Context free languages and Push-down automata",
+  "topic" : "Context free languages and Push-down automata",
   "question" : "Which of the following pairs have DIFFERENT expressive power?",
   "answerA" : "Deterministic finite automata(DFA) and Non-deterministic finite automata(NFA)",
   "answerB" : "Deterministic push down automata(DPDA)and Non-deterministic push down automata(NPDA)",
@@ -107,7 +107,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Context free languages and Push-down automata",
+  "topic" : "Context free languages and Push-down automata",
   "question" : "1) Let P be a regular language and Q be context-free language such that Q P. (For example, let P be the language represented by the regular expression p*q* and Q be {pnqn|n N}). Then which of the following is ALWAYS regular? (A) P Q (B) P - Q (C) * - P (D) * - Q",
   "answerA" : "A",
   "answerB" : "B",
@@ -116,7 +116,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Context free languages and Push-down automata",
+  "topic" : "Context free languages and Push-down automata",
   "question" : "2) Consider the language L1,L2,L3 as given below. L1={ | p,q N} L2={ | p,q N and p=q} L3={ | p,q,r N and p=q=r} Which of the following statements is NOT TRUE?",
   "answerA" : "Push Down Automata (PDA) can be used to recognize L1 and L2",
   "answerB" : "L1 is a regular language",
@@ -125,7 +125,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Context free languages and Push-down automata",
+  "topic" : "Context free languages and Push-down automata",
   "question" : "Consider the languages L1 = {0i1j | i != j}. L2 = {0i1j | i = j}. L3 = {0i1j | i = 2j+1}. L4 = {0i1j | i != 2j}.",
   "answerA" : "Only L2 is context free",
   "answerB" : "Only L2 and L3 are context free",
@@ -134,7 +134,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Context free languages and Push-down automata",
+  "topic" : "Context free languages and Push-down automata",
   "question" : "S -> aSa|bSb|a|b; The language generated by the above grammar over the alphabet {a,b} is the set of",
   "answerA" : "All palindromes",
   "answerB" : "All odd length palindromes.",
@@ -143,7 +143,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Context free languages and Push-down automata",
+  "topic" : "Context free languages and Push-down automata",
   "question" : "Let L = L1∩L2, where L1 and L2 are languages as defined below:\nL1 = { | m, n >= 0 }\nL2 = { | i, j, k >= 0 }\nThen L is",
   "answerA" : "Not recursive",
   "answerB" : "Regular",
@@ -152,7 +152,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Context free languages and Push-down automata",
+  "topic" : "Context free languages and Push-down automata",
   "question" : "The language L= {0i21i | i≥0 } over the alphabet {0,1, 2} is:",
   "answerA" : "not recursive",
   "answerB" : "is recursive and is a deterministic CFL.",
@@ -161,7 +161,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Context free languages and Push-down automata",
+  "topic" : "Context free languages and Push-down automata",
   "question" : "Consider the CFG with {S,A,B) as the non-terminal alphabet, {a,b) as the terminal alphabet, S as the start symbol and the following set of production rules\nS --> aB        S --> bA\nB --> b         A --> a\nB --> bS        A --> aS\nB --> aBB       A --> bAA\nWhich of the following strings is generated by the grammar?",
   "answerA" : "aaaabb",
   "answerB" : "aabbbb",
@@ -170,7 +170,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Context free languages and Push-down automata",
+  "topic" : "Context free languages and Push-down automata",
   "question" : "For the correct answer strings to above question, how many derivation trees are there?",
   "answerA" : "1",
   "answerB" : "2",
@@ -179,7 +179,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Recursively enumerable sets and Turing machines",
+  "topic" : "Recursively enumerable sets and Turing machines",
   "question" : "Which of the following statements is/are FALSE?\n\n1. For every non-deterministic Turing machine, \n   there exists an equivalent deterministic Turing machine.\n2. Turing recognizable languages are closed under union \n   and complementation.\n3. Turing decidable languages are closed under intersection \n   and complementation.\n4. Turing recognizable languages are closed under union \n   and intersection. ",
   "answerA" : "1 and 4 only",
   "answerB" : "1 and 3 only",
@@ -188,7 +188,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Recursively enumerable sets and Turing machines",
+  "topic" : "Recursively enumerable sets and Turing machines",
   "question" : "Let L1 be a recursive language. Let L2 and L3 be languages that are recursively enumerable but not recursive. Which of the following statements is not necessarily true? (A) L2 – L1 is recursively enumerable. (B) L1 – L3 is recursively enumerable (C) L2 ∩ L1 is recursively enumerable (D) L2 ∪ L1 is recursively enumerable",
   "answerA" : "A",
   "answerB" : "B",
@@ -197,7 +197,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Recursively enumerable sets and Turing machines",
+  "topic" : "Recursively enumerable sets and Turing machines",
   "question" : "Which of the following is true for the language",
   "answerA" : "It is not accepted by a Turing Machine",
   "answerB" : "It is regular but not context-free",
@@ -206,7 +206,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Recursively enumerable sets and Turing machines",
+  "topic" : "Recursively enumerable sets and Turing machines",
   "question" : "If L and L' are recursively enumerable, then L is",
   "answerA" : "regular",
   "answerB" : "context-free",
@@ -215,7 +215,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Recursively enumerable sets and Turing machines",
+  "topic" : "Recursively enumerable sets and Turing machines",
   "question" : "Let L be a language and L' be its complement. Which one of the following is NOT a viable possibility?",
   "answerA" : "Neither L nor L' is recursively enumerable (r.e.).",
   "answerB" : "One of L and L' is r.e. but not recursive; the other is not r.e.",
@@ -224,7 +224,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Recursively enumerable sets and Turing machines",
+  "topic" : "Recursively enumerable sets and Turing machines",
   "question" : "Let A ≤m B denotes that language A is mapping reducible (also known as many-to-one reducible) to language B. Which one of the following is FALSE? a)  If A ≤m B and B is recursive then A is recursive. b) If A ≤m B and A is undecidable then B is undecidable. c) If A ≤m B and B is recursively enumerable then A is recursively enumerable. d) If A ≤m B  and B is not recursively enumerable then A is not recursively enumerable.",
   "answerA" : "a",
   "answerB" : "b",
@@ -233,7 +233,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Recursively enumerable sets and Turing machines",
+  "topic" : "Recursively enumerable sets and Turing machines",
   "question" : "For S ∈ (0 + 1) * let d(s) denote the decimal value of s (e.g. d(101) = 5). Let L = {s ∈ (0 + 1)* d(s)mod5 = 2 and d(s)mod7 != 4}. Which one of the following statements is true?",
   "answerA" : "L is recursively enumerable, but not recursive",
   "answerB" : "L is recursive, but not context-free",
@@ -242,7 +242,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Recursively enumerable sets and Turing machines",
+  "topic" : "Recursively enumerable sets and Turing machines",
   "question" : "Let L1 be a recursive language, and let L2 be a recursively enumerable but not a recursive language. Which one of the following is TRUE?\n\nL1' --> Complement of L1\nL2' --> Complement of L2 ",
   "answerA" : "L1' is recursive and L2' is recursively enumer­able",
   "answerB" : "L1' is recursive and L2' is not recursively enumerable",
@@ -251,7 +251,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Recursively enumerable sets and Turing machines",
+  "topic" : "Recursively enumerable sets and Turing machines",
   "question" : "L1 is a recursively enumerable language over Σ. An algorithm A effectively enumerates its words as w1, w2, w3, ... Define another language L2 over Σ Union {#} as {wi # wj : wi, wj ∈ L1, i < j}. Here # is a new symbol. Consider the following assertions.\n\nS1 :  L1 is recursive implies L2 is recursive\nS2 : L2 is recursive implies L1 is recursive \nWhich of the following statements is true ?",
   "answerA" : "Both S1 and S2 are true",
   "answerB" : "S1 is true but S2 is not necessarily true",
@@ -260,7 +260,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Recursively enumerable sets and Turing machines",
+  "topic" : "Recursively enumerable sets and Turing machines",
   "question" : "Nobody knows yet if P = NP. Consider the language L defined as follows : Which of the following statements is true ?",
   "answerA" : "L is recursive",
   "answerB" : "L is recursively enumerable but not recursive",
@@ -269,7 +269,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Undecidability",
+  "topic" : "Undecidability",
   "question" : "Which of the following is/are undecidable?",
   "answerA" : "3 only",
   "answerB" : "3 and 4 only",
@@ -278,7 +278,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Undecidability",
+  "topic" : "Undecidability",
   "question" : "Which of the following problems are decidable?",
   "answerA" : "1, 2, 3, 4",
   "answerB" : "1, 2",
@@ -287,7 +287,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Undecidability",
+  "topic" : "Undecidability",
   "question" : "Which of the following are decidable?\nI. Whether the intersection of two regular languages is infinite\nII. Whether a given context-free language is regular\nIII. Whether two push-down automata accept the same language\nIV. Whether a given grammar is context-free",
   "answerA" : "I and II",
   "answerB" : "I and IV",
@@ -296,7 +296,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Undecidability",
+  "topic" : "Undecidability",
   "question" : "Which of the following problems is undecidable? [2007]",
   "answerA" : "Membership problem for CFGs",
   "answerB" : "Ambiguity problem for CFGs.",
@@ -305,7 +305,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Undecidability",
+  "topic" : "Undecidability",
   "question" : "Let <M> be the encoding of a Turing machine as a string over ∑= {0, 1}.  Let L = { <M> |M is a Turing machine that accepts a string of length 2014 }. Then, L is",
   "answerA" : "decidable and recursively enumerable",
   "answerB" : "undecidable but recursively enumerable",
@@ -314,7 +314,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Undecidability",
+  "topic" : "Undecidability",
   "question" : "Which of the following problems is undecidable?",
   "answerA" : "Deciding if a given context-free grammar is ambiguous.",
   "answerB" : "Deciding if a given string is generated by a given context-free grammar.",
@@ -323,7 +323,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Undecidability",
+  "topic" : "Undecidability",
   "question" : "Consider three decision problems P1, P2 and P3. It is known that P1 is decidable and P2 is undecidable. Which one of the following is TRUE?",
   "answerA" : "P3 is decidable if P1 is reducible to P3",
   "answerB" : "P3 is undecidable if P3 is reducible to P2",
@@ -332,7 +332,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Undecidability",
+  "topic" : "Undecidability",
   "question" : "Consider two languages L1 and L2 each on the alphabet ∑. Let f : ∑ → ∑ be a polynomial time computable bijection such that (∀ x) [x ∈ L1 iff f(x) ∈ L2]. Further, let f-1 be also polynomial time computable. Which of the following CANNOT be true?",
   "answerA" : "L1 ∈ P and L2 is finite",
   "answerB" : "L1 ∈ NP and L2 ∈ P",
@@ -341,7 +341,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Undecidability",
+  "topic" : "Undecidability",
   "question" : "Consider the following problem X.\n\nGiven a Turing machine M over the input alphabet Σ, any\nstate q of M And a word w∈Σ*, does the computation of M\non w visit the state q? \nWhich of the following statements about X is correct?",
   "answerA" : "X is decidable",
   "answerB" : "X is undecidable but partially decidable",
@@ -350,7 +350,7 @@
   "hint" : "None",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Undecidability",
+  "topic" : "Undecidability",
   "question" : "Consider the following decision problems:\n(P1) Does a given finite state machine accept a given string\n(P2) Does a given context free grammar generate an infinite \n     number of stings\nWhich of the following statements is true?",
   "answerA" : "Both (P1) and (P2) are decidable",
   "answerB" : "Neither (P1) nor (P2) are decidable",
