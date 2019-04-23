@@ -1,5 +1,5 @@
 [ {
-  "name" : "Analysis of Algorithms",
+  "topic" : "Analysis of Algorithms",
   "question" : "What is recurrence for worst case of QuickSort and what is the time complexity in Worst case?",
   "answerA" : "Recurrence is T(n) = T(n-2) + O(n) and time complexity is O(n^2)",
   "answerB" : "Recurrence is T(n) = T(n-1) + O(n) and time complexity is O(n^2)",
@@ -8,7 +8,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Analysis of Algorithms",
+  "topic" : "Analysis of Algorithms",
   "question" : "Suppose we have a O(n) time algorithm that finds median of an unsorted array. Now consider a QuickSort implementation where we first find median using the above algorithm, then use median as pivot. What will be the worst case time complexity of this modified QuickSort.",
   "answerA" : "O(n^2 Logn)",
   "answerB" : "O(n^2)",
@@ -17,7 +17,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Analysis of Algorithms",
+  "topic" : "Analysis of Algorithms",
   "question" : "Given an unsorted array. The array has this property that every element in array is at most k distance from its position in sorted array where k is a positive integer smaller than size of array. Which sorting algorithm can be easily modified for sorting this array and what is the obtainable time complexity?",
   "answerA" : "Insertion Sort with time complexity O(kn)",
   "answerB" : "Heap Sort with time complexity O(nLogk)",
@@ -26,7 +26,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Analysis of Algorithms",
+  "topic" : "Analysis of Algorithms",
   "question" : "Which of the following is not true about comparison based sorting algorithms?",
   "answerA" : "The minimum possible time complexity of a comparison based sorting algorithm is O(nLogn) for a random input array",
   "answerB" : "Any comparison based sorting algorithm can be made stable by using position as a criteria when two elements are compared",
@@ -35,7 +35,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Analysis of Algorithms",
+  "topic" : "Analysis of Algorithms",
   "question" : "What is time complexity of fun()?\n\nint fun(int n)\n{\n  int count = 0;\n  for (int i = n; i > 0; i /= 2)\n     for (int j = 0; j < i; j++)\n        count += 1;\n  return count;\n}",
   "answerA" : "O(n^2)",
   "answerB" : "O(nLogn)",
@@ -44,7 +44,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Analysis of Algorithms",
+  "topic" : "Analysis of Algorithms",
   "question" : "What is the time complexity of fun()?\n\nint fun(int n)\n{\n  int count = 0;\n  for (int i = 0; i < n; i++)\n     for (int j = i; j > 0; j--)\n        count = count + 1;\n  return count;\n} ",
   "answerA" : "Theta (n)",
   "answerB" : "Theta (n^2)",
@@ -53,7 +53,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Analysis of Algorithms",
+  "topic" : "Analysis of Algorithms",
   "question" : "The recurrence relation capturing the optimal time of the Tower of Hanoi problem with n discs is. (GATE CS 2012)",
   "answerA" : "T(n) = 2T(n – 2) + 2",
   "answerB" : "T(n) = 2T(n – 1) + n",
@@ -62,7 +62,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Analysis of Algorithms",
+  "topic" : "Analysis of Algorithms",
   "question" : "Let w(n) and A(n) denote respectively, the worst case and average case running time of an algorithm executed on an input of size n. which of the following is ALWAYS TRUE? (GATE CS 2012)\n (A) \n (B) \n (C) \n (D)",
   "answerA" : "A",
   "answerB" : "B",
@@ -71,7 +71,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Analysis of Algorithms",
+  "topic" : "Analysis of Algorithms",
   "question" : "Which of the following is not O(n^2)?",
   "answerA" : "(15^10) * n + 12099",
   "answerB" : "n^1.98",
@@ -80,7 +80,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Analysis of Algorithms",
+  "topic" : "Analysis of Algorithms",
   "question" : "Which of the given options provides the increasing order of asymptotic complexity of functions f1, f2, f3 and f4?\n\n  f1(n) = 2^n\n  f2(n) = n^(3/2)\n  f3(n) = nLogn\n  f4(n) = n^(Logn)",
   "answerA" : "f3, f2, f4, f1",
   "answerB" : "f3, f2, f1, f4",
@@ -89,7 +89,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Searching",
+  "topic" : "Searching",
   "question" : "What is the output of following program?\n\n#include <stdio.h>\n\nvoid print(int n, int j)\n{\n   if (j >= n)\n      return;\n   if (n-j > 0 && n-j >= j)\n       printf(\"%d %dn\", j, n-j);\n   print(n, j+1);\n}\n\nint main()\n{\n    int n = 8;\n    print(n, 1);\n}\n",
   "answerA" : "1 7\n 2 6\n 3 5\n 4 4\n 4 4",
   "answerB" : "1 7\n 2 6\n 3 5\n 4 4",
@@ -98,7 +98,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Searching",
+  "topic" : "Searching",
   "question" : "Which of the following is correct recurrence for worst case of Binary Search?",
   "answerA" : "T(n) = 2T(n/2) + O(1) and T(1) = T(0) = O(1)",
   "answerB" : "T(n) = T(n-1) + O(1) and T(1) = T(0) = O(1)",
@@ -107,7 +107,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Searching",
+  "topic" : "Searching",
   "question" : "Given a sorted array of integers, what can be the minimum worst case time complexity to find ceiling of a number x in given array? Ceiling of an element x is the smallest element present in array which is greater than or equal to x. Ceiling is not present if x is greater than the maximum element present in array. For example, if the given array is {12, 67, 90, 100, 300, 399} and x = 95, then output should be 100.",
   "answerA" : "O(LogLogn)",
   "answerB" : "O(n)",
@@ -116,7 +116,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Searching",
+  "topic" : "Searching",
   "question" : "Consider the following C program that attempts to locate an element x in an array Y[] using binary search. The program is erroneous. (GATE CS 2008)\n\n1.   f(int Y[10], int x) {\n2.     int i, j, k;\n3.     i = 0; j = 9;\n4.     do {\n5.             k =  (i + j) /2;\n6.             if( Y[k] < x)  i = k; else j = k;\n7.         } while(Y[k] != x && i < j);\n8.     if(Y[k] == x) printf (\"x is in the array \") ;\n9.     else printf (\" x is not in the array \") ;\n10. }\nOn which of the following contents of Y and x does the program fail?",
   "answerA" : "Y is [1 2 3 4 5 6 7 8 9 10] and x < 10",
   "answerB" : "Y is [1 3 5 7 9 11 13 15 17 19] and x < 1",
@@ -125,7 +125,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Searching",
+  "topic" : "Searching",
   "question" : "In the above question, the correction needed in the program to make it work properly is (GATE CS 2008)",
   "answerA" : "Change line 6 to: if (Y[k] < x) i = k + 1; else j = k-1;",
   "answerB" : "Change line 6 to: if (Y[k] < x) i = k - 1; else j = k+1;",
@@ -134,7 +134,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Searching",
+  "topic" : "Searching",
   "question" : "You are given a list of 5 integers and these integers are in the range from 1 to 6. There are no duplicates in list. One of the integers is missing in the list. Which of the following expression would give the missing number. ^ is bitwise XOR operator. ~ is bitwise NOT operator. Let elements of list can be accessed as list[0], list[1], list[2], list[3], list[4]",
   "answerA" : "list[0] ^ list[1] ^ list[2] ^ list[3] ^ list[4]",
   "answerB" : "list[0] ^ list[1] ^ list[2] ^ list[3] ^ list[4] ^ 1 ^ 2 ^ 3 ^ 4 ^ 5 ^ 6",
@@ -143,7 +143,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Searching",
+  "topic" : "Searching",
   "question" : "Consider the C function given below. Assume that the array listA contains n (> 0) elements, sorted in ascending order.\n\nint ProcessArray(int *listA, int x, int n)\n{\n    int i, j, k;\n    i = 0;\n    j = n-1;\n    do\n    {\n        k = (i+j)/2;\n        if (x <= listA[k])\n            j = k-1;\n        if (listA[k] <= x)\n            i = k+1;\n    }\n    while (i <= j);\n    if (listA[k] == x)\n        return(k);\n    else\n        return -1;\n}\nWhich one of the following statements about the function ProcessArray is CORRECT?",
   "answerA" : "It will run into an infinite loop when x is not in listA.",
   "answerB" : "It is an implementation of binary search.",
@@ -152,7 +152,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Searching",
+  "topic" : "Searching",
   "question" : "Consider a sorted array of n numbers. What would be the time complexity of the best known algorithm to find a pair a and b such that |a-b| = k , k being a positive integer.",
   "answerA" : "O(n)",
   "answerB" : "O(nlog n)",
@@ -161,7 +161,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Searching",
+  "topic" : "Searching",
   "question" : "The average number of key comparisons done in a successful sequential search in a list of length it is",
   "answerA" : "log n",
   "answerB" : "(n-1)/2",
@@ -170,7 +170,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Searching",
+  "topic" : "Searching",
   "question" : "Consider the following program that attempts to locate an element x in a sorted array a[ ] using binary search. Assume N>1. The program is erroneous. Under what conditions does the program fail?\nvar i,j,k: integer;  x: integer;\n    a: array; [1....N] of integer;\nbegin\ti:= 1; j:= N;\nrepeat\t\n    k:(i+j) div 2;\n    if a[k] < x then i:= k \n    else j:= k \nuntil (a[k] = x) or (i >= j);\n    \nif (a[k] = x) then\n    writeln ('x is in the array')\nelse\n    writeln ('x is not in the array')\nend;",
   "answerA" : "x is the last element of the array a[]",
   "answerB" : "x is greater than all elements of the array a[]",
@@ -179,7 +179,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Sorting",
+  "topic" : "Sorting",
   "question" : "What is recurrence for worst case of QuickSort and what is the time complexity in Worst case?",
   "answerA" : "Recurrence is T(n) = T(n-2) + O(n) and time complexity is O(n^2)",
   "answerB" : "Recurrence is T(n) = T(n-1) + O(n) and time complexity is O(n^2)",
@@ -188,7 +188,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Sorting",
+  "topic" : "Sorting",
   "question" : "Suppose we have a O(n) time algorithm that finds median of an unsorted array. Now consider a QuickSort implementation where we first find median using the above algorithm, then use median as pivot. What will be the worst case time complexity of this modified QuickSort.",
   "answerA" : "O(n^2 Logn)",
   "answerB" : "O(n^2)",
@@ -197,7 +197,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Sorting",
+  "topic" : "Sorting",
   "question" : "Which of the following is not a stable sorting algorithm in its typical implementation.",
   "answerA" : "Insertion Sort",
   "answerB" : "Merge Sort",
@@ -206,7 +206,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Sorting",
+  "topic" : "Sorting",
   "question" : "Which of the following sorting algorithms in its typical implementation gives best performance when applied on an array which is sorted or almost sorted (maximum 1 or two elements are misplaced).",
   "answerA" : "Quick Sort",
   "answerB" : "Heap Sort",
@@ -215,7 +215,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Sorting",
+  "topic" : "Sorting",
   "question" : "Given an unsorted array. The array has this property that every element in array is at most k distance from its position in sorted array where k is a positive integer smaller than size of array. Which sorting algorithm can be easily modified for sorting this array and what is the obtainable time complexity?",
   "answerA" : "Insertion Sort with time complexity O(kn)",
   "answerB" : "Heap Sort with time complexity O(nLogk)",
@@ -224,7 +224,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Sorting",
+  "topic" : "Sorting",
   "question" : "Consider a situation where swap operation is very costly. Which of the following sorting algorithms should be preferred so that the number of swap operations are minimized in general?",
   "answerA" : "Heap Sort",
   "answerB" : "Selection Sort",
@@ -233,7 +233,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Sorting",
+  "topic" : "Sorting",
   "question" : "Which of the following is not true about comparison based sorting algorithms?",
   "answerA" : "The minimum possible time complexity of a comparison based sorting algorithm is O(nLogn) for a random input array",
   "answerB" : "Any comparison based sorting algorithm can be made stable by using position as a criteria when two elements are compared",
@@ -242,7 +242,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Sorting",
+  "topic" : "Sorting",
   "question" : "Suppose we are sorting an array of eight integers using quicksort, and we have just finished the first partitioning with the array looking like this: \n2  5  1  7  9  12  11  10 \n\n Which statement is correct?",
   "answerA" : "The pivot could be either the 7 or the 9.",
   "answerB" : "The pivot could be the 7, but it is not the 9",
@@ -251,7 +251,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Sorting",
+  "topic" : "Sorting",
   "question" : "Suppose we are sorting an array of eight integers using heapsort, and we have just finished some heapify (either maxheapify or minheapify) operations. The array now looks like this: 16 14 15 10 12 27 28 How many heapify operations have been performed on root of heap?",
   "answerA" : "1",
   "answerB" : "2",
@@ -260,7 +260,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Sorting",
+  "topic" : "Sorting",
   "question" : "What is the best time complexity of bubble sort?",
   "answerA" : "N^2",
   "answerB" : "NlogN",
@@ -269,7 +269,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Analysis of Algorithms (Recurrences)",
+  "topic" : "Analysis of Algorithms (Recurrences)",
   "question" : "What is the value of following recurrence.\n\n\nT(n) = T(n/4) + T(n/2) + cn^2\nT(1) = c\nT(0) = 0\nWhere c is a positive constant",
   "answerA" : "O(n^3)",
   "answerB" : "O(n^2)",
@@ -278,7 +278,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Analysis of Algorithms (Recurrences)",
+  "topic" : "Analysis of Algorithms (Recurrences)",
   "question" : "What is the value of following recurrence. T(n) = 5T(n/5) + , T(1) = 1, T(0) = 0",
   "answerA" : "Theta (n)",
   "answerB" : "Theta (n^2)",
@@ -287,7 +287,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Analysis of Algorithms (Recurrences)",
+  "topic" : "Analysis of Algorithms (Recurrences)",
   "question" : "What is the worst case time complexity of following implementation of subset sum problem.\n\n// Returns true if there is a subset of set[] with sun equal to given sum\nbool isSubsetSum(int set[], int n, int sum)\n{\n   // Base Cases\n   if (sum == 0)\n     return true;\n   if (n == 0 && sum != 0)\n     return false;\n \n   // If last element is greater than sum, then ignore it\n   if (set[n-1] > sum)\n     return isSubsetSum(set, n-1, sum);\n \n   /* else, check if sum can be obtained by any of the following\n      (a) including the last element\n      (b) excluding the last element   */\n   return isSubsetSum(set, n-1, sum) || \n          isSubsetSum(set, n-1, sum-set[n-1]);\n}",
   "answerA" : "O(n * 2^n)",
   "answerB" : "O(n^2)",
@@ -296,7 +296,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Analysis of Algorithms (Recurrences)",
+  "topic" : "Analysis of Algorithms (Recurrences)",
   "question" : "Suppose T(n) = 2T(n/2) + n, T(0) = T(1) = 1 Which one of the following is false. ( GATE CS 2005)\n a) T(n) = O(n^2)\n b) T(n) = (nLogn)\n c) T(n) = (n^2)\n d) T(n) = O(nLogn)",
   "answerA" : "A",
   "answerB" : "B",
@@ -305,7 +305,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Analysis of Algorithms (Recurrences)",
+  "topic" : "Analysis of Algorithms (Recurrences)",
   "question" : "Consider the following recurrence:\n Which one of the following is true?\n (A) T(n) = (loglogn)\n (B) T(n) = (logn)\n (C) T(n) = (sqrt(n))\n (D) T(n) = (n)",
   "answerA" : "A",
   "answerB" : "B",
@@ -314,7 +314,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Analysis of Algorithms (Recurrences)",
+  "topic" : "Analysis of Algorithms (Recurrences)",
   "question" : "The running time of an algorithm is represented by the following recurrence relation:\n    if  n <= 3  then   T(n) = n\n    else T(n) = T(n/3) + cn\nWhich one of the following represents the time complexity of the algorithm?\n (A) (n)\n (B) (n log n)\n (C) (n^2)\n (D) (n^2log n)",
   "answerA" : "A",
   "answerB" : "B",
@@ -323,7 +323,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Analysis of Algorithms (Recurrences)",
+  "topic" : "Analysis of Algorithms (Recurrences)",
   "question" : "The running time of the following algorithm\n\n  Procedure A(n)  \n  If n <= 2 return(1) else return A();\nis best described by",
   "answerA" : "O(n)",
   "answerB" : "O(log n)",
@@ -332,7 +332,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Analysis of Algorithms (Recurrences)",
+  "topic" : "Analysis of Algorithms (Recurrences)",
   "question" : "What is the time complexity of the following recursive function:\n\nint DoSomething (int n) \n{\n  if (n <= 2)\n    return 1;\n  else  \n    return (DoSomething (floor(sqrt(n))) + n);\n}\n(A) (n) \n (B) (nlogn)\n (C) (logn)\n (D) (loglogn)",
   "answerA" : "A",
   "answerB" : "B",
@@ -341,7 +341,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Analysis of Algorithms (Recurrences)",
+  "topic" : "Analysis of Algorithms (Recurrences)",
   "question" : "The time complexity of the following C function is (assume n > 0 (GATE CS 2004)\n\nint recursive (mt n)\n{\n   if (n == 1)\n     return (1);\n   else\n     return (recursive (n-1) + recursive (n-1));\n}",
   "answerA" : "0(n)",
   "answerB" : "0(nlogn)",
@@ -350,7 +350,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Analysis of Algorithms (Recurrences)",
+  "topic" : "Analysis of Algorithms (Recurrences)",
   "question" : "Consider the following recurrence T(n) = 3T(n/5) + lgn * lgn What is the value of T(n)? \n (A) \n (B) \n (c) \n (D)",
   "answerA" : "A",
   "answerB" : "B",
@@ -359,7 +359,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Recursion",
+  "topic" : "Recursion",
   "question" : "Predict output of following program\n\n#include <stdio.h>\n\nint fun(int n)\n{\n    if (n == 4)\n       return n;\n    else return 2*fun(n+1);\n}\n\n\nint main()\n{\n   printf(\"%d \", fun(2));\n   return 0;\n}\n",
   "answerA" : "4",
   "answerB" : "8",
@@ -368,7 +368,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Recursion",
+  "topic" : "Recursion",
   "question" : "Consider the following recursive function fun(x, y). What is the value of fun(4, 3)\n\nint fun(int x, int y) \n{\n  if (x == 0)\n    return y;\n  return fun(x - 1,  x + y);\n} ",
   "answerA" : "13",
   "answerB" : "12",
@@ -377,7 +377,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Recursion",
+  "topic" : "Recursion",
   "question" : "What does the following function print for n = 25?\n\nvoid fun(int n)\n{\n  if (n == 0)\n    return;\n\n  printf(\"%d\", n%2);\n  fun(n/2);\n}  ",
   "answerA" : "11001",
   "answerB" : "10011",
@@ -386,7 +386,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Recursion",
+  "topic" : "Recursion",
   "question" : "What does the following function do?\n\nint fun(int x, int y)\n{\n    if (y == 0)   return 0;\n    return (x + fun(x, y-1));\n}",
   "answerA" : "x + y",
   "answerB" : "x + x*y",
@@ -395,7 +395,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Recursion",
+  "topic" : "Recursion",
   "question" : "What does fun2() do in general?\n\nint fun(int x, int y)\n{\n    if (y == 0)   return 0;\n    return (x + fun(x, y-1));\n}\n\nint fun2(int a, int b)\n{\n    if (b == 0) return 1;\n    return fun(a, fun2(a, b-1));\n}",
   "answerA" : "x*y",
   "answerB" : "x+x*y",
@@ -404,7 +404,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Recursion",
+  "topic" : "Recursion",
   "question" : "Output of following program?\n\n#include<stdio.h>\nvoid print(int n)\n{\n    if (n > 4000)\n        return;\n    printf(\"%d \", n);\n    print(2*n);\n    printf(\"%d \", n);\n}\n\nint main()\n{\n    print(1000);\n    getchar();\n    return 0;\n}",
   "answerA" : "1000 2000 4000",
   "answerB" : "1000 2000 4000 4000 2000 1000",
@@ -413,7 +413,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Recursion",
+  "topic" : "Recursion",
   "question" : "What does the following function do?\n\nint fun(unsigned int n)\n{\n    if (n == 0 || n == 1)\n        return n;\n\n    if (n%3 != 0)\n        return 0;\n\n    return fun(n/3);\n}",
   "answerA" : "It returns 1 when n is a multiple of 3, otherwise returns 0",
   "answerB" : "It returns 1 when n is a power of 3, otherwise returns 0",
@@ -422,7 +422,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Recursion",
+  "topic" : "Recursion",
   "question" : "Predict the output of following program\n\n#include <stdio.h>\nint f(int n)\n{\n    if(n <= 1)\n        return 1;\n    if(n%2 == 0)\n        return f(n/2);\n    return f(n/2) + f(n/2+1);\n}\n\n\nint main()\n{\n    printf(\"%d\", f(11));\n    return 0;\n}",
   "answerA" : "Stack Overflow",
   "answerB" : "3",
@@ -431,7 +431,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Recursion",
+  "topic" : "Recursion",
   "question" : "Consider the following recursive C function that takes two arguments\n\n unsigned int foo(unsigned int n, unsigned int r) {\n  if (n  > 0) return (n%r +  foo (n/r, r ));\n  else return 0;\n}\nWhat is the return value of the function foo when it is called as foo(345, 10) ?",
   "answerA" : "345",
   "answerB" : "12",
@@ -440,7 +440,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Recursion",
+  "topic" : "Recursion",
   "question" : "Consider the same recursive C function that takes two arguments\n\nunsigned int foo(unsigned int n, unsigned int r) {\n  if (n  > 0) return (n%r +  foo (n/r, r ));\n  else return 0;\n}\nWhat is the return value of the function foo when it is called as foo(513, 2)?",
   "answerA" : "9",
   "answerB" : "8",
@@ -449,7 +449,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Dynamic Programming",
+  "topic" : "Dynamic Programming",
   "question" : "Which of the following standard algorithms is not Dynamic Programming based.",
   "answerA" : "Bellman–Ford Algorithm for single source shortest path",
   "answerB" : "Floyd Warshall Algorithm for all pairs shortest paths",
@@ -458,7 +458,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Dynamic Programming",
+  "topic" : "Dynamic Programming",
   "question" : "We use dynamic programming approach when",
   "answerA" : "We need an optimal solution",
   "answerB" : "The solution has optimal substructure",
@@ -467,7 +467,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Dynamic Programming",
+  "topic" : "Dynamic Programming",
   "question" : "An algorithm to find the length of the longest monotonically increasing sequence of numbers in an array A[0 :n-1] is given below. Let Li denote the length of the longest monotonically increasing sequence starting at index i in the array. \n \n Which of the following statements is TRUE?",
   "answerA" : "The algorithm uses dynamic programming paradigm",
   "answerB" : "The algorithm has a linear complexity and uses branch and bound paradigm",
@@ -476,7 +476,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Dynamic Programming",
+  "topic" : "Dynamic Programming",
   "question" : "Kadane algorithm is used to find:",
   "answerA" : "Maximum sum subsequence in an array",
   "answerB" : "Maximum sum subarray in an array",
@@ -485,7 +485,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Dynamic Programming",
+  "topic" : "Dynamic Programming",
   "question" : "Four matrices M1, M2, M3 and M4 of dimensions pxq, qxr, rxs and sxt respectively can be multiplied is several ways with different number of total scalar multiplications. For example, when multiplied as ((M1 X M2) X (M3 X M4)), the total number of multiplications is pqr + rst + prt. When multiplied as (((M1 X M2) X M3) X M4), the total number of scalar multiplications is pqr + prs + pst. If p = 10, q = 100, r = 20, s = 5 and t = 80, then the number of scalar multiplications needed is",
   "answerA" : "248000",
   "answerB" : "44000",
@@ -494,7 +494,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Dynamic Programming",
+  "topic" : "Dynamic Programming",
   "question" : "The subset-sum problem is defined as follows. Given a set of n positive integers, S = {a1 ,a2 ,a3 ,…,an} and positive integer W, is there a subset of S whose elements sum to W? A dynamic program for solving this problem uses a 2-dimensional Boolean array X, with n rows and W+1 columns. X[i, j],1 <= i <= n, 0 <= j <= W, is TRUE if and only if there is a subset of {a1 ,a2 ,...,ai} whose elements sum to j. Which of the following is valid for 2 <= i <= n and ai <= j <= W?",
   "answerA" : "X[i, j] = X[i - 1, j] ∨ X[i, j -ai]",
   "answerB" : "X[i, j] = X[i - 1, j] ∨ X[i - 1, j - ai]",
@@ -503,7 +503,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Dynamic Programming",
+  "topic" : "Dynamic Programming",
   "question" : "In the above question, which entry of the array X, if TRUE, implies that there is a subset whose elements sum to W?",
   "answerA" : "X[1, W]",
   "answerB" : "X[n ,0]",
@@ -512,7 +512,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Dynamic Programming",
+  "topic" : "Dynamic Programming",
   "question" : "A sub-sequence of a given sequence is just the given sequence with some elements (possibly none or all) left out. We are given two sequences X[m] and Y[n] of lengths m and n respectively, with indexes of X and Y starting from 0. We wish to find the length of the longest common sub-sequence(LCS) of X[m] and Y[n] as l(m,n), where an incomplete recursive definition for the function l(i,j) to compute the length of The LCS of X[m] and Y[n] is given below:\n\nl(i,j) = 0, if either i=0 or j=0\n       = expr1, if i,j > 0 and X[i-1] = Y[j-1]\n       = expr2, if i,j > 0 and X[i-1] != Y[j-1] ",
   "answerA" : "expr1 ≡ l(i-1, j) + 1",
   "answerB" : "expr1 ≡ l(i, j-1)",
@@ -521,7 +521,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Dynamic Programming",
+  "topic" : "Dynamic Programming",
   "question" : "Consider two strings A = \"qpqrr\" and B = \"pqprqrp\". Let x be the length of the longest common subsequence (not necessarily contiguous) between A and B and let y be the number of such longest common subsequences between A and B. Then x + 10y = ___.",
   "answerA" : "33",
   "answerB" : "23",
@@ -530,7 +530,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Dynamic Programming",
+  "topic" : "Dynamic Programming",
   "question" : "Let A1, A2, A3, and A4 be four matrices of dimensions 10 x 5, 5 x 20, 20 x 10, and 10 x 5, respectively. The minimum number of scalar multiplications required to find the product A1A2A3A4 using the basic matrix multiplication method is",
   "answerA" : "1500",
   "answerB" : "2000",
@@ -539,7 +539,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Bit Algorithms",
+  "topic" : "Bit Algorithms",
   "question" : "What is the return value of following function for arr[] = {9, 12, 2, 11, 2, 2, 10, 9, 12, 10, 9, 11, 2} and n is size of this array.\n\nint fun(int arr[], int n)\n{\n    int x = arr[0];\n    for (int i = 1; i < n; i++)\n        x = x ^ arr[i];\n    return x;\n}",
   "answerA" : "0",
   "answerB" : "9",
@@ -548,7 +548,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Bit Algorithms",
+  "topic" : "Bit Algorithms",
   "question" : "What does the following C expression do? x = (x<<1) + x + (x>>1);",
   "answerA" : "Multiplies an integer with 7",
   "answerB" : "Multiplies an integer with 3.5",
@@ -557,7 +557,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Bit Algorithms",
+  "topic" : "Bit Algorithms",
   "question" : "What does the following C expression do?\n x = x & (x-1) ",
   "answerA" : "Sets all bits as 1",
   "answerB" : "Makes x equals to 0",
@@ -566,7 +566,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Bit Algorithms",
+  "topic" : "Bit Algorithms",
   "question" : "Given two arrays of numbers a1, a2, a3,...an and b1, b2, .. bn where each number is 0 or 1, the fastest algorithm to find the largest span(i, j) such that ai + ai+1, ....aj = bi + bi+1, .. bj. or report that there is not such span,",
   "answerA" : "Takes O(n3) and Ω(2n) time if hashing is permitted",
   "answerB" : "Takes O(n3) and Ω(n2.5) time in the key comparison model",
@@ -575,7 +575,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Bit Algorithms",
+  "topic" : "Bit Algorithms",
   "question" : "Consider the following code snippet for checking whether a number is power of 2 or not.\n\n/* Incorrect function to check if x is power of 2*/\nbool isPowerOfTwo (unsigned int x) \n{ \n  return (!(x&(x-1))); \n} \nWhat is wrong with above function?",
   "answerA" : "It does reverse of what is required",
   "answerB" : "It works perfectly fine for all values of x.",
@@ -584,7 +584,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Graph Traversals",
+  "topic" : "Graph Traversals",
   "question" : "Which of the following algorithms can be used to most efficiently determine the presence of a cycle in a given graph ?",
   "answerA" : "Depth First Search",
   "answerB" : "Breadth First Search",
@@ -593,7 +593,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Graph Traversals",
+  "topic" : "Graph Traversals",
   "question" : "Traversal of a graph is different from tree because",
   "answerA" : "There can be a loop in graph so we must maintain a visited flag for every vertex",
   "answerB" : "DFS of a graph uses stack, but inorrder traversal of a tree is recursive",
@@ -602,7 +602,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Graph Traversals",
+  "topic" : "Graph Traversals",
   "question" : "What are the appropriate data structures for following algorithms?\n\n1) Breadth First Search                           \n2) Depth First Search                            \n3) Prim's Minimum Spanning Tree                 \n4) Kruskal' Minimum Spanning Tree                ",
   "answerA" : "\n1) Stack\n2) Queue\n3) Priority Queue\n4) Union Find",
   "answerB" : "\n1) Queue\n2) Stack\n3) Priority Queue\n4) Union Find",
@@ -611,7 +611,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Graph Traversals",
+  "topic" : "Graph Traversals",
   "question" : "The Breadth First Search algorithm has been implemented using the queue data structure. One possible order of visiting the nodes of the following graph is",
   "answerA" : "MNOPQR",
   "answerB" : "NQMPOR",
@@ -620,7 +620,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Graph Traversals",
+  "topic" : "Graph Traversals",
   "question" : "Let G be an undirected graph. Consider a depth-first traversal of G, and let T be the resulting depth-first search tree. Let u be a vertex in G and let v be the first new (unvisited) vertex visited after visiting u in the traversal. Which of the following statements is always true? (GATE CS 2000)",
   "answerA" : "{u,v} must be an edge in G, and u is a descendant of v in T",
   "answerB" : "{u,v} must be an edge in G, and v is a descendant of u in T",
@@ -629,7 +629,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Graph Traversals",
+  "topic" : "Graph Traversals",
   "question" : "Consider the following graph, \n \n Among the following sequences:\n(I) a b e g h f \n(II) a b f e h g\n(III) a b f h g e \n(IV) a f g h b e  \nWhich are depth first traversals of the above graph?",
   "answerA" : "I, II and IV only",
   "answerB" : "I and IV only",
@@ -638,7 +638,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Graph Traversals",
+  "topic" : "Graph Traversals",
   "question" : "Make is a utility that automatically builds executable programs and libraries from source code by reading files called makefiles which specify how to derive the target program. Which of the following standard graph algorithms is used by Make.",
   "answerA" : "Strongly Connected Components",
   "answerB" : "Topological Sorting",
@@ -647,7 +647,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Graph Traversals",
+  "topic" : "Graph Traversals",
   "question" : "Given two vertices in a graph s and t, which of the two traversals (BFS and DFS) can be used to find if there is path from s to t?",
   "answerA" : "Only BFS",
   "answerB" : "Only DFS",
@@ -656,7 +656,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Graph Traversals",
+  "topic" : "Graph Traversals",
   "question" : "Which of the following condition is sufficient to detect cycle in a directed graph?",
   "answerA" : "There is an edge from currently being visited node to an already visited node.",
   "answerB" : "There is an edge from currently being visited node to an ancestor of currently visited node in DFS forest.",
@@ -665,7 +665,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Graph Traversals",
+  "topic" : "Graph Traversals",
   "question" : "Is following statement true/false If a DFS of a directed graph contains a back edge, any other DFS of the same graph will also contain at least one back edge. Source: http://courses.csail.mit.edu/6.006/oldquizzes/solutions/q2-s2009-sol.pdf",
   "answerA" : "True",
   "answerB" : "False",
@@ -674,7 +674,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Backtracking",
+  "topic" : "Backtracking",
   "question" : "Which of the following is not a backtracking algorithm?",
   "answerA" : "Knight tour problem",
   "answerB" : "N queen problem",
@@ -683,7 +683,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Graph Shortest Paths",
+  "topic" : "Graph Shortest Paths",
   "question" : "Consider the directed graph shown in the figure below. There are multiple shortest paths between vertices S and T. Which one will be reported by Dijstra?s shortest path algorithm? Assume that, in any iteration, the shortest path to a vertex v is updated only when a strictly shorter path to v is discovered.",
   "answerA" : "SDT",
   "answerB" : "SBDT",
@@ -692,7 +692,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Graph Shortest Paths",
+  "topic" : "Graph Shortest Paths",
   "question" : "To implement Dijkstra’s shortest path algorithm on unweighted graphs so that it runs in linear time, the data structure to be used is:",
   "answerA" : "Queue",
   "answerB" : "Stack",
@@ -701,7 +701,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Graph Shortest Paths",
+  "topic" : "Graph Shortest Paths",
   "question" : "Dijkstra’s single source shortest path algorithm when run from vertex a in the below graph, computes the correct shortest path distance to",
   "answerA" : "only vertex a",
   "answerB" : "only vertices a, e, f, g, h",
@@ -710,7 +710,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Graph Shortest Paths",
+  "topic" : "Graph Shortest Paths",
   "question" : "In an unweighted, undirected connected graph, the shortest path from a node S to every other node is computed most efficiently, in terms of time complexity by",
   "answerA" : "Dijkstra’s algorithm starting from S.",
   "answerB" : "Warshall’s algorithm",
@@ -719,7 +719,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Graph Shortest Paths",
+  "topic" : "Graph Shortest Paths",
   "question" : "Suppose we run Dijkstra’s single source shortest-path algorithm on the following edge weighted directed graph with vertex P as the source. In what order do the nodes get included into the set of vertices for which the shortest path distances are finalized? (GATE CS 2004)",
   "answerA" : "P, Q, R, S, T, U",
   "answerB" : "P, Q, R, U, S, T",
@@ -728,7 +728,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Graph Shortest Paths",
+  "topic" : "Graph Shortest Paths",
   "question" : "What is the time complexity of Bellman-Ford single-source shortest path algorithm on a complete graph of n vertices?",
   "answerA" : "[Tex]\\Theta(n^2)[/Tex]",
   "answerB" : "[Tex]\\Theta(n^2 Logn)[/Tex]",
@@ -737,7 +737,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Graph Shortest Paths",
+  "topic" : "Graph Shortest Paths",
   "question" : "In a weighted graph, assume that the shortest path from a source 's' to a destination 't' is correctly calculated using a shortest path algorithm. Is the following statement true? If we increase weight of every edge by 1, the shortest path always remains same.",
   "answerA" : "Yes",
   "answerB" : "No",
@@ -746,7 +746,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Graph Shortest Paths",
+  "topic" : "Graph Shortest Paths",
   "question" : "Following statement is true or false?\n\nIf we make following changes to  Dijkstra, then it can be used to find \nthe longest simple path, assume that the graph is acyclic.\n\n1) Initialize all distances as minus infinite instead of plus infinite.\n\n2) Modify the relax condition in  Dijkstra's algorithm to update distance\n  of an adjacent v of the currently considered vertex u only\n  if \"dist[u]+graph[u][v] > dist[v]\". In shortest path algo, \n  the sign is opposite. ",
   "answerA" : "True",
   "answerB" : "False",
@@ -755,7 +755,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Graph Shortest Paths",
+  "topic" : "Graph Shortest Paths",
   "question" : "Which of the following algorithm can be used to efficiently calculate single source shortest paths in a Directed Acyclic Graph?",
   "answerA" : "Dijkstra",
   "answerB" : "Bellman-Ford",
@@ -764,7 +764,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Graph Shortest Paths",
+  "topic" : "Graph Shortest Paths",
   "question" : "Given a directed graph where weight of every edge is same, we can efficiently find shortest path from a given source to destination using?",
   "answerA" : "Breadth First Traversal",
   "answerB" : "Dijkstra's Shortest Path Algorithm",
@@ -773,7 +773,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Graph Minimum Spanning Tree",
+  "topic" : "Graph Minimum Spanning Tree",
   "question" : "An undirected graph G(V, E) contains n ( n > 2 ) nodes named v1 , v2 ,….vn. Two nodes vi , vj are connected if and only if 0 < |i – j| <= 2. Each edge (vi, vj ) is assigned a weight i + j. A sample graph with n = 4 is shown below. What will be the cost of the minimum spanning tree (MST) of such a graph with n nodes? (GATE CS 2011)",
   "answerA" : "1/12(11n^2 – 5n)",
   "answerB" : "n^2 – n + 1",
@@ -782,7 +782,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Graph Minimum Spanning Tree",
+  "topic" : "Graph Minimum Spanning Tree",
   "question" : "The length of the path from v5 to v6 in the MST of previous question with n = 10 is",
   "answerA" : "11",
   "answerB" : "25",
@@ -791,7 +791,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Graph Minimum Spanning Tree",
+  "topic" : "Graph Minimum Spanning Tree",
   "question" : "Consider a complete undirected graph with vertex set {0, 1, 2, 3, 4}. Entry Wij in the matrix W below is the weight of the edge {i, j}. What is the minimum possible weight of a spanning tree T in this graph such that vertex 0 is a leaf node in the tree T? (GATE CS 2010)",
   "answerA" : "7",
   "answerB" : "8",
@@ -800,7 +800,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Graph Minimum Spanning Tree",
+  "topic" : "Graph Minimum Spanning Tree",
   "question" : "In the graph given in above question question, what is the minimum possible weight of a path P from vertex 1 to vertex 2 in this graph such that P contains at most 3 edges?",
   "answerA" : "7",
   "answerB" : "8",
@@ -809,7 +809,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Graph Minimum Spanning Tree",
+  "topic" : "Graph Minimum Spanning Tree",
   "question" : "An undirected graph G has n nodes. Its adjacency matrix is given by an n × n square matrix whose (i) diagonal elements are 0‘s and (ii) non-diagonal elements are 1‘s. which one of the following is TRUE?",
   "answerA" : "Graph G has no minimum spanning tree (MST)",
   "answerB" : "Graph G has a unique MST of cost n-1",
@@ -818,7 +818,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Graph Minimum Spanning Tree",
+  "topic" : "Graph Minimum Spanning Tree",
   "question" : "Consider the following graph: Which one of the following cannot be the sequence of edges added, in that order, to a minimum spanning tree using Kruskal’s algorithm?",
   "answerA" : "(a—b),(d—f),(b—f),(d—c),(d—e)",
   "answerB" : "(a—b),(d—f),(d—c),(b—f),(d—e)",
@@ -827,7 +827,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Graph Minimum Spanning Tree",
+  "topic" : "Graph Minimum Spanning Tree",
   "question" : "Let G be an undirected connected graph with distinct edge weight. Let emax be the edge with maximum weight and emin the edge with minimum weight. Which of the following statements is false? (GATE CS 2000)",
   "answerA" : "Every minimum spanning tree of G must contain emin",
   "answerB" : "If emax is in a minimum spanning tree, then its removal must disconnect G",
@@ -836,7 +836,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Graph Minimum Spanning Tree",
+  "topic" : "Graph Minimum Spanning Tree",
   "question" : "Consider a weighted complete graph G on the vertex set {v1,v2 ,v} such that the weight of the edge (v,,v) is 2|i-j|. The weight of a minimum spanning tree of G is: (GATE CS 2006)",
   "answerA" : "n — 1",
   "answerB" : "2n — 2",
@@ -845,7 +845,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Graph Minimum Spanning Tree",
+  "topic" : "Graph Minimum Spanning Tree",
   "question" : "Let G be a weighted graph with edge weights greater than one and G'be the graph constructed by squaring the weights of edges in G. Let T and T' be the minimum spanning trees of G and G', respectively, with total weights t and t'. Which of the following statements is TRUE?",
   "answerA" : "T' = T with total weight t' = t2",
   "answerB" : "T' = T with total weight t' < t2",
@@ -854,7 +854,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Graph Minimum Spanning Tree",
+  "topic" : "Graph Minimum Spanning Tree",
   "question" : "Consider the following graph: \n \n Which one of the following is NOT the sequence of edges added to the minimum spanning tree using Kruskal's algorithm?",
   "answerA" : "(b,e)(e,f)(a,c)(b,c)(f,g)(c,d)",
   "answerB" : "(b,e)(e,f)(a,c)(f,g)(b,c)(c,d)",
@@ -863,7 +863,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "NP Complete",
+  "topic" : "NP Complete",
   "question" : "Assuming P != NP, which of the following is true ? \n(A) NP-complete = NP\n \n(B) NP-complete P = \n \n(C) NP-hard = NP\n \n(D) P = NP-complete",
   "answerA" : "A",
   "answerB" : "B",
@@ -872,7 +872,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "NP Complete",
+  "topic" : "NP Complete",
   "question" : "Let S be an NP-complete problem and Q and R be two other problems not known to be in NP. Q is polynomial time reducible to S and S is polynomial-time reducible to R. Which one of the following statements is true? (GATE CS 2006)",
   "answerA" : "R is NP-complete",
   "answerB" : "R is NP-hard",
@@ -881,7 +881,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "NP Complete",
+  "topic" : "NP Complete",
   "question" : "Let X be a problem that belongs to the class NP. Then which one of the following is TRUE?",
   "answerA" : "There is no polynomial time algorithm for X.",
   "answerB" : "If X can be solved deterministically in polynomial time, then P = NP.",
@@ -890,7 +890,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "NP Complete",
+  "topic" : "NP Complete",
   "question" : "The problem 3-SAT and 2-SAT are",
   "answerA" : "both in P",
   "answerB" : "both NP complete",
@@ -899,7 +899,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "NP Complete",
+  "topic" : "NP Complete",
   "question" : "Which of the following statements are TRUE? (1) The problem of determining whether there exists a cycle in an undirected graph is in P. (2) The problem of determining whether there exists a cycle in an undirected graph is in NP. (3) If a problem A is NP-Complete, there exists a non-deterministic polynomial time algorithm to solve A.",
   "answerA" : "1, 2 and 3",
   "answerB" : "1 and 3",
@@ -908,7 +908,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "NP Complete",
+  "topic" : "NP Complete",
   "question" : "Which of the following is true about NP-Complete and NP-Hard problems.",
   "answerA" : "If we want to prove that a problem X is NP-Hard, we take a known NP-Hard problem Y and reduce Y to X",
   "answerB" : "The first problem that was proved as NP-complete was the circuit satisfiability problem.",
@@ -917,7 +917,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "NP Complete",
+  "topic" : "NP Complete",
   "question" : "Which of the following statements are TRUE?\n\n1. The problem of determining whether there exists\n   a cycle in an undirected graph is in P.\n2. The problem of determining whether there exists\n   a cycle in an undirected graph is in NP.\n3. If a problem A is NP-Complete, there exists a \n   non-deterministic polynomial time algorithm to solve A. ",
   "answerA" : "1, 2 and 3",
   "answerB" : "1 and 2 only",
@@ -926,7 +926,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "NP Complete",
+  "topic" : "NP Complete",
   "question" : "Suppose a polynomial time algorithm is discovered that correctly computes the largest clique in a given graph. In this scenario, which one of the following represents the correct Venn diagram of the complexity classes P, NP and NP Complete (NPC)?",
   "answerA" : "A",
   "answerB" : "B",
@@ -935,7 +935,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "NP Complete",
+  "topic" : "NP Complete",
   "question" : "Consider the decision problem 2CNFSAT defined as follows:",
   "answerA" : "NP-Complete.",
   "answerB" : "solvable in polynomial time by reduction to directed graph reachability.",
@@ -944,7 +944,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "NP Complete",
+  "topic" : "NP Complete",
   "question" : "Let SHAM3 be the problem of finding a Hamiltonian cycle in a graph G = (V,E) with V divisible by 3 and DHAM3 be the problem of determining if a Hamiltonian cycle exists in such graphs. Which one of the following is true?",
   "answerA" : "Both DHAM3 and SHAM3 are NP-hard",
   "answerB" : "SHAM3 is NP-hard, but DHAM3 is not",
@@ -953,7 +953,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Algorithm Misc",
+  "topic" : "Algorithm Misc",
   "question" : "In a complete k-ary tree, every internal node has exactly k children. The number of leaves in such a tree with n internal nodes is: (GATE CS 2005)",
   "answerA" : "nk",
   "answerB" : "(n – 1) k+ 1",
@@ -962,7 +962,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Algorithm Misc",
+  "topic" : "Algorithm Misc",
   "question" : "Given 8 identical coins out of which one coin is heavy and a pan balance. How many minimum number of measurements are needed to find the heavy coin?",
   "answerA" : "2",
   "answerB" : "3",
@@ -971,7 +971,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Algorithm Misc",
+  "topic" : "Algorithm Misc",
   "question" : "In a village, people build houses in the same side of the road. A thief plans to loot the village. He wants maximum amount of money without having any risk of getting caught. By some means, the villagers know that their adjacent house is being looted or not and thus they become alert. So the thief cannot loot contiguous two houses. Given that the thief knows the amount of money stored in each house and the road is straight and there is no turning, which is the most efficient algorithmic strategy to solve this problem?",
   "answerA" : "Brute-force",
   "answerB" : "Dynamic Programming",
@@ -980,7 +980,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Algorithm Misc",
+  "topic" : "Algorithm Misc",
   "question" : "Which of the following is not an in-place algorithm?",
   "answerA" : "Insertion sort",
   "answerB" : "Selection sort",
@@ -989,7 +989,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
-  "name" : "Algorithm Misc",
+  "topic" : "Algorithm Misc",
   "question" : "A set X can be represented by an array x[n] as follows: \n Consider the following algorithm in which x,y and z are Boolean arrays of size n:\n\nalgorithm zzz(x[] , y[], z [])\n{\n   int i;\n   for (i=O; i<n; ++i)\n     z[i] = (x[i] ^ ~y[i]) V (~x[i] ^ y[i])\n}\nThe set Z computed by the algorithm is:",
   "answerA" : "(X Intersection Y)",
   "answerB" : "(X Union Y)",
@@ -998,7 +998,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_D"
 }, {
-  "name" : "Algorithm Misc",
+  "topic" : "Algorithm Misc",
   "question" : "The minimum number of comparisons required to determine if an integer appears more than n/2 times in a sorted array of n integers is (A) (n) (B) (logn) (C) (log*n) (D) (n)",
   "answerA" : "A",
   "answerB" : "B",
@@ -1007,7 +1007,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Algorithm Misc",
+  "topic" : "Algorithm Misc",
   "question" : "An element in an array X is called a leader if it is greater than all elements to the right of it in X. The best algorithm to find all leaders in an array (GATE CS 2006)",
   "answerA" : "Solves it in linear time using a left to right pass of the array",
   "answerB" : "Solves it in linear time using a right to left pass of the array",
@@ -1016,7 +1016,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Algorithm Misc",
+  "topic" : "Algorithm Misc",
   "question" : "Consider the following C function.\n\nfloat f(float x, int y) \n{ \n  float p, s; int i; \n  for (s=1, p=1, i=1; i < y; i ++) \n  { \n    p*= x/i; \n    s+=p; \n  } \n  return s; \n}   \nFor large values of y, the return value of the function f best approximates (GATE CS 2003)",
   "answerA" : "x^y",
   "answerB" : "e^x",
@@ -1025,7 +1025,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_B"
 }, {
-  "name" : "Algorithm Misc",
+  "topic" : "Algorithm Misc",
   "question" : "Suppose you are given an array s[1...n] and a procedure reverse (s,i,j) which reverses the order of elements in a between positions i and j (both inclusive). What does the following sequence\ndo, where 1 < k <= n:\n  reverse (s, 1, k);\n  reverse (s, k + 1, n);\n  reverse (s, 1, n);\n(GATE CS 2000)",
   "answerA" : "Rotates s left by k positions",
   "answerB" : "Leaves s unchanged",
@@ -1034,7 +1034,7 @@
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_A"
 }, {
-  "name" : "Algorithm Misc",
+  "topic" : "Algorithm Misc",
   "question" : "An inversion in a an array A[] is a pair (A[i], A[j]) such that A[i] > A[j] and i < j. An array will have maximum number of inversions if it is:",
   "answerA" : "Sorted in increasing order",
   "answerB" : "Sorted in decreasing order",
