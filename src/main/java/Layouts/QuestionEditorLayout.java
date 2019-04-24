@@ -57,11 +57,14 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 		quit.setId("quit");
 		quit.setOnAction(this);
 		
-		delete = new Button("Delete Question");
-		delete.setId("delete");
-		delete.setOnAction(this);
+		if (question.getName() != "") {
+			delete = new Button("Delete Question");
+			delete.setId("delete");
+			delete.setOnAction(this);
+			vbox.getChildren().add(delete);
+		}
 
-		vbox.getChildren().addAll(questionText, hintText, submit, errorMessage, quit, delete, correctAnswerBox);
+		vbox.getChildren().addAll(questionText, hintText, submit, errorMessage, quit, correctAnswerBox);
 		vbox.setAlignment(Pos.BOTTOM_CENTER);
 
 		this.setCenter(vbox);
