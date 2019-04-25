@@ -158,6 +158,7 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 		answerDHBox.getChildren().addAll(answerDLabel, answerD);
 
 		answers.getChildren().addAll(answerAHBox, answerBHBox, answerCHBox, answerDHBox);
+		
 		return answers;
 	}
 
