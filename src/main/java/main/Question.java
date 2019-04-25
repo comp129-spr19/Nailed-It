@@ -2,19 +2,25 @@ package main;
 
 // class that represents a question
 public class Question {
-	private String name, topic, question, answerA, answerB, answerC, answerD, hint;
+	private String name, topic, image, question, answerA, answerB, answerC, answerD, hint;
 	private Answer correctAnswer;
 	
-	public Question(String topic, String question,String answerA, String answerB, String answerC, 
+	public Question(String topic, String question, String answerA, String answerB, String answerC, 
 	 		String answerD, String hint,Answer answer) {
-		this("", topic, question, answerA, answerB, answerC, answerD, hint, answer);
+		this("", topic, "", question, answerA, answerB, answerC, answerD, hint, answer);
 	}
 	
 	public Question(String name, String topic, String question,String answerA, String answerB, String answerC, 
+	 		String answerD, String hint,Answer answer) {
+		this(name, topic, "", question, answerA, answerB, answerC, answerD, hint, answer);
+	}
+	
+	public Question(String name, String topic, String image, String question,String answerA, String answerB, String answerC, 
 			 		String answerD, String hint,Answer answer) {
 		this.name = name;
 		
 		this.topic = topic;
+		this.image = image;
 		this.question = question;
 		
 		this.answerA = answerA;
@@ -88,5 +94,13 @@ public class Question {
 		return ("Question: " + this.question + "\nA: " + getAnswerA()
 		  + "\nB: " + getAnswerB()+ "\nC: " + getAnswerC() + "\nD: " + getAnswerD() +
 		  "\nhint: " + getHint() + "\nCorrect answ: " +  getCorrectAnswer().toString());
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 }
