@@ -9,6 +9,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import main.MainStage;
@@ -22,6 +23,7 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 	private Button search, addQuestion, returnToMainMenu, reloadBackup;
 	private ArrayList<Question> questions;
 	private VBox questionList;
+	private ScrollPane questionScroll;
 
 	@Override
 	public void handle(ActionEvent e) {
@@ -61,21 +63,21 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 		search = new Button("Search");
 		search.setId("search");
 		search.setOnAction(this);
-		HBox bottomStuff = new HBox();
 		returnToMainMenu = new Button("Main Menu");
 		returnToMainMenu.setId("returnToMainMenu");
 		returnToMainMenu.setOnAction(this);
 		reloadBackup = new Button("Reset Questions");
 		reloadBackup.setId("reloadBackup");
 		reloadBackup.setOnAction(this);
-		bottomStuff.getChildren().addAll(returnToMainMenu, reloadBackup);
-		bottomStuff.setSpacing(10);
 		questionList = new VBox();
-
+		questionScroll = new ScrollPane();
+		addQuestion = new Button("Add Question");
+		addQuestion.setId("addQuestion");
+		addQuestion.setOnAction(this);
 		// addQuestion = new Button("Add Question");
-
-		top.getChildren().addAll(category, search);
-		this.getChildren().addAll(top, questionList, bottomStuff);
+		questionScroll.setContent(questionList);
+		top.getChildren().addAll(category, search, returnToMainMenu, reloadBackup, addQuestion);
+		this.getChildren().addAll(top, questionScroll);
 		this.setSpacing(50);
 	}
 
@@ -86,12 +88,6 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 		for (int i = 0; i < questions.size(); i++) {
 			questionList.getChildren().add(createQuestionBox(i, questions.get(i)));
 		}
-
-		addQuestion = new Button("Add Question");
-		addQuestion.setId("addQuestion");
-		addQuestion.setOnAction(this);
-		questionList.getChildren().add(addQuestion);
-
 	}
 
 	private HBox createQuestionBox(int id, Question question) {
