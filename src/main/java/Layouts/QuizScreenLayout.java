@@ -1,5 +1,7 @@
 package Layouts;
 
+import java.io.File;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -7,6 +9,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
+import javafx.scene.image.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -29,6 +32,7 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 	private int numAttempts;
 	private boolean complete;
 	private HBox header;
+	private ImageView picture;
 
 	public QuizScreenLayout(Question question, MainStage main) {
 		super();
@@ -87,6 +91,11 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 		vbox.setPadding(new Insets(10));
 		vbox.setSpacing(8);
 		vbox.setMaxWidth(600);
+		
+		//Image image = new Image("file:images/hash_probelm_q1.png");
+		//picture = new ImageView(image);
+		//picture.setFitHeight(100);
+		//picture.setFitWidth(100);
 
 		Label questionText = new Label(question.getQuestion());
 		questionText.setWrapText(true);
