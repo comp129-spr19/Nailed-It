@@ -171,7 +171,7 @@
   "correctAnswer" : "ANSWER_A"
 }, {
   "topic" : "Queue",
-  "question" : "Consider the following operation along with Enqueue and Dequeue operations on queues, where k is a global parameter.\n\nMultiDequeue(Q){\n   m = k\n   while (Q is not empty and m  > 0) {\n      Dequeue(Q)\n      m = m - 1\n   }\n}\nWhat is the worst case time complexity of a sequence of n MultiDequeue() operations on an initially empty queue? (GATE CS 2013) (A) (B) (C) (D)",
+  "question" : "Consider the following operation along with Enqueue and Dequeue operations on queues, where k is a global parameter.\n\nMultiDequeue(Q){\n   m = k\n   while (Q is not empty and m  > 0) {\n      Dequeue(Q)\n      m = m - 1\n   }\n}\nWhat is the worst case time complexity of a sequence of n MultiDequeue() operations on an initially empty queue? (GATE CS 2013) (A) θ(n)\n(B) θ(n+k)\n(C) θ(nk)\n(D) θ(n^2)\n",
   "answerA" : "A",
   "answerB" : "B",
   "answerC" : "C",
@@ -270,7 +270,7 @@
   "correctAnswer" : "ANSWER_B"
 }, {
   "topic" : "Balanced Binary Search Trees",
-  "question" : "The worst case running time to search for an element in a balanced in a binary search tree with n2^n elements is \n (A) \n (B) \n (C) \n (D)",
+  "question" : "The worst case running time to search for an element in a balanced in a binary search tree with n2^n elements is \n (A) θ(nlogn)\n (B) θ(n2^n)\n (C) θ(n)\n (D) θ(logn)",
   "answerA" : "A",
   "answerB" : "B",
   "answerC" : "C",
@@ -387,7 +387,7 @@
   "correctAnswer" : "ANSWER_D"
 }, {
   "topic" : "Graph",
-  "question" : "The most efficient algorithm for finding the number of connected components in an undirected graph on n vertices and m edges has time complexity. (A) (n) (B) (m) (C) (m + n) (D) (mn)",
+  "question" : "The most efficient algorithm for finding the number of connected components in an undirected graph on n vertices and m edges has time complexity. (A) θ(n) (B) θ(m) (C) θ(m + n) (D) θ(mn)",
   "answerA" : "A",
   "answerB" : "B",
   "answerC" : "C",
@@ -783,7 +783,7 @@
   "correctAnswer" : "ANSWER_C"
 }, {
   "topic" : "B and B+ Trees",
-  "question" : "Consider the following 2-3-4 tree (i.e., B-tree with a minimum degree of two) in which each data item is a letter. The usual alphabetical ordering of letters is used in constructing the tree. What is the result of inserting G in the above tree ?\n\nA) \n\nB) \n\nC) \n\nD) None of the above",
+  "question" : "Consider the following 2-3-4 tree (i.e., B-tree with a minimum degree of two) in which each data item is a letter. The usual alphabetical ordering of letters is used in constructing the tree.\n",
   "answerA" : "A",
   "answerB" : "B",
   "answerC" : "C",
@@ -873,7 +873,7 @@
   "correctAnswer" : "ANSWER_D"
 }, {
   "topic" : "Heap",
-  "question" : "We have a binary heap on n elements and wish to insert n more elements (not necessarily one after another) into this heap. The total time required for this is (A) (logn) (B) (n) (C) (nlogn) (D) (n^2)",
+  "question" : "We have a binary heap on n elements and wish to insert n more elements (not necessarily one after another) into this heap. The total time required for this is (A) θ(logn) (B) θ(n) (C) θ(nlogn) (D) θ(n^2)",
   "answerA" : "A",
   "answerB" : "B",
   "answerC" : "C",
@@ -882,7 +882,7 @@
   "correctAnswer" : "ANSWER_B"
 }, {
   "topic" : "Heap",
-  "question" : "In a min-heap with n elements with the smallest element at the root, the 7th smallest element can be found in time a) (n log n) b) (n) c) (log n) d) (1) The question was not clear in original GATE exam. For clarity, assume that there are no duplicates in Min-Heap and accessing heap elements below root is allowed.",
+  "question" : "In a min-heap with n elements with the smallest element at the root, the 7th smallest element can be found in time a) θ(n log n) b) θ(n) c) θ(log n) d) θ(1) The question was not clear in original GATE exam. For clarity, assume that there are no duplicates in Min-Heap and accessing heap elements below root is allowed.",
   "answerA" : "a",
   "answerB" : "b",
   "answerC" : "c",
@@ -945,7 +945,7 @@
   "correctAnswer" : "ANSWER_B"
 }, {
   "topic" : "Tree Traversals",
-  "question" : "Consider two binary operators ' ' and '' with the precedence of operator being lower than that of the operator. Operator is right associative while operator is left associative. Which one of the following represents the parse tree for expression (7 3 ­ 4 ­ 3 2)? (GATE CS 2011)",
+  "question" : "Consider two binary operators '↑' and '↓' with the precedence of operator ↓ being lower than that of the ↑ operator. Operator ↑ is right associative while operator ↓ is left associative. Which one of the following represents the parse tree for expression (7 3 ­ 4 ­ 3 2)? (GATE CS 2011)",
   "answerA" : "A",
   "answerB" : "B",
   "answerC" : "C",

@@ -45,7 +45,7 @@
   "correctAnswer" : "ANSWER_D"
 }, {
   "topic" : "Regular languages and finite automata",
-  "question" : "Definition of a language L with alphabet {a} is given as following.\n\n             L={| k>0, and n is a positive integer constant}\nWhat is the minimum number of states needed in DFA to recognize L?",
+  "question" : "Definition of a language L with alphabet {a} is given as following.\n\n             L={a^nk| k>0, and n is a positive integer constant}\nWhat is the minimum number of states needed in DFA to recognize L?",
   "answerA" : "k+1",
   "answerB" : "n+1",
   "answerC" : "2^(n+1)",

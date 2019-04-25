@@ -64,10 +64,10 @@
 }, {
   "topic" : "Analysis of Algorithms",
   "question" : "Let w(n) and A(n) denote respectively, the worst case and average case running time of an algorithm executed on an input of size n. which of the following is ALWAYS TRUE? (GATE CS 2012)\n (A) \n (B) \n (C) \n (D)",
-  "answerA" : "A",
-  "answerB" : "B",
-  "answerC" : "C",
-  "answerD" : "D",
+  "answerA" : "A)  A(n) = Ω(W(n))",
+  "answerB" : "B)  A(n) = θ(W(n))",
+  "answerC" : "C)  A(n) = O(W(n))",
+  "answerD" : "D)  A(n) = o(W(n))",
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
 }, {
@@ -124,15 +124,6 @@
   "answerD" : "Y is [2 4 6 8 10 12 14 16 18 20] and 2 < x < 20 and x is even",
   "hint" : "NO HINTS WITH GEEKSFORGEEKS",
   "correctAnswer" : "ANSWER_C"
-}, {
-  "topic" : "Searching",
-  "question" : "In the above question, the correction needed in the program to make it work properly is (GATE CS 2008)",
-  "answerA" : "Change line 6 to: if (Y[k] < x) i = k + 1; else j = k-1;",
-  "answerB" : "Change line 6 to: if (Y[k] < x) i = k - 1; else j = k+1;",
-  "answerC" : "Change line 6 to: if (Y[k] <= x) i = k; else j = k;",
-  "answerD" : "Change line 7 to: } while ((Y[k] == x) && (i < j));",
-  "hint" : "NO HINTS WITH GEEKSFORGEEKS",
-  "correctAnswer" : "ANSWER_A"
 }, {
   "topic" : "Searching",
   "question" : "You are given a list of 5 integers and these integers are in the range from 1 to 6. There are no duplicates in list. One of the integers is missing in the list. Which of the following expression would give the missing number. ^ is bitwise XOR operator. ~ is bitwise NOT operator. Let elements of list can be accessed as list[0], list[1], list[2], list[3], list[4]",
@@ -279,7 +270,7 @@
   "correctAnswer" : "ANSWER_B"
 }, {
   "topic" : "Analysis of Algorithms (Recurrences)",
-  "question" : "What is the value of following recurrence. T(n) = 5T(n/5) + , T(1) = 1, T(0) = 0",
+  "question" : "What is the value of following recurrence. T(n) = 5T(n/5) + √n, T(1) = 1, T(0) = 0",
   "answerA" : "Theta (n)",
   "answerB" : "Theta (n^2)",
   "answerC" : "Theta (sqrt(n))",
@@ -297,7 +288,7 @@
   "correctAnswer" : "ANSWER_D"
 }, {
   "topic" : "Analysis of Algorithms (Recurrences)",
-  "question" : "Suppose T(n) = 2T(n/2) + n, T(0) = T(1) = 1 Which one of the following is false. ( GATE CS 2005)\n a) T(n) = O(n^2)\n b) T(n) = (nLogn)\n c) T(n) = (n^2)\n d) T(n) = O(nLogn)",
+  "question" : "Suppose T(n) = 2T(n/2) + n, T(0) = T(1) = 1 Which one of the following is false. ( GATE CS 2005)\n a) T(n) = O(n^2)\n b) T(n) = θ(nLogn)\n c) T(n) = Ω(n^2)\n d) T(n) = O(nLogn)",
   "answerA" : "A",
   "answerB" : "B",
   "answerC" : "C",
@@ -306,7 +297,7 @@
   "correctAnswer" : "ANSWER_C"
 }, {
   "topic" : "Analysis of Algorithms (Recurrences)",
-  "question" : "Consider the following recurrence:\n Which one of the following is true?\n (A) T(n) = (loglogn)\n (B) T(n) = (logn)\n (C) T(n) = (sqrt(n))\n (D) T(n) = (n)",
+  "question" : "Consider the recurrence above:\n Which one of the following is true?\n (A) T(n) = θ(loglogn)\n (B) T(n) = θ(logn)\n (C) T(n) = θ(√n)\n (D) T(n) = θ(n)",
   "answerA" : "A",
   "answerB" : "B",
   "answerC" : "C",
@@ -315,7 +306,7 @@
   "correctAnswer" : "ANSWER_B"
 }, {
   "topic" : "Analysis of Algorithms (Recurrences)",
-  "question" : "The running time of an algorithm is represented by the following recurrence relation:\n    if  n <= 3  then   T(n) = n\n    else T(n) = T(n/3) + cn\nWhich one of the following represents the time complexity of the algorithm?\n (A) (n)\n (B) (n log n)\n (C) (n^2)\n (D) (n^2log n)",
+  "question" : "The running time of an algorithm is represented by the following recurrence relation:\n    if  n <= 3  then   T(n) = n\n    else T(n) = T(n/3) + cn\nWhich one of the following represents the time complexity of the algorithm?\n (A) θ(n)\n (B) θ(n log n)\n (C) θ(n^2)\n (D) θ(n^2log n)",
   "answerA" : "A",
   "answerB" : "B",
   "answerC" : "C",
@@ -324,7 +315,7 @@
   "correctAnswer" : "ANSWER_A"
 }, {
   "topic" : "Analysis of Algorithms (Recurrences)",
-  "question" : "The running time of the following algorithm\n\n  Procedure A(n)  \n  If n <= 2 return(1) else return A();\nis best described by",
+  "question" : "The running time of the following algorithm\n\n  Procedure A(n)  \n  If n <= 2 return(1) else return A(⌈√n⌉);\nis best described by",
   "answerA" : "O(n)",
   "answerB" : "O(log n)",
   "answerC" : "O(1og log n)",
@@ -333,7 +324,7 @@
   "correctAnswer" : "ANSWER_C"
 }, {
   "topic" : "Analysis of Algorithms (Recurrences)",
-  "question" : "What is the time complexity of the following recursive function:\n\nint DoSomething (int n) \n{\n  if (n <= 2)\n    return 1;\n  else  \n    return (DoSomething (floor(sqrt(n))) + n);\n}\n(A) (n) \n (B) (nlogn)\n (C) (logn)\n (D) (loglogn)",
+  "question" : "What is the time complexity of the following recursive function:\n\nint DoSomething (int n) \n{\n  if (n <= 2)\n    return 1;\n  else  \n    return (DoSomething (floor(sqrt(n))) + n);\n}\n(A) θ(n) \n (B) θ(nlogn)\n (C) θ(logn)\n (D) θ(loglogn)",
   "answerA" : "A",
   "answerB" : "B",
   "answerC" : "C",
@@ -351,7 +342,7 @@
   "correctAnswer" : "ANSWER_D"
 }, {
   "topic" : "Analysis of Algorithms (Recurrences)",
-  "question" : "Consider the following recurrence T(n) = 3T(n/5) + lgn * lgn What is the value of T(n)? \n (A) \n (B) \n (c) \n (D)",
+  "question" : "Consider the following recurrence T(n) = 3T(n/5) + lgn * lgn What is the value of T(n)? \n (A) θ(n^logbase5 ^ 3) \n (B) θ(n^log base3 ^ 5) \n (c) θ(nLogn) \n (D) θ(Logn) ",
   "answerA" : "A",
   "answerB" : "B",
   "answerC" : "C",
@@ -864,7 +855,7 @@
   "correctAnswer" : "ANSWER_D"
 }, {
   "topic" : "NP Complete",
-  "question" : "Assuming P != NP, which of the following is true ? \n(A) NP-complete = NP\n \n(B) NP-complete P = \n \n(C) NP-hard = NP\n \n(D) P = NP-complete",
+  "question" : "Assuming P != NP, which of the following is true ? \n(A) NP-complete = NP\n \n(B) NP-complete∩P = Φ\n \n(C) NP-hard = NP\n \n(D) P = NP-complete",
   "answerA" : "A",
   "answerB" : "B",
   "answerC" : "C",
@@ -999,7 +990,7 @@
   "correctAnswer" : "ANSWER_D"
 }, {
   "topic" : "Algorithm Misc",
-  "question" : "The minimum number of comparisons required to determine if an integer appears more than n/2 times in a sorted array of n integers is (A) (n) (B) (logn) (C) (log*n) (D) (n)",
+  "question" : "The minimum number of comparisons required to determine if an integer appears more than n/2 times in a sorted array of n integers is (A) θ(n) (B) θ(logn) (C) θ(log*n) (D) θ(n)",
   "answerA" : "A",
   "answerB" : "B",
   "answerC" : "C",
