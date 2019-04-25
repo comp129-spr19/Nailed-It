@@ -990,7 +990,7 @@
   "correctAnswer" : "ANSWER_D"
 }, {
   "topic" : "Algorithm Misc",
-  "question" : "The minimum number of comparisons required to determine if an integer appears more than n/2 times in a sorted array of n integers is (A) (n) (B) (logn) (C) (log*n) (D) (n)",
+  "question" : "The minimum number of comparisons required to determine if an integer appears more than n/2 times in a sorted array of n integers is (A) θ(n) (B) θ(logn) (C) θ(log*n) (D) θ(n)",
   "answerA" : "A",
   "answerB" : "B",
   "answerC" : "C",
