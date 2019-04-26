@@ -96,8 +96,6 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 		if (question.getImage() != "") {
 			Image image = new Image(IMAGE_FILEPATH + question.getImage());
 			picture = new ImageView(image);
-			picture.setFitHeight(100);
-			picture.setFitWidth(100);
 			picture.setVisible(true);
 			vbox.getChildren().add(picture);
 		}
