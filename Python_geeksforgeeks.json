@@ -1,46 +1,8 @@
 [ {
   "name" : "",
-  "topic" : "None",
-  "question" : "What is the output of the following code :\n\nprint 9//2",
-  "answerA" : "4.5",
-  "answerB" : "4.0",
-  "answerC" : "4",
-  "answerD" : "Error",
-  "hint" : "None",
-  "correctAnswer" : "ANSWER_C"
-}, {
-  "name" : "",
-  "topic" : "None",
-  "question" : "Which function overloads the >> operator?",
-  "answerA" : "more()",
-  "answerB" : "gt()",
-  "answerC" : "ge()",
-  "answerD" : "None of the above",
-  "hint" : "None",
-  "correctAnswer" : "ANSWER_D"
-}, {
-  "name" : "",
-  "topic" : "None",
-  "question" : "Which operator is overloaded by the or() function?",
-  "answerA" : "||",
-  "answerB" : "|",
-  "answerC" : "//",
-  "answerD" : "/",
-  "hint" : "None",
-  "correctAnswer" : "ANSWER_B"
-}, {
-  "name" : "",
-  "topic" : "None",
-  "question" : "What is the output of the following program :\n\ni = 0\nwhile i < 3:\n       print i\n       i++\n       print i+1\n",
-  "answerA" : "0 2 1 3 2 4",
-  "answerB" : "0 1 2 3 4 5",
-  "answerC" : "Error",
-  "answerD" : "1 0 2 4 3 5",
-  "hint" : "None",
-  "correctAnswer" : "ANSWER_C"
-}, {
-  "name" : "",
-  "topic" : "None",
+  "topic" : "pythondatatype",
+  "image" : "",
+  "explanation" : "",
   "question" : "Which of these is not a core data type?",
   "answerA" : "Lists",
   "answerB" : "Dictionary",
@@ -50,7 +12,9 @@
   "correctAnswer" : "ANSWER_D"
 }, {
   "name" : "",
-  "topic" : "None",
+  "topic" : "pythondatatype",
+  "image" : "",
+  "explanation" : "",
   "question" : "What data type is the object below ? L = [1, 23, ‘hello’, 1]",
   "answerA" : "List",
   "answerB" : "Dictionary",
@@ -60,7 +24,9 @@
   "correctAnswer" : "ANSWER_A"
 }, {
   "name" : "",
-  "topic" : "None",
+  "topic" : "pythondatatype",
+  "image" : "",
+  "explanation" : "",
   "question" : "Which of the following function convert a string to a float in python?",
   "answerA" : "int(x [,base])",
   "answerB" : "long(x [,base] )",
@@ -70,7 +36,9 @@
   "correctAnswer" : "ANSWER_C"
 }, {
   "name" : "",
-  "topic" : "None",
+  "topic" : "pythondatatype",
+  "image" : "",
+  "explanation" : "",
   "question" : "Which of the following statement(s) is TRUE?\n1. A hash function takes a message of arbitrary length and generates a fixed length code.\n2. A hash function takes a message of fixed length and generates a code of variable length.\n3. A hash function may give the same hash value for distinct messages.\n  ",
   "answerA" : "I only",
   "answerB" : "II and III only",
@@ -80,7 +48,9 @@
   "correctAnswer" : "ANSWER_C"
 }, {
   "name" : "",
-  "topic" : "None",
+  "topic" : "pythonoutputtype",
+  "image" : "",
+  "explanation" : "",
   "question" : "What is the output of the following program :\n\ndef myfunc(a):\n    a = a + 2\n        a = a * 2\n    return a\n\nprint myfunc(2)",
   "answerA" : "8",
   "answerB" : "16",
@@ -90,7 +60,9 @@
   "correctAnswer" : "ANSWER_C"
 }, {
   "name" : "",
-  "topic" : "None",
+  "topic" : "pythonoutputtype",
+  "image" : "",
+  "explanation" : "",
   "question" : "What is the output of the expression : 3*1**3",
   "answerA" : "27",
   "answerB" : "9",
@@ -100,7 +72,9 @@
   "correctAnswer" : "ANSWER_C"
 }, {
   "name" : "",
-  "topic" : "None",
+  "topic" : "pythonoutputtype",
+  "image" : "",
+  "explanation" : "",
   "question" : "What is the output of the following program :\n\nprint '{0:.2}'.format(1.0 / 3)",
   "answerA" : "0.333333",
   "answerB" : "0.33",
@@ -110,7 +84,9 @@
   "correctAnswer" : "ANSWER_B"
 }, {
   "name" : "",
-  "topic" : "None",
+  "topic" : "pythonoutputtype",
+  "image" : "",
+  "explanation" : "",
   "question" : "What is the output of the following program :\n\nprint '{0:-2%}'.format(1.0 / 3)",
   "answerA" : "0.33",
   "answerB" : "0.33%",
@@ -120,7 +96,9 @@
   "correctAnswer" : "ANSWER_C"
 }, {
   "name" : "",
-  "topic" : "None",
+  "topic" : "pythonoutputtype",
+  "image" : "",
+  "explanation" : "",
   "question" : "What is the output of the following program :\n\ni = 0\n  while i < 3:\n     print i\n     i += 1\n  else:\n     print 0\n",
   "answerA" : "0 1 2 3 0",
   "answerB" : "0 1 2 0",
@@ -130,7 +108,9 @@
   "correctAnswer" : "ANSWER_B"
 }, {
   "name" : "",
-  "topic" : "None",
+  "topic" : "pythonoutputtype",
+  "image" : "",
+  "explanation" : "",
   "question" : "What is the output of the following program :\n\ni = 0\nwhile i < 5:\n    print(i)\n    i += 1\n    if i == 3:\n        break\nelse:\n    print(0)\n",
   "answerA" : "0 1 2 0",
   "answerB" : "0 1 2",
@@ -140,7 +120,9 @@
   "correctAnswer" : "ANSWER_B"
 }, {
   "name" : "",
-  "topic" : "None",
+  "topic" : "pythonoutputtype",
+  "image" : "",
+  "explanation" : "",
   "question" : "What is the output of the following program :\n\nprint 'cd'.partition('cd')",
   "answerA" : "(‘cd’)",
   "answerB" : "(”)",
@@ -150,7 +132,9 @@
   "correctAnswer" : "ANSWER_D"
 }, {
   "name" : "",
-  "topic" : "None",
+  "topic" : "pythonoutputtype",
+  "image" : "",
+  "explanation" : "",
   "question" : "What is the output of the following program :\n\nprint 'abef'.partition('cd')",
   "answerA" : "(‘abef’)",
   "answerB" : "(‘abef’, ‘cd’, ”)",
@@ -160,7 +144,9 @@
   "correctAnswer" : "ANSWER_C"
 }, {
   "name" : "",
-  "topic" : "None",
+  "topic" : "pythonoutputtype",
+  "image" : "",
+  "explanation" : "",
   "question" : "What is the output of the following program :\n\nprint 'abcefd'.replace('cd', '12')",
   "answerA" : "ab1ef2",
   "answerB" : "abcefd",
@@ -170,7 +156,9 @@
   "correctAnswer" : "ANSWER_B"
 }, {
   "name" : "",
-  "topic" : "None",
+  "topic" : "pythonoutputtype",
+  "image" : "",
+  "explanation" : "",
   "question" : "What will be displayed by the following code?\n\ndef f(value, values):\n    v = 1\n    values[0] = 44\nt = 3\nv = [1, 2, 3]\nf(t, v)\nprint(t, v[0])",
   "answerA" : "1 1",
   "answerB" : "1 44",
@@ -180,7 +168,9 @@
   "correctAnswer" : "ANSWER_D"
 }, {
   "name" : "",
-  "topic" : "None",
+  "topic" : "pythonmisc",
+  "image" : "",
+  "explanation" : "",
   "question" : "What is the output of the following program :\n\nprint \"Hello World\"[::-1]",
   "answerA" : "dlroW olleH",
   "answerB" : "Hello Worl",
@@ -190,7 +180,9 @@
   "correctAnswer" : "ANSWER_A"
 }, {
   "name" : "",
-  "topic" : "None",
+  "topic" : "pythonmisc",
+  "image" : "",
+  "explanation" : "",
   "question" : "Given a function that does not return any value, what value is shown when executed at the shell?",
   "answerA" : "int",
   "answerB" : "bool",
@@ -200,7 +192,9 @@
   "correctAnswer" : "ANSWER_D"
 }, {
   "name" : "",
-  "topic" : "None",
+  "topic" : "pythonmisc",
+  "image" : "",
+  "explanation" : "",
   "question" : "Which module in Python supports regular expressions?",
   "answerA" : "re",
   "answerB" : "regex",
@@ -210,7 +204,9 @@
   "correctAnswer" : "ANSWER_A"
 }, {
   "name" : "",
-  "topic" : "None",
+  "topic" : "pythonmisc",
+  "image" : "",
+  "explanation" : "",
   "question" : "What is the output of the following program :\n\nprint 0.1 + 0.2 == 0.3",
   "answerA" : "True",
   "answerB" : "False",
@@ -220,7 +216,9 @@
   "correctAnswer" : "ANSWER_B"
 }, {
   "name" : "",
-  "topic" : "None",
+  "topic" : "pythonmisc",
+  "image" : "",
+  "explanation" : "",
   "question" : "Which of the following is not a complex number?",
   "answerA" : "k = 2 + 3j",
   "answerB" : "k = complex(2, 3)",
@@ -230,7 +228,9 @@
   "correctAnswer" : "ANSWER_C"
 }, {
   "name" : "",
-  "topic" : "None",
+  "topic" : "pythonmisc",
+  "image" : "",
+  "explanation" : "",
   "question" : "What does ~~~~~~5 evaluate to?",
   "answerA" : "+5",
   "answerB" : "-11",
@@ -240,7 +240,9 @@
   "correctAnswer" : "ANSWER_A"
 }, {
   "name" : "",
-  "topic" : "None",
+  "topic" : "pythonmisc",
+  "image" : "",
+  "explanation" : "",
   "question" : "Given a string s = “Welcome”, which of the following code is incorrect?",
   "answerA" : "print s[0]",
   "answerB" : "print s.lower()",
@@ -250,7 +252,9 @@
   "correctAnswer" : "ANSWER_C"
 }, {
   "name" : "",
-  "topic" : "None",
+  "topic" : "pythonmisc",
+  "image" : "",
+  "explanation" : "",
   "question" : "________ is a simple but incomplete version of a function.",
   "answerA" : "Stub",
   "answerB" : "Function",
@@ -260,7 +264,9 @@
   "correctAnswer" : "ANSWER_A"
 }, {
   "name" : "",
-  "topic" : "None",
+  "topic" : "pythonmisc",
+  "image" : "",
+  "explanation" : "",
   "question" : "To start Python from the command prompt, use the command ______",
   "answerA" : "execute python",
   "answerB" : "go python",
@@ -270,7 +276,9 @@
   "correctAnswer" : "ANSWER_C"
 }, {
   "name" : "",
-  "topic" : "None",
+  "topic" : "pythonmisc",
+  "image" : "",
+  "explanation" : "",
   "question" : "Which of the following is correct about Python?",
   "answerA" : "It supports automatic garbage collection.",
   "answerB" : "It can be easily integrated with C, C++, COM, ActiveX, CORBA, and Java",
