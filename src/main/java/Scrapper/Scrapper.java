@@ -10,11 +10,14 @@ import JSON.JSONOperations;
 import main.*;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
+import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -440,15 +443,94 @@ public class Scrapper {
 		}
 	}
 	
+	
+	public static void addImagesNExplanations() {
+		JSONObject file = JSONOperations.createJSONObject(Constants.FILENAME);
+		ArrayList<String> categories = JSONOperations.returnCategories();
+		
+		for (String category : categories) {
+			JSONObject curCategory = file.getJSONObject(category);
+			
+			int numQuestions = curCategory.length();
+			
+			for (int i  = 0; i < numQuestions; i++) {
+				String questionNum = "q" + (i+1);
+				JSONObject question = curCategory.getJSONObject(questionNum);
+				
+				String topic = question.getString("topic");
+				
+				String explanation = getExplanationFile(questionNum,topic);
+				
+				
+				if (explanation != null) {
+					question.put("explanation", explanation);
+				}
+				
+				
+				
+				String image = getImageFile(questionNum,topic);
+				
+				if (image != null) {
+					question.put("image", image);
+				}
+				
+				curCategory.put(questionNum,question);
+				file.put(category, curCategory);
+				
+				try {
+					//rewriting the full file text to the JSON file
+					FileWriter file2 = new FileWriter(Constants.FILENAME);
+					file2.write(file.toString());
+					file2.close();
+					//return true;
+				} catch (Exception e) {
+					//e.printStackTrace();
+					//return false;
+				}
+			}
+		}
+	}
+	
+	
+	private static String getImageFile(String questionNum, String topic) {
+		File directory = new File("src/main/resources/images");
+		File[] filesInDir = directory.listFiles();
+		
+		for (File file : filesInDir) {
+			String nameOfFile = file.getName();
+			
+			if (nameOfFile.contains(questionNum) && nameOfFile.contains(topic)) {
+				return nameOfFile;
+			}
+		}
+		return null;
+	}
+
+	private static String getExplanationFile(String questionNum, String topic) {
+		File directory = new File("src/main/resources/explanations");
+		File[] filesInDir = directory.listFiles();
+		
+		for (File file : filesInDir) {
+			String nameOfFile = file.getName();
+			
+			if (nameOfFile.contains(questionNum) && nameOfFile.contains(topic)) {
+				return nameOfFile;
+			}
+		}
+		return null;
+	}
+
 	public static void main(String args[]) throws JsonGenerationException, JsonMappingException, IOException {
-	  
+	  /*
 		createAlgoQuestions();
 		createDSQuestions();
 		createOSQuestions();
 		createDBMSQuestions();
 		createCompTheoryQuestions();
 		createPythonQuestions(); 
+		*/
 		
+		addImagesNExplanations();
 		
 		//removeAllButCustom();
 	}
