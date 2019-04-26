@@ -21,6 +21,7 @@ import main.Question;
 
 public class QuizScreenLayout extends BorderPane implements EventHandler<ActionEvent> {
 	public static final int MAX_ATTEMPTS = 2;
+	public static final String IMAGE_FILEPATH = "file:src/main/resources/images/";
 
 	MainStage main;
 
@@ -92,10 +93,14 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 		vbox.setSpacing(8);
 		vbox.setMaxWidth(600);
 		
-		//Image image = new Image("file:images/hash_probelm_q1.png");
-		//picture = new ImageView(image);
-		//picture.setFitHeight(100);
-		//picture.setFitWidth(100);
+		if (question.getImage() != "") {
+			Image image = new Image(IMAGE_FILEPATH + question.getImage());
+			picture = new ImageView(image);
+			picture.setFitHeight(100);
+			picture.setFitWidth(100);
+			picture.setVisible(true);
+			vbox.getChildren().add(picture);
+		}
 
 		Label questionText = new Label(question.getQuestion());
 		questionText.setWrapText(true);
