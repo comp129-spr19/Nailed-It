@@ -9,6 +9,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -25,7 +26,7 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 
 	MainStage main;
 
-	private Text questionText, responseText, hintText,headerOne,headerTwo,questionNumber,totalQuestions;
+	private Text questionText, responseText, hintText,divisor,questionNumber,totalQuestions, attemptedString;
 	private Button answerA, answerB, answerC, answerD;
 	private Button next, skip, quit, hint;
 	private Answer correctAnswer, selectedAnswer;
@@ -42,11 +43,11 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 		complete = false;
 
 		header = new HBox();
-		headerOne = new Text("Question ");
-		headerTwo = new Text(" out of ");
+		divisor = new Text("/");
 		questionNumber = new Text("");
 		totalQuestions = new Text("");
-		header.getChildren().addAll(headerOne,questionNumber,headerTwo,totalQuestions);
+		attemptedString = new Text("");
+		header.getChildren().addAll(questionNumber,divisor,totalQuestions);
 		this.setTop(header);
 		
 		
@@ -81,7 +82,7 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 			hint.setId("hint");
 			hint.setOnAction(this);
 			hintString = question.getHint();
-			hbox.getChildren().addAll(quit, hint, skip, next);
+			hbox.getChildren().addAll(quit, hint, skip, next, header, attemptedString);
 		}
 
 		hbox.setAlignment(Pos.BOTTOM_CENTER);
@@ -110,7 +111,7 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 
 		vbox.setAlignment(Pos.BOTTOM_CENTER);
 
-		vbox.getChildren().addAll(questionText, hintText, responseText, hbox);
+		vbox.getChildren().addAll(hbox, new ScrollPane(questionText), hintText, responseText);
 
 		this.setCenter(vbox);
 	}
@@ -211,6 +212,7 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 	 */
 	private void handleSelection() {
 		numAttempts++;
+		attemptedString.setText("Attempted: " + numAttempts + "/" + MAX_ATTEMPTS);
 		complete = (selectedAnswer == correctAnswer) || (numAttempts >= MAX_ATTEMPTS);
 		setResponse();
 		if (complete) {
