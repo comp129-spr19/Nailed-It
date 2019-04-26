@@ -30,7 +30,7 @@ public class ScrapperTester {
 	}
 	*/
 	@Test public void testSiteOne() throws IOException {
-		for (Question q :Scrapper.getQuestions("https://www.geeksforgeeks.org/algorithms-gq/graph-shortest-paths-gq/")) {
+		for (Question q :Scrapper.getQuestions("https://www.geeksforgeeks.org/algorithms-gq/graph-shortest-paths-gq/","")) {
 			assertNotNull(q);
 		}
 		
@@ -38,7 +38,7 @@ public class ScrapperTester {
 	} 
 	
 	@Test public void testSiteTwo() throws IOException {
-		for (Question q :Scrapper.getQuestions("https://www.geeksforgeeks.org/algorithms-gq/searching-and-sorting-gq/")) {
+		for (Question q :Scrapper.getQuestions("https://www.geeksforgeeks.org/algorithms-gq/searching-and-sorting-gq/","")) {
 			assertNotNull(q);
 		}
 	}

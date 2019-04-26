@@ -23,7 +23,7 @@ public class GenerateQuestionScreens {
 
 		for (DiffScreenRowLayout row : rows) {
 			if (row.checkIfWebRow()) {
-				addWebQuestions(row,questionScreens,main);
+				//addWebQuestions(row,questionScreens,main);
 			} else {
 				
 				addQuestions(row, questionScreens, main);
@@ -33,7 +33,7 @@ public class GenerateQuestionScreens {
 		return questionScreens;
 
 	}
-
+/*
 	// add web questions
 	private static void addWebQuestions(DiffScreenRowLayout row, ArrayList<QuizScreenLayout> questionScreens,
 			MainStage main) throws IOException {
@@ -57,7 +57,7 @@ public class GenerateQuestionScreens {
 			questionScreens.addAll(sortingScreens);
 		}
 		
-	}
+	} */
 
 	private static void addQuestions(DiffScreenRowLayout row, ArrayList<QuizScreenLayout> questionScreens,
 			MainStage main) {

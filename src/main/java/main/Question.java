@@ -2,26 +2,35 @@ package main;
 
 // class that represents a question
 public class Question {
-	private String name, topic, image, question, answerA, answerB, answerC, answerD, hint;
+	private String name, topic, image,explanation, question, answerA, answerB, answerC, answerD, hint;
+	public String getExplanation() {
+		return explanation;
+	}
+
+	public void setExplanation(String explanation) {
+		this.explanation = explanation;
+	}
+
 	private Answer correctAnswer;
 	
 	public Question(String topic, String question, String answerA, String answerB, String answerC, 
 	 		String answerD, String hint,Answer answer) {
-		this("", topic, "", question, answerA, answerB, answerC, answerD, hint, answer);
+		this("", topic, "", "", question, answerA, answerB, answerC, answerD, hint, answer);
 	}
 	
 	public Question(String name, String topic, String question,String answerA, String answerB, String answerC, 
 	 		String answerD, String hint,Answer answer) {
-		this(name, topic, "", question, answerA, answerB, answerC, answerD, hint, answer);
+		this(name, topic, "", "", question, answerA, answerB, answerC, answerD, hint, answer);
 	}
 	
-	public Question(String name, String topic, String image, String question,String answerA, String answerB, String answerC, 
+	public Question(String name, String topic, String image,String explanation, String question,String answerA, String answerB, String answerC, 
 			 		String answerD, String hint,Answer answer) {
 		this.name = name;
 		
 		this.topic = topic;
 		this.image = image;
 		this.question = question;
+		this.explanation = explanation;
 		
 		this.answerA = answerA;
 		this.answerB = answerB;
