@@ -96,9 +96,8 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 		if (question.getImage() != "") {
 			Image image = new Image(IMAGE_FILEPATH + question.getImage());
 			picture = new ImageView(image);
-			picture.setFitHeight(100);
-			picture.setFitWidth(100);
 			picture.setVisible(true);
+			vbox.getChildren().add(picture);
 		}
 
 		Label questionText = new Label(question.getQuestion());
@@ -111,7 +110,7 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 
 		vbox.setAlignment(Pos.BOTTOM_CENTER);
 
-		vbox.getChildren().addAll(picture, questionText, hintText, responseText, hbox);
+		vbox.getChildren().addAll(questionText, hintText, responseText, hbox);
 
 		this.setCenter(vbox);
 	}

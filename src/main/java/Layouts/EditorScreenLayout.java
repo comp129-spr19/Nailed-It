@@ -32,6 +32,7 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 			if (button.getId().equals("search")) {
 				if (!(category.getSelectionModel().isEmpty())) {
 					listQuestions();
+					addQuestion.setDisable(false);
 				}
 			} else if (button.getId().contains("edit")) {
 				String ID = button.getId();
@@ -74,6 +75,7 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 		addQuestion = new Button("Add Question");
 		addQuestion.setId("addQuestion");
 		addQuestion.setOnAction(this);
+		addQuestion.setDisable(true);
 		// addQuestion = new Button("Add Question");
 		questionScroll.setContent(questionList);
 		top.getChildren().addAll(category, search, returnToMainMenu, reloadBackup, addQuestion);

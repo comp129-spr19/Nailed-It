@@ -29,7 +29,7 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 		this.question = question;
 		this.isNewQuestion = isNewQuestion;
 
-		VBox answerSelection = setMultipleChoiceOptions(question);
+		GridPane answerSelection = setMultipleChoiceOptions(question);
 		this.setBottom(answerSelection);
 
 		VBox vbox = new VBox();
@@ -38,12 +38,8 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 		vbox.setMaxWidth(600);
 		
 		questionText = new TextField(question.getQuestion());
-		Tooltip q = new Tooltip("Question");
-		questionText.setTooltip(q);
 
 		hintText = new TextField(question.getHint());
-		Tooltip hint = new Tooltip("Hint");
-		hintText.setTooltip(hint);
 		
 		HBox correctAnswerBox = setCorrectAnswer(question);
 		
@@ -57,17 +53,15 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 		quit.setId("quit");
 		quit.setOnAction(this);
 		
-		if (question.getName() != "") {
-			delete = new Button("Delete Question");
-			delete.setId("delete");
-			delete.setOnAction(this);
-			vbox.getChildren().add(delete);
-		}
+		delete = new Button("Delete Question");
+		delete.setId("delete");
+		delete.setOnAction(this);
 
-		vbox.getChildren().addAll(questionText, hintText, submit, errorMessage, quit, correctAnswerBox);
+		vbox.getChildren().addAll(questionText, hintText, submit, errorMessage, quit, delete, correctAnswerBox);
 		vbox.setAlignment(Pos.BOTTOM_CENTER);
 
-		this.setCenter(vbox);}
+		this.setCenter(vbox);
+	}
 	
 	private HBox setCorrectAnswer(Question question) {
 		answerLabel = new Text("Correct Answer: ");
@@ -114,15 +108,12 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 		return correctAnswerBox;
 	}
 	
-	private VBox setMultipleChoiceOptions(Question question) {
-		VBox answers = new VBox();
-		answers.setPadding(new Insets(10));
-		answers.setSpacing(8);
-		
-		Label answerALabel = new Label("A. ");
-		Label answerBLabel = new Label("B. ");
-		Label answerCLabel = new Label("C. ");
-		Label answerDLabel = new Label("D. ");
+	private GridPane setMultipleChoiceOptions(Question question) {
+		GridPane grid = new GridPane();
+		grid.setPadding(new Insets(0, 0, 0, 0));
+		grid.setAlignment(Pos.CENTER);
+		grid.setVgap(0);
+		grid.setHgap(0);
 		
 		HBox answerAHBox = new HBox();
 		HBox answerBHBox = new HBox();
@@ -130,36 +121,29 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 		HBox answerDHBox = new HBox();
 
 		answerA = new TextField(question.getAnswerA());
-		answerA.setPrefSize(300, 75);
-		Tooltip a = new Tooltip("A");
-		answerA.setTooltip(a);
-		
-		answerAHBox.getChildren().addAll(answerALabel, answerA);
+		answerA.setPrefSize(300, 75);		
+		answerAHBox.getChildren().addAll(new Label("A. "), answerA);
+		GridPane.setConstraints(answerAHBox, 0, 0);
 
 		answerB = new TextField(question.getAnswerB());
-		answerB.setPrefSize(300, 75);
-		Tooltip b = new Tooltip("B");
-		answerB.setTooltip(b);
-		
-		answerBHBox.getChildren().addAll(answerBLabel, answerB);
-		
-		answerC = new TextField(question.getAnswerC());
-		answerC.setPrefSize(300, 75);
-		Tooltip c = new Tooltip("C");
-		answerC.setTooltip(c);
-		
-		answerCHBox.getChildren().addAll(answerCLabel, answerC);
-		
-		answerD = new TextField(question.getAnswerD());
-		answerD.setPrefSize(300, 75);
-		Tooltip d = new Tooltip("D");
-		answerD.setTooltip(d);
-		
-		answerDHBox.getChildren().addAll(answerDLabel, answerD);
+		answerB.setPrefSize(300, 75);		
+		answerBHBox.getChildren().addAll(new Label("	B. "), answerB);
+		GridPane.setConstraints(answerBHBox, 1, 0);
 
-		answers.getChildren().addAll(answerAHBox, answerBHBox, answerCHBox, answerDHBox);
+		answerC = new TextField(question.getAnswerC());
+		answerC.setPrefSize(300, 75);		
+		answerCHBox.getChildren().addAll(new Label("C. "), answerC);
+		GridPane.setConstraints(answerCHBox, 0, 1);
+
+		answerD = new TextField(question.getAnswerD());
+		answerD.setPrefSize(300, 75);		
+		answerDHBox.getChildren().addAll(new Label("	D. "), answerD);
+		GridPane.setConstraints(answerDHBox, 1, 1);
 		
-		return answers;
+
+		grid.getChildren().addAll(answerAHBox, answerBHBox, answerCHBox, answerDHBox);
+
+		return grid;
 	}
 
 	@Override
