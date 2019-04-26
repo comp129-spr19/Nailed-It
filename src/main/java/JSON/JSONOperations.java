@@ -66,10 +66,15 @@ public class JSONOperations {
 			String answerC = currentQuestion.getString("answer_c");
 			String answerD = currentQuestion.getString("answer_d");
 			String hint = currentQuestion.getString("hint");
-			//String image = currentQuestion.getString("image");
+			String image;
+			if (currentQuestion.has("image")) {
+				image = currentQuestion.getString("image");
+			} else {
+				image = "";
+			}
 			Answer correctAnswer = AnswerConverter.stringToAnswer(currentQuestion.getString("correct_answer"));
 			
-			questions.add(new Question(name, topic, /*image,*/ questionDescription, answerA, answerB, answerC,
+			questions.add(new Question(name, topic, image, questionDescription, answerA, answerB, answerC,
 										answerD, hint, correctAnswer));
 			
 			

@@ -23,6 +23,11 @@ public class Question {
 		this(name, topic, "", "", question, answerA, answerB, answerC, answerD, hint, answer);
 	}
 	
+	public Question(String name, String topic, String image, String question,String answerA, String answerB, String answerC, 
+	 		String answerD, String hint,Answer answer) {
+		this(name, topic, image, "", question, answerA, answerB, answerC, answerD, hint, answer);
+	}
+	
 	public Question(String name, String topic, String image,String explanation, String question,String answerA, String answerB, String answerC, 
 			 		String answerD, String hint,Answer answer) {
 		this.name = name;
