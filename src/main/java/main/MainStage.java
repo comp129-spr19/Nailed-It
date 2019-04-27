@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import Layouts.CompletionScreenLayout;
-import Layouts.ConfirmDeleteLayout;
+import Layouts.ConfirmLayout;
 import Layouts.EditorScreenLayout;
 import Layouts.MainMenuScreenLayout;
 import Layouts.QuestionEditorLayout;
@@ -38,7 +38,8 @@ public class MainStage extends Application {
 	private EditorScreenLayout editorScreenLayout;
 	private QuestionEditorLayout questionEditorLayout;
 	private QuestionEditorLayout newQuestionEditorLayout;
-	private ConfirmDeleteLayout confirmDeleteLayout;
+	private ConfirmLayout confirmDeleteLayout;
+	private ConfirmLayout confirmReloadLayout;
 
 	private int screenHeight;
 	private int screenWidth;
@@ -190,8 +191,13 @@ public class MainStage extends Application {
 	}
 
 	public void switchToDeleteConfirm(String category, Question question) {
-		confirmDeleteLayout = new ConfirmDeleteLayout(category, question, this);
+		confirmDeleteLayout = new ConfirmLayout(category, question, this);
 		scene.setRoot(confirmDeleteLayout);
+	}
+	
+	public void switchToReloadComfirm() {
+		confirmReloadLayout = new ConfirmLayout(this);
+		scene.setRoot(confirmReloadLayout);
 	}
 
 	public int getScreenHeight() {

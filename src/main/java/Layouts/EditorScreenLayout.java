@@ -47,8 +47,7 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 			} else if (button.getId().equals("returnToMainMenu")) {
 				main.switchToMainMenu();
 			} else if (button.getId().equals("reloadBackup")) {
-				JSONEditor.reloadBackupFile();
-				main.startEditor();
+				main.switchToReloadComfirm();
 			}
 		}
 
