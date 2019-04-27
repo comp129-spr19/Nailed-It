@@ -11,20 +11,30 @@ import javafx.scene.text.Text;
 import main.MainStage;
 import main.Question;
 
-public class ConfirmDeleteLayout extends VBox implements EventHandler<ActionEvent> {
+public class ConfirmLayout extends VBox implements EventHandler<ActionEvent> {
 
 	private MainStage main;
 	private Question question;
 	private String category;
 	private Text questionText, confirmText;
 	private Button yes, no;
+	
+	public ConfirmLayout(MainStage main) {
+		this(main, "Reload backup questions. This will remove any edits or additions you've made to the questions in this application.");
+		this.setId("Reload");
+	}
 
-	public ConfirmDeleteLayout(String category, Question question, MainStage main) {
-		this.main = main;
+	public ConfirmLayout(String category, Question question, MainStage main) {
+		this(main, ("Delete " + question.getQuestion()));
 		this.question = question;
 		this.category = category;
-
-		questionText = new Text("Delete: " + question.getQuestion());
+		this.setId("Delete");
+	}
+	
+	public ConfirmLayout(MainStage main, String textContents) {
+		this.main = main;
+		
+		questionText = new Text(textContents);
 		questionText.setWrappingWidth(main.getScreenWidth());
 
 		confirmText = new Text("Are you sure?");
@@ -53,11 +63,20 @@ public class ConfirmDeleteLayout extends VBox implements EventHandler<ActionEven
 			Button clicked = (Button) e.getSource();
 			switch (clicked.getId()) {
 			case "yes":
-				JSONEditor.deleteQuestion(category, question.getName());
-				main.startEditor();
+				if (this.getId().equals("Delete")) {
+					JSONEditor.deleteQuestion(category, question.getName());
+					main.startEditor();
+				} else if (this.getId().equals("Reload")) {
+					JSONEditor.reloadBackupFile();
+					main.startEditor();
+				}
 				break;
 			case "no":
-				main.switchToQuestionEditor(category, question);
+				if (this.getId().equals("Delete")) {
+					main.switchToQuestionEditor(category, question);
+				} else if (this.getId().equals("Reload")) {
+					main.startEditor();
+				}
 				break;
 			default:
 				System.out.println("Error: what the heck did you just click");
