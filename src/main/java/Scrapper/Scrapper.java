@@ -46,6 +46,12 @@ public class Scrapper {
 	// title of page
 	private static final String TITLE = "entry-title";
 	
+	private static ArrayList<String> seenTopicsExp = new ArrayList<String>();
+	private static ArrayList<Integer> topicCountExp = new ArrayList<Integer>();
+	
+	private static ArrayList<String> seenTopicsImg = new ArrayList<String>();
+	private static ArrayList<Integer> topicCountImg = new ArrayList<Integer>();
+	
 	private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
 
@@ -495,11 +501,22 @@ public class Scrapper {
 	private static String getImageFile(String questionNum, String topic) {
 		File directory = new File("src/main/resources/images");
 		File[] filesInDir = directory.listFiles();
+		String num;
+		if (seenTopicsImg.contains(topic)) {
+			int index = seenTopicsImg.indexOf(topic);
+			topicCountImg.set(index,topicCountImg.get(index).intValue() + 1);
+			num = topicCountImg.get(index).toString();
+		} else {
+			seenTopicsImg.add(topic);
+			topicCountImg.add(1);
+			num = "1";
+		}
+		
 		
 		for (File file : filesInDir) {
 			String nameOfFile = file.getName();
-			
-			if (nameOfFile.contains(questionNum) && nameOfFile.contains(topic)) {
+			String qNum = "q" + num;
+			if (nameOfFile.contains(qNum) && nameOfFile.contains(topic)) {
 				return nameOfFile;
 			}
 		}
@@ -509,11 +526,22 @@ public class Scrapper {
 	private static String getExplanationFile(String questionNum, String topic) {
 		File directory = new File("src/main/resources/explanations");
 		File[] filesInDir = directory.listFiles();
+		String num;
+		if (seenTopicsExp.contains(topic)) {
+			int index = seenTopicsExp.indexOf(topic);
+			topicCountExp.set(index,topicCountExp.get(index).intValue() + 1);
+			num = topicCountExp.get(index).toString();
+		} else {
+			seenTopicsExp.add(topic);
+			topicCountExp.add(1);
+			num = "1";
+		}
+		
 		
 		for (File file : filesInDir) {
 			String nameOfFile = file.getName();
-			
-			if (nameOfFile.contains(questionNum) && nameOfFile.contains(topic)) {
+			String qNum = "q" + num;
+			if (nameOfFile.contains(qNum) && nameOfFile.contains(topic)) {
 				return nameOfFile;
 			}
 		}
