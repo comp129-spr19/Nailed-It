@@ -2,19 +2,11 @@ package Layouts;
 
 import java.io.File;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.ContentDisplay;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.event.*;
+import javafx.geometry.*;
+import javafx.scene.control.*;
 import javafx.scene.image.*;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import main.Answer;
 import main.MainStage;
@@ -28,9 +20,9 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 
 	private Text questionText, responseText, hintText,divisor,questionNumber,totalQuestions, attemptedString;
 	private Button answerA, answerB, answerC, answerD;
-	private Button next, skip, quit, hint;
+	private Button next, skip, quit, hint, explanation;
 	private Answer correctAnswer, selectedAnswer;
-	private String hintString;
+	private String hintString, explanationString;
 	private int numAttempts;
 	private boolean complete;
 	private HBox header;
@@ -74,16 +66,28 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 		next.setOnAction(this);
 		next.setDisable(true);
 
+		hbox.getChildren().add(quit);
 		if ("NO HINTS WITH GEEKSFORGEEKS".equals(question.getHint())) {
-			hint = null; // because hint is null, do not add to hbox
-			hbox.getChildren().addAll(quit, skip, next);
+			hint = null;
+			// because hint is null, do not add to hbox
 		} else {
 			hint = new Button("Hint");
 			hint.setId("hint");
 			hint.setOnAction(this);
 			hintString = question.getHint();
-			hbox.getChildren().addAll(quit, hint, skip, next, header, attemptedString);
+			hbox.getChildren().add(hint);
 		}
+		hbox.getChildren().addAll(skip, next);
+		
+		if (question.getExplanation() != "") {
+			explanation = new Button("Explanation");
+			explanation.setId("explain");
+			explanation.setOnAction(this);
+			explanation.setDisable(true);
+			explanationString = question.getExplanation();
+			hbox.getChildren().add(explanation);
+		}
+		hbox.getChildren().addAll(header, attemptedString);
 
 		hbox.setAlignment(Pos.BOTTOM_CENTER);
 
@@ -92,7 +96,6 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 		VBox vbox = new VBox();
 		vbox.setPadding(new Insets(10));
 		vbox.setSpacing(8);
-		vbox.setMaxWidth(600);
 		
 		if (question.getImage() != "") {
 			Image image = new Image(IMAGE_FILEPATH + question.getImage());
@@ -160,6 +163,8 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 			case "hint":
 				showHint();
 				break;
+			case "explain":
+				main.switchToExplanation(explanationString);
 			default:
 				System.out.println("ERROR: No input case in EventHandler");
 			}
@@ -175,34 +180,40 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 		grid.setAlignment(Pos.CENTER);
 		grid.setVgap(0);
 		grid.setHgap(0);
+		double height = 75;
+		double width = main.getScreenWidth() / 2;
 
 		answerA = new Button("A: " + question.getAnswerA());
 		answerA.setId("A");
-		answerA.setOnAction(this);
-		answerA.setPrefSize(300, 75);
+		setUpButton(answerA, height, width);
 		GridPane.setConstraints(answerA, 0, 0);
 
 		answerB = new Button("B: " + question.getAnswerB());
 		answerB.setId("B");
-		answerB.setPrefSize(300, 75);
-		answerB.setOnAction(this);
+		setUpButton(answerB, height, width);
 		GridPane.setConstraints(answerB, 1, 0);
 
 		answerC = new Button("C: " + question.getAnswerC());
 		answerC.setId("C");
-		answerC.setPrefSize(300, 75);
-		answerC.setOnAction(this);
+		setUpButton(answerC, height, width);
 		GridPane.setConstraints(answerC, 0, 1);
 
 		answerD = new Button("D: " + question.getAnswerD());
 		answerD.setId("D");
-		answerD.setPrefSize(300, 75);
-		answerD.setOnAction(this);
+		setUpButton(answerD, height, width);
 		GridPane.setConstraints(answerD, 1, 1);
 
 		grid.getChildren().addAll(answerA, answerB, answerC, answerD);
 
 		return grid;
+	}
+	
+	private void setUpButton(Button button, double height, double width) {
+		button.setMaxHeight(height);
+		button.setMinHeight(height);
+		button.setMaxWidth(width);
+		button.setMinWidth(width);
+		button.setOnAction(this);
 	}
 
 	/*
@@ -217,6 +228,7 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 		setResponse();
 		if (complete) {
 			next.setDisable(false);
+			explanation.setDisable(false);
 			skip.setDisable(true);
 			disableAnswers();
 		}

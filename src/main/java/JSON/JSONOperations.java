@@ -72,9 +72,15 @@ public class JSONOperations {
 			} else {
 				image = "";
 			}
+			String explanation;
+			if (currentQuestion.has("explanation")) {
+				explanation = currentQuestion.getString("explanation");
+			} else {
+				explanation = "";
+			}
 			Answer correctAnswer = AnswerConverter.stringToAnswer(currentQuestion.getString("correct_answer"));
 			
-			questions.add(new Question(name, topic, image, questionDescription, answerA, answerB, answerC,
+			questions.add(new Question(name, topic, image, explanation, questionDescription, answerA, answerB, answerC,
 										answerD, hint, correctAnswer));
 			
 			

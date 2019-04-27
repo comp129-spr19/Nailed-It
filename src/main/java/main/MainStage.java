@@ -4,14 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import Layouts.CompletionScreenLayout;
-import Layouts.ConfirmLayout;
-import Layouts.DiffScreenRowLayout;
-import Layouts.DifficultyScreenLayout;
-import Layouts.EditorScreenLayout;
-import Layouts.MainMenuScreenLayout;
-import Layouts.QuestionEditorLayout;
-import Layouts.QuizScreenLayout;
+import Layouts.*;
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
@@ -39,9 +32,8 @@ public class MainStage extends Application {
 	private QuestionEditorLayout newQuestionEditorLayout;
 	private ConfirmLayout confirmDeleteLayout;
 	private ConfirmLayout confirmReloadLayout;
+	private ExplanationLayout explanationLayout;
 
-	private int screenHeight;
-	private int screenWidth;
 	private Stage stage;
 	private Scene scene;
 
@@ -110,8 +102,8 @@ public class MainStage extends Application {
 	 */
 	public void nextQuestion() {
 		if (currentQuestionIndex < questions.size()) {
-			System.out.println("Question num " + currentQuestionIndex);
-			System.out.println("TOTAL QUESTIONS " + questions.size());
+			//System.out.println("Question num " + currentQuestionIndex);
+			//System.out.println("TOTAL QUESTIONS " + questions.size());
 			questions.get(currentQuestionIndex).setQuestionCounterText(currentQuestionIndex+1, questions.size());
 			scene.setRoot(questions.get(currentQuestionIndex));
 			currentQuestionIndex++;
@@ -199,11 +191,16 @@ public class MainStage extends Application {
 		scene.setRoot(confirmReloadLayout);
 	}
 
-	public int getScreenHeight() {
-		return this.screenHeight;
+	public void switchToExplanation(String image) {
+		explanationLayout = new ExplanationLayout(this, image);
+		scene.setRoot(explanationLayout);
+	}
+	
+	public double getScreenHeight() {
+		return stage.getHeight();
 	}
 
-	public int getScreenWidth() {
-		return this.screenWidth;
+	public double getScreenWidth() {
+		return stage.getWidth();
 	}
 }

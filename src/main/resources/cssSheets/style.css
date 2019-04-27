@@ -10,7 +10,7 @@
 	-fx-font-weight: bold;
 }
 
-#editor, #hint, #next, #skip, #quit, #quiz {
+#editor, #hint, #next, #skip, #quit, #quiz, #explain {
   	-fx-background-color: #c5c3c6;
   	-fx-background-radius: 12;
 }
