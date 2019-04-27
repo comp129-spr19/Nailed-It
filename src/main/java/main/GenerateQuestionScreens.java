@@ -4,9 +4,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import JSON.JSONOperations;
-import Layouts.DiffScreenRowLayout;
 import Layouts.QuizScreenLayout;
 import Scrapper.Scrapper;
+import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
 
 /*
  * This class will be in charge of generating questions
@@ -17,51 +18,25 @@ import Scrapper.Scrapper;
  */
 
 public class GenerateQuestionScreens {
-	public static ArrayList<QuizScreenLayout> generate(ArrayList<DiffScreenRowLayout> rows, MainStage main) throws IOException {
+	public static ArrayList<QuizScreenLayout> generate(ArrayList<ToggleButton> categoryButtons, MainStage main) throws IOException {
 
 		ArrayList<QuizScreenLayout> questionScreens = new ArrayList<QuizScreenLayout>();
 
-		for (DiffScreenRowLayout row : rows) {
-			if (row.checkIfWebRow()) {
-				//addWebQuestions(row,questionScreens,main);
-			} else {
-				
-				addQuestions(row, questionScreens, main);
+		for (ToggleButton button : categoryButtons) {
+		
+			if (button.isSelected()) {
+				addQuestions(button,questionScreens,main);
 			}
 		}
 
 		return questionScreens;
 
 	}
-/*
-	// add web questions
-	private static void addWebQuestions(DiffScreenRowLayout row, ArrayList<QuizScreenLayout> questionScreens,
-			MainStage main) throws IOException {
-		boolean[] set = row.getDifficultySet();
-		
-		if (set[0]) {
-			ArrayList<Question> questions = Scrapper.getQuestions("https://www.geeksforgeeks.org/algorithms-gq/graph-shortest-paths-gq/");
-			ArrayList<QuizScreenLayout> graphScreens = convertQuestionToScreens(questions, main);
-			questionScreens.addAll(graphScreens);
-		}
-		
-		if (set[1]) {
-			ArrayList<Question> questions = Scrapper.getQuestions("https://www.geeksforgeeks.org/algorithms-gq/analysis-of-algorithms-gq/");
-			ArrayList<QuizScreenLayout> algScreens = convertQuestionToScreens(questions, main);
-			questionScreens.addAll(algScreens);
-		}
-		
-		if (set[2]) {
-			ArrayList<Question> questions = Scrapper.getQuestions("https://www.geeksforgeeks.org/algorithms-gq/searching-and-sorting-gq/");
-			ArrayList<QuizScreenLayout> sortingScreens = convertQuestionToScreens(questions, main);
-			questionScreens.addAll(sortingScreens);
-		}
-		
-	} */
 
-	private static void addQuestions(DiffScreenRowLayout row, ArrayList<QuizScreenLayout> questionScreens,
+
+	private static void addQuestions(ToggleButton button, ArrayList<QuizScreenLayout> questionScreens,
 			MainStage main) {
-		ArrayList<Question> questions = JSONOperations.getQuestions(row.getCategory());
+		ArrayList<Question> questions = JSONOperations.getQuestions(button.getId());
 		ArrayList<QuizScreenLayout> screens = convertQuestionToScreens(questions, main);
 		questionScreens.addAll(screens);
 	}
