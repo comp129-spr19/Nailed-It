@@ -42,7 +42,7 @@ public class CompletionScreenLayout extends VBox implements EventHandler<ActionE
 			Button clicked = (Button) e.getSource();
 			switch (clicked.getId()) {
 			case "quit":
-				main.switchToDifficulty();
+				main.switchToMainMenu();
 				break;
 			default:
 				System.out.println("ERROR: No input case in EventHandler");

@@ -158,7 +158,7 @@ public class QuizScreenLayout extends BorderPane implements EventHandler<ActionE
 				main.nextQuestion();
 				break;
 			case "quit":
-				main.switchToDifficulty();
+				main.switchToMainMenu();
 				break;
 			case "hint":
 				showHint();

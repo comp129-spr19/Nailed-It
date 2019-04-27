@@ -8,6 +8,8 @@ import Layouts.*;
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.StackPane;
 import javafx.scene.transform.Scale;
 import javafx.stage.Screen;
@@ -24,7 +26,7 @@ public class MainStage extends Application {
 	public static final double SCALE_FACTOR = 2;
 
 	// layouts for different screens throughout application
-	private DifficultyScreenLayout diffScreenLayout;
+	private SelectionScreenLayout selectionScreenLayout;
 	private CompletionScreenLayout completionScreenLayout;
 	private MainMenuScreenLayout mainMenuScreenLayout;
 	private EditorScreenLayout editorScreenLayout;
@@ -115,9 +117,9 @@ public class MainStage extends Application {
 	/*
 	 * Switches scene to difficulty screen
 	 */
-	public void switchToDifficulty() {
-		diffScreenLayout = new DifficultyScreenLayout(this);
-		scene.setRoot(diffScreenLayout);
+	public void switchToSelection() {
+		selectionScreenLayout = new SelectionScreenLayout(this);
+		scene.setRoot(selectionScreenLayout);
 	}
 
 	/*
@@ -140,8 +142,8 @@ public class MainStage extends Application {
 	 * @param diffSet An array of booleans representing the difficulty settings the
 	 * user toggles
 	 */
-	public void genQuestions(ArrayList<DiffScreenRowLayout> rows) throws IOException {
-		questions = GenerateQuestionScreens.generate(rows, this);
+	public void genQuestions(ArrayList<ToggleButton> categoryButtons) throws IOException {
+		questions = GenerateQuestionScreens.generate(categoryButtons, this);
 		//Collections.shuffle(questions);
 		currentQuestionIndex = 0;
 		numCorrAnswers = 0;
@@ -161,7 +163,7 @@ public class MainStage extends Application {
 	}
 
 	public void startQuiz() {
-		switchToDifficulty();
+		switchToSelection();
 
 	}
 
