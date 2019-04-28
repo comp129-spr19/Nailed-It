@@ -16,17 +16,20 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 	public static final String IMAGE_FILEPATH = FILEPATH + "images/";
 	public static final String EXPLANATIONS_FILEPATH = FILEPATH + "explanations/";
 	
+	public static final double TOP_BAR_HEIGHT = 100;
+	public static final double SCROLLBARS_HEIGHT_OFF = TOP_BAR_HEIGHT + 20;
+	
 	MainStage main;
 	Question question;
 	
 	int numAttempts;
 	boolean complete;
 	Answer selectedAnswer;
+	double leftWidth, rightWidth;
 	
 	HBox menu;
-	Button quit, hint, skip, next, explanation;
-	HBox header;
-	Text divisor, questionNumber, totalQuestions, attemptedString;
+	Button quit, hint, skip, next;
+	Text questionNumber, topicString, attemptedString;
 	
 	HBox answers;
 	Button answerA, answerB, answerC, answerD;
@@ -40,6 +43,8 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 	ScrollPane answerScroller;
 	VBox answerVBox;
 	Text responseText, answersText;
+	Image exp;
+	ImageView explanation;
 	
 	public QuizScreenLayout(Question question, MainStage main) {
 		super();
@@ -53,20 +58,23 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 		this.setVgap(0);
 		this.setHgap(0);
 		
+		leftWidth = (2 * main.getScreenWidth()) / 3;
+		rightWidth = main.getScreenWidth() / 3;
+		
 		createMenu();
-		setUpHBox(menu, main.getScreenWidth() / 2, 100);
+		setUpHBox(menu, leftWidth, TOP_BAR_HEIGHT);
 		GridPane.setConstraints(menu, 0, 0);
 		
 		createAnswers();
-		setUpHBox(answers, main.getScreenWidth() / 2, 100);
+		setUpHBox(answers, rightWidth, TOP_BAR_HEIGHT);
 		GridPane.setConstraints(answers, 1, 0);
 		
 		createQuestionScroller();
-		setUpScrollPane(questionScroller, main.getScreenWidth()/2, main.getScreenHeight() - 110);
+		setUpScrollPane(questionScroller, leftWidth, main.getScreenHeight() - SCROLLBARS_HEIGHT_OFF);
 		GridPane.setConstraints(questionScroller, 0, 1);
 		
 		createAnswerScroller();
-		setUpScrollPane(answerScroller, main.getScreenWidth()/2, main.getScreenHeight() - 110);
+		setUpScrollPane(answerScroller, rightWidth, main.getScreenHeight() - SCROLLBARS_HEIGHT_OFF);
 		GridPane.setConstraints(answerScroller, 1, 1);
 		
 		this.getChildren().addAll(menu, answers, questionScroller, answerScroller);
@@ -90,19 +98,18 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 		menu = new HBox();
 		menu.setPadding(new Insets(10));
 		menu.setSpacing(8);
-		menu.setAlignment(Pos.BOTTOM_CENTER);
-		
-		quit = new Button("Quit");
-		quit.setId("quit");
-		quit.setOnAction(this);
-		menu.getChildren().add(quit);
+		menu.setAlignment(Pos.CENTER);
 
-		if (question.getHint() != "None") {
-			hint = new Button("Hint");
-			hint.setId("hint");
-			hint.setOnAction(this);
-			menu.getChildren().add(hint);
+		questionNumber = new Text("");
+		menu.getChildren().add(questionNumber);
+		
+		hint = new Button("Hint");
+		hint.setId("hint");
+		hint.setOnAction(this);
+		if (question.getHint().equals("None")) {
+			hint.setDisable(true);
 		}
+		menu.getChildren().add(hint);
 		
 		skip = new Button("Skip");
 		skip.setId("skip");
@@ -114,26 +121,26 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 		next.setOnAction(this);
 		next.setDisable(true);
 		menu.getChildren().add(next);
-		
-		if (question.getExplanation() != "") {
-			explanation = new Button("Explanation");
-			explanation.setId("explain");
-			explanation.setOnAction(this);
-			explanation.setDisable(true);
-			menu.getChildren().add(explanation);
+
+		if (!question.getTopic().equals("None")) {
+			topicString = new Text("#" + question.getTopic());
+			menu.getChildren().add(topicString);
 		}
 		
-		header = new HBox();
-		divisor = new Text("/");
-		questionNumber = new Text("");
-		totalQuestions = new Text("");
-		header.getChildren().addAll(questionNumber,divisor,totalQuestions);
-		attemptedString = new Text("");
-		menu.getChildren().addAll(header, attemptedString);
+		attemptedString = new Text("Attempted: 0/2");
+		menu.getChildren().add(attemptedString);
+		
+		quit = new Button("Quit");
+		quit.setId("quit");
+		quit.setOnAction(this);
+		menu.getChildren().add(quit);
 	}
 
 	private void createAnswers() {
 		answers = new HBox();
+		answers.setPadding(new Insets(10));
+		answers.setSpacing(8);
+		answers.setAlignment(Pos.BOTTOM_CENTER);
 		
 		answerA = new Button("A");
 		answerA.setId("A");
@@ -161,7 +168,7 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 		hintText = new Text("");
 		questionVBox.getChildren().add(hintText);
 		
-		if (question.getImage() != "") {
+		if (!question.getImage().equals("")) {
 			img = new Image(IMAGE_FILEPATH + question.getImage());
 			image = new ImageView(img);
 			questionVBox.getChildren().add(image);
@@ -229,9 +236,6 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 			case "hint":
 				showHint();
 				break;
-			case "explain":
-				main.switchToExplanation(question.getExplanation());
-				break;
 			default:
 				System.out.println("ERROR: No input case in EventHandler");
 			}
@@ -245,11 +249,9 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 		setResponse();
 		if (complete) {
 			next.setDisable(false);
-			if (explanation != null) {
-				explanation.setDisable(false);
-			}
 			skip.setDisable(true);
 			disableAnswers();
+			showExplanation();
 		}
 	}
 
@@ -269,10 +271,12 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 	private void setResponse() {
 		String response = new String("Incorrect.");
 		if (complete) {
-			response += " Answer was: " + question.getCorrectAnswer().toString();
+			response += " Answer was: " + question.getCorrectAnswer().toString() + "\n";
+		} else {
+			response += "\n";
 		}
 		if (selectedAnswer == question.getCorrectAnswer()) {
-			response = "Correct.";
+			response = "Correct." + "\n";
 		}
 		responseText.setText(response);
 	}
@@ -290,11 +294,19 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 	 * Sets the hintText variable
 	 */
 	private void showHint() {
-		hintText.setText("Hint: " + question.getHint());
+		hintText.setText("Hint: " + question.getHint() + "\n");
+	}
+	
+	private void showExplanation() {
+		if(question.getExplanation().equals("")) {
+			return;
+		}
+		exp = new Image(EXPLANATIONS_FILEPATH + question.getExplanation());
+		explanation = new ImageView(exp);
+		answerVBox.getChildren().add(explanation);
 	}
 	
 	public void setQuestionCounterText(int qNumber, int totalQuestions) {
-		this.questionNumber.setText(""+qNumber);
-		this.totalQuestions.setText(""+totalQuestions);
+		this.questionNumber.setText("Question " + qNumber + "/" + totalQuestions);
 	}
 }

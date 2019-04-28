@@ -47,11 +47,12 @@ public class SelectionScreenLayout extends GridPane implements EventHandler<Acti
 		categoryButtons = new ArrayList<ToggleButton>();
 		for (String category: returnCategories) {
 			ToggleButton button = new ToggleButton(category);
+			button.getText();
 			if (category.equals("Custom")) {
 				customIndex = index;
 			}
 			button.setId(category);
-			//button.setOnAction(this);
+			button.setOnAction(this);
 			button.setMaxSize(BUTTON_WIDTH, BUTTON_HEIGHT);
 			button.setMinSize(BUTTON_WIDTH, BUTTON_HEIGHT);
 			
@@ -62,6 +63,7 @@ public class SelectionScreenLayout extends GridPane implements EventHandler<Acti
 		
 		nextButton = new Button("Next");
 		nextButton.setId("nextButton");
+		nextButton.setDisable(true);
 		nextButton.setOnAction(this);
 		nextButton.setMaxSize(BUTTON_WIDTH, BUTTON_HEIGHT);
 		nextButton.setMinSize(BUTTON_WIDTH,BUTTON_HEIGHT);
@@ -101,24 +103,30 @@ public class SelectionScreenLayout extends GridPane implements EventHandler<Acti
 
 	@Override
 	public void handle(ActionEvent e) {
-		if (categoryButtons != null && e.getSource() instanceof Button) {
-			Button clicked = (Button) e.getSource();
-			
-			if (clicked.getId().equals("nextButton")) {
-				try {
-					main.genQuestions(categoryButtons);
-					//System.out.println("WELL HERE I AM");
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					System.out.println("HAHAHAHA");
+		if (categoryButtons != null) {
+			if (e.getSource() instanceof Button) {
+				Button clicked = (Button) e.getSource();
+				if (clicked.getId().equals("nextButton")) {
+					try {
+						main.genQuestions(categoryButtons);
+					} catch (IOException e1) {
+						System.out.println("HAHAHAHA");
+					}
 				}
 			}
-			
+			else if (e.getSource() instanceof ToggleButton) {
+				nextButton.setDisable(noneToggled());
+			}
 		}
 	}
 
-
-	
-
+	private boolean noneToggled() {
+		for (ToggleButton b: categoryButtons) {
+			if (b.isSelected()) {
+				return false;
+			}
+		}
+		return true;
+	}
 
 }
