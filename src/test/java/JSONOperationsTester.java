@@ -25,6 +25,6 @@ public class JSONOperationsTester {
 	
 	@Test (expected = JSONException.class) 
 	public void testGetQuestionsThrowsExceptionWithInvalidCategoryAndDifficulty() {
-		JSONOperations.getQuestions("Python");
+		JSONOperations.getQuestions("Bears");
 	}
 }
