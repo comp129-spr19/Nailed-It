@@ -43,21 +43,23 @@ public class SelectionScreenLayout extends GridPane implements EventHandler<Acti
 		categoryButtons = new ArrayList<ToggleButton>();
 		for (String category : returnCategories) {
 			ToggleButton button = new ToggleButton(category);
+			button.getText();
 			if (category.equals("Custom")) {
 				customIndex = index;
 			}
+
 			button.setId("category");
 			button.wrapTextProperty().setValue(true);
 			button.setTextAlignment(TextAlignment.CENTER);
 			button.setMaxSize(main.getScreenWidth() / ASPECT_RATIO, main.getScreenHeight() / ASPECT_RATIO);
 			button.setMinSize(main.getScreenWidth() / ASPECT_RATIO, main.getScreenHeight() / ASPECT_RATIO);
-
 			categoryButtons.add(button);
 			index++;
 		}
 
 		nextButton = new Button("Begin Quiz");
 		nextButton.setId("nextButton");
+		nextButton.setDisable(true);
 		nextButton.setOnAction(this);
 		nextButton.setMaxSize(main.getScreenWidth() / ASPECT_RATIO, main.getScreenHeight() / HALF_ASPECT_RATIO);
 		nextButton.setMinSize(main.getScreenWidth() / ASPECT_RATIO, main.getScreenHeight() / HALF_ASPECT_RATIO);
@@ -101,22 +103,30 @@ public class SelectionScreenLayout extends GridPane implements EventHandler<Acti
 
 	@Override
 	public void handle(ActionEvent e) {
-		if (categoryButtons != null && e.getSource() instanceof Button) {
-			Button clicked = (Button) e.getSource();
-
-			if (clicked.getId().equals("nextButton")) {
-				try {
-					main.genQuestions(categoryButtons);
-					// System.out.println("WELL HERE I AM");
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					System.out.println("HAHAHAHA");
+		if (categoryButtons != null) {
+			if (e.getSource() instanceof Button) {
+				Button clicked = (Button) e.getSource();
+				if (clicked.getId().equals("nextButton")) {
+					try {
+						main.genQuestions(categoryButtons);
+					} catch (IOException e1) {
+						System.out.println("Error");
+					}
+				} else if (clicked.getId().equals("editor")) {
+					main.startEditor();
+				} else if (e.getSource() instanceof ToggleButton) {
+					nextButton.setDisable(noneToggled());
 				}
-			} else if (clicked.getId().equals("editor")) {
-				main.startEditor();
 			}
-
 		}
 	}
 
+	private boolean noneToggled() {
+		for (ToggleButton b : categoryButtons) {
+			if (b.isSelected()) {
+				return false;
+			}
+		}
+		return true;
+	}
 }

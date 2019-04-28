@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import Layouts.CompletionScreenLayout;
 import Layouts.ConfirmLayout;
 import Layouts.EditorScreenLayout;
-import Layouts.ExplanationLayout;
 import Layouts.MainMenuScreenLayout;
 import Layouts.QuestionEditorLayout;
 import Layouts.QuizScreenLayout;
@@ -39,7 +38,6 @@ public class MainStage extends Application {
 	private QuestionEditorLayout newQuestionEditorLayout;
 	private ConfirmLayout confirmDeleteLayout;
 	private ConfirmLayout confirmReloadLayout;
-	private ExplanationLayout explanationLayout;
 
 	private Stage stage;
 	private Scene scene;
@@ -195,11 +193,6 @@ public class MainStage extends Application {
 	public void switchToReloadComfirm() {
 		confirmReloadLayout = new ConfirmLayout(this);
 		scene.setRoot(confirmReloadLayout);
-	}
-
-	public void switchToExplanation(String image) {
-		explanationLayout = new ExplanationLayout(this, image);
-		scene.setRoot(explanationLayout);
 	}
 
 	public double getScreenHeight() {
