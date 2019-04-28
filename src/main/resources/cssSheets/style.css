@@ -6,72 +6,46 @@
 	-fx-text-fill: #46494c;
 }
 
-#category {
+#category, #category:hover, #category:select, #nextButton, #nextButton:hover, #nextButton:select, #editor, #editor:hover {
 	-fx-font-weight: bold;
+  	-fx-background-radius: 12.0;
+  	-fx-text-fill: #ffffff;
 }
 
-#editor, #hint, #next, #skip, #quit, #quiz {
+#category{
+  	-fx-background-color: #1985a1;
+}
+
+#category:hover, #category:selected{
+  	-fx-background-color: #4fc6e3;
+}
+
+#nextButton {
+  	-fx-background-color: #19b38a;
+}
+
+#nextButton:hover {
+  	-fx-background-color: #47e5bc;
+}
+
+#editor {
+	-fx-background-color: #EB5E55;
+}
+
+#editor:hover {
+	-fx-background-color: #f2948d;
+}
+
+#hint, #next, #skip, #quit, #quiz, #explain {
   	-fx-background-color: #c5c3c6;
   	-fx-background-radius: 12;
+  	-fx-font-size: 16.0;
 }
 
-#editor:hover, #hint:hover, #next:hover, #skip:hover, #quit:hover, #quiz:hover {
+#hint:hover, #next:hover, #skip:hover, #quit:hover, #quiz:hover {
   	-fx-background-color: #d9d8da;
   	-fx-background-radius: 12;
-}
-
-#easy {
-  	-fx-background-color: #91E5F6;  
-  	-fx-background-radius: 12;
-	-fx-text-fill: white;
-}
-
-#easy:hover {
-  	-fx-background-color: #b8eef9;
-  	-fx-background-radius: 12;
-  	-fx-text-fill: white;
-}
-
-#easy:selected {
-  	-fx-background-color: #b8eef9;
-  	-fx-background-radius: 12;
-	-fx-text-fill: white;
-}
-
-#medium {
-   	-fx-background-color: #84D2F6;
-   	-fx-background-radius: 12;
-	-fx-text-fill: white;
-}
-
-#medium:hover {
-	-fx-background-color:#b8e5fa;
-	-fx-background-radius: 12;
-	-fx-text-fill: white;
-}
-
-#medium:selected {
-	-fx-background-color:#b8e5fa;
-	-fx-background-radius: 12;
-	-fx-text-fill: white;
-}
-
-#hard {
-   	-fx-background-color: #59A5D8;
-   	-fx-background-radius: 12;
-  	-fx-text-fill: white;
-}
-
-#hard:hover{
-	-fx-background-color:#98c7e7;
-	-fx-background-radius: 12;
-	-fx-text-fill: white;
-}
-
-#hard:selected{
-	-fx-background-color:#98c7e7;
-	-fx-background-radius: 12;
-	-fx-text-fill: white;
+  	-fx-font-size: 16.0;
 }
 
 #A {

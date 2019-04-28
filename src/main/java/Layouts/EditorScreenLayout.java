@@ -2,15 +2,12 @@ package Layouts;
 
 import java.util.ArrayList;
 
-import JSON.JSONEditor;
 import JSON.JSONOperations;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -23,7 +20,7 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 
 	private HBox top;
 	private ComboBox category;
-	private Button search, addQuestion, returnToMainMenu, reloadBackup;
+	private Button addQuestion, returnToMainMenu, reloadBackup;
 	private ArrayList<Question> questions;
 	private VBox questionList;
 	private ScrollPane questionScroll;
@@ -32,12 +29,7 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 	public void handle(ActionEvent e) {
 		if (e.getSource() instanceof Button) {
 			Button button = (Button) e.getSource();
-			if (button.getId().equals("search")) {
-				if (!(category.getSelectionModel().isEmpty())) {
-					listQuestions();
-					addQuestion.setDisable(false);
-				}
-			} else if (button.getId().contains("edit")) {
+			if (button.getId().contains("edit")) {
 				String ID = button.getId();
 				ID = ID.substring(0, ID.length() - 4);
 				int toEdit = Integer.parseInt(ID);
@@ -48,9 +40,15 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 				// System.out.println("CREED");
 				main.switchToNewQuestionEditor((String) category.getValue());
 			} else if (button.getId().equals("returnToMainMenu")) {
-				main.switchToMainMenu();
+				main.switchToSelection();
 			} else if (button.getId().equals("reloadBackup")) {
 				main.switchToReloadComfirm();
+			}
+		} else if (e.getSource() instanceof ComboBox) {
+			ComboBox box = (ComboBox) e.getSource();
+			if (!box.getSelectionModel().isEmpty()) {
+				listQuestions();
+				addQuestion.setDisable(false);
 			}
 		}
 
@@ -62,25 +60,25 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 
 		top = new HBox();
 		category = JSONOperations.returnCategoryList();
+		category.setOnAction(this);
 
-		search = new Button("Search");
-		search.setId("search");
-		search.setOnAction(this);
 		returnToMainMenu = new Button("Main Menu");
 		returnToMainMenu.setId("returnToMainMenu");
 		returnToMainMenu.setOnAction(this);
+
 		reloadBackup = new Button("Reset Questions");
 		reloadBackup.setId("reloadBackup");
 		reloadBackup.setOnAction(this);
+
 		questionList = new VBox();
 		questionScroll = new ScrollPane();
 		addQuestion = new Button("Add Question");
 		addQuestion.setId("addQuestion");
 		addQuestion.setOnAction(this);
 		addQuestion.setDisable(true);
-		// addQuestion = new Button("Add Question");
 		questionScroll.setContent(questionList);
-		top.getChildren().addAll(category, search, returnToMainMenu, reloadBackup, addQuestion);
+
+		top.getChildren().addAll(category, returnToMainMenu, reloadBackup, addQuestion);
 		this.getChildren().addAll(top, questionScroll);
 		this.setSpacing(50);
 	}
@@ -97,29 +95,21 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 	private HBox createQuestionBox(int id, Question question) {
 		HBox box = new HBox();
 
-		//CheckBox check = new CheckBox((id + 1) + "." + question.getQuestion());
-		//check.setId(id + "checkBox");
-		
 		Button edit = new Button("Edit");
 		edit.setId(id + "edit");
 		edit.setOnAction(this);
-		//edit.setMaxSize(100, 100);
-		//edit.setMinSize(100, 100);
-		
-		
+
 		ScrollPane scroll = new ScrollPane();
 		Text text = new Text(question.getQuestion());
 		scroll.setContent(text);
-		//System.out.println(edit.getWidth() + "edit");
-		scroll.setMaxSize(main.getScreenWidth() - 110 , 300);
-		scroll.setMinSize(main.getScreenWidth() - 110, 300);
-		//scroll.setHbarPolicy(ScrollBarPolicy.NEVER);
-		//scroll.setVbarPolicy(ScrollBarPolicy.ALWAYS);
-		TitledPane title = new TitledPane(id + ".",scroll);
-		title.setExpanded(false);
-		
 
-		box.getChildren().addAll( edit,title);
+		scroll.setMaxSize(main.getScreenWidth() - 110, 300);
+		scroll.setMinSize(main.getScreenWidth() - 110, 300);
+
+		TitledPane title = new TitledPane(id + ".", scroll);
+		title.setExpanded(false);
+
+		box.getChildren().addAll(edit, title);
 		return box;
 	}
 }

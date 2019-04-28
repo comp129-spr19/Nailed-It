@@ -5,8 +5,6 @@ import java.util.ArrayList;
 
 import JSON.JSONOperations;
 import Layouts.QuizScreenLayout;
-import Scrapper.Scrapper;
-import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 
 /*
@@ -18,14 +16,15 @@ import javafx.scene.control.ToggleButton;
  */
 
 public class GenerateQuestionScreens {
-	public static ArrayList<QuizScreenLayout> generate(ArrayList<ToggleButton> categoryButtons, MainStage main) throws IOException {
+	public static ArrayList<QuizScreenLayout> generate(ArrayList<ToggleButton> categoryButtons, MainStage main)
+			throws IOException {
 
 		ArrayList<QuizScreenLayout> questionScreens = new ArrayList<QuizScreenLayout>();
 
 		for (ToggleButton button : categoryButtons) {
-		
+
 			if (button.isSelected()) {
-				addQuestions(button,questionScreens,main);
+				addQuestions(button, questionScreens, main);
 			}
 		}
 
@@ -33,10 +32,8 @@ public class GenerateQuestionScreens {
 
 	}
 
-
-	private static void addQuestions(ToggleButton button, ArrayList<QuizScreenLayout> questionScreens,
-			MainStage main) {
-		ArrayList<Question> questions = JSONOperations.getQuestions(button.getId());
+	private static void addQuestions(ToggleButton button, ArrayList<QuizScreenLayout> questionScreens, MainStage main) {
+		ArrayList<Question> questions = JSONOperations.getQuestions(button.getText());
 		ArrayList<QuizScreenLayout> screens = convertQuestionToScreens(questions, main);
 		questionScreens.addAll(screens);
 	}

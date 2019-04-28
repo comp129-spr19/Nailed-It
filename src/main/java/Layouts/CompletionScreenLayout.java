@@ -1,4 +1,5 @@
 package Layouts;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -10,16 +11,14 @@ import main.MainStage;
 public class CompletionScreenLayout extends VBox implements EventHandler<ActionEvent> {
 
 	private MainStage main;
-	
+
 	public CompletionScreenLayout(MainStage main, int numCorrAnswers, int totalQuestions) {
 		super();
 		this.main = main;
 
-
 		// set window text
-		Text text = new Text("Quiz completed!\n" + numCorrAnswers + "/" + totalQuestions +  
-				" questions correct\n" + "Aren't you late for your interview?");
-
+		Text text = new Text("Quiz completed!\n" + numCorrAnswers + "/" + totalQuestions + " questions correct\n"
+				+ "Aren't you late for your interview?");
 
 		// create a button to return to difficulty screen
 		Button quit = new Button("Take Quiz Again");
@@ -42,13 +41,12 @@ public class CompletionScreenLayout extends VBox implements EventHandler<ActionE
 			Button clicked = (Button) e.getSource();
 			switch (clicked.getId()) {
 			case "quit":
-				main.switchToMainMenu();
+				main.switchToSelection();
 				break;
 			default:
 				System.out.println("ERROR: No input case in EventHandler");
 			}
 		}
 	}
-	
-	
+
 }
