@@ -16,8 +16,11 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 	public static final String IMAGE_FILEPATH = FILEPATH + "images/";
 	public static final String EXPLANATIONS_FILEPATH = FILEPATH + "explanations/";
 	
-	public static final double TOP_BAR_HEIGHT = 100;
-	public static final double SCROLLBARS_HEIGHT_OFF = TOP_BAR_HEIGHT + 20;
+	public static final double TOP_BAR_RATIO = 1.0/8.0;
+	public static final double SCROLLBARS_HEIGHT_OFF = 20;
+	public static final double LEFT_RATIO = 2.0/3.0;
+	public static final double RIGHT_RATIO = 1.0 - LEFT_RATIO;
+	public static final double BUTTON_GAP_RATIO = 1.0 / 155.0;
 	
 	MainStage main;
 	Question question;
@@ -25,7 +28,7 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 	int numAttempts;
 	boolean complete;
 	Answer selectedAnswer;
-	double leftWidth, rightWidth;
+	double leftWidth, rightWidth, topHeight, bottomHeight;
 	
 	HBox menu;
 	Button quit, hint, skip, next;
@@ -58,23 +61,25 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 		this.setVgap(0);
 		this.setHgap(0);
 		
-		leftWidth = (2 * main.getScreenWidth()) / 3;
-		rightWidth = main.getScreenWidth() / 3;
+		leftWidth = main.getScreenWidth() * LEFT_RATIO;
+		rightWidth = main.getScreenWidth() * RIGHT_RATIO;
+		topHeight = main.getScreenHeight() * TOP_BAR_RATIO;
+		bottomHeight = main.getScreenHeight() - topHeight - SCROLLBARS_HEIGHT_OFF;
 		
 		createMenu();
-		setUpHBox(menu, leftWidth, TOP_BAR_HEIGHT);
+		setUpHBox(menu, leftWidth, topHeight);
 		GridPane.setConstraints(menu, 0, 0);
 		
 		createAnswers();
-		setUpHBox(answers, rightWidth, TOP_BAR_HEIGHT);
+		setUpHBox(answers, rightWidth, topHeight);
 		GridPane.setConstraints(answers, 1, 0);
 		
 		createQuestionScroller();
-		setUpScrollPane(questionScroller, leftWidth, main.getScreenHeight() - SCROLLBARS_HEIGHT_OFF);
+		setUpScrollPane(questionScroller, leftWidth, bottomHeight);
 		GridPane.setConstraints(questionScroller, 0, 1);
 		
 		createAnswerScroller();
-		setUpScrollPane(answerScroller, rightWidth, main.getScreenHeight() - SCROLLBARS_HEIGHT_OFF);
+		setUpScrollPane(answerScroller, rightWidth, bottomHeight);
 		GridPane.setConstraints(answerScroller, 1, 1);
 		
 		this.getChildren().addAll(menu, answers, questionScroller, answerScroller);
@@ -96,8 +101,7 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 	
 	private void createMenu() {
 		menu = new HBox();
-		menu.setPadding(new Insets(10));
-		menu.setSpacing(8);
+		menu.setSpacing(main.getScreenWidth() * BUTTON_GAP_RATIO);
 		menu.setAlignment(Pos.CENTER);
 
 		questionNumber = new Text("");
@@ -127,7 +131,7 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 			menu.getChildren().add(topicString);
 		}
 		
-		attemptedString = new Text("Attempted: 0/2");
+		attemptedString = new Text("Attempted: 0/" + MAX_ATTEMPTS);
 		menu.getChildren().add(attemptedString);
 		
 		quit = new Button("Quit");
@@ -138,10 +142,10 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 
 	private void createAnswers() {
 		answers = new HBox();
-		answers.setSpacing(10);
+		answers.setSpacing(main.getScreenWidth() * BUTTON_GAP_RATIO);
 		answers.setAlignment(Pos.CENTER);
 		
-		double buttonWidth = rightWidth/4 - 10;
+		double buttonWidth = rightWidth/4 - (main.getScreenWidth() * BUTTON_GAP_RATIO);
 		
 		answerA = new Button("A");
 		answerA.setId("A");
