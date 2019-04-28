@@ -23,7 +23,7 @@ public class SelectionScreenLayout extends GridPane implements EventHandler<Acti
 	MainStage main;
 
 	private ArrayList<ToggleButton> categoryButtons;
-	private Button nextButton;
+	private Button nextButton, returnToMainMenu;
 	
 	private static final double BUTTON_HEIGHT = 100;
 	private static final double BUTTON_WIDTH = 200;
@@ -68,7 +68,16 @@ public class SelectionScreenLayout extends GridPane implements EventHandler<Acti
 		nextButton.setMaxSize(BUTTON_WIDTH, BUTTON_HEIGHT);
 		nextButton.setMinSize(BUTTON_WIDTH,BUTTON_HEIGHT);
 		
+		returnToMainMenu = new Button("Main Menu");
+		returnToMainMenu.setId("mainMenu");
+		returnToMainMenu.setOnAction(this);
+		returnToMainMenu.setMaxSize(BUTTON_WIDTH, BUTTON_HEIGHT);
+		returnToMainMenu.setMinSize(BUTTON_WIDTH,BUTTON_HEIGHT);
+		
+		
 	}
+	
+	
 	
 	private void setButtonsOnGrid() {
 		int row = 0;
@@ -90,6 +99,7 @@ public class SelectionScreenLayout extends GridPane implements EventHandler<Acti
 		
 		this.add(categoryButtons.get(customIndex), 1, 2);
 		this.add(nextButton, 1, 5);
+		this.add(returnToMainMenu,2 , 6);
 		
 		
 	}
@@ -110,8 +120,10 @@ public class SelectionScreenLayout extends GridPane implements EventHandler<Acti
 					try {
 						main.genQuestions(categoryButtons);
 					} catch (IOException e1) {
-						System.out.println("HAHAHAHA");
+						System.out.println("Error");
 					}
+				} else if (clicked.getId().equals("mainMenu")) {
+					main.switchToMainMenu();
 				}
 			}
 			else if (e.getSource() instanceof ToggleButton) {
