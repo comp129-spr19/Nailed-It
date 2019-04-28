@@ -2,13 +2,18 @@ package main;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 
-import Layouts.*;
+import Layouts.CompletionScreenLayout;
+import Layouts.ConfirmLayout;
+import Layouts.EditorScreenLayout;
+import Layouts.ExplanationLayout;
+import Layouts.MainMenuScreenLayout;
+import Layouts.QuestionEditorLayout;
+import Layouts.QuizScreenLayout;
+import Layouts.SelectionScreenLayout;
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.StackPane;
 import javafx.scene.transform.Scale;
@@ -78,8 +83,7 @@ public class MainStage extends Application {
 		scene = new Scene(new StackPane(), getScreenHeight(), getScreenWidth());
 		scene.getStylesheets().add(STYLE_SOURCE);
 		stage.setScene(scene);
-		// switchToDifficulty();
-		switchToMainMenu();
+		switchToSelection();
 		stage.show();
 	}
 
@@ -104,9 +108,9 @@ public class MainStage extends Application {
 	 */
 	public void nextQuestion() {
 		if (currentQuestionIndex < questions.size()) {
-			//System.out.println("Question num " + currentQuestionIndex);
-			//System.out.println("TOTAL QUESTIONS " + questions.size());
-			questions.get(currentQuestionIndex).setQuestionCounterText(currentQuestionIndex+1, questions.size());
+			// System.out.println("Question num " + currentQuestionIndex);
+			// System.out.println("TOTAL QUESTIONS " + questions.size());
+			questions.get(currentQuestionIndex).setQuestionCounterText(currentQuestionIndex + 1, questions.size());
 			scene.setRoot(questions.get(currentQuestionIndex));
 			currentQuestionIndex++;
 		} else if (currentQuestionIndex == questions.size()) {
@@ -144,7 +148,7 @@ public class MainStage extends Application {
 	 */
 	public void genQuestions(ArrayList<ToggleButton> categoryButtons) throws IOException {
 		questions = GenerateQuestionScreens.generate(categoryButtons, this);
-		//Collections.shuffle(questions);
+		// Collections.shuffle(questions);
 		currentQuestionIndex = 0;
 		numCorrAnswers = 0;
 		nextQuestion();
@@ -187,7 +191,7 @@ public class MainStage extends Application {
 		confirmDeleteLayout = new ConfirmLayout(category, question, this);
 		scene.setRoot(confirmDeleteLayout);
 	}
-	
+
 	public void switchToReloadComfirm() {
 		confirmReloadLayout = new ConfirmLayout(this);
 		scene.setRoot(confirmReloadLayout);
@@ -197,7 +201,7 @@ public class MainStage extends Application {
 		explanationLayout = new ExplanationLayout(this, image);
 		scene.setRoot(explanationLayout);
 	}
-	
+
 	public double getScreenHeight() {
 		return stage.getHeight();
 	}

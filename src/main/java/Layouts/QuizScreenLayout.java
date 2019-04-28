@@ -1,10 +1,16 @@
 package Layouts;
 
-import javafx.event.*;
-import javafx.geometry.*;
-import javafx.scene.control.*;
-import javafx.scene.image.*;
-import javafx.scene.layout.*;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import main.Answer;
 import main.MainStage;
@@ -15,83 +21,83 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 	public static final String FILEPATH = "file:src/main/resources/";
 	public static final String IMAGE_FILEPATH = FILEPATH + "images/";
 	public static final String EXPLANATIONS_FILEPATH = FILEPATH + "explanations/";
-	
+
 	MainStage main;
 	Question question;
-	
+
 	int numAttempts;
 	boolean complete;
 	Answer selectedAnswer;
-	
+
 	HBox menu;
 	Button quit, hint, skip, next, explanation;
 	HBox header;
 	Text divisor, questionNumber, totalQuestions, attemptedString;
-	
+
 	HBox answers;
 	Button answerA, answerB, answerC, answerD;
-	
+
 	ScrollPane questionScroller;
 	VBox questionVBox;
 	Image img;
 	ImageView image;
 	Text questionText, hintText;
-	
+
 	ScrollPane answerScroller;
 	VBox answerVBox;
 	Text responseText, answersText;
-	
+
 	public QuizScreenLayout(Question question, MainStage main) {
 		super();
 		this.main = main;
 		this.question = question;
 		numAttempts = 0;
 		complete = false;
-		
+
 		this.setPadding(new Insets(0, 0, 0, 0));
 		this.setAlignment(Pos.CENTER);
 		this.setVgap(0);
 		this.setHgap(0);
-		
+
 		createMenu();
 		setUpHBox(menu, main.getScreenWidth() / 2, 100);
 		GridPane.setConstraints(menu, 0, 0);
-		
+
 		createAnswers();
 		setUpHBox(answers, main.getScreenWidth() / 2, 100);
 		GridPane.setConstraints(answers, 1, 0);
-		
+
 		createQuestionScroller();
-		setUpScrollPane(questionScroller, main.getScreenWidth()/2, main.getScreenHeight() - 110);
+		setUpScrollPane(questionScroller, main.getScreenWidth() / 2, main.getScreenHeight() - 110);
 		GridPane.setConstraints(questionScroller, 0, 1);
-		
+
 		createAnswerScroller();
-		setUpScrollPane(answerScroller, main.getScreenWidth()/2, main.getScreenHeight() - 110);
+		setUpScrollPane(answerScroller, main.getScreenWidth() / 2, main.getScreenHeight() - 110);
 		GridPane.setConstraints(answerScroller, 1, 1);
-		
+
 		this.getChildren().addAll(menu, answers, questionScroller, answerScroller);
 	}
-	
+
 	private void setUpHBox(HBox box, double width, double height) {
 		box.setMaxHeight(height);
 		box.setMinHeight(height);
 		box.setMaxWidth(width);
 		box.setMinWidth(width);
 	}
-	
+
 	private void setUpScrollPane(ScrollPane pane, double width, double height) {
 		pane.setMaxHeight(height);
 		pane.setMinHeight(height);
 		pane.setMaxWidth(width);
 		pane.setMinWidth(width);
 	}
-	
+
 	private void createMenu() {
 		menu = new HBox();
 		menu.setPadding(new Insets(10));
 		menu.setSpacing(8);
 		menu.setAlignment(Pos.BOTTOM_CENTER);
-		
+
 		quit = new Button("Quit");
 		quit.setId("quit");
 		quit.setOnAction(this);
@@ -103,7 +109,7 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 			hint.setOnAction(this);
 			menu.getChildren().add(hint);
 		}
-		
+
 		skip = new Button("Skip");
 		skip.setId("skip");
 		skip.setOnAction(this);
@@ -114,7 +120,7 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 		next.setOnAction(this);
 		next.setDisable(true);
 		menu.getChildren().add(next);
-		
+
 		if (question.getExplanation() != "") {
 			explanation = new Button("Explanation");
 			explanation.setId("explain");
@@ -122,35 +128,35 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 			explanation.setDisable(true);
 			menu.getChildren().add(explanation);
 		}
-		
+
 		header = new HBox();
 		divisor = new Text("/");
 		questionNumber = new Text("");
 		totalQuestions = new Text("");
-		header.getChildren().addAll(questionNumber,divisor,totalQuestions);
+		header.getChildren().addAll(questionNumber, divisor, totalQuestions);
 		attemptedString = new Text("");
 		menu.getChildren().addAll(header, attemptedString);
 	}
 
 	private void createAnswers() {
 		answers = new HBox();
-		
+
 		answerA = new Button("A");
 		answerA.setId("A");
 		answerA.setOnAction(this);
-		
+
 		answerB = new Button("B");
 		answerB.setId("B");
 		answerB.setOnAction(this);
-		
+
 		answerC = new Button("C");
 		answerC.setId("C");
 		answerC.setOnAction(this);
-		
+
 		answerD = new Button("D");
 		answerD.setId("D");
 		answerD.setOnAction(this);
-		
+
 		answers.getChildren().addAll(answerA, answerB, answerC, answerD);
 	}
 
@@ -160,7 +166,7 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 
 		hintText = new Text("");
 		questionVBox.getChildren().add(hintText);
-		
+
 		if (question.getImage() != "") {
 			img = new Image(IMAGE_FILEPATH + question.getImage());
 			image = new ImageView(img);
@@ -169,27 +175,26 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 
 		questionText = new Text(question.getQuestion());
 		questionVBox.getChildren().add(questionText);
-		
+
 		questionScroller.setContent(questionVBox);
 	}
 
 	private void createAnswerScroller() {
 		answerScroller = new ScrollPane();
 		answerVBox = new VBox();
-		
+
 		responseText = new Text("");
-		
+
 		String answersString = "A: " + question.getAnswerA() + "\n\n";
 		answersString += "B: " + question.getAnswerB() + "\n\n";
 		answersString += "C: " + question.getAnswerC() + "\n\n";
 		answersString += "D: " + question.getAnswerD() + "\n\n";
-		
+
 		answersText = new Text(answersString);
-		
+
 		answerVBox.getChildren().addAll(responseText, answersText);
 		answerScroller.setContent(answerVBox);
 	}
-
 
 	@Override
 	public void handle(ActionEvent e) {
@@ -292,9 +297,9 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 	private void showHint() {
 		hintText.setText("Hint: " + question.getHint());
 	}
-	
+
 	public void setQuestionCounterText(int qNumber, int totalQuestions) {
-		this.questionNumber.setText(""+qNumber);
-		this.totalQuestions.setText(""+totalQuestions);
+		this.questionNumber.setText("" + qNumber);
+		this.totalQuestions.setText("" + totalQuestions);
 	}
 }

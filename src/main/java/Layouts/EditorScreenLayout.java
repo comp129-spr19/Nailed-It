@@ -2,15 +2,12 @@ package Layouts;
 
 import java.util.ArrayList;
 
-import JSON.JSONEditor;
 import JSON.JSONOperations;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -48,7 +45,7 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 				// System.out.println("CREED");
 				main.switchToNewQuestionEditor((String) category.getValue());
 			} else if (button.getId().equals("returnToMainMenu")) {
-				main.switchToMainMenu();
+				main.switchToSelection();
 			} else if (button.getId().equals("reloadBackup")) {
 				main.switchToReloadComfirm();
 			}
@@ -97,29 +94,27 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 	private HBox createQuestionBox(int id, Question question) {
 		HBox box = new HBox();
 
-		//CheckBox check = new CheckBox((id + 1) + "." + question.getQuestion());
-		//check.setId(id + "checkBox");
-		
+		// CheckBox check = new CheckBox((id + 1) + "." + question.getQuestion());
+		// check.setId(id + "checkBox");
+
 		Button edit = new Button("Edit");
 		edit.setId(id + "edit");
 		edit.setOnAction(this);
-		//edit.setMaxSize(100, 100);
-		//edit.setMinSize(100, 100);
-		
-		
+		// edit.setMaxSize(100, 100);
+		// edit.setMinSize(100, 100);
+
 		ScrollPane scroll = new ScrollPane();
 		Text text = new Text(question.getQuestion());
 		scroll.setContent(text);
-		//System.out.println(edit.getWidth() + "edit");
-		scroll.setMaxSize(main.getScreenWidth() - 110 , 300);
+		// System.out.println(edit.getWidth() + "edit");
+		scroll.setMaxSize(main.getScreenWidth() - 110, 300);
 		scroll.setMinSize(main.getScreenWidth() - 110, 300);
-		//scroll.setHbarPolicy(ScrollBarPolicy.NEVER);
-		//scroll.setVbarPolicy(ScrollBarPolicy.ALWAYS);
-		TitledPane title = new TitledPane(id + ".",scroll);
+		// scroll.setHbarPolicy(ScrollBarPolicy.NEVER);
+		// scroll.setVbarPolicy(ScrollBarPolicy.ALWAYS);
+		TitledPane title = new TitledPane(id + ".", scroll);
 		title.setExpanded(false);
-		
 
-		box.getChildren().addAll( edit,title);
+		box.getChildren().addAll(edit, title);
 		return box;
 	}
 }
