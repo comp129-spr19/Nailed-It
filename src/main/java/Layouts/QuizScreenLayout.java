@@ -138,29 +138,39 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 
 	private void createAnswers() {
 		answers = new HBox();
-		answers.setPadding(new Insets(10));
-		answers.setSpacing(8);
-		answers.setAlignment(Pos.BOTTOM_CENTER);
+		answers.setSpacing(10);
+		answers.setAlignment(Pos.CENTER);
+		
+		double buttonWidth = rightWidth/4 - 10;
 		
 		answerA = new Button("A");
 		answerA.setId("A");
 		answerA.setOnAction(this);
+		setUpButton(answerA, buttonWidth);
 		
 		answerB = new Button("B");
 		answerB.setId("B");
 		answerB.setOnAction(this);
+		setUpButton(answerB, buttonWidth);
 		
 		answerC = new Button("C");
 		answerC.setId("C");
 		answerC.setOnAction(this);
+		setUpButton(answerC, buttonWidth);
 		
 		answerD = new Button("D");
 		answerD.setId("D");
 		answerD.setOnAction(this);
+		setUpButton(answerD, buttonWidth);
 		
 		answers.getChildren().addAll(answerA, answerB, answerC, answerD);
 	}
-
+	
+	private void setUpButton(Button button, double width) {
+		button.setMaxWidth(width);
+		button.setMinWidth(width);
+	}
+	
 	private void createQuestionScroller() {
 		questionScroller = new ScrollPane();
 		questionVBox = new VBox();
