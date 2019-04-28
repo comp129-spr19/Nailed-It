@@ -49,6 +49,7 @@ public class SelectionScreenLayout extends GridPane implements EventHandler<Acti
 			}
 
 			button.setId("category");
+			button.setOnAction(this);
 			button.wrapTextProperty().setValue(true);
 			button.setTextAlignment(TextAlignment.CENTER);
 			button.setMaxSize(main.getScreenWidth() / ASPECT_RATIO, main.getScreenHeight() / ASPECT_RATIO);
@@ -114,9 +115,9 @@ public class SelectionScreenLayout extends GridPane implements EventHandler<Acti
 					}
 				} else if (clicked.getId().equals("editor")) {
 					main.startEditor();
-				} else if (e.getSource() instanceof ToggleButton) {
-					nextButton.setDisable(noneToggled());
 				}
+			} else if (e.getSource() instanceof ToggleButton) {
+				nextButton.setDisable(noneToggled());
 			}
 		}
 	}
