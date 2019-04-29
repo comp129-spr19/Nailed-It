@@ -180,9 +180,6 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 		questionScroller = new ScrollPane();
 		questionVBox = new VBox();
 
-		hintText = new Text("");
-		questionVBox.getChildren().add(hintText);
-
 		if (!question.getImage().equals("")) {
 			img = new Image(IMAGE_FILEPATH + question.getImage());
 			image = new ImageView(img);
@@ -202,6 +199,7 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 		answerVBox = new VBox();
 
 		responseText = new Text("");
+		hintText = new Text("");
 
 		String answersString = "A: " + question.getAnswerA() + "\n\n";
 		answersString += "B: " + question.getAnswerB() + "\n\n";
@@ -212,7 +210,7 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 		answersText.setId("answers");
 		answersText.wrappingWidthProperty().bind(answerScroller.widthProperty());
 
-		answerVBox.getChildren().addAll(responseText, answersText);
+		answerVBox.getChildren().addAll(responseText, hintText, answersText);
 		answerScroller.setContent(answerVBox);
 	}
 
@@ -288,12 +286,12 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 	 */
 	private void setResponse() {
 		if (selectedAnswer == question.getCorrectAnswer()) {
-			String response = "Correct!" + "\n";
+			String response = "Correct!";
 			responseText.setText(response);
 			responseText.setId("correct");
 		} else if (selectedAnswer != question.getCorrectAnswer() && complete) {
 			String response = "Answer " + selectedAnswer + " is incorrect. Answer was: "
-					+ question.getCorrectAnswer().toString() + "\n";
+					+ question.getCorrectAnswer().toString();
 			responseText.setText(response);
 			responseText.setId("incorrect");
 		} else if (selectedAnswer != question.getCorrectAnswer()) {
@@ -319,7 +317,8 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 	 * Sets the hintText variable
 	 */
 	private void showHint() {
-		hintText.setText("Hint: " + question.getHint() + "\n");
+		hintText.setText("HINT: " + question.getHint() + "\n");
+		hintText.setId("hintText");
 	}
 
 	private void showExplanation() {

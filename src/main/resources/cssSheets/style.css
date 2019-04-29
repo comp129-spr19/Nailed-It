@@ -12,7 +12,8 @@
 #explain, #explain:hover, #returnToMainMenu, #returnToMainMenu:hover, #reloadBackup, #reloadBackup:hover,
 #addQuestion, #addQuestion:hover, #category, #category:hover, #category:select, #nextButton, 
 #nextButton:hover, #nextButton:select, #editor, #editor:hover, #dropdown, #dropdown:hover, #A, #A:hover, 
-#A:selected, #B, #B:hover, #B:selected, #C, #C:hover, #C:selected, #D, #D:hover, #D:selected, #correct, #incorrect{
+#A:selected, #B, #B:hover, #B:selected, #C, #C:hover, #C:selected, #D, #D:hover, #D:selected, #correct, 
+#incorrect, #hintText{
 	-fx-font-weight: bold;
 }
 
@@ -27,11 +28,15 @@
 }
 
 #correct {
-	-fx-text-fill: #56E39F;
+	-fx-fill: #56E39F;
 }
 
 #incorrect {
-	-fx-text-fill: #EF6F6C;
+	-fx-fill: #EF6F6C;
+}
+
+#hintText {
+	-fx-fill: #F3A712;
 }
 
 #question {
