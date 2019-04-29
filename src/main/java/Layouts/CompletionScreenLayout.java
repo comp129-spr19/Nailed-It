@@ -24,7 +24,7 @@ public class CompletionScreenLayout extends VBox implements EventHandler<ActionE
 		Text congratulatoryMessage = new Text("Aren't you late for your interview?");
 		congratulatoryMessage.setId("congratulatoryMessage");
 
-		double score = numCorrAnswers / totalQuestions;
+		double score = (double) numCorrAnswers / (double) totalQuestions;
 
 		if (score >= .9)
 			congratulatoryMessage.setText("You passed with an A! Gnaaaarlyyyyy dude!");
