@@ -2,6 +2,7 @@ package main;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import Layouts.CompletionScreenLayout;
 import Layouts.ConfirmLayout;
@@ -139,7 +140,7 @@ public class MainStage extends Application {
 	 */
 	public void genQuestions(ArrayList<ToggleButton> categoryButtons) throws IOException {
 		questions = GenerateQuestionScreens.generate(categoryButtons, this);
-		// Collections.shuffle(questions);
+		Collections.shuffle(questions);
 		currentQuestionIndex = 0;
 		numCorrAnswers = 0;
 		nextQuestion();

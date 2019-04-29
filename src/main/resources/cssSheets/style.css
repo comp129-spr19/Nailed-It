@@ -12,7 +12,7 @@
 #explain, #explain:hover, #returnToMainMenu, #returnToMainMenu:hover, #reloadBackup, #reloadBackup:hover,
 #addQuestion, #addQuestion:hover, #category, #category:hover, #category:select, #nextButton, 
 #nextButton:hover, #nextButton:select, #editor, #editor:hover, #dropdown, #dropdown:hover, #A, #A:hover, 
-#A:selected, #B, #B:hover, #B:selected, #C, #C:hover, #C:selected, #D, #D:hover, #D:selected {
+#A:selected, #B, #B:hover, #B:selected, #C, #C:hover, #C:selected, #D, #D:hover, #D:selected, #correct, #incorrect{
 	-fx-font-weight: bold;
 }
 
@@ -26,8 +26,12 @@
   	-fx-text-fill: #000000;
 }
 
-#answers {
-	
+#correct {
+	-fx-text-fill: #56E39F;
+}
+
+#incorrect {
+	-fx-text-fill: #EF6F6C;
 }
 
 #question {
@@ -94,7 +98,7 @@
 }
 
 #topbar {
-	-fx-background-color: #4c5c68;
+	-fx-background-color: #597081;
 }
 
 #A {

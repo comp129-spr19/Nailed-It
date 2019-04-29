@@ -11,6 +11,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import main.Answer;
 import main.MainStage;
 import main.Question;
@@ -286,16 +287,23 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 	 * Validates answer, then displays to user using responseText
 	 */
 	private void setResponse() {
-		String response = new String("Incorrect.");
-		if (complete) {
-			response += " Answer was: " + question.getCorrectAnswer().toString() + "\n";
-		} else {
-			response += "\n";
-		}
 		if (selectedAnswer == question.getCorrectAnswer()) {
-			response = "Correct." + "\n";
+			String response = "Correct!" + "\n";
+			responseText.setText(response);
+			responseText.setId("correct");
+		} else if (selectedAnswer != question.getCorrectAnswer() && complete) {
+			String response = "Answer " + selectedAnswer + " is incorrect. Answer was: "
+					+ question.getCorrectAnswer().toString() + "\n";
+			responseText.setText(response);
+			responseText.setId("incorrect");
+		} else if (selectedAnswer != question.getCorrectAnswer()) {
+			String response = "Answer " + selectedAnswer + " is incorrect.";
+			responseText.setText(response);
+			responseText.setId("incorrect");
+		} else {
+			String response = "\n";
 		}
-		responseText.setText(response);
+		responseText.setTextAlignment(TextAlignment.CENTER);
 	}
 
 	/*
