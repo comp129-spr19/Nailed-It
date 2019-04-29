@@ -69,8 +69,8 @@ public class SelectionScreenLayout extends GridPane implements EventHandler<Acti
 		editor.setId("editor");
 		editor.wrapTextProperty().setValue(true);
 		editor.setOnAction(this);
-		editor.setMaxSize(main.getScreenWidth() / THIRD_ASPECT_RATIO, main.getScreenHeight() / HALF_ASPECT_RATIO);
-		editor.setMinSize(main.getScreenWidth() / THIRD_ASPECT_RATIO, main.getScreenHeight() / HALF_ASPECT_RATIO);
+		editor.setMaxSize(main.getScreenWidth() / ASPECT_RATIO, main.getScreenHeight() / HALF_ASPECT_RATIO);
+		editor.setMinSize(main.getScreenWidth() / ASPECT_RATIO, main.getScreenHeight() / HALF_ASPECT_RATIO);
 	}
 
 	private void setButtonsOnGrid() {
