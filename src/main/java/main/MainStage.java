@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import Layouts.CompletionScreenLayout;
 import Layouts.ConfirmLayout;
 import Layouts.EditorScreenLayout;
-import Layouts.MainMenuScreenLayout;
 import Layouts.QuestionEditorLayout;
 import Layouts.QuizScreenLayout;
 import Layouts.SelectionScreenLayout;
@@ -32,7 +31,6 @@ public class MainStage extends Application {
 	// layouts for different screens throughout application
 	private SelectionScreenLayout selectionScreenLayout;
 	private CompletionScreenLayout completionScreenLayout;
-	private MainMenuScreenLayout mainMenuScreenLayout;
 	private EditorScreenLayout editorScreenLayout;
 	private QuestionEditorLayout questionEditorLayout;
 	private QuestionEditorLayout newQuestionEditorLayout;
@@ -83,11 +81,6 @@ public class MainStage extends Application {
 		stage.setScene(scene);
 		switchToSelection();
 		stage.show();
-	}
-
-	public void switchToMainMenu() {
-		mainMenuScreenLayout = new MainMenuScreenLayout(this);
-		scene.setRoot(mainMenuScreenLayout);
 	}
 
 	public Scale scaleWindowControls() {
