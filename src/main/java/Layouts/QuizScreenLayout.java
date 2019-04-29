@@ -189,6 +189,8 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 		}
 
 		questionText = new Text(question.getQuestion());
+		questionText.setId("question");
+		questionText.wrappingWidthProperty().bind(questionScroller.widthProperty());
 		questionVBox.getChildren().add(questionText);
 
 		questionScroller.setContent(questionVBox);
@@ -206,6 +208,8 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 		answersString += "D: " + question.getAnswerD() + "\n\n";
 
 		answersText = new Text(answersString);
+		answersText.setId("answers");
+		answersText.wrappingWidthProperty().bind(answerScroller.widthProperty());
 
 		answerVBox.getChildren().addAll(responseText, answersText);
 		answerScroller.setContent(answerVBox);

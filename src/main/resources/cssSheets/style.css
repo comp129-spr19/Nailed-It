@@ -8,34 +8,56 @@
 }
 
 /* ==================== TEXT: ==================== */
-
-#category, #category:hover, #category:select, #nextButton, #nextButton:hover, #nextButton:select, #editor, #editor:hover, #dropdown {
+#hint, #hint:hover, #next, #next:hover, #skip, #skip:hover, #quit, #quit:hover, #quiz, #quiz:hover, 
+#explain, #explain:hover, #returnToMainMenu, #returnToMainMenu:hover, #reloadBackup, #reloadBackup:hover,
+#addQuestion, #addQuestion:hover, #category, #category:hover, #category:select, #nextButton, 
+#nextButton:hover, #nextButton:select, #editor, #editor:hover, #dropdown, #dropdown:hover, #A, #A:hover, 
+#A:selected, #B, #B:hover, #B:selected, #C, #C:hover, #C:selected, #D, #D:hover, #D:selected {
 	-fx-font-weight: bold;
+}
+
+#category, #category:hover, #category:select, #nextButton, #nextButton:hover, #nextButton:select, 
+#editor, #editor:hover, #dropdown, #A, #A:hover, #A:selected, #B, #B:hover, #B:selected, #C, #C:hover, 
+#C:selected, #D, #D:hover, #D:selected {
   	-fx-text-fill: #ffffff;
 }
 
-#staticbutton{
+#staticbutton {
   	-fx-text-fill: #000000;
+}
+
+#answers {
+	
+}
+
+#question {
+	-fx-font-family: "Courier New";
 }
 
 /* ==================== SHAPE: ==================== */
 
-#hint, #hint:hover, #next, #next:hover, #skip, #skip:hover, #quit, #quit:hover, #quiz, #quiz:hover, #explain, #explain:hover, #returnToMainMenu, #returnToMainMenu:hover, #reloadBackup, #reloadBackup:hover, #addQuestion, #addQuestion:hover, #category, #category:hover, #category:select, #nextButton, #nextButton:hover, #nextButton:select, #editor, #editor:hover, #dropdown, #dropdown:hover, #staticbutton{
+#hint, #hint:hover, #next, #next:hover, #skip, #skip:hover, #quit, #quit:hover, #quiz, #quiz:hover, 
+#explain, #explain:hover, #returnToMainMenu, #returnToMainMenu:hover, #reloadBackup, #reloadBackup:hover,
+#addQuestion, #addQuestion:hover, #category, #category:hover, #category:select, #nextButton, 
+#nextButton:hover, #nextButton:select, #editor, #editor:hover, #dropdown, #dropdown:hover, #staticbutton {
   	-fx-background-radius: 12;
 }
 
-#A, #A:hover, #A:selected, #B, #B:hover, #B:selected, #C, #C:hover, #C:selected, #D, #D:hover, #D:selected {
+#A, #A:hover, #A:selected, #B, #B:hover, #B:selected, #C, #C:hover, #C:selected, #D, #D:hover, 
+#D:selected {
 	-fx-background-radius: 0;
 	-fx-text-fill: white;
 }
 
 /* ==================== COLOR: ==================== */
 
-#hint, #next, #skip, #quit, #quiz, #explain, #returnToMainMenu, #reloadBackup, #addQuestion, #dropdown, #dropdownlist {
+#hint, #next, #skip, #quit, #quiz, #explain, #returnToMainMenu, #reloadBackup, #addQuestion, #dropdown, 
+#dropdownlist {
 	-fx-background-color: #c5c3c6;
 }
 
-#hint:hover, #next:hover, #skip:hover, #quit:hover, #quiz:hover, #explain:hover, #returnToMainMenu:hover, #reloadBackup:hover, #addQuestion:hover, #dropdown:hover, #dropdownlist:hover {
+#hint:hover, #next:hover, #skip:hover, #quit:hover, #quiz:hover, #explain:hover, #returnToMainMenu:hover, 
+#reloadBackup:hover, #addQuestion:hover, #dropdown:hover, #dropdownlist:hover {
   	-fx-background-color: #d9d8da;
 }
 
