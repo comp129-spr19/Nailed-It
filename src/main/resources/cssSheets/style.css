@@ -13,7 +13,7 @@
 #addQuestion, #addQuestion:hover, #category, #category:hover, #category:select, #nextButton, 
 #nextButton:hover, #nextButton:select, #editor, #editor:hover, #dropdown, #dropdown:hover, #A, #A:hover, 
 #A:selected, #B, #B:hover, #B:selected, #C, #C:hover, #C:selected, #D, #D:hover, #D:selected, #correct, 
-#incorrect, #hintText{
+#incorrect, #hintText, #scoreMessage{
 	-fx-font-weight: bold;
 }
 
@@ -35,12 +35,16 @@
 	-fx-fill: #EF6F6C;
 }
 
-#hintText {
+#hintText, #scoreMessage {
 	-fx-fill: #F3A712;
 }
 
 #question {
 	-fx-font-family: "Courier New";
+}
+
+#scoreMessage {
+	-fx-font-size: 36.0;	
 }
 
 /* ==================== SHAPE: ==================== */

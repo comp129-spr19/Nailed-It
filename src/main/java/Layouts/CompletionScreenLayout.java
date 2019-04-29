@@ -17,16 +17,33 @@ public class CompletionScreenLayout extends VBox implements EventHandler<ActionE
 		this.main = main;
 
 		// set window text
-		Text text = new Text("Quiz completed!\n" + numCorrAnswers + "/" + totalQuestions + " questions correct\n"
-				+ "Aren't you late for your interview?");
+		Text completionMessage = new Text("Quiz completed!");
+		completionMessage.setId("completionMessage");
+		Text scoreMessage = new Text(numCorrAnswers + "/" + totalQuestions + " questions correct");
+		scoreMessage.setId("scoreMessage");
+		Text congratulatoryMessage = new Text("Aren't you late for your interview?");
+		congratulatoryMessage.setId("congratulatoryMessage");
+
+		double score = numCorrAnswers / totalQuestions;
+
+		if (score >= .9)
+			congratulatoryMessage.setText("You passed with an A! Gnaaaarlyyyyy dude!");
+		else if (score >= .8)
+			congratulatoryMessage.setText("You passed with a B! B's are da bestest!");
+		else if (score >= .7)
+			congratulatoryMessage.setText("You passed with a C! Must have been not that E-C.");
+		else if (score >= .6)
+			congratulatoryMessage.setText("You passed with a D! D's get degrees, but they don't always get jobs.");
+		else
+			congratulatoryMessage.setText("You score in F territory. Big oof. Study up young Padawan.");
 
 		// create a button to return to difficulty screen
-		Button quit = new Button("Take Quiz Again");
+		Button quit = new Button("Take Another Quiz");
 		quit.setId("quit");
 		quit.setOnAction(this);
 
 		// add text and button to scene
-		this.getChildren().addAll(text, quit);
+		this.getChildren().addAll(completionMessage, scoreMessage, congratulatoryMessage, quit);
 
 		// format layout
 		this.setAlignment(Pos.CENTER);
