@@ -252,7 +252,7 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 				main.nextQuestion();
 				break;
 			case "quit":
-				main.switchToMainMenu();
+				main.switchToSelection();
 				break;
 			case "hint":
 				showHint();

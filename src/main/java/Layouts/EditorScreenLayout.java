@@ -36,8 +36,6 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 				String categoryStr = (String) category.getValue();
 				main.switchToQuestionEditor(categoryStr, questions.get(toEdit));
 			} else if (button.getId().equals("addQuestion")) {
-				// if (category.getValue() == null)
-				// System.out.println("CREED");
 				main.switchToNewQuestionEditor((String) category.getValue());
 			} else if (button.getId().equals("returnToMainMenu")) {
 				main.switchToSelection();
@@ -47,6 +45,7 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 		} else if (e.getSource() instanceof ComboBox) {
 			ComboBox box = (ComboBox) e.getSource();
 			if (!box.getSelectionModel().isEmpty()) {
+				//this.setStyle(value);
 				listQuestions();
 				addQuestion.setDisable(false);
 			}
