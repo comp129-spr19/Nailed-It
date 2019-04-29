@@ -12,12 +12,13 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import main.ColorUtil;
 import main.MainStage;
 import main.Question;
 
 public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent> {
 	private MainStage main;
+
+	private final static double SPACING = 150;
 
 	private HBox top;
 	private ComboBox category;
@@ -46,8 +47,8 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 		} else if (e.getSource() instanceof ComboBox) {
 			ComboBox box = (ComboBox) e.getSource();
 			if (!box.getSelectionModel().isEmpty()) {
-				this.setStyle(ColorUtil.editorColor((String)box.getValue()));
-				//this.setStyle("-fx-background-color: slateblue");
+				// this.setStyle(ColorUtil.editorColor((String) box.getValue()));
+				this.setId("scrollbox");
 				listQuestions();
 				addQuestion.setDisable(false);
 			}
@@ -60,7 +61,11 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 		this.main = main;
 
 		top = new HBox();
+		top.setId("topbar");
+		top.setSpacing(main.getScreenWidth() / SPACING);
+
 		category = JSONOperations.returnCategoryList();
+		category.setId("dropdown");
 		category.setOnAction(this);
 
 		returnToMainMenu = new Button("Main Menu");

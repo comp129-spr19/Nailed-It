@@ -2,7 +2,6 @@ package Layouts;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -17,43 +16,32 @@ import main.MainStage;
 import main.Question;
 
 public class QuizScreenLayout extends GridPane implements EventHandler<ActionEvent> {
-	public static final int MAX_ATTEMPTS = 2;
 	public static final String FILEPATH = "file:src/main/resources/";
 	public static final String IMAGE_FILEPATH = FILEPATH + "images/";
 	public static final String EXPLANATIONS_FILEPATH = FILEPATH + "explanations/";
-	public static final double TOP_BAR_RATIO = 1.0 / 8.0;
+	public static final int MAX_ATTEMPTS = 2;
+	public static final double TOP_BAR_RATIO = 1.0 / 10.0;
 	public static final double SCROLLBARS_HEIGHT_OFF = 20;
 	public static final double LEFT_RATIO = 2.0 / 3.0;
 	public static final double RIGHT_RATIO = 1.0 - LEFT_RATIO;
 	public static final double BUTTON_GAP_RATIO = 1.0 / 155.0;
 
-	MainStage main;
-	Question question;
+	private MainStage main;
+	private Question question;
 
-	int numAttempts;
-	boolean complete;
-	Answer selectedAnswer;
+	private int numAttempts;
+	private boolean complete;
+	private Answer selectedAnswer;
 
-	double leftWidth, rightWidth, topHeight, bottomHeight;
+	private double leftWidth, rightWidth, topHeight, bottomHeight;
 
-	HBox menu;
-	Button quit, hint, skip, next;
-	Text questionNumber, topicString, attemptedString;
-
-	HBox answers;
-	Button answerA, answerB, answerC, answerD;
-
-	ScrollPane questionScroller;
-	VBox questionVBox;
-	Image img;
-	ImageView image;
-	Text questionText, hintText;
-
-	ScrollPane answerScroller;
-	VBox answerVBox;
-	Text responseText, answersText;
-	Image exp;
-	ImageView explanation;
+	private HBox menu, answers;
+	private VBox answerVBox, questionVBox;
+	private ScrollPane questionScroller, answerScroller;
+	private Button quit, hint, skip, next, answerA, answerB, answerC, answerD, questionNumber, topic, attempted;
+	private Text responseText, answersText, questionText, hintText;
+	private Image img, exp;
+	ImageView image, explanation;
 
 	public QuizScreenLayout(Question question, MainStage main) {
 		super();
@@ -62,10 +50,7 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 		numAttempts = 0;
 		complete = false;
 
-		this.setPadding(new Insets(0, 0, 0, 0));
 		this.setAlignment(Pos.CENTER);
-		this.setVgap(0);
-		this.setHgap(0);
 
 		leftWidth = main.getScreenWidth() * LEFT_RATIO;
 		rightWidth = main.getScreenWidth() * RIGHT_RATIO;
@@ -96,6 +81,7 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 		box.setMinHeight(height);
 		box.setMaxWidth(width);
 		box.setMinWidth(width);
+		box.setId("topbar");
 	}
 
 	private void setUpScrollPane(ScrollPane pane, double width, double height) {
@@ -110,7 +96,9 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 		menu.setSpacing(main.getScreenWidth() * BUTTON_GAP_RATIO);
 		menu.setAlignment(Pos.CENTER);
 
-		questionNumber = new Text("");
+		questionNumber = new Button("");
+		questionNumber.setId("staticbutton");
+		questionNumber.setDisable(true);
 		menu.getChildren().add(questionNumber);
 
 		hint = new Button("Hint");
@@ -134,12 +122,16 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 		menu.getChildren().add(next);
 
 		if (!question.getTopic().equals("None")) {
-			topicString = new Text("#" + question.getTopic());
-			menu.getChildren().add(topicString);
+			topic = new Button("#" + question.getTopic());
+			topic.setId("staticbutton");
+			topic.setDisable(true);
+			menu.getChildren().add(topic);
 		}
 
-		attemptedString = new Text("Attempted: 0/" + MAX_ATTEMPTS);
-		menu.getChildren().add(attemptedString);
+		attempted = new Button("Tries: 0/" + MAX_ATTEMPTS);
+		attempted.setId("staticbutton");
+		attempted.setDisable(true);
+		menu.getChildren().add(attempted);
 
 		quit = new Button("Quit");
 		quit.setId("quit");
@@ -265,7 +257,7 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 
 	private void handleSelection() {
 		numAttempts++;
-		attemptedString.setText("Attempted: " + numAttempts + "/" + MAX_ATTEMPTS);
+		attempted.setText("Tries: " + numAttempts + "/" + MAX_ATTEMPTS);
 		complete = (selectedAnswer.equals(question.getCorrectAnswer())) || (numAttempts >= MAX_ATTEMPTS);
 		setResponse();
 		if (complete) {

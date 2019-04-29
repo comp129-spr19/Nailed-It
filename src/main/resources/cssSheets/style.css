@@ -1,4 +1,5 @@
-/* ==================== CORE APPLICATION ==================== */
+/* ==================== CORE RULES ==================== */
+
 .root {
 	-fx-background-color: #f2f2f2;
 	-fx-font-size: 24.0;
@@ -6,10 +7,44 @@
 	-fx-text-fill: #46494c;
 }
 
-#category, #category:hover, #category:select, #nextButton, #nextButton:hover, #nextButton:select, #editor, #editor:hover {
+/* ==================== TEXT: ==================== */
+
+#category, #category:hover, #category:select, #nextButton, #nextButton:hover, #nextButton:select, #editor, #editor:hover, #dropdown {
 	-fx-font-weight: bold;
-  	-fx-background-radius: 12.0;
   	-fx-text-fill: #ffffff;
+}
+
+#staticbutton{
+  	-fx-text-fill: #000000;
+}
+
+/* ==================== SHAPE: ==================== */
+
+#hint, #hint:hover, #next, #next:hover, #skip, #skip:hover, #quit, #quit:hover, #quiz, #quiz:hover, #explain, #explain:hover, #returnToMainMenu, #returnToMainMenu:hover, #reloadBackup, #reloadBackup:hover, #addQuestion, #addQuestion:hover, #category, #category:hover, #category:select, #nextButton, #nextButton:hover, #nextButton:select, #editor, #editor:hover, #dropdown, #dropdown:hover, #staticbutton{
+  	-fx-background-radius: 12;
+}
+
+#A, #A:hover, #A:selected, #B, #B:hover, #B:selected, #C, #C:hover, #C:selected, #D, #D:hover, #D:selected {
+	-fx-background-radius: 0;
+	-fx-text-fill: white;
+}
+
+/* ==================== COLOR: ==================== */
+
+#hint, #next, #skip, #quit, #quiz, #explain, #returnToMainMenu, #reloadBackup, #addQuestion, #dropdown, #dropdownlist {
+	-fx-background-color: #c5c3c6;
+}
+
+#hint:hover, #next:hover, #skip:hover, #quit:hover, #quiz:hover, #explain:hover, #returnToMainMenu:hover, #reloadBackup:hover, #addQuestion:hover, #dropdown:hover, #dropdownlist:hover {
+  	-fx-background-color: #d9d8da;
+}
+
+#scrollbox {
+	-fx-background-color: #ff0000;
+}
+
+#staticbutton{
+	-fx-background-color: #ffffff;
 }
 
 #category{
@@ -36,92 +71,38 @@
 	-fx-background-color: #f2948d;
 }
 
-#hint, #next, #skip, #quit, #quiz, #explain {
-  	-fx-background-color: #c5c3c6;
-  	-fx-background-radius: 12;
-  	-fx-font-size: 16.0;
-}
-
-#hint:hover, #next:hover, #skip:hover, #quit:hover, #quiz:hover {
-  	-fx-background-color: #d9d8da;
-  	-fx-background-radius: 12;
-  	-fx-font-size: 16.0;
+#topbar {
+	-fx-background-color: #4c5c68;
 }
 
 #A {
 	-fx-background-color:#a190f7;
-	-fx-background-radius: 0;
-	-fx-text-fill: white;
 }
 
-#A:hover {
+#A:hover, #A:selected {
 	-fx-background-color:#c3b7fa;
-	-fx-background-radius: 0;
-	-fx-text-fill: white;
-}
-
-#A:selected {
-	-fx-background-color:#c3b7fa;
-	-fx-background-radius: 0;
-	-fx-text-fill: white;
 }
 
 #B {
 	-fx-background-color:#889bff;
-	-fx-background-radius: 0;
-	-fx-text-fill: white;
 }
 
-#B:hover {
+#B:hover, #B:selected {
 	-fx-background-color:#b3bfff;
-	-fx-background-radius: 0;
-	-fx-text-fill: white;
-}
-
-#B:selected {
-	-fx-background-color:#b3bfff;
-	-fx-background-radius: 0;
-	-fx-text-fill: white;
 }
 
 #C {
 	-fx-background-color:#74b4f7;
-	-fx-background-radius: 0;
-	-fx-text-fill: white;
 }
 
-#C:hover {
+#C:hover, #C:selected {
 	-fx-background-color:#9fcaf9;
-	-fx-background-radius: 0;
-	-fx-text-fill: white;
-}
-
-#C:selected {
-	-fx-background-color:#9fcaf9;
-	-fx-background-radius: 0;
-	-fx-text-fill: white;
 }
 
 #D {
 	-fx-background-color:#71d4f3;
-	-fx-background-radius: 0;
-	-fx-text-fill: white;
 }
 
-#D:hover {
+#D:hover, #D:selected {
 	-fx-background-color:#a1e3f7;
-	-fx-background-radius: 0;
-	-fx-text-fill: white;
-}
-
-#D:selected {
-	-fx-background-color:#a1e3f7;
-	-fx-background-radius: 0;
-	-fx-text-fill: white;
-}
-
-.my-special-button {
-    -fx-pref-height: 100.0px;
-    -fx-pref-width: 400.0px;
-    -fx-background-radius: 10;	 
 }
