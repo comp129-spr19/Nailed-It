@@ -35,7 +35,7 @@ public class CompletionScreenLayout extends VBox implements EventHandler<ActionE
 		else if (score >= .6)
 			congratulatoryMessage.setText("You passed with a D! D's get degrees, but they don't always get jobs.");
 		else
-			congratulatoryMessage.setText("You score in F territory. Big oof. Study up young Padawan.");
+			congratulatoryMessage.setText("You scored in F territory. Big oof. Study up young Padawan.");
 
 		// create a button to return to difficulty screen
 		Button quit = new Button("Take Another Quiz");
