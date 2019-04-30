@@ -114,10 +114,15 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 		scroll.setContent(text);
 		scroll.setMaxSize(main.getScreenWidth() - 110, 300);
 		scroll.setMinSize(main.getScreenWidth() - 110, 300);
-
-		TitledPane title = new TitledPane(id + 1 + ". (click to expand)", scroll);
+		
+		String questionPreview = question.getQuestion().replaceAll("\\s+", " ");
+		if (questionPreview.length() > 80) {
+			questionPreview = questionPreview.substring(0,80) + "...";
+		}
+		
+		TitledPane title = new TitledPane(id + 1 + ". " + questionPreview, scroll);
 		title.setExpanded(false);
-		// title.setId("scrollbox");
+		
 		box.getChildren().addAll(edit, title);
 		return box;
 	}
