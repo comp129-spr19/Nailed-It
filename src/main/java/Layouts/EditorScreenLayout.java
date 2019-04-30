@@ -50,7 +50,9 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 		} else if (e.getSource() instanceof ComboBox) {
 			ComboBox box = (ComboBox) e.getSource();
 			if (!box.getSelectionModel().isEmpty()) {
+
 				this.setStyle(ColorUtil.editorColor((String) box.getValue()));
+
 				listQuestions();
 				addQuestion.setDisable(false);
 			}
@@ -110,13 +112,12 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 		ScrollPane scroll = new ScrollPane();
 		Text text = new Text(question.getQuestion());
 		scroll.setContent(text);
-
 		scroll.setMaxSize(main.getScreenWidth() - 110, 300);
 		scroll.setMinSize(main.getScreenWidth() - 110, 300);
 
 		TitledPane title = new TitledPane(id + ".", scroll);
 		title.setExpanded(false);
-
+		//title.setId("scrollbox");
 		box.getChildren().addAll(edit, title);
 		return box;
 	}

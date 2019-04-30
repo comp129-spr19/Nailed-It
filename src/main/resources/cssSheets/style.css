@@ -13,7 +13,8 @@
 #addQuestion, #addQuestion:hover, #category, #category:hover, #category:select, #nextButton, 
 #nextButton:hover, #nextButton:select, #editor, #editor:hover, #dropdown, #dropdown:hover, #A, #A:hover, 
 #A:selected, #B, #B:hover, #B:selected, #C, #C:hover, #C:selected, #D, #D:hover, #D:selected, #correct, 
-#incorrect, #hintText, #scoreMessage, #delete, #delete:hover, #solutionFieldLabel{
+#incorrect, #hintText, #scoreMessage, #delete, #delete:hover, #solutionFieldLabel, #submit, 
+#submit:hover, #textLabel, #correctAnswerLabel {
 	-fx-font-weight: bold;
 }
 
@@ -39,7 +40,7 @@
 	-fx-fill: #F3A712;
 }
 
-#question {
+#question, #solutionFieldLabel {
 	-fx-font-family: "Courier New";
 }
 
@@ -53,7 +54,7 @@
 #explain, #explain:hover, #returnToMainMenu, #returnToMainMenu:hover, #reloadBackup, #reloadBackup:hover,
 #addQuestion, #addQuestion:hover, #category, #category:hover, #category:select, #nextButton, 
 #nextButton:hover, #nextButton:select, #editor, #editor:hover, #dropdown, #dropdown:hover, #staticbutton,
-#delete, #delete:hover{
+#delete, #delete:hover, #submit, #submit:hover {
   	-fx-background-radius: 12;
 }
 
@@ -66,12 +67,12 @@
 /* ==================== COLOR: ==================== */
 
 #hint, #next, #skip, #quit, #quiz, #explain, #returnToMainMenu, #reloadBackup, #addQuestion, #dropdown, 
-#dropdownlist {
+#dropdownlist, #submit {
 	-fx-background-color: #c5c3c6;
 }
 
 #hint:hover, #next:hover, #skip:hover, #quit:hover, #quiz:hover, #explain:hover, #returnToMainMenu:hover, 
-#reloadBackup:hover, #addQuestion:hover, #dropdown:hover, #dropdownlist:hover {
+#reloadBackup:hover, #addQuestion:hover, #dropdown:hover, #dropdownlist:hover, #submit:hover {
   	-fx-background-color: #d9d8da;
 }
 
