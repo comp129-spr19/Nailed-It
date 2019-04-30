@@ -8,14 +8,14 @@ public class ColorUtil {
 		int r,g,b;
 		switch(category) {
 		case "Algorithms":
-			r = 244;
-			g = 66; 
-			b = 104;
+			r = 121;
+			g = 169; 
+			b = 247;
 			break;
 		case "Data Structures":
-			r = 244;
-			g = 66;
-			b = 188;
+			r = 121;
+			g = 230;
+			b = 247;
 			break;
 		case "Comp Theory":
 			r = 66;
@@ -23,30 +23,30 @@ public class ColorUtil {
 			b = 244;
 			break;
 		case "Database":
-			r = 66;
-			g = 206;
-			b = 244;
+			r = 121;
+			g = 247;
+			b = 211;
 			break;
 		case "Custom":
-			r = 66;
-			g = 244;
-			b = 194;
+			r = 121;
+			g = 247;
+			b = 159;
 			break;
 			
 		case "Operating Systems":
-			r = 65;
-			g = 244;
-			b = 80;
+			r = 135;
+			g = 247;
+			b = 121;
 			break;
 		case "Python":
-			r = 161;
-			g = 244;
-			b = 66;
+			r = 188;
+			g = 247;
+			b = 121;
 			break;
 		default:
-			r = 244;
-			g = 191;
-			b = 66;
+			r = 238;
+			g = 247;
+			b = 121;
 			
 		
 		}
