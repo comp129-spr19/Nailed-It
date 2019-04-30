@@ -76,6 +76,7 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 
 	private HBox setCorrectAnswer(Question question) {
 		answerLabel = new Text("Correct Answer: ");
+		answerLabel.setId("correctAnswerLabel");
 
 		correctAnswer = new ToggleGroup();
 
@@ -132,29 +133,32 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 		HBox answerDHBox = new HBox();
 
 		Label answerALabel = new Label("A. ");
-		Label answerBLabel = new Label("	B. ");
+		Label answerBLabel = new Label(" B. ");
 		Label answerCLabel = new Label("C. ");
-		Label answerDLabel = new Label("	D. ");
+		Label answerDLabel = new Label(" D. ");
 
 		answerA = new TextField(question.getAnswerA());
 		answerA.setPrefSize(300, 75);
 		answerAHBox.getChildren().addAll(answerALabel, answerA);
-		answerAHBox.setId("solutionFieldLabel");
+		answerALabel.setId("solutionFieldLabel");
 		GridPane.setConstraints(answerAHBox, 0, 0);
 
 		answerB = new TextField(question.getAnswerB());
 		answerB.setPrefSize(300, 75);
 		answerBHBox.getChildren().addAll(answerBLabel, answerB);
+		answerBLabel.setId("solutionFieldLabel");
 		GridPane.setConstraints(answerBHBox, 1, 0);
 
 		answerC = new TextField(question.getAnswerC());
 		answerC.setPrefSize(300, 75);
 		answerCHBox.getChildren().addAll(answerCLabel, answerC);
+		answerCLabel.setId("solutionFieldLabel");
 		GridPane.setConstraints(answerCHBox, 0, 1);
 
 		answerD = new TextField(question.getAnswerD());
 		answerD.setPrefSize(300, 75);
 		answerDHBox.getChildren().addAll(answerDLabel, answerD);
+		answerDLabel.setId("solutionFieldLabel");
 		GridPane.setConstraints(answerDHBox, 1, 1);
 
 		grid.getChildren().addAll(answerAHBox, answerBHBox, answerCHBox, answerDHBox);
