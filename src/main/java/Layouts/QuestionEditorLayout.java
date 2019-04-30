@@ -27,7 +27,7 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 	private Question question;
 
 	private TextField questionText, hintText, answerA, answerB, answerC, answerD;
-	private Text errorMessage, answerLabel;
+	private Text questionTextfieldLabel, hintTextfieldLabel, errorMessage, answerLabel;
 	private RadioButton A, B, C, D;
 	private ToggleGroup correctAnswer;
 	private Button submit, quit, delete;
@@ -48,8 +48,11 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 		vbox.setSpacing(8);
 		vbox.setMaxWidth(600);
 
+		questionTextfieldLabel = new Text("Question");
+		questionTextfieldLabel.setId("textLabel");
 		questionText = new TextField(question.getQuestion());
-
+		hintTextfieldLabel = new Text("Hint");
+		hintTextfieldLabel.setId("textLabel");
 		hintText = new TextField(question.getHint());
 
 		HBox correctAnswerBox = setCorrectAnswer(question);
@@ -68,7 +71,8 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 		delete.setId("delete");
 		delete.setOnAction(this);
 
-		vbox.getChildren().addAll(questionText, hintText, submit, errorMessage, quit, delete, correctAnswerBox);
+		vbox.getChildren().addAll(questionTextfieldLabel, questionText, hintTextfieldLabel, hintText, submit,
+				errorMessage, quit, delete, correctAnswerBox);
 		vbox.setAlignment(Pos.BOTTOM_CENTER);
 
 		this.setCenter(vbox);
@@ -81,19 +85,15 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 		correctAnswer = new ToggleGroup();
 
 		A = new RadioButton("A");
-		A.setId("A");
 		A.setToggleGroup(correctAnswer);
 
 		B = new RadioButton("B");
-		B.setId("B");
 		B.setToggleGroup(correctAnswer);
 
 		C = new RadioButton("C");
-		C.setId("C");
 		C.setToggleGroup(correctAnswer);
 
 		D = new RadioButton("D");
-		D.setId("D");
 		D.setToggleGroup(correctAnswer);
 
 		switch (question.getCorrectAnswer()) {
@@ -226,7 +226,7 @@ public class QuestionEditorLayout extends BorderPane implements EventHandler<Act
 		String answer = "";
 		for (RadioButton b : buttons) {
 			if (b.isSelected()) {
-				answer = b.getId();
+				answer = b.getText();
 				break;
 			}
 		}
