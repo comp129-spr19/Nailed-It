@@ -26,6 +26,7 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 	public static final double LEFT_RATIO = 2.0 / 3.0;
 	public static final double RIGHT_RATIO = 1.0 - LEFT_RATIO;
 	public static final double BUTTON_GAP_RATIO = 1.0 / 155.0;
+	public static final double BUTTON_WIDTH_RATIO = 1.0 / 8.0;
 
 	private MainStage main;
 	private Question question;
@@ -126,6 +127,7 @@ public class QuizScreenLayout extends GridPane implements EventHandler<ActionEve
 			topic = new Button("#" + question.getTopic());
 			topic.setId("staticbutton");
 			topic.setDisable(true);
+			topic.setMaxWidth(BUTTON_WIDTH_RATIO * main.getScreenWidth());
 			menu.getChildren().add(topic);
 		}
 

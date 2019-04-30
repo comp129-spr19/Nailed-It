@@ -13,13 +13,13 @@
 #addQuestion, #addQuestion:hover, #category, #category:hover, #category:select, #nextButton, 
 #nextButton:hover, #nextButton:select, #editor, #editor:hover, #dropdown, #dropdown:hover, #A, #A:hover, 
 #A:selected, #B, #B:hover, #B:selected, #C, #C:hover, #C:selected, #D, #D:hover, #D:selected, #correct, 
-#incorrect, #hintText, #scoreMessage{
+#incorrect, #hintText, #scoreMessage, #delete, #delete:hover, #solutionFieldLabel{
 	-fx-font-weight: bold;
 }
 
 #category, #category:hover, #category:select, #nextButton, #nextButton:hover, #nextButton:select, 
 #editor, #editor:hover, #dropdown, #A, #A:hover, #A:selected, #B, #B:hover, #B:selected, #C, #C:hover, 
-#C:selected, #D, #D:hover, #D:selected {
+#C:selected, #D, #D:hover, #D:selected, #delete, #delete:hover {
   	-fx-text-fill: #ffffff;
 }
 
@@ -43,7 +43,7 @@
 	-fx-font-family: "Courier New";
 }
 
-#scoreMessage {
+#scoreMessage, #solutionFieldLabel {
 	-fx-font-size: 36.0;	
 }
 
@@ -52,7 +52,8 @@
 #hint, #hint:hover, #next, #next:hover, #skip, #skip:hover, #quit, #quit:hover, #quiz, #quiz:hover, 
 #explain, #explain:hover, #returnToMainMenu, #returnToMainMenu:hover, #reloadBackup, #reloadBackup:hover,
 #addQuestion, #addQuestion:hover, #category, #category:hover, #category:select, #nextButton, 
-#nextButton:hover, #nextButton:select, #editor, #editor:hover, #dropdown, #dropdown:hover, #staticbutton {
+#nextButton:hover, #nextButton:select, #editor, #editor:hover, #dropdown, #dropdown:hover, #staticbutton,
+#delete, #delete:hover{
   	-fx-background-radius: 12;
 }
 
@@ -72,10 +73,6 @@
 #hint:hover, #next:hover, #skip:hover, #quit:hover, #quiz:hover, #explain:hover, #returnToMainMenu:hover, 
 #reloadBackup:hover, #addQuestion:hover, #dropdown:hover, #dropdownlist:hover {
   	-fx-background-color: #d9d8da;
-}
-
-#scrollbox {
-	-fx-background-color: #ff0000;
 }
 
 #staticbutton{
@@ -99,11 +96,19 @@
 }
 
 #editor {
-	-fx-background-color: #EB5E55;
+	-fx-background-color: #F7D002;
 }
 
 #editor:hover {
-	-fx-background-color: #f2948d;
+	-fx-background-color: #F9DC47;
+}
+
+#delete {
+	-fx-background-color: #EC7357
+}
+
+#delete:hover {
+	-fx-background-color: #F19984;
 }
 
 #topbar {
