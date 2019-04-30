@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import JSON.JSONOperations;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ScrollPane;
@@ -19,7 +20,8 @@ import main.Question;
 public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent> {
 	private MainStage main;
 
-	private final static double SPACING = 150;
+	public static final double BUTTON_GAP_RATIO = 1.0 / 155.0;
+	public static final double TOP_BAR_RATIO = 1.0 / 10.0;
 
 	private HBox top;
 	private ComboBox category;
@@ -48,8 +50,9 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 		} else if (e.getSource() instanceof ComboBox) {
 			ComboBox box = (ComboBox) e.getSource();
 			if (!box.getSelectionModel().isEmpty()) {
-				 this.setStyle(ColorUtil.editorColor((String) box.getValue()));
-				//this.setId("scrollbox");
+
+				this.setStyle(ColorUtil.editorColor((String) box.getValue()));
+
 				listQuestions();
 				addQuestion.setDisable(false);
 			}
@@ -62,8 +65,8 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 		this.main = main;
 
 		top = new HBox();
-		top.setId("topbar");
-		top.setSpacing(main.getScreenWidth() / SPACING);
+
+		setUpHBox(top, main.getScreenHeight() * TOP_BAR_RATIO, main.getScreenWidth() * BUTTON_GAP_RATIO);
 
 		category = JSONOperations.returnCategoryList();
 		category.setId("dropdown");
@@ -117,5 +120,13 @@ public class EditorScreenLayout extends VBox implements EventHandler<ActionEvent
 		//title.setId("scrollbox");
 		box.getChildren().addAll(edit, title);
 		return box;
+	}
+
+	private void setUpHBox(HBox box, double height, double spacing) {
+		box.setMaxHeight(height);
+		box.setMinHeight(height);
+		box.setSpacing(spacing);
+		box.setAlignment(Pos.CENTER);
+		box.setId("topbar");
 	}
 }
