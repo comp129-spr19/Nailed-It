@@ -31,5 +31,10 @@ public class AnswerConverterTester {
 	@Test
 	public void testStringToAnswerReturnsCorrectAnswerWhenGivenAValidLowercaseAnswerString() {
 		assertEquals(AnswerConverter.stringToAnswer("d"), Answer.ANSWER_D);
-	}	
+	}
+	
+	@Test
+	public void AnswerEnumConvertsToCorrectString() {
+		assertEquals(Answer.ANSWER_C.toString(), "c");
+	}
 }
