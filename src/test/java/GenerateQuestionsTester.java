@@ -9,7 +9,9 @@ import static org.mockito.Mockito.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import javafx.embed.swing.JFXPanel;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.layout.Pane;
 import main.ColorUtil;
 import main.GenerateQuestionScreens;
 import main.MainStage;
@@ -29,20 +31,43 @@ public class GenerateQuestionsTester {
 
 	}
 	
-	/*
+	
 	@Test
 	public void noneToggledShouldReturnEmptyList() throws IOException {
 		MainStage x = mock(MainStage.class);
 		
+		// need a fxPanel to test fx components.
+		JFXPanel fxPanel = new JFXPanel();
 		
 		ArrayList<ToggleButton> categoryButtons = new ArrayList<ToggleButton>();
-		//ToggleButton a = mock(ToggleButton.class);
+		
+		
 		ToggleButton a = new ToggleButton("Custom");
-		//when(a.isSelected()).thenReturn(false);
+		a.setSelected(false);
+		
 		
 		categoryButtons.add(a);
 		
 		assertEquals(0,GenerateQuestionScreens.generate(categoryButtons,x).size());
 		 
-	} */
+	} 
+	
+	@Test
+	public void OneToggledShouldReturnNonEmptyList() throws IOException {
+		MainStage x = mock(MainStage.class);
+		
+		// need a fxPanel to test fx components.
+		JFXPanel fxPanel = new JFXPanel();
+		
+		ArrayList<ToggleButton> categoryButtons = new ArrayList<ToggleButton>();
+		
+		
+		ToggleButton a = new ToggleButton("Custom");
+		a.setSelected(true);
+		
+		categoryButtons.add(a);
+		
+		assertTrue(GenerateQuestionScreens.generate(categoryButtons,x).size() > 0);
+		 
+	}
 }
